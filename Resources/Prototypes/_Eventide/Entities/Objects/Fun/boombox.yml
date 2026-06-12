@@ -5,8 +5,10 @@
   description: Кассеты остались в прошлом, теперь бумбоксы качают музыку с космонета!
   components:
   - type: Sprite
-    sprite: Objects/Fun/Instruments/guitars.rsi
+    sprite: Objects/Fun/Instruments/guitar.rsi
     state: icon
+  - type: Item
+    size: Small
   - type: RadioBoombox
   - type: ActivatableUI
     key: enum.RadioBoomboxUiKey.Key
