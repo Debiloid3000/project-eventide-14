@@ -1,0 +1,16 @@
+- type: entity
+  id: PortableRadioBoomboxDebug
+  parent: BaseItem
+  name: портативный бумбокс DEBUG
+  description: Кассеты остались в прошлом, теперь бумбоксы качают музыку с космонета!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/guitars.rsi
+    state: icon
+  - type: RadioBoombox
+  - type: ActivatableUI
+    key: enum.RadioBoomboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RadioBoomboxUiKey.Key:
+        type: RadioBoomboxBoundUserInterface
