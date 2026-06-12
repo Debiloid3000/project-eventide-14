@@ -1,5 +1,6 @@
-using Content.Shared._Eventide.RadioBoombox; // Изменено под новый namespace
+using Content.Shared._Eventide.RadioBoombox;
 using Robust.Client.GameObjects;
+using System; // Добавили для поддержки типа Enum
 
 namespace Content.Client._Eventide.RadioBoombox
 {
@@ -7,7 +8,8 @@ namespace Content.Client._Eventide.RadioBoombox
     {
         private RadioBoomboxWindow? _window;
 
-        public RadioBoomboxBoundUserInterface(EntityUid owner, object uiKey) : base(owner, uiKey) { }
+        // ИЗМЕНЕНО: вместо object uiKey теперь Enum uiKey
+        public RadioBoomboxBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) { }
 
         protected override void Open()
         {
