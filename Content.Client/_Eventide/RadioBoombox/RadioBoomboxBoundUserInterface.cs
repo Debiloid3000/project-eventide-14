@@ -1,4 +1,4 @@
-using Content.Shared.RadioBoombox;
+using Content.Shared._Eventide.RadioBoombox; // Изменено под новый namespace
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Eventide.RadioBoombox
@@ -14,8 +14,7 @@ namespace Content.Client._Eventide.RadioBoombox
             base.Open();
             _window = new RadioBoomboxWindow();
             _window.OnClose += Close;
-
-            // Передаем клики из окна на сервер
+            
             _window.OnPlayPressed += () => SendMessage(new RadioBoomboxTogglePlayMessage());
             _window.OnUrlConfirmed += (url) => SendMessage(new RadioBoomboxUrlChangedMessage(url));
 
