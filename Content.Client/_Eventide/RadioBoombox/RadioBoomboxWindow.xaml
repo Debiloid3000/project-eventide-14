@@ -1,8 +1,7 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                Title="Управление Бумбоксом"
-               SetSize="(300, 150)">
-    <BoxContainer Orientation="Vertical" Margin="10">
+               SetSize="300, 150"> <BoxContainer Orientation="Vertical" Margin="10">
         <BoxContainer Orientation="Horizontal" Align="Center">
             <Button Name="PlayButton" Text="▶" MinSize="(40, 40)" />
             <Button Name="AddUrlButton" Text="+" MinSize="(40, 40)" Margin="5,0,0,0" />
