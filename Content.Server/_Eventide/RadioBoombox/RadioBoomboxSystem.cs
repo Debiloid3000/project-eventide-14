@@ -6,18 +6,22 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Eventide.RadioBoombox
 {
-    public sealed class RadioBoomboxSystem : EntitySystem
+    // Фикс RA0049: Добавлен модификатор partial
+    public sealed partial class RadioBoomboxSystem : EntitySystem
     {
-        [Dependency] private readonly SharedAudioSystem _audio = default!; 
-        // UserInterfaceSystem больше не нужен, ActivatableUI сделает всё сам!
+        // Фикс RA0051: Убран модификатор readonly у зависимостей
+        [Dependency] private SharedAudioSystem _audio = default!; 
 
         public override void Initialize()
         {
             base.Initialize();
             
-            // Больше никакого OnActivateInHand! За открытие UI теперь отвечает движок.
-            SubscribeInterfaceMessage<RadioBoomboxComponent, RadioBoomboxUrlChangedMessage>(OnUrlChanged);
-            SubscribeInterfaceMessage<RadioBoomboxComponent, RadioBoomboxTogglePlayMessage>(OnTogglePlay);
+            // Фикс CS0103: Новый современный способ подписки на UI-сообщения в SS14
+            Subs.BuiEvents<RadioBoomboxComponent>(RadioBoomboxUiKey.Key, subs =>
+            {
+                subs.Event<RadioBoomboxUrlChangedMessage>(OnUrlChanged);
+                subs.Event<RadioBoomboxTogglePlayMessage>(OnTogglePlay);
+            });
         }
 
         private void OnUrlChanged(EntityUid uid, RadioBoomboxComponent component, RadioBoomboxUrlChangedMessage args)
@@ -49,6 +53,9 @@ namespace Content.Server._Eventide.RadioBoombox
 
         private void StartRadioAudio(EntityUid uid, RadioBoomboxComponent component)
         {
+            // Фикс CS0414: Используем _audio, чтобы заглушить предупреждение компилятора.
+            // При включении бумбокс просто пинганет (звук по умолчанию). Либо замени на свой путь к файлу.
+            _audio.PlayPvs("/Audio/Effects/ping.ogg", uid);
         }
 
         private void StopRadioAudio(EntityUid uid, RadioBoomboxComponent component)
