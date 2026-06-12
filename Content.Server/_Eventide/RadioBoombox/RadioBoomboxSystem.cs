@@ -9,24 +9,15 @@ namespace Content.Server._Eventide.RadioBoombox
     public sealed class RadioBoomboxSystem : EntitySystem
     {
         [Dependency] private readonly SharedAudioSystem _audio = default!; 
-        [Dependency] private readonly UserInterfaceSystem _ui = default!;
+        // UserInterfaceSystem больше не нужен, ActivatableUI сделает всё сам!
 
         public override void Initialize()
         {
             base.Initialize();
             
-            // ИЗМЕНЕНО: Используем ActivateInHandEvent вместо UseInHandEvent
-            SubscribeLocalEvent<RadioBoomboxComponent, ActivateInHandEvent>(OnActivateInHand);
-            
+            // Больше никакого OnActivateInHand! За открытие UI теперь отвечает движок.
             SubscribeInterfaceMessage<RadioBoomboxComponent, RadioBoomboxUrlChangedMessage>(OnUrlChanged);
             SubscribeInterfaceMessage<RadioBoomboxComponent, RadioBoomboxTogglePlayMessage>(OnTogglePlay);
-        }
-
-        // ИЗМЕНЕНО: Название метода и тип события
-        private void OnActivateInHand(EntityUid uid, RadioBoomboxComponent component, ActivateInHandEvent args)
-        {
-            if (_ui.TryOpenUi(uid, RadioBoomboxUiKey.Key, args.User))
-                args.Handled = true;
         }
 
         private void OnUrlChanged(EntityUid uid, RadioBoomboxComponent component, RadioBoomboxUrlChangedMessage args)
