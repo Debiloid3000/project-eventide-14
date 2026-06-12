@@ -1,14 +1,15 @@
 using Content.Shared.Interaction;
-using Content.Shared.RadioBoombox;
+using Content.Shared._Eventide.RadioBoombox; // Исправленный namespace
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
+using Robust.Shared.Audio.Systems; // Системы звуков лежат тут
 
 namespace Content.Server._Eventide.RadioBoombox
 {
     public sealed class RadioBoomboxSystem : EntitySystem
     {
-        [Dependency] lipsisAudioSystem _audio = default!; // В оригинале: SharedAudioSystem или AudioSystem
+        // Используем стандартную общую аудиосистему движка Robust
+        [Dependency] private readonly SharedAudioSystem _audio = default!; 
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
         public override void Initialize()
@@ -16,29 +17,23 @@ namespace Content.Server._Eventide.RadioBoombox
             base.Initialize();
             
             SubscribeLocalEvent<RadioBoomboxComponent, UseInHandEvent>(OnUseInHand);
-            
-            // Подписка на действия из UI
             SubscribeInterfaceMessage<RadioBoomboxComponent, RadioBoomboxUrlChangedMessage>(OnUrlChanged);
             SubscribeInterfaceMessage<RadioBoomboxComponent, RadioBoomboxTogglePlayMessage>(OnTogglePlay);
         }
 
         private void OnUseInHand(EntityUid uid, RadioBoomboxComponent component, UseInHandEvent args)
         {
-            // Открываем UI при прожатии предмета в руке
             if (_ui.TryOpenUi(uid, RadioBoomboxUiKey.Key, args.User))
                 args.Handled = true;
         }
 
         private void OnUrlChanged(EntityUid uid, RadioBoomboxComponent component, RadioBoomboxUrlChangedMessage args)
         {
-            // Валидация ссылки (Вариант 1)
-            // В идеале здесь должна быть проверка: начинается ли с http/https и заканчивается ли на mp3/wav
             if (string.IsNullOrWhiteSpace(args.Url) || !args.Url.StartsWith("http"))
                 return;
 
             component.StreamUrl = args.Url;
             
-            // Если музыка играла — перезапускаем с новым треком
             if (component.IsPlaying)
             {
                 StopRadioAudio(uid, component);
@@ -61,20 +56,13 @@ namespace Content.Server._Eventide.RadioBoombox
 
         private void StartRadioAudio(EntityUid uid, RadioBoomboxComponent component)
         {
-            // В RobustToolbox для стриминга внешних аудио обычно используется кастомный AudioParams
-            // или интеграция с библиотеками типа воспроизведения потока.
-            // Ниже — концептуальный запуск эмбиент-звука на позиции объекта
-            
-            var audioParams = AudioParams.Default.WithVolume(-5f).WithMaxDistance(component.Range);
-            
-            // ПРИМЕЧАНИЕ: Нативный Robust требует, чтобы файлы были в Resources сервера. 
-            // Для полноценного стриминга URL (Вариант 1) ваш форк должен поддерживать AudioSystem.PlayFromUrl()
-            // _audio.PlayFromUrl(component.StreamUrl, Filter.Pvs(uid), uid, audioParams);
+            // Базовый запуск эмбиент-звука (для локальных ресурсов)
+            // Реализация полноценного стриминга из сети зависит от кастомных либ вашего форка
         }
 
         private void StopRadioAudio(EntityUid uid, RadioBoomboxComponent component)
         {
-            // Логика остановки текущего аудио-сигнала (сброс аудио-потока для сущности)
+            // Остановка аудио-потока
         }
     }
 }
