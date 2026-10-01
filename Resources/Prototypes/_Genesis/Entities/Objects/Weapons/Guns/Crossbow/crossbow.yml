@@ -1,0 +1,18 @@
+- type: entity
+  name: miniature energy crossbow
+  parent: BaseWeaponBatterySmall
+  id: MiniatureEnergyCrossbow
+  description: The syndicate's energy crossbow, small, silent and deadly.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Crossbow/minicrossbow.rsi
+    state: icon
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Genesis/Weapons/Guns/GunShots/heavy_shot_suppressed.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMic
+    fireCost: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 400

@@ -1,0 +1,40 @@
+﻿- type: entity
+  id: ActionEatMouse
+  name: eat mouse
+  description: Take the mouse in your hand and remove the batteries and charger from it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon: Genesis/Icons/verbiconfangs.png
+  - type: InstantAction
+    event: !type:EatMouseActionEvent
+
+- type: entity
+  id: ActionHairball
+  name: cough up
+  description: Cleanse your digestive system and get a cool hairball to throw at people.
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: Action
+    checkCanInteract: false
+    #icon: { sprite: Backmen/Structures/web.rsi, state: web1 }
+    useDelay: 30
+  - type: InstantAction
+    event: !type:HairballActionEvent
+
+- type: entity
+  id: ActionWoundLicking
+  name: lick wound
+  description: Stop bleeding by licking your wounds
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Species/Human/organs.rsi, state: tongue }
+    priority: -1
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:WoundLickingActionEvent

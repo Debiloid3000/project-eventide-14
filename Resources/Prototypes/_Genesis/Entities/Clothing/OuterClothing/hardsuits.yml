@@ -1,0 +1,1230 @@
+#BlueShield
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitBlueShield
+  name: blueshield's hardsuit
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/blueshield.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/blueshield.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBlueShield
+
+#Inqusitory
+- type: entity
+  parent: ClothingOuterHardsuitSecurityRed
+  id: ClothingOuterHardsuitInqusitory
+  name: inquisitory's hardsuit
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/inquisitory.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitInqusitory
+
+#QM Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitQM
+  name: quartermaster hardsuit
+  description: A special suit for quartermaster.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/kmsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/kmsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Radiation: 0.3
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitQM
+
+#Carporate Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCentcomCarporate
+  name: hardsuit corporate CentCom
+  description: Special space suit Korporat made for various situations and very easy to wear.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/centcom_corparat.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/centcom_corparat.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.5
+        Piercing: 0.5
+        Radiation: 0.6
+        Caustic: 0.6
+        Heat: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCentcomCarporate
+
+#Senior Salvage
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSeniorSalvage
+  name: senior's salvage hardsuit
+  description: A lightweight hardsuit designed for industrial EVA in zero gravity.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/seniorsalvage.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/seniorsalvage.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.7
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Radiation: 0.3 
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSeniorSalvage
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTOperativeAlpha1
+  name: ERT alpha hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertSpecialOperative.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertSpecialOperative.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTOperativeAlpha1
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitERTOperativeAlpha1
+  name: ERT hardsuit helmet
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertSpecialOperative.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertSpecialOperative.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: PNV
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTLeaderTay39
+  name: ERT leader tay 39 hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertTraumaTeamLeader.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertTraumaTeamLeader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderTay39
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndieElite
+  id: ClothingHeadHelmetHardsuitERTLeaderTay39
+  name: helmet ERT leader hardsuit
+  description: A special hardsuit helmet worn by members of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamLeader.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamLeader.rsi
+  - type: PointLight
+    color: cyan
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTTay39
+  name: ERT leader tay 39 hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertTraumaTeam.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertTraumaTeam.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTTay39
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieElite
+  id: ClothingOuterHardsuitERTMedicTay39
+  name: ERT medic tay 39 hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertTraumaTeamMedic.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertTraumaTeamMedic.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedicTay39
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+
+- type: entity
+  parent: ClothingOuterHardsuitDeathsquad
+  id: ClothingOuterHardsuitSpecialForce
+  name: EarthGov special force hardsuit
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/specialforce.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/specialforce.rsi
+    equipSound: /Audio/Backmen/Misc/suit/nominal.ogg
+    unequipSound: /Audio/Backmen/Misc/suit/mechmove03.ogg
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSpecialForce
+
+- type: entity
+  parent: ClothingOuterHardsuitRTULeader
+  id: ClothingOuterHardsuitRTU
+  name: EarthGov RTU hardsuit
+  description: A rescue troop unit suit designed specifically for combat in space and the harsh far-off worlds.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitRTU
+
+- type: entity
+  parent: ClothingOuterHardsuitRTULeader
+  id: ClothingOuterHardsuitRTUMedick
+  name: EarthGov medic RTU hardsuit
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitRTUMedick
+
+- type: entity
+  parent: ClothingOuterHardsuitRTULeader
+  id: ClothingOuterHardsuitRTUEnginegr
+  name: EarthGov engineer RTU hardsuit
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitRTUEnginegr
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitRTULeader
+  name: EarthGov commander RTU hardsuit
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
+    equipSound: /Audio/Backmen/Misc/suit/nominal.ogg
+    unequipSound: /Audio/Backmen/Misc/suit/mechmove03.ogg
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitRTULeader
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitSecurityEgovSpecial
+  name: special EarthGov force hardsuit
+  description: A marine suit designed specifically for combat in space and the harsh far-off worlds.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/marinespecialhardsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/marinespecialhardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSecurityEgov
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSecurityEgov
+  name: marine hardsuit
+  description: A marine suit designed specifically for combat in space and the harsh far-off worlds.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/marinehardsuit.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/marinehardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSecurityEgov
+
+#ANTAG HARDSUITS
+#Backmen
+#Blood-red Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieBackmen
+  name: blood-red hardsuit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndicate.rsi #backmen resprite
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndicate.rsi #backmen resprite
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieBackmen
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+#Syndicate Elite Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieEliteBackmen
+  name: syndicate elite hardsuit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndieelite.rsi #backmen resprite
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndieelite.rsi #backmen resprite
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieEliteBackmen
+
+#Syndicate Commander Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieCommanderBackmen
+  name: syndicate commander hardsuit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndiecommander.rsi #backmen resprite
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndiecommander.rsi #backmen resprite
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommanderBackmen
+
+#Cybersun Juggernaut Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitJuggernautBackmen
+  name: cybersun juggernaut suit
+  description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/cybersun.rsi #backmen resprite
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/cybersun.rsi #backmen resprite
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.2
+        Radiation: 0.2
+        Caustic: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.65
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCybersunBackmen
+
+#Corvax
+#Blood-red Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieCorvax
+  name: blood-red hardsuit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndicate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndicate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieCorvax
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+# Syndicate Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieMedicCorvax
+  name: blood-red medic hardsuit
+  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedicCorvax
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#Syndicate Elite Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieEliteCorvax
+  name: syndicate elite hardsuit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndieelite.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndieelite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieEliteCorvax
+
+#Syndicate Commander Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieCommanderCorvax
+  name: syndicate commander hardsuit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommanderCorvax
+
+#Cybersun Juggernaut Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitJuggernautCorvax
+  name: cybersun juggernaut suit
+  description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/cybersun.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/cybersun.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.2
+        Radiation: 0.2
+        Caustic: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.65
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCybersunCorvax
+
+#SunRise
+#Blood-red Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieSunRise
+  name: blood-red hardsuit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndicate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndicate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieSunRise
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+# Syndicate Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieMedicSunRise
+  name: blood-red medic hardsuit
+  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedicSunRise
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#Syndicate Elite Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieEliteSunRise
+  name: syndicate elite hardsuit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndieelite.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndieelite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieEliteSunRise
+
+#Syndicate Commander Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieCommanderSunRise
+  name: syndicate commander hardsuit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommanderSunRise
+
+#XenoStation/IanStation
+#Blood-red Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieXeno
+  name: blood-red hardsuit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndicate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndicate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieXeno
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+# Syndicate Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieMedicXeno
+  name: blood-red medic hardsuit
+  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedicXeno
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#Syndicate Commander Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndieCommanderXeno
+  name: syndicate commander hardsuit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommanderXeno
+
+#CENTCOMM / ERT HARDSUITS
+#Alpha
+#ERT Specialist Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTSpecialistAlpha
+  name: ERT specialist's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/AlphaSquad/ertspecial.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/AlphaSquad/ertspecial.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSpecialistAlpha
+
+#Delta
+#ERT Leader Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTLeaderDelta
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertleader.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderDelta
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTEngineerDelta
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertengineer.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineerDelta
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieMedic
+  id: ClothingOuterHardsuitERTMedicalDelta
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertmedical.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedicalDelta
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitERTSecurityDelta
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertsecurity.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurityDelta
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTJanitorDelta
+  name: ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertjanitor.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitorDelta
+
+#ERT Specialist Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTSpecialistDelta
+  name: ERT specialist's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertspecial.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/DeltaSquad/ertspecial.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSpecialistDelta
+
+#Bravo
+#ERT Leader Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTLeaderBravo
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertleader.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderBravo
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTEngineerBravo
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertengineer.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineerBravo
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieMedic
+  id: ClothingOuterHardsuitERTMedicalBravo
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertmedical.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedicalBravo
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitERTSecurityBravo
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertsecurity.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurityBravo
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTJanitorBravo
+  name: ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertjanitor.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitorBravo
+
+#ERT Specialist Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTSpecialistBravo
+  name: ERT specialist's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertspecial.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/BravoSquad/ertspecial.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSpecialistBravo
+
+#Charlie
+#ERT Leader Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTLeaderCharlie
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertleader.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderCharlie
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTEngineerCharlie
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertengineer.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineerCharlie
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieMedic
+  id: ClothingOuterHardsuitERTMedicalCharlie
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertmedical.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedicalCharlie
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitERTSecurityCharlie
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertsecurity.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurityCharlie
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTJanitorCharlie
+  name: ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertjanitor.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitorCharlie
+
+#ERT Specialist Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTSpecialistCharlie 
+  name: ERT specialist's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertspecial.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/CharlieSquad/ertspecial.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSpecialistCharlie
+
+#Gamma
+#ERT Leader Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander
+  id: ClothingOuterHardsuitERTLeaderGamma
+  name: ERT leader's hardsuit
+  description: A protective hardsuit worn by the leader of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderGamma
+
+#ERT Engineer Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTEngineerGamma
+  name: ERT engineer's hardsuit
+  description: A protective hardsuit worn by the engineers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineerGamma
+
+#ERT Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndieMedic
+  id: ClothingOuterHardsuitERTMedicalGamma
+  name: ERT medic's hardsuit
+  description: A protective hardsuit worn by the medics of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTMedicalGamma
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitERTSecurityGamma
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurityGamma
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#ERT Janitor Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitERTJanitorGamma
+  name: ERT janitor's hardsuit
+  description: A protective hardsuit worn by the janitors of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTJanitorGamma
+
+#Star Wars
+#Republic Clone Phase 1
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitRepublicClonePhase1
+  name: republic clone's hardsuit phase 1
+  description: A hardsuit republic clone's 1 phase.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/StarWars/clone.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/StarWars/clone.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitRepublicClonePhase1
+
+#Republic Clone Phase 2
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitRepublicClonePhase2
+  name: republic clone's hardsuit phase 2
+  description: A hardsuit republic clone's 2 phase. 
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/StarWars/clone.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/StarWars/clone.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitRepublicClonePhase2
+
+#Stormtrooper
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitStormtrooper
+  name: stormtrooper's hardsuit
+  description: A hardsuit imperial stormtrooper's. 
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/StarWars/storm.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/OuterClothing/Hardsuits/StarWars/storm.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitStormtrooper

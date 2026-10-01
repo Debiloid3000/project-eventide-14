@@ -1,0 +1,199 @@
+- type: marking
+  id: HumanHairlongBedheadD
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Genesis/Mobs/Customization/human_hair.rsi
+      state: long_bedhead
+
+- type: marking
+  id: HumanHairRick
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Genesis/Mobs/Customization/human_hair.rsi
+      state: rick
+
+- type: marking
+  id: HumanHairMorty
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Genesis/Mobs/Customization/human_hair.rsi
+      state: morty
+
+- type: marking
+  id: HumanHairClassicMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Genesis/Mobs/Customization/deb_human_hair.rsi
+      state: classicmessy
+
+- type: marking
+  id: HumanHairClassicSpiky
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Genesis/Mobs/Customization/deb_human_hair.rsi
+      state: classicspiky
+
+- type: marking
+  id: HumanHairModernClassic
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Genesis/Mobs/Customization/deb_human_hair.rsi
+      state: modern
+
+- type: marking
+  id: HairBasarab
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: basarab
+
+- type: marking
+  id: HairCrayfish
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: crayfish
+
+- type: marking
+  id: HairHank
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: hank
+
+- type: marking
+  id: HairHonor
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: honor
+
+- type: marking
+  id: HairMadScientist
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: madscientist
+
+- type: marking
+  id: HairMonday
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: monday
+
+- type: marking
+  id: HairNemesida
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: nemesida
+
+- type: marking
+  id: HairPunk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: punk
+
+- type: marking
+  id: HairTuranga
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: turanga
+
+- type: marking
+  id: HairAyanami
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: ayanami
+
+- type: marking
+  id: HairBubbleGum
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: bubble_gum
+
+- type: marking
+  id: HairMavis
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: mavis
+
+- type: marking
+  id: HairCloud
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: cloud
+
+- type: marking
+  id: HairMorningHairstyle
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: morning_hairstyle
+
+- type: marking
+  id: HairMorningHairstyle2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: morning_hairstyle_2
+
+- type: marking
+  id: HairPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: ponytail
+
+- type: marking
+  id: HairPrinceCharming
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: prince_charming
+
+- type: marking
+  id: HairShavedFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: shaved_female
+
+- type: marking
+  id: HairShavedFemaleUnisex
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Genesis/Mobs/Customization/newhair.rsi
+    state: shaved_unisex

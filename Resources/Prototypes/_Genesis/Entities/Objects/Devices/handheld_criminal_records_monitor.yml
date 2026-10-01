@@ -1,0 +1,25 @@
+- type: entity
+  name: handheld criminal records monitor
+  suffix: DO NOT MAP
+  parent: BaseItem
+  id: HandheldCriminalRecordsMonitor
+  description: A hand-held crew monitor displaying the status of wanted persons on station.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Specific/handheldcriminalrecordsmonitor.rsi
+    state: monitor
+  - type: CriminalRecordsConsole
+  - type: UserInterface
+    interfaces:
+      enum.CriminalRecordsConsoleKey.Key:
+        type: CriminalRecordsConsoleBoundUserInterface
+  - type: ActivatableUI
+    key: enum.CriminalRecordsConsoleKey.Key
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: StationLimitedNetwork
+  - type: StaticPrice
+    price: 500
+  - type: GuideHelp
+    guides:
+      - CriminalRecords

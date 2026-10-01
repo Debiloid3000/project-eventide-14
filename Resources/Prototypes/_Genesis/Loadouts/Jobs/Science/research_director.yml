@@ -1,0 +1,5 @@
+# Back
+- type: loadout
+  id: ResearchDirectorModSuit
+  equipment:
+    back: ClothingModsuitBackRD

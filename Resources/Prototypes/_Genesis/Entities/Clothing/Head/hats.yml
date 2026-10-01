@@ -1,0 +1,222 @@
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHatBlueShieldBeret
+  name: blueshield beret
+  description: Beret for a officer blueshield.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCentcomConsultantCap
+  name: Centcom сonsultant сap
+  description: "An expensive cap, with a bright gold emblem on your forehead, saying that you are the inspector of order at this station."
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/centcom_consultant.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/centcom_consultant.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretRNDAlt
+  name: scientific beret
+  description: A beret for real scientists.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_rnd.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_rnd.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretEngineeringAlt
+  name: engineering beret
+  description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_engineering.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_engineering.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHelmetPilot
+  name: pilot helmet
+  description: Standard pilot's helmet. 
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/pilothelmet.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/pilothelmet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCargo
+  name: cargo's beret
+  description: A beret with the cargo's insignia emblazoned on it. For cargo that are more inclined towards style.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_cargo.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_cargo.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHatBeretSalvage
+  name: salvage's beret
+  description: A beret with the cargo's insignia emblazoned on it. For salvages that are more inclined towards style. 
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_salvage.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_salvage.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCaptainBeret
+  name: captain beret
+  description: Beret for a captain.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_captain.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_captain.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHatJediNTBeret
+  name: jedi nt beret
+  description: Beret for a jedi nt.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/beret_jedi_nt.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/beret_jedi_nt.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+    
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHatBlueShieldHat
+  name: blueshield cap
+  description: The robust standard-issue cap of the BlueShield. For showing the officers who's in charge.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/blueshield_hat.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/blueshield_hat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHatJediNTHat
+  name: jedi nt cap
+  description: The robust standard-issue cap of the Jedi NT. For showing the officers who's in charge.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/jedi_nt_hat.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/jedi_nt_hat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWitchHunter
+  name: witch hunter's hat
+  description: Hat of a hunter of mythical creatures, namely witches in the style of the Middle Ages.
+  components:
+    - type: Sprite
+      sprite: Genesis/Clothing/Head/Hats/witch_hunter_hat.rsi
+    - type: Clothing
+      sprite: Genesis/Clothing/Head/Hats/witch_hunter_hat.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHatHeadOfSecurityCentComBeret
+  name: head of security centcom beret
+  description: Beret for a head of security.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon

@@ -1,0 +1,497 @@
+- type: entity
+  name: energy gun
+  parent: BaseWeaponBattery
+  id: WeaponEnergyGun
+  description: "A basic hybrid energy gun with two settings: disable and kill."
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-stun } # Unused
+
+- type: entity
+  name: x-01 multiphase energy gun
+  parent: BaseWeaponBatterySmall
+  id: WeaponEnergyGunMultiphase
+  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+    # - proto: BulletEnergyGunIon
+    #   fireCost: 250
+    #   name: ion
+    #   state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  name: miniature energy gun
+  parent: BaseWeaponBatterySmall
+  id: WeaponEnergyGunMini
+  description: A light version of the Energy gun with a smaller capacity.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-stun } # Unused
+
+- type: entity
+  name: PDW-9 Energy Pistol
+  parent: BaseWeaponBatterySmall
+  id: WeaponEnergyGunPistol
+  description: A military grade sidearm, used by many militia forces throughout the local sector.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  name: IK-60 laser carbine
+  parent: BaseWeaponBattery
+  id: WeaponGunLaserCarbineAutomatic
+  description: "A 20 round semi-automatic laser carbine."
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponIONRifle
+  name: "Ion Rifle"
+  description: ""
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+#  - type: Clothing
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    selectedMode: SemiAuto
+    fireRate: 0.6
+    availableModes:
+    - SemiAuto
+  - type: Battery
+    maxCharge: 4000
+    startingCharge: 4000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEMP
+    fireCost: 1000
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+# - type: EmpImmune
+
+- type: entity
+  name: Cutter
+  parent: BaseWeaponBatterySmall
+  id: WeaponCutter
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+    - type: Sprite
+      sprite: Genesis/Objects/Weapons/Guns/Battery/cutter.rsi
+      state: icon
+    - type: Gun
+      fireRate: 0.6
+      soundGunshot:
+        path: /Audio/Genesis/Weapons/Guns/GunShots/plasma_cutter.ogg
+    - type: Item
+      size: Normal
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletCutter
+      fireCost: 200
+    - type: Battery
+      maxCharge: 5000
+      startingCharge: 5000
+    - type: Appearance
+
+- type: entity
+  name: Advanced Cutter
+  parent: WeaponCutter
+  id: WeaponCutterAdv
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+    - type: Sprite
+      sprite: Genesis/Objects/Weapons/Guns/Battery/cutteradv.rsi
+      state: icon
+    - type: Gun
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Genesis/Weapons/Guns/GunShots/plasma_cutter.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletCutterAdv
+      fireCost: 100
+    - type: Appearance
+
+- type: entity
+  name: advanced laser revolver
+  parent: BaseWeaponBatterySmall
+  id: WeaponAdvancedRevolver
+  description: Robust and powerful laserarm revolver for protecting the station heads. It's so badass that even the most hardened criminals would stop and praise it.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/laser_revolver.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/laser_revolver.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: Appearance
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponGunLaserCarbineDC15A
+  name: blaster carbine DC-15A
+  description: Blaster carbine, which is a variant of the Blaster DC-15 rifle
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15A.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15A.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaserBlue
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: Appearance
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponGunLaserCarbineDC15S
+  name: blaster rifle DC-15S
+  description: A standard blaster rifle used by clone troopers of the Grand Army of the Republic and stormstroopers of the Grand Army of The Imperia.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: Appearance
+
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponGunLaserCarbineRepublicDC15S
+  name: blaster rifle DC-15S
+  description: A standard blaster rifle used by clone troopers of the Grand Army of the Republic and stormstroopers of the Grand Army of The Imperia.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: energy-gun-disable
+      state: disabler
+    - proto: BulletEnergyGunLaserBlue
+      fireCost: 100
+      name: energy-gun-lethal
+      state: lethal
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: Appearance

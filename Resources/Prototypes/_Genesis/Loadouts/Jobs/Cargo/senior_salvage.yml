@@ -1,0 +1,18 @@
+# Head
+- type: loadout
+  id: SeniorSalvageBeret
+  startingGear: SalvageBeret
+
+# Jumpsuit
+- type: loadout
+  id: JumpsuitSeniorSalvage
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorSalvage
+
+# Neck
+- type: loadout
+  id: MinerCloak
+  equipment:
+    neck: ClothingNeckCloakSalvagerSupreme # Mne v padlu menyat id((((( xddddd
+
+

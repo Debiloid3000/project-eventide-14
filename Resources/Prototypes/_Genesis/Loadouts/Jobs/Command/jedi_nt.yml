@@ -1,0 +1,76 @@
+# Jumpsuit
+- type: loadout
+  id: JediNTJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJediNT
+
+- type: loadout
+  id: JediNTTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJediNTTurtleneck
+
+# Head
+- type: loadout
+  id: JediNTHead
+  equipment:
+    head: ClothingHeadHatJediNTBeret
+
+- type: loadout
+  id: JediNTHat
+  equipment:
+    head: ClothingHeadHatJediNTHat
+
+# Neck
+- type: loadout
+  id: JediNTMantle
+  equipment:
+    neck: ClothingNeckMantleJediNT
+
+# Back
+- type: loadout
+  id: JediNTBackpack
+  equipment:
+    back: ClothingBackpackJediNT
+
+- type: loadout
+  id: JediNTSatchel
+  equipment:
+    back: ClothingBackpackSatchelJediNT
+
+- type: loadout
+  id: JediNTDuffel
+  equipment:
+    back: ClothingBackpackDuffelJediNT
+
+- type: loadout
+  id: JediNTModSuit
+  equipment:
+    back: ClothingModsuitBackInquisitor
+
+# Outer clothing
+- type: loadout
+  id: JediNTOuterClothing
+  equipment:
+    outerClothing: ClothingOuterArmorJediNT
+
+# Belt
+- type: loadout
+  id: JediNTBelt
+  equipment:
+    belt: ClothingBeltJediNTBelt
+
+- type: loadout
+  id: JediNTWebbing
+  equipment:
+    belt: ClothingBeltJediNTWebbing
+
+# Pocket
+- type: loadout
+  id: JediNTEnergySword
+  equipment:
+    pocket1: EnergySword
+
+- type: loadout
+  id: JediNTEnergySword2
+  equipment:
+    pocket1: EnergySwordKylo

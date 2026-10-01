@@ -1,0 +1,269 @@
+- type: entity
+  id: SpawnPointBlueShield
+  parent: SpawnPointJobBase
+  name: blueshield officer
+  components:
+  - type: SpawnPoint
+    job_id: BlueShield
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: blueshield
+
+- type: entity
+  id: SpawnPointCentComConsultant
+  parent: SpawnPointJobBase
+  name: centcom consultant
+  components:
+  - type: SpawnPoint
+    job_id: CentComConsultant
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: consultant
+
+- type: entity
+  id: SpawnPointCentComOfficial
+  parent: SpawnPointJobBase
+  name: centcom member
+  components:
+  - type: SpawnPoint
+    job_id: CentComOfficial
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointHeadOfStaffCentCom
+  parent: SpawnPointJobBase
+  name: head of staff centcom
+  components:
+  - type: SpawnPoint
+    job_id: HeadOfStaffCentCom
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointCentComOperator
+  parent: SpawnPointJobBase
+  name: centcom operator
+  components:
+  - type: SpawnPoint
+    job_id: CentComOperator
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcomoperator
+
+- type: entity
+  id: SpawnPointMagistrat
+  parent: SpawnPointJobBase
+  name: magistrat
+  components:
+  - type: SpawnPoint
+    job_id: Magistrat
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: magistrat
+
+- type: entity
+  id: SpawnPointSeniorEngineer
+  parent: SpawnPointJobBase
+  name: seniorengineer
+  components:
+  - type: SpawnPoint
+    job_id: SeniorEngineer
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: seniorengineer
+
+- type: entity
+  id: SpawnPointSeniorPhysician
+  parent: SpawnPointJobBase
+  name: seniorphysician
+  components:
+  - type: SpawnPoint
+    job_id: SeniorPhysician
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: seniorphysician
+
+- type: entity
+  id: SpawnPointSeniorResearcher
+  parent: SpawnPointJobBase
+  name: seniorresearcher
+  components:
+  - type: SpawnPoint
+    job_id: SeniorResearcher
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorresearcher
+
+- type: entity
+  id: SpawnPointSeniorOfficer
+  parent: SpawnPointJobBase
+  name: seniorofficer
+  components:
+  - type: SpawnPoint
+    job_id: SeniorOfficer
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: seniorofficer
+
+- type: entity
+  id: SpawnPointSeniorSalvage
+  parent: SpawnPointJobBase
+  name: seniorsalvage
+  components:
+  - type: SpawnPoint
+    job_id: SeniorSalvage
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: seniorsalvage
+
+- type: entity
+  id: SpawnPointMiner
+  parent: SpawnPointJobBase
+  name: miner
+  components:
+  - type: SpawnPoint
+    job_id: Miner
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: miner
+
+- type: entity
+  id: SpawnPointSeniorService
+  parent: SpawnPointJobBase
+  name: seniorservice
+  components:
+  - type: SpawnPoint
+    job_id: SeniorService
+  - type: Sprite
+    layers:
+      - state: green
+      - state: serviceworker
+
+- type: entity
+  id: SpawnPointJediNT
+  parent: SpawnPointJobBase
+  name: jedi nt
+  components:
+  - type: SpawnPoint
+    job_id: JediNT
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: jedint
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+    - type: SpawnPoint
+      job_id: Prisoner
+    - type: Sprite
+      layers:
+        - state: green
+        - state: prisoner
+
+- type: entity
+  id: SpawnPointCentComAssistant
+  parent: SpawnPointJobBase
+  name: centcom assistant
+  components:
+  - type: SpawnPoint
+    job_id: CentralCommandAssistant
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointCentComSecurityOfficer
+  parent: SpawnPointJobBase
+  name: security officer centcom
+  components:
+  - type: SpawnPoint
+    job_id: CentralCommandSecurityOfficer
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointCentComCargo
+  parent: SpawnPointJobBase
+  name: centcom cargo tech
+  components:
+  - type: SpawnPoint
+    job_id: CentralCommandCargoTechnician
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointHeadOfSecurityCentCom
+  parent: SpawnPointJobBase
+  name: head of security centcom
+  components:
+  - type: SpawnPoint
+    job_id: HeadOfSecurityCentCom
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointCentComMedicalDoctor
+  parent: SpawnPointJobBase
+  name: medical officer centcom
+  components:
+  - type: SpawnPoint
+    job_id: CentralCommandMedicalDoctor
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember
+
+- type: entity
+  id: SpawnPointEngineerCentCom
+  parent: SpawnPointJobBase
+  name: engineer centcom
+  components:
+  - type: SpawnPoint
+    job_id: CentralCommandEngineer
+  - type: Sprite
+    sprite: Genesis/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcommember

@@ -1,0 +1,209 @@
+- type: entity
+  parent: BasePDA
+  id: BlueShieldPDA
+  name: blueshield PDA
+  description: Surprisingly no different from your PDA.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Devices/pda.rsi
+  - type: Pda
+    id: BlueShieldIDCard
+    penSlot:
+      startingItem: PenCap
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#1E1E32"
+    accentHColor: "#2851A4"
+  - type: Icon
+    sprite: Genesis/Objects/Devices/pda.rsi
+    state: pda-blueshield
+
+- type: entity
+  parent: BasePDA
+  id: CentcomConsultantPDA
+  name: CentCom consultant PDA
+  description: Light green sign of walking bureaucracy.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Devices/pda.rsi
+  - type: Pda
+    id: CentcomConsultantIDCard
+    penSlot:
+      startingItem: PenCentcom
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#15b115"
+    accentHColor: "#dfc910"
+    accentVColor: "#dfc910"
+  - type: Icon
+    sprite: Genesis/Objects/Devices/pda.rsi
+    state: pda-centcom
+
+- type: entity
+  parent: BasePDA
+  id: MagistratPDA
+  name: magistrat PDA
+  description: Corporation and profit are best friends.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Devices/pda.rsi
+  - type: Pda
+    id: MagistratIDCard
+    penSlot:
+      startingItem: PenCap
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+    accentHColor: "#2851A4"
+  - type: Icon
+    sprite: Genesis/Objects/Devices/pda.rsi
+    state: pda-magistrat
+
+- type: entity
+  parent: BasePDA
+  id: RoboticistPDA
+  name: roboticist PDA
+  description: It's covered in something sticky.
+  components:
+  - type: Pda
+    id: RoboticistIDCard
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-roboticist
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+
+- type: entity
+  parent: BasePDA
+  id: SeniorSalvagePDA
+  name: senior salvage PDA
+  description: Just a PDA.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Devices/pda.rsi
+  - type: Pda
+    id: SeniorSalvageIDCard
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    sprite: Genesis/Objects/Devices/pda.rsi
+    state: pda-seniorsalvage
+
+- type: entity
+  parent: BasePDA
+  id: SeniorServicePDA
+  name: senior service PDA
+  description: Why isn't it gray?
+  components:
+  - type: Pda
+    id: SeniorServiceIDCard
+  - type: PdaBorderColor
+    borderColor: "#717059"
+    accentVColor: "#00cc35"
+  - type: Icon
+    state: pda-internservice
+
+- type: entity
+  parent: BasePDA
+  id: MinerPDA
+  name: miner PDA
+  description: Smells like ash.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Devices/pda.rsi
+  - type: Pda
+    id: MinerIDCard
+  - type: PdaBorderColor
+    borderColor: "#af9366"
+    accentVColor: "#8900c9"
+  - type: Icon
+    sprite: Genesis/Objects/Devices/pda.rsi
+    state: pda-mining
+
+- type: entity
+  parent: BasePDA
+  id: JediNTPDA
+  name: jedi nt PDA
+  description: Smells like power.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Devices/pda.rsi
+  - type: Pda
+    id: JediNTIDCard
+  - type: PdaBorderColor
+    borderColor: "#808080"
+    accentVColor: "#ffffff"
+  - type: Icon
+    sprite: Genesis/Objects/Devices/pda.rsi
+    state: pda-jedint
+
+- type: entity
+  parent: BasePDA
+  id: PrisonerPDA
+  name: prisoner PDA
+  description: Clear, so you can make sure there's nothing being smuggled inside.
+  components:
+    - type: Pda
+      id: PrisonerIDCard
+    - type: Icon
+      state: pda-clear
+
+- type: entity
+  parent: ServiceWorkerPDA
+  id: CentComAssistantPDA
+  name: centcom assistant PDA
+  components:
+    - type: Pda
+      id: CentComAssistantIDCard
+
+- type: entity
+  parent: SecurityPDA
+  id: CentComSecurityPDA
+  name: officer security centcom PDA
+  components:
+    - type: Pda
+      id: CentComOfficerSecurityIDCard
+
+- type: entity
+  parent: HoSPDA
+  id: HoSCentComPDA
+  name: head of security centcom PDA
+  components:
+    - type: Pda
+      id: HeadOfSecurityCentComIDCard
+
+- type: entity
+  parent: CargoPDA
+  id: CentComCargoPDA
+  name: centcom cargo tech PDA
+  components:
+    - type: Pda
+      id: CentComCargoTechIDCard
+
+- type: entity
+  parent: CEPDA
+  id: CentComEngineerPDA
+  name: engineer centcom PDA
+  components:
+    - type: Pda
+      id: CentComEngineerIDCard
+
+- type: entity
+  parent: CMOPDA
+  id: CentComMedicalDoctorPDA
+  name: medical officer centcom PDA
+  components:
+    - type: Pda
+      id: CentComMedicalDoctorIDCard

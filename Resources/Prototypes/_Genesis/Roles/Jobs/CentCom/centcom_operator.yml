@@ -1,0 +1,45 @@
+- type: job
+  id: CentComOperator
+  name: job-name-centcomop
+  description: job-description-centcomop
+  playTimeTracker: JobCentComOperator
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 468000  # 130 hours
+  startingGear: CentComOperatorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  setPreference: true
+  alwaysUseSpawner: true
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: startingGear
+  id: CentComOperatorGear
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglassesModified
+    id: CentcomPDA
+    ears: ClothingHeadsetCentCom
+    belt: WeaponPistolN1984
+  storage:
+    back:
+    - RubberStampCentcom
+
+- type: chameleonOutfit
+  id: CentComOperatorOutfit
+  job: CentComOperator
+  hasMindShield: true
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+    mask: ClothingMaskGasCentcom

@@ -1,0 +1,26 @@
+# Outer clothing
+- type: loadout
+  id: NukeOpsMedicOuterClothing
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieMedic
+
+- type: loadout
+  id: NukeOpsMedicOuterClothingCorvax
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieMedicCorvax
+
+- type: loadout
+  id: NukeOpsMedicOuterClothingSunRise
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieMedicSunRise
+
+- type: loadout
+  id: NukeOpsMedicOuterClothingXeno
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieMedicXeno
+
+# Belt
+- type: loadout
+  id: NukeOpsMedicBelt
+  equipment:
+    belt: ClothingBeltMilitaryWebbingMedFilled

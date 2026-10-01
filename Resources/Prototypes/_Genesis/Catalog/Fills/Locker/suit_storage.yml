@@ -1,0 +1,69 @@
+- type: entity
+  id: SuitStorageBlueShield
+  parent: SuitStorageBase
+  suffix: BlueShield
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitBlueShield
+        - id: ClothingModsuitBackBlueShield
+        - id: ClothingMaskGasBlueShield
+  - type: AccessReader
+    access: [["Captain"]]
+
+- type: entity
+  id: SuitStorageCarporate
+  parent: SuitStorageBase
+  suffix: CentCom
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitCentcomCarporate
+        - id: ClothingModsuitBackCorp
+        - id: ClothingMaskGasCentcom
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  id: SuitStorageMiner
+  parent: SuitStorageBase
+  suffix: Miner
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: ClothingShoesBootsMag
+      - id: ClothingOuterHardsuitSpatio
+      - id: ClothingMaskGasExplorer
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  id: SuitStorageSeniorSalv
+  parent: SuitStorageBase
+  suffix: SeniorSalvage
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: ClothingShoesBootsMag
+      - id: ClothingOuterHardsuitSeniorSalvage
+      - id: ClothingMaskGasExplorer
+  - type: AccessReader
+    access: [["Quartermaster"]]
+
+- type: entity
+  id: SuitStorageQM
+  parent: SuitStorageBase
+  suffix: Quartermaster
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: ClothingShoesBootsMag
+      - id: ClothingOuterHardsuitQM
+      - id: ClothingMaskGasExplorer
+  - type: AccessReader
+    access: [["Quartermaster"]]

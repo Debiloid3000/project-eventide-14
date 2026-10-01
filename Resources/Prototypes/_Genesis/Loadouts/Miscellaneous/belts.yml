@@ -1,0 +1,35 @@
+# Belt
+- type: loadout
+  id: UtilityBelt
+  equipment:
+    belt: ClothingBeltUtilityFilled
+
+- type: loadout
+  id: EngineeringUtilityBelt
+  equipment:
+    belt: ClothingBeltUtilityEngineering
+
+- type: loadout
+  id: ChiefEngineerUtilityBelt
+  equipment:
+    belt: ClothingBeltChiefEngineerFilled
+
+- type: loadout
+  id: SalvageWebbing
+  equipment:
+    belt: ClothingBeltSalvageWebbingFilled
+
+- type: loadout
+  id: MiningWebbingBelt
+  equipment:
+    belt: ClothingBeltMiningWebbingFilled
+
+- type: loadout
+  id: MedicalBelt
+  equipment:
+    belt: ClothingBeltMedicalFilled
+
+- type: loadout
+  id: MedicalEMTBelt
+  equipment:
+    belt: ClothingBeltMedicalEMTFilled

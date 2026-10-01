@@ -1,0 +1,6 @@
+﻿- type: itemSize
+  id: Felinid
+  weight: 28
+  name: item-component-size-Felinid
+  defaultShape:
+  - 0,0,5,3

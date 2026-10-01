@@ -1,0 +1,55 @@
+- type: entity
+  id: TelescopicBaton
+  name: telescopic baton
+  parent: BaseItem
+  description: A telescopic baton for incapacitating people with.
+  components:
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -5
+  - type: ItemToggleSize
+    activatedSize: Normal
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Melee/telescopic.rsi
+    layers:
+    - state: telescopic_off
+    - state: telescopic_on
+      visible: false
+      map: [ "blade" ]
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 3
+    deactivatedSecret: true
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 0
+  - type: Telescopicbaton
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: UseDelay
+    delay: 0.4
+  - type: Item
+    sprite: Genesis/Objects/Weapons/Melee/telescopic.rsi
+    size: Small
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+        - state: on-inhand-left
+      right:
+        - state: on-inhand-right
+  - type: StaticPrice
+    price: 100

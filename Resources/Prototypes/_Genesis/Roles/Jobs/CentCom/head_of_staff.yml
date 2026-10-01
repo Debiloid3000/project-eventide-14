@@ -1,0 +1,45 @@
+- type: job
+  id: HeadOfStaffCentCom
+  name: job-name-centcom-admiral
+  description: job-description-centcom-admiral
+  playTimeTracker: JobHeadOfStaffCentCom
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 468000  # 130 hours
+  startingGear: HeadOfStaffCentComGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  setPreference: true
+  alwaysUseSpawner: true
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: startingGear
+  id: HeadOfStaffCentComGear
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglassesModified
+    id: CentcomPDA
+    ears: ClothingHeadsetCentCom
+    belt: WeaponPistolN1984
+  storage:
+    back:
+    - RubberStampCentcom
+
+- type: chameleonOutfit
+  id: HeadOfStaffCentComGearOutfit
+  job: HeadOfStaffCentCom
+  hasMindShield: true
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+    mask: ClothingMaskGasCentcom

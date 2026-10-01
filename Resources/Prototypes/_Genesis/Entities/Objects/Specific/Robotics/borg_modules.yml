@@ -1,0 +1,69 @@
+- type: entity
+  id: BaseModuleSec
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - SecModule
+
+- type: entity
+  id: ModuleSec
+  parent: [ BaseModuleSec, BaseProviderBorgModule ]
+  description: Everything for you and your safety.
+  name: security module cyborg
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: sec
+    - state: sec-icon
+  - type: ItemBorgModule
+    hands:
+    - item: FlashSecBorg
+    - item: StunbatonSecBorg
+    - item: WeaponLaserSecBorg
+
+- type: entity
+  id: BorgModuleMiningCombat
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: combat mining cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponProtoKineticAcceleratorBorg
+    - item: WeaponCrusherDagger
+
+- type: entity
+  id: BorgModuleJetpack
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: jetpack cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining
+  - type: ItemBorgModule
+    hands:
+    - item: JetpackVoidFilled
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Tanks/Jetpacks/void.rsi, state: icon }
+
+- type: entity
+  id: BorgModuleStandard
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: fire extinguisher cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-fire-extinguisher
+  - type: ItemBorgModule
+    hands:
+    - item: CrowbarBorg
+    - item: FireExtinguisherBorg
+    - item: HyposprayBorgStandard

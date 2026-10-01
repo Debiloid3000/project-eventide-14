@@ -1,0 +1,38 @@
+- type: job
+  id: CentralCommandCargoTechnician
+  name: job-name-centcom-cargotech
+  description: job-description-centcom-cargotech
+  playTimeTracker: JobCentralCommandCargoTechnician
+  startingGear: CentComCargoTechGear
+  icon: "JobIconCargoTechnician"
+  supervisors: job-supervisors-centcom
+  access:
+  - Cargo
+  - Maintenance
+  - CentralCommand
+  - Salvage
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: CentComCargoTechGear
+  equipment:
+    id: CentComCargoPDA
+    ears: ClothingHeadsetCentCom
+    pocket1: AppraisalTool
+  #storage:
+    #back:
+    #- Stuff
+
+- type: chameleonOutfit
+  id: CentComCargoChameleonOutfit
+  job: CentralCommandCargoTechnician
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatCargosoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterCargo
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesFingerless

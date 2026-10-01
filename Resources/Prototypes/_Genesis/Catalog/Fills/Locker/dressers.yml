@@ -1,0 +1,21 @@
+- type: entity
+  id: DresserBlueShieldFilled
+  parent: Dresser
+  suffix: Filled, BlueShield
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatBlueShieldBeret
+      - id: ClothingHeadHelmetSwat
+      - id: ClothingBeltBlueShieldWebbing
+      - id: ClothingShoesBootsSpetsnazFilled
+      - id: ClothingUniformJumpsuitBlueShield
+      - id: ClothingUniformJumpskirtBlueShield
+      - id: ClothingUniformJumpskirtBlueShieldTurtleneck
+      - id: ClothingUniformJumpsuitBlueShieldTurtleneck
+      - id: ClothingEyesGlassesSunglassesBlueShield
+      - id: ClothingHandsTacticalBlueShield
+      - id: ClothingNeckCloakBlueShield
+      - id: ClothingNeckCloakBlueShieldAlt
+      - id: ClothingNeckMantleBS
+      - id: ClothingOuterWinterBS

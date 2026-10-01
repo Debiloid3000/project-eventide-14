@@ -1,0 +1,64 @@
+# Jumpsuit
+- type: loadout
+  id: NukeOpsJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+
+- type: loadout
+  id: NukeOpsJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtOperative
+
+# Back
+- type: loadout
+  id: NukeOpsBackpack
+  equipment:
+    back: ClothingBackpackDuffelSyndicate
+
+# Outer clothing
+- type: loadout
+  id: NukeOpsOuterClothing
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndie
+
+- type: loadout
+  id: NukeOpsOuterClothingCorvax
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieCorvax
+
+- type: loadout
+  id: NukeOpsOuterClothingBackmen
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieBackmen
+
+- type: loadout
+  id: NukeOpsOuterClothingSunRise
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieSunRise
+
+- type: loadout
+  id: NukeOpsOuterClothingXeno
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieXeno
+
+# Belt
+- type: loadout
+  id: NukeOpsBelt
+  equipment:
+    belt: ClothingBeltMilitaryWebbing
+
+# PDA
+- type: loadout
+  id: SyndiAgentPDA
+  equipment:
+    id: SyndiAgentPDA
+
+- type: loadout
+  id: SyndiPDA
+  equipment:
+    id: SyndiPDA
+
+- type: loadout
+  id: NukieAgentIDCard
+  equipment:
+    id: NukieAgentIDCard

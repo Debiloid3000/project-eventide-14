@@ -1,0 +1,173 @@
+﻿- type: entity
+  parent: IDCardStandard
+  id: BlueShieldIDCard
+  name: blueshield ID card
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Misc/id_cards.rsi
+    layers:
+    - state: blue
+    - state: idblueshield
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: BlueShield
+
+- type: entity
+  parent: IDCardStandard
+  id: CentcomConsultantIDCard
+  name: CentCom consultant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: PresetIdCard
+    job: CentComConsultant
+
+- type: entity
+  parent: IDCardStandard
+  id: MagistratIDCard
+  name: magistrat ID card
+  components:
+    - type: Sprite
+      sprite: Genesis/Objects/Misc/id_cards.rsi
+      layers:
+        - state: silver
+        - state: idmagistrat
+    - type: PresetIdCard
+      job: Magistrat
+
+- type: entity
+  parent: IDCardStandard
+  id: RoboticistIDCard
+  name: ID card roboticist
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: Roboticist
+
+- type: entity
+  parent: IDCardStandard
+  id: SeniorSalvageIDCard
+  name: senior salvage ID card
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idseniorshaft
+  - type: PresetIdCard
+    job: SeniorSalvage
+
+- type: entity
+  parent: IDCardStandard
+  id: SeniorServiceIDCard
+  name: senior service ID card
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idseniorservice
+  - type: PresetIdCard
+    job: SeniorService
+
+- type: entity
+  parent: IDCardStandard
+  id: MinerIDCard
+  name: miner ID Card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idshaftminer
+  - type: PresetIdCard
+    job: Miner
+
+- type: entity
+  parent: IDCardStandard
+  id: JediNTIDCard
+  name: jedi nt ID card
+  components:
+    - type: Sprite
+      sprite: Genesis/Objects/Misc/id_cards.rsi
+      layers:
+        - state: silver
+        - state: idjedint
+    - type: PresetIdCard
+      job: JediNT
+
+- type: entity
+  parent: IDCardStandard
+  id: CentComAssistantIDCard
+  name: centcom assistant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: PresetIdCard
+    job: CentralCommandAssistant
+
+- type: entity
+  parent: IDCardStandard
+  id: CentComOfficerSecurityIDCard
+  name: security officer centcom ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: PresetIdCard
+    job: CentralCommandSecurityOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: HeadOfSecurityCentComIDCard
+  name: head of security centcom ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: PresetIdCard
+    job: HeadOfSecurityCentCom
+
+- type: entity
+  parent: IDCardStandard
+  id: CentComCargoTechIDCard
+  name: centcom cargo tech ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: PresetIdCard
+    job: CentralCommandCargoTechnician
+
+- type: entity
+  parent: IDCardStandard
+  id: CentComEngineerIDCard
+  name: engineer centcom ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idchiefengineer
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: CentralCommandEngineer
+
+- type: entity
+  parent: IDCardStandard
+  id: CentComMedicalDoctorIDCard
+  name: medical officer centcom ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idchiefmedicalofficer
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: CentralCommandMedicalDoctor

@@ -1,0 +1,1 @@
+job-description-blueshield = Don't let the command members die. You should not follow their orders, the goal is one - not to let them die until the end of the shift.

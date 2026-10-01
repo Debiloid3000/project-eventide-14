@@ -1,0 +1,149 @@
+- type: playTimeTracker
+  id: JobBlueShield
+
+- type: playTimeTracker
+  id: JobCentComOfficial
+
+- type: playTimeTracker
+  id: JobCentComOperator
+
+- type: playTimeTracker
+  id: JobCentComConsultant
+
+- type: playTimeTracker
+  id: JobHeadOfStaffCentCom
+
+- type: playTimeTracker
+  id: JobBrigmedic
+
+- type: playTimeTracker
+  id: JobMagistrat
+
+- type: playTimeTracker
+  id: JobSeniorEngineer
+
+- type: playTimeTracker
+  id: JobSeniorOfficer
+
+- type: playTimeTracker
+  id: JobSeniorPhysician
+
+- type: playTimeTracker
+  id: JobSeniorResearcher
+
+- type: playTimeTracker
+  id: JobRoboticist
+
+- type: playTimeTracker
+  id: JobSeniorSalvage
+
+- type: playTimeTracker
+  id: JobSeniorService
+
+- type: playTimeTracker
+  id: JobMiner
+
+- type: playTimeTracker
+  id: JobJediNT
+
+- type: playTimeTracker
+  id: JobPrisoner
+
+- type: playTimeTracker
+  id: JobHeadOfSecurityCentCom
+
+- type: playTimeTracker
+  id: JobCentralCommandCargoTechnician
+
+- type: playTimeTracker
+  id: JobCentralCommandSecurityOfficer
+
+- type: playTimeTracker
+  id: JobCentralCommandAssistant
+
+- type: playTimeTracker
+  id: JobCentralCommandMedicalDoctor
+
+- type: playTimeTracker
+  id: JobCentralCommandEngineer
+
+# Borgs
+- type: playTimeTracker
+  id: JobEngineerBorg
+
+- type: playTimeTracker
+  id: JobJanitorBorg
+
+- type: playTimeTracker
+  id: JobMedicalBorg
+
+- type: playTimeTracker
+  id: JobMiningBorg
+
+- type: playTimeTracker
+  id: JobSecurityBorg
+
+# ERT
+# Gamma
+- type: playTimeTracker
+  id: JobERTEngineerGamma
+
+- type: playTimeTracker
+  id: JobERTJanitorGamma
+
+- type: playTimeTracker
+  id: JobERTLeaderGamma
+
+- type: playTimeTracker
+  id: JobERTMedicalGamma
+
+- type: playTimeTracker
+  id: JobERTSecurityGamma
+
+# Delta
+- type: playTimeTracker
+  id: JobERTEngineerDelta
+
+- type: playTimeTracker
+  id: JobERTJanitorDelta
+
+- type: playTimeTracker
+  id: JobERTLeaderDelta
+
+- type: playTimeTracker
+  id: JobERTMedicalDelta
+
+- type: playTimeTracker
+  id: JobERTSecurityDelta
+
+# Bravo
+- type: playTimeTracker
+  id: JobERTEngineerBravo
+
+- type: playTimeTracker
+  id: JobERTJanitorBravo
+
+- type: playTimeTracker
+  id: JobERTLeaderBravo
+
+- type: playTimeTracker
+  id: JobERTMedicalBravo
+
+- type: playTimeTracker
+  id: JobERTSecurityBravo
+
+# Charlie
+- type: playTimeTracker
+  id: JobERTEngineerCharlie
+
+- type: playTimeTracker
+  id: JobERTJanitorCharlie
+
+- type: playTimeTracker
+  id: JobERTLeaderCharlie
+
+- type: playTimeTracker
+  id: JobERTMedicalCharlie
+
+- type: playTimeTracker
+  id: JobERTSecurityCharlie

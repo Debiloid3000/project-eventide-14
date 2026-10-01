@@ -1,0 +1,686 @@
+# CentCom
+- type: loadoutGroup
+  id: CentComBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - CentComBackpack
+  - CentComSatchel
+  - CentComDuffel
+  - CentComModSuit
+
+- type: loadoutGroup
+  id: CentComJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - CentComOfficerJumpsuit
+  - CentComOfficerJumpskirt
+  - CentComOfficialJumpsuit
+  - CentComOfficialJumpskirt
+
+- type: loadoutGroup
+  id: CentComGloves
+  name: loadout-group-gloves
+  loadouts:
+  - BlackGloves
+  - CombatGloves
+  - CentComGloves
+
+- type: loadoutGroup
+  id: CentComHead
+  name: loadout-group-head
+  loadouts:
+  - HeadHatBeretCentcomNaval
+  - HeadHatCentcomcap
+  - HeadHatCentcom
+
+- type: loadoutGroup
+  id: CentComNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - CentcomScarf
+  - CentcomCloak
+
+- type: loadoutGroup
+  id: CentComOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - ArmorVest
+  - ArmorCentcomCarapace
+
+# CentCom Assistant
+- type: loadoutGroup
+  id: CentComAssistantJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - CentComAssistantJumpsuit
+
+# Head Of Security CentCom
+- type: loadoutGroup
+  id: HeadOfSecurityCentComJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - HeadOfSecurityCentComJumpsuit
+
+- type: loadoutGroup
+  id: HeadOfSecurityCentComHead
+  name: loadout-group-head
+  loadouts:
+  - HeadHatBeretHoSCentCom
+
+# Consultant
+- type: loadoutGroup
+  id: ConsultantHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - ConsultantHead
+
+- type: loadoutGroup
+  id: ConsultantJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - ConsultantJumpsuit
+  - ConsultantJumpskirt
+  - ConsultantFormalSuit
+  - ConsultantFormalSkirt
+
+- type: loadoutGroup
+  id: ConsultantOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - ConsultantOuterClothing
+
+# Head Of Staff CentCom
+- type: loadoutGroup
+  id: HeadOfStaffCentComHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - CentComAdmiralHead
+
+- type: loadoutGroup
+  id: HeadOfStaffCentComJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - CentComAdmiralJumpsuit
+
+- type: loadoutGroup
+  id: HeadOfStaffCentComNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - CentComAdmiralCloak
+  - CentcomCloak
+
+# BlueShield
+- type: loadoutGroup
+  id: BlueShieldHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - BlueShieldHead
+  - BlueShieldHat
+  - SecurityHelmet
+  - SWATHelmet
+
+- type: loadoutGroup
+  id: BlueShieldJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - BlueShieldJumpsuit
+  - BlueShieldJumpskirt
+  - BlueShieldTurtleneck
+  - BlueShieldTurtleneckSkirt
+  - BlueShieldJumpsuitPants
+  - BlueShieldSpecialJumpsuit
+
+- type: loadoutGroup
+  id: BlueShieldNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - BlueShieldCloak
+  - BlueShieldMantle
+  - BlueShieldCloakAlt
+
+- type: loadoutGroup
+  id: BlueShieldBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - BlueShieldBackpack
+  - BlueShieldSatchel
+  - BlueShieldDuffel
+  - BlueShieldModSuit
+
+- type: loadoutGroup
+  id: BlueShieldOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - BlueShieldOuterClothing
+  - ArmorVest
+  - BlueShieldJacket
+  - BlueShieldArmorSlim
+  - BlueShieldTrench
+  - BlueShieldWintercoat
+
+- type: loadoutGroup
+  id: BlueShieldShoes
+  name: loadout-group-shoes
+  loadouts:
+  - JackBootsBlueShield
+  - SpetsnazBoots
+
+- type: loadoutGroup
+  id: BlueShieldBelt
+  name: loadout-group-belt
+  loadouts:
+  - UniversalSlimBelt
+  - BlueShieldWebbing
+
+- type: loadoutGroup
+  id: BlueShieldPocket
+  name: loadout-group-security-pocket
+  loadouts:
+  - WeaponPistolMk58
+  - WeaponPistolMk68
+  - WeaponPistolM1911
+  - WeaponRevolverMateba
+  - WeaponRevolverRsh18
+
+- type: loadoutGroup
+  id: BlueShieldPocket2
+  name: loadout-group-security-pocket2
+  minLimit: 0
+  loadouts:
+  - MagazinePistol
+  - MagazinePistolHighCapacity
+  - SpeedLoaderMagnum
+  - SpeedLoaderUniversal
+  - SpeedLoaderUniversalHV
+
+# JediNT
+- type: loadoutGroup
+  id: JediNTHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - JediNTHead
+  - JediNTHat
+  - SecurityHelmet
+
+- type: loadoutGroup
+  id: JediNTJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JediNTJumpsuit
+  - JediNTTurtleneck
+
+- type: loadoutGroup
+  id: JediNTNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - JediNTMantle
+
+- type: loadoutGroup
+  id: JediNTBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - JediNTBackpack
+  - JediNTSatchel
+  - JediNTDuffel
+  - JediNTModSuit
+
+- type: loadoutGroup
+  id: JediNTOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - JediNTOuterClothing
+
+- type: loadoutGroup
+  id: JediNTBelt
+  name: loadout-group-belt
+  loadouts:
+  - JediNTBelt
+  - JediNTWebbing
+
+- type: loadoutGroup
+  id: JediNTPocket
+  name: loadout-group-security-pocket
+  loadouts:
+  - JediNTEnergySword
+  - JediNTEnergySword2
+
+# Security
+# Brigmedic
+- type: loadoutGroup
+  id: BrigmedicHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicHead
+
+- type: loadoutGroup
+  id: BrigmedicMask
+  name: loadout-group-mask
+  minLimit: 0
+  loadouts:
+  - SterileMask
+  - SecurityMask
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuit
+  - BrigmedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigmedicBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - BrigmedicBackpack
+  - BrigmedicSatchel
+  - BrigmedicDuffel
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-outerclothing
+  minLimit: 0
+  loadouts:
+  - BrigmedicOuterClothing
+
+- type: loadoutGroup
+  id: HeadOfSecurityBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - SecurityBackpack
+  - SecuritySatchel
+  - SecurityDuffel
+  - HeadOfSecurityModSuit
+
+- type: loadoutGroup
+  id: WardenBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - SecurityBackpack
+  - SecuritySatchel
+  - SecurityDuffel
+  - WardenModSuit
+
+- type: loadoutGroup
+  id: SecurityPocket
+  name: loadout-group-security-pocket
+  loadouts:
+  - WeaponPistolMk58
+  - WeaponPistolMk68
+  - WeaponPistolM1911
+
+- type: loadoutGroup
+  id: SecurityPocket2
+  name: loadout-group-security-pocket2
+  minLimit: 0
+  loadouts:
+  - MagazinePistol
+  - MagazinePistolHighCapacity
+
+- type: loadoutGroup
+  id: SecurityOfficerPocket
+  name: loadout-group-security-pocket
+  loadouts:
+  - WeaponPistolMk58
+  - WeaponPistolMk68
+  - WeaponPistolM1911
+  - WeaponRevolverMateba
+
+- type: loadoutGroup
+  id: SecurityOfficerPocket2
+  name: loadout-group-security-pocket2
+  minLimit: 0
+  loadouts:
+  - MagazinePistol
+  - MagazinePistolHighCapacity
+  - SpeedLoaderMagnum
+
+- type: loadoutGroup
+  id: SecurityCadetGloves
+  name: loadout-group-gloves
+  loadouts:
+  - BlackGloves
+  - FingerlessGloves
+
+- type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-gloves
+  loadouts:
+  - BlackGloves
+  - FingerlessGloves
+  - CombatGloves
+  - SecurityGloves
+
+# Prisoner
+- type: loadoutGroup
+  id: PrisonerJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - PrisonerJumpsuit
+  - PrisonerJumpskirt
+
+# Medical
+- type: loadoutGroup
+  id: ChiefMedicalOfficerBelt
+  name: loadout-group-belt
+  loadouts:
+  - MedicalBelt
+  - CMOWebbing
+
+# Law
+- type: loadoutGroup
+  id: MagistratHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - MagistratHead
+
+- type: loadoutGroup
+  id: MagistratOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - MagistratOuterClothing
+
+# Senior
+- type: loadoutGroup
+  id: SeniorResearcherHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - SkullBandana
+  - SeniorResearcherBeret
+  - SeniorResearcherBeretAlt
+
+- type: loadoutGroup
+  id: SeniorPhysicianHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+  - SeniorPhysicianBeret
+
+- type: loadoutGroup
+  id: SeniorEngineerHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - ChiefEngineerHead
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
+  id: SeniorSalvageHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - SeniorSalvageBeret
+
+- type: loadoutGroup
+  id: SeniorSalvageNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - MinerCloak
+
+- type: loadoutGroup
+  id: SeniorOfficerJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitSeniorOfficer
+  - JumpskirtSeniorOfficer
+  - SecuritySpecialJumpsuit
+
+- type: loadoutGroup
+  id: SeniorResearcherJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitSeniorResearcher
+  - JumpskirtSeniorResearcher
+
+- type: loadoutGroup
+  id: SeniorPhysicianJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitSeniorPhysician
+  - JumpskirtSeniorPhysician
+
+- type: loadoutGroup
+  id: SeniorEngineerJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitSeniorEngineer
+  - JumpskirtSeniorEngineer
+
+- type: loadoutGroup
+  id: SeniorSalvageJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitSeniorSalvage
+
+- type: loadoutGroup
+  id: SeniorResearcherOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - RegularLabCoat
+  - ScienceLabCoat
+  - SeniorResearcherLabCoat
+  - ScienceWintercoat
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: SeniorPhysicianOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - RegularLabCoat
+  - SeniorPhysicianLabCoat
+  - MedicalDoctorWintercoat
+
+# Science
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-outerclothing
+  minLimit: 0
+  loadouts:
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - SkullBandana
+
+- type: loadoutGroup
+  id: ResearchDirecctorBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - ScientistBackpack
+  - ScientistSatchel
+  - ScientistDuffel
+  - ResearchDirectorModSuit
+
+# Cargo
+- type: loadoutGroup
+  id: SalvageSpecialistHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - SalvageBeret
+
+- type: loadoutGroup
+  id: MinerJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitMiner
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - JumpsuitSalvage
+
+- type: loadoutGroup
+  id: CargoGloves
+  name: loadout-group-gloves
+  loadouts:
+  - BlackGloves
+  - FingerlessGloves
+  - BrownGloves
+  - LightBrownGloves
+
+- type: loadoutGroup
+  id: CargoBelt
+  name: loadout-group-belt
+  loadouts:
+  - UtilityBelt
+
+- type: loadoutGroup
+  id: SalvageSpecialistBelt
+  name: loadout-group-belt
+  loadouts:
+  - UtilityBelt
+  - SalvageWebbing
+  - MiningWebbingBelt
+
+# Engineering
+- type: loadoutGroup
+  id: ChiefEngineerBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - ChiefEngineerBackpack
+  - ChiefEngineerSatchel
+  - ChiefEngineerDuffel
+  - ChiefEngineerModSuit
+
+- type: loadoutGroup
+  id: EngineeringGloves
+  name: loadout-group-gloves
+  loadouts:
+  - YellowGloves
+
+- type: loadoutGroup
+  id: AtmosGloves
+  name: loadout-group-gloves
+  loadouts:
+  - YellowGloves
+  - AtmosGloves
+
+- type: loadoutGroup
+  id: ChiefEngineerGloves
+  name: loadout-group-gloves
+  loadouts:
+  - YellowGloves
+  - AtmosGloves
+  - ChiefEngineerGloves
+
+# NukeOps
+- type: loadoutGroup
+  id: NukeOpsJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - NukeOpsJumpsuit
+  - NukeOpsJumpskirt
+
+- type: loadoutGroup
+  id: NukeOpsBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - NukeOpsBackpack
+
+- type: loadoutGroup
+  id: NukeOpsOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - NukeOpsOuterClothing
+  - NukeOpsOuterClothingBackmen
+  - NukeOpsOuterClothingCorvax
+  - NukeOpsOuterClothingSunRise
+  - NukeOpsOuterClothingXeno
+
+- type: loadoutGroup
+  id: NukeOpsBelt
+  name: loadout-group-belt
+  loadouts:
+  - NukeOpsBelt
+
+- type: loadoutGroup
+  id: NukeOpsPDA
+  name: loadout-group-pda
+  loadouts:
+  - SyndiAgentPDA
+  - SyndiPDA
+  - NukieAgentIDCard
+
+# NukeOps Medic
+- type: loadoutGroup
+  id: NukeOpsMedicOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - NukeOpsMedicOuterClothing
+  - NukeOpsMedicOuterClothingCorvax
+  - NukeOpsMedicOuterClothingSunRise
+  - NukeOpsMedicOuterClothingXeno
+
+- type: loadoutGroup
+  id: NukeOpsMedicBelt
+  name: loadout-group-belt
+  loadouts:
+  - NukeOpsMedicBelt
+
+# NukeOps Commander
+- type: loadoutGroup
+  id: NukeOpsCommanderOuterClothing
+  name: loadout-group-outerclothing
+  loadouts:
+  - NukeOpsCommanderOuterClothing
+  - NukeOpsCommanderOuterClothingBackmen
+  - NukeOpsCommanderOuterClothingCorvax
+  - NukeOpsCommanderOuterClothingSunRise
+  - NukeOpsCommanderOuterClothingXeno
+
+# Survival Box
+- type: loadoutGroup
+  id: SurvivalBrigmedic
+  name: loadout-group-survival-basic
+  minLimit: 2
+  maxLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBrigmedic
+  - EmergencyOxygenBrigmedic
+
+- type: loadoutGroup
+  id: SurvivalBlueShield
+  name: loadout-group-survival-basic
+  minLimit: 2
+  maxLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBlueShield
+  - EmergencyOxygenBlueShield

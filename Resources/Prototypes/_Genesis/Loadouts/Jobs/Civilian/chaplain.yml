@@ -1,0 +1,17 @@
+# Head
+- type: loadout
+  id: WitchHunterHat
+  equipment:
+    head: ClothingHeadHatWitchHunter
+
+# Outer clothing
+- type: loadout
+  id: WitchHunterCoat
+  equipment:
+    outerClothing: ClothingOuterClothingCoatWitchHunter
+
+# Neck
+- type: loadout
+  id: HolyMedal
+  equipment:
+    neck: ClothingNeckHolyMedal

@@ -1,0 +1,87 @@
+- type: entity
+  id: LockerBlueShieldFilled
+  suffix: Filled
+  parent: LockerBlueShield
+  components:
+  - type: StorageFill
+    contents:
+      - id: MysteryWeaponBox
+      - id: ClothingOuterHardsuitBlueShield
+      - id: ClothingModsuitBackBlueShield
+      - id: BoxCardboardTrackImp
+      - id: MedkitCombatFilled
+      - id: Handcuffs
+      - id: Flash
+      - id: ClothingMaskGasBlueShield
+      - id: ClothingHeadsetAltCommand
+      - id: PrinterDocFlatpack # Corvax-Printer
+
+- type: entity
+  id: LockerBlueShieldFilledNoHardsuit
+  suffix: Filled, No Hardsuit
+  parent: LockerBlueShield
+  components:
+  - type: StorageFill
+    contents:
+      - id: MysteryWeaponBox
+      - id: BoxCardboardTrackImp
+      - id: MedkitCombatFilled
+      - id: Handcuffs
+      - id: Flash
+      - id: ClothingMaskGasBlueShield
+      - id: ClothingHeadsetAltCommand
+      - id: PrinterDocFlatpack # Corvax-Printer
+
+- type: entity
+  id: LockerCentcomConsultantFilled
+  suffix: Filled
+  parent: LockerCentcomConsultant
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadsetAltCentCom
+      #- id: HandheldIntercomMonitor
+      - id: RubberStampCentcom
+      - id: Handcuffs
+      - id: WeaponRevolverMateba
+      - id: SpeedLoaderMagnum
+      - id: SpeedLoaderMagnum #Rubber
+      - id: CigarGoldCase
+        prob: 0.25
+      - id: PrinterDocFlatpack # Corvax-Printer
+
+- type: entity
+  id: LockerCentcomConsultantFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerCentcomConsultant
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitCentcomCarporate
+      - id: ClothingModsuitBackCorp
+      - id: ClothingMaskGasCentcom
+      - id: ClothingHeadsetAltCentCom
+      #- id: HandheldIntercomMonitor
+      - id: RubberStampCentcom
+      - id: Handcuffs
+      - id: WeaponRevolverMateba
+      - id: SpeedLoaderMagnum
+      - id: SpeedLoaderMagnum #Rubber
+      - id: CigarGoldCase
+        prob: 0.25
+      - id: PrinterDocFlatpack # Corvax-Printer
+
+- type: entity
+  id: LockerJediNTFilled
+  suffix: Filled
+  parent: LockerJediNT
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingModsuitBackInquisitor
+      - id: ClothingOuterHardsuitInqusitory
+      - id: MedkitCombatFilled
+      - id: Handcuffs
+      - id: Flash
+      - id: ClothingMaskGasJediNT
+      - id: PrinterDocFlatpack # Corvax-Printer

@@ -1,0 +1,76 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltMiningWebbing
+  name: mining webbing
+  description: Universal unloading system for work in space.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/miningwebbing.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/miningwebbing.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltBlueShieldWebbing
+  name: blueshield webbing
+  description: Unique and versatile chest rig, can hold security gear.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/blueshieldwebbing.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/blueshieldwebbing.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltUniversalSlim
+  name: universal slim belt
+  description: Universal belt, can hold almost everything.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/universalslim.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/universalslim.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltBlueShieldWebbingAlt
+  name: blueshield webbing
+  description: Unique and versatile chest rig, can hold security gear.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/blueshieldwebbingalt.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/blueshieldwebbingalt.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltJediNTBelt
+  name: jedi nt belt
+  description: Universal belt, can hold almost everything.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/jedi_belt.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/jedi_belt.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltJediNTWebbing
+  name: jedi nt webbing
+  description: Unique and versatile chest rig, can hold security gear.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/jediwebbing.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/jediwebbing.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltCMOWebbing
+  name: chief medical officer webbing
+  description: Unique and versatile chest rig for work in medbay.
+  components:
+  - type: Sprite
+    sprite: Genesis/Clothing/Belt/cmowebbing.rsi
+  - type: Clothing
+    sprite: Genesis/Clothing/Belt/cmowebbing.rsi

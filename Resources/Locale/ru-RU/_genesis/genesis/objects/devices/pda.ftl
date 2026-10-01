@@ -1,0 +1,15 @@
+ent-BlueShieldPDA = ПДА офицера синего щита
+    .desc = Покрыт кровью прошлых глав.
+    .suffix = { "" }
+ent-MagistratPDA = ПДА магистрата
+    .desc = Корпорация и прибыль - лучшие друзья.
+    .suffix = { "" }
+ent-SeniorSalvagePDA = ПДА ведущего утилизатора
+    .desc = Просто ПДА.
+    .suffix = { "" }
+ent-SeniorServicePDA = ПДА ведущего сервисного отдела
+    .desc = ПДА ведущего просто копирка ПДА сервисного работника.
+    .suffix = { "" }
+ent-MinerPDA = ПДА шахтёра
+    .desc = Пахнет пеплом.
+    .suffix = { "" }

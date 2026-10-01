@@ -1,0 +1,373 @@
+# Command
+- type: roleLoadout
+  id: JobBlueShield
+  groups:
+  - GroupTankHarness
+  - BlueShieldHead
+  - BlueShieldNeck
+  - BlueShieldJumpsuit
+  - BlueShieldBackpack
+  - BlueShieldOuterClothing
+  - BlueShieldShoes
+  - BlueShieldBelt
+  - BlueShieldPocket
+  - BlueShieldPocket2
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobJediNT
+  groups:
+  - GroupTankHarness
+  - JediNTHead
+  - JediNTNeck
+  - JediNTJumpsuit
+  - JediNTBackpack
+  - JediNTOuterClothing
+  - JediNTBelt
+  - JediNTPocket
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# CentCom
+- type: roleLoadout
+  id: JobCentComOfficial
+  groups:
+  - GroupTankHarness
+  - CentComHead
+  - CentComNeck
+  - CentComJumpsuit
+  - CentComGloves
+  - CentComBackpack
+  - CentComOuterClothing
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCentComOperator
+  groups:
+  - GroupTankHarness
+  - CentComHead
+  - CentComNeck
+  - CentComJumpsuit
+  - CentComGloves
+  - CentComBackpack
+  - CentComOuterClothing
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCentComConsultant
+  groups:
+  - GroupTankHarness
+  - ConsultantHead
+  - CentComNeck
+  - ConsultantJumpsuit
+  - CentComBackpack
+  - ConsultantOuterClothing
+  - Glasses
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCentralCommandSecurityOfficer
+  groups:
+  - SecurityHead
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityGloves
+  - SecurityShoes
+  - SecurityBelt
+  - SecurityShoes
+  - SecurityPocket
+  - SecurityPocket2
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityStar
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobHeadOfSecurityCentCom
+  groups:
+  - HeadOfSecurityCentComHead
+  - HeadofSecurityNeck
+  - HeadOfSecurityCentComJumpsuit
+  - HeadOfSecurityBackpack
+  - SecurityOuterClothing
+  - SecurityGloves
+  - SecurityBelt
+  - SecurityShoes
+  - SecurityOfficerPocket
+  - SecurityOfficerPocket2
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityStar
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobCentralCommandCargoTechnician
+  groups:
+  - GroupTankHarness
+  - CargoTechnicianHead
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianBackpack
+  - CargoTechnicianOuterClothing
+  - CargoGloves
+  - CargoTechnicianShoes
+  - CargoBelt
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCentralCommandAssistant
+  groups:
+  - GroupTankHarness
+  - CentComAssistantJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCentralCommandMedicalDoctor
+  groups:
+  - GroupTankHarness
+  - ChiefMedicalOfficerHead
+  - MedicalMask
+  - ChiefMedicalOfficerJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - ChiefMedicalOfficerOuterClothing
+  - ChiefMedicalOfficerNeck
+  - ChiefMedicalOfficerShoes
+  - ChiefMedicalOfficerBelt
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobCentralCommandEngineer
+  groups:
+  - GroupTankHarness
+  - ChiefEngineerHead
+  - ChiefEngineerJumpsuit
+  - StationEngineerBackpack
+  - ChiefEngineerNeck
+  - ChiefEngineerOuterClothing
+  - ChiefEngineerGloves
+  - ChiefEngineerShoes
+  - SurvivalExtended
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobHeadOfStaffCentCom
+  groups:
+  - GroupTankHarness
+  - HeadOfStaffCentComHead
+  - HeadOfStaffCentComNeck
+  - HeadOfStaffCentComJumpsuit
+  - CentComGloves
+  - CentComBackpack
+  - CentComOuterClothing
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Law
+- type: roleLoadout
+  id: JobMagistrat
+  groups:
+  - GroupTankHarness
+  - MagistratHead
+  - LawyerNeck
+  - LawyerJumpsuit
+  - CommonBackpack
+  - MagistratOuterClothing
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Security
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - GroupTankHarness
+  - BrigmedicHead
+  - BrigmedicMask
+  - BrigmedicJumpsuit
+  - MedicalGloves
+  - BrigmedicBackpack
+  - BrigmedicOuterClothing
+  - SecurityShoes
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobPrisoner
+  groups:
+  - GroupTankHarness
+  - PrisonerJumpsuit
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Senior
+- type: roleLoadout
+  id: JobSeniorOfficer
+  groups:
+  - GroupTankHarness
+  - SecurityHead
+  - SeniorOfficerJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityGloves
+  - SecurityBelt
+  - SecurityShoes
+  - SecurityPocket
+  - SecurityPocket2
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSeniorResearcher
+  groups:
+  - GroupTankHarness
+  - SeniorResearcherHead
+  - ScientistNeck
+  - SeniorResearcherJumpsuit
+  - ScientistBackpack
+  - SeniorResearcherOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSeniorPhysician
+  groups:
+  - GroupTankHarness
+  - SeniorPhysicianHead
+  - MedicalMask
+  - SeniorPhysicianJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - SeniorPhysicianOuterClothing
+  - MedicalShoes
+  - SurvivalMedical
+  - Trinkets
+  - Glasses
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSeniorEngineer
+  groups:
+  - GroupTankHarness
+  - SeniorEngineerHead
+  - SeniorEngineerJumpsuit
+  - StationEngineerBackpack
+  - StationEngineerOuterClothing
+  - ChiefEngineerGloves
+  - StationEngineerShoes
+  - SurvivalExtended
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSeniorSalvage
+  groups:
+  - GroupTankHarness
+  - SeniorSalvageHead
+  - SeniorSalvageNeck
+  - SeniorSalvageJumpsuit
+  - SalvageSpecialistBackpack
+  - SalvageSpecialistOuterClothing
+  - CargoGloves
+  - SalvageSpecialistBelt
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSeniorService
+  groups:
+  - GroupTankHarness
+  - BartenderHead
+  - BartenderJumpsuit
+  - CommonBackpack
+  - BartenderOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Science
+- type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - RoboticistHead
+  - ScientistNeck
+  - RoboticistJumpsuit
+  - RoboticistOuterClothing
+  - ScientistBackpack
+  - ScientistShoes
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# Cargo
+- type: roleLoadout
+  id: JobMiner
+  groups:
+  - GroupTankHarness
+  - SalvageSpecialistHead
+  - MinerJumpsuit
+  - SalvageSpecialistBackpack
+  - SalvageSpecialistOuterClothing
+  - CargoGloves
+  - SalvageSpecialistShoes
+  - SalvageSpecialistBelt
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+# NukeOps
+- type: roleLoadout
+  id: Nukeops
+  groups:
+  - NukeOpsJumpsuit
+  - NukeOpsBackpack
+  - NukeOpsOuterClothing
+  - NukeOpsBelt
+  - NukeOpsPDA
+  - Trinkets
+
+- type: roleLoadout
+  id: NukeopsMedic
+  groups:
+  - NukeOpsJumpsuit
+  - NukeOpsBackpack
+  - NukeOpsMedicOuterClothing
+  - NukeOpsMedicBelt
+  - NukeOpsPDA
+  - Trinkets
+
+- type: roleLoadout
+  id: NukeopsCommander
+  groups:
+  - NukeOpsJumpsuit
+  - NukeOpsBackpack
+  - NukeOpsCommanderOuterClothing
+  - NukeOpsBelt
+  - NukeOpsPDA
+  - Trinkets

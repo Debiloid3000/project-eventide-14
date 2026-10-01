@@ -1,0 +1,38 @@
+# Senior times
+- type: loadoutEffectGroup
+  id: SeniorSalvage
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 36000 #10 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMiner
+      time: 36000 #10 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 108000 # 30 hrs
+
+# Head
+- type: startingGear
+  id: SalvageBeret
+  equipment:
+    head: ClothingHeadHatBeretSalvage
+
+- type: loadout
+  id: SalvageBeret
+  startingGear: SalvageBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorSalvage
+
+# Jumpsuit
+- type: loadout
+  id: JumpsuitSalvage
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist

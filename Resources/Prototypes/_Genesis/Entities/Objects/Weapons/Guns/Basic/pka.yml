@@ -1,0 +1,89 @@
+- type: entity
+  id: WeaponProtoKineticAcceleratorReBase
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+  - type: Item
+    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    size: Normal
+  - type: GunWieldBonus
+    minAngle: -43
+    maxAngle: -43
+  - type: Wieldable
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    angleDecay: 45
+    minAngle: 44
+    maxAngle: 45
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: AmmoCounter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }
+        #todo: add other 'empty' animations
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.40
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletKineticRe
+    capacity: 1
+    count: 1
+  - type: Clothing
+    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: UseDelay
+    delay: 1
+
+- type: entity
+  id: BulletKineticRe
+  name: kinetic bolt
+  parent: BaseBullet
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Reflective
+    reflective:
+      - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      shader: unshaded
+  - type: GatheringProjectile
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 30
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.4
+
+- type: entity
+  name: proto-kinetic accelerator
+  id: WeaponProtoKineticAcceleratorRe
+  parent: WeaponProtoKineticAcceleratorReBase
+  description: Fires low-damage kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    layers:
+    - state: gun
+    - state: empty
+      visible: false
+      map: [ "empty-icon" ]

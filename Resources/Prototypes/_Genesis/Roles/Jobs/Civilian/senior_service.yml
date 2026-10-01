@@ -1,0 +1,36 @@
+﻿- type: job
+  id: SeniorService
+  name: job-name-senior-service
+  description: job-description-senior-service
+  playTimeTracker: JobSeniorService
+  startingGear: SeniorServiceGear
+  icon: "JobIconSeniorService"
+  supervisors: job-supervisors-service
+  canBeAntag: false
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  - Kitchen
+  - Hydroponics
+
+- type: startingGear
+  id: SeniorServiceGear
+  equipment:
+    shoes: ClothingShoesColorBlack
+    id: SeniorServicePDA
+    ears: ClothingHeadsetService
+  #storage:
+    #back:
+    #- Stuff
+
+- type: chameleonOutfit
+  id: SeniorServiceChameleonOutfit
+  job: SeniorService
+  equipment:
+    head: ClothingHeadHatBowlerHat
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckScarfStripedBrown
+    outerClothing: ClothingOuterVest
+    gloves: ClothingHandsGlovesColorBlack

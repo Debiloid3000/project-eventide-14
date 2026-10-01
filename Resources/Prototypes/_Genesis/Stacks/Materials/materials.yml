@@ -1,0 +1,13 @@
+- type: stack
+  id: XenoScale
+  name: stack-xeno-scale
+  icon: { sprite: /Textures/Genesis/Objects/Materials/materials.rsi, state: alienplate }
+  spawn: MaterialXenoScale1
+  maxCount: 10
+
+- type: stack
+  id: DragonSinew
+  name: stack-dragon-sinew
+  icon: { sprite: /Textures/Genesis/Objects/Materials/materials.rsi, state: dragonsinew }
+  spawn: MaterialDragonSinew1
+  maxCount: 10
