@@ -35,6 +35,9 @@ REFERENCE_REPOS = {
     "goob": "https://github.com/space-syndicate/Goob-Station.git",
 }
 
+IGNORED_ARTIFACT_DIRS = (".repair_cache", "logs", "reports", "auto-repair-fixes")
+PROJECT_CHANGE_EXTENSIONS = (".cs", ".csproj", ".sln", ".slnx", ".props", ".targets")
+
 
 class DiagnosticParser:
     CS_ERROR_REGEX = re.compile(
@@ -156,7 +159,6 @@ class FixStrategy:
         if not search_results:
             return False
 
-        # Prefer upstream as the most canonical reference
         if "upstream" in search_results:
             ns = search_results["upstream"]["namespace"]
             if ns:
@@ -222,6 +224,33 @@ class RepairEngine:
             "finished_at": None,
         }
 
+    @staticmethod
+    def _real_project_changes_detected(cwd: Path) -> bool:
+        try:
+            result = subprocess.run(
+                ["git", "status", "--porcelain", "--untracked-files=all"],
+                cwd=cwd,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+        except Exception:
+            return False
+
+        for line in result.stdout.splitlines():
+            if not line.strip():
+                continue
+            changed = line[3:].strip() if len(line) > 3 else line.strip()
+            if " -> " in changed:
+                changed = changed.split(" -> ")[-1]
+            changed = changed.replace('\\', '/')
+            if any(changed == d or changed.startswith(f"{d}/") for d in IGNORED_ARTIFACT_DIRS):
+                continue
+            if changed.endswith(PROJECT_CHANGE_EXTENSIONS):
+                return True
+
+        return False
+
     def run_ci(self):
         cwd = Path(os.getcwd())
         errors, success = DiagnosticParser.run_build(cwd)
@@ -273,8 +302,11 @@ class RepairEngine:
         self.report["fixes_applied"] = strategy.fixes_applied
         self.report["finished_at"] = datetime.now().isoformat()
 
-        # Установить has_fixes только если были применены исправления И финальная сборка успешна
-        has_fixes = len(strategy.fixes_applied) > 0 and self.report["status"] == "success"
+        has_fixes = (
+            len(strategy.fixes_applied) > 0
+            and self.report["status"] == "success"
+            and self._real_project_changes_detected(cwd)
+        )
         self._set_github_output(has_fixes=has_fixes)
         self.save_report()
 
