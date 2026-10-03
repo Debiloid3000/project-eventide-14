@@ -1,0 +1,11 @@
+{
+    "started_at": "2026-10-03T12:36:04.367654",
+    "initial_errors": 0,
+    "final_errors": 0,
+    "iterations": 0,
+    "fixes_applied": [],
+    "files_changed": [],
+    "status": "failed",
+    "failure_reason": "NO_PROGRESS",
+    "finished_at": "2026-10-03T12:36:10.880256"
+}
