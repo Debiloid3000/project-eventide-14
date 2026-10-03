@@ -25,12 +25,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .repair_cache
-          key: repair-repos-Linux-${{ hashFiles('auto_repair.py') }}
+          key: repair-repos-Linux-${{ hashFiles('repair_engine.py') }}
 
       - name: Run Auto Repair Engine
         id: repair_step
         shell: bash
-        run: python auto_repair.py
+        run: python repair_engine.py
 
       - name: Upload Logs & Reports
         uses: actions/upload-artifact@v4
