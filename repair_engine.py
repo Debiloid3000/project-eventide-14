@@ -5,19 +5,27 @@ import re
 import json
 import argparse
 import logging
+import shutil
 from pathlib import Path
+from datetime import datetime
+import difflib
 
-# ==========================================
-# CONFIGURATION & SETUP
-# ==========================================
-logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+# Настройка логирования
+os.makedirs("logs", exist_ok=True)
+os.makedirs("reports", exist_ok=True)
+log_filename = f"logs/repair_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s: %(message)s',
+    handlers=[logging.FileHandler(log_filename, encoding='utf-8'), logging.StreamHandler()]
+)
 log = logging.getLogger("SS14RepairPro")
 
 TARGET_SLN = "SpaceStation14.sln"
 CACHE_DIR = Path(".repair_cache")
 REFS_DIR = CACHE_DIR / "repos"
 
-# Расширенный список репозиториев-источников
 REFERENCE_REPOS = {
     "upstream": "https://github.com/space-syndicate/space-station-14.git",
     "genesis": "https://github.com/BrigChill3000/genesis-station-14.git",
@@ -26,260 +34,277 @@ REFERENCE_REPOS = {
     "goob": "https://github.com/space-syndicate/Goob-Station.git"
 }
 
-# ==========================================
-# REPOSITORY & GIT MANAGER
-# ==========================================
 class GitManager:
     def __init__(self, repo_path: str):
         self.repo_path = Path(repo_path)
 
-    def run_git(self, args, check=True):
-        res = subprocess.run(["git"] + args, cwd=self.repo_path, capture_output=True, text=True)
+    def run_git(self, args, check=False):
+        res = subprocess.run(["git"] + args, cwd=self.repo_path, capture_output=True, text=True, encoding='utf-8')
         if check and res.returncode != 0:
             log.error(f"Git error: {res.stderr}")
-        return res.stdout.strip()
+        return res
 
-    def backup_state(self):
-        log.info("Creating backup branch: repair-engine-backup")
-        self.run_git(["branch", "-f", "repair-engine-backup"])
+    def is_dirty(self):
+        res = self.run_git(["status", "--porcelain"])
+        return bool(res.stdout.strip())
 
-    def create_commit(self, message: str):
-        # Исключаем кэш принудительно на уровне git add, даже если .gitignore не сработал
-        self.run_git(["add", "--all", "--", ":^.repair_cache"])
-        self.run_git(["commit", "-m", message])
-        return self.run_git(["rev-parse", "HEAD"])
+    def create_backup_branch(self):
+        branch_name = f"repair-backup-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+        log.info(f"Создание резервной ветки: {branch_name}")
+        self.run_git(["branch", branch_name], check=True)
+        return branch_name
 
-    def rollback(self, commit_hash="HEAD~1"):
-        log.warning(f"Rolling back to {commit_hash}...")
-        self.run_git(["reset", "--hard", commit_hash])
-
-# ==========================================
-# BUILD & DIAGNOSTICS PARSER
-# ==========================================
 class DiagnosticParser:
-    # Захватываем файл, строку, код ошибки (CSXXXX) и сообщение
-    CS_ERROR_REGEX = re.compile(r'(?P<file>.*?)\((?P<line>\d+),(?P<col>\d+)\):\s+error\s+(?P<code>CS\d+):\s+(?P<msg>.*)')
-    
+    # Захватываем ошибки как из MSBuild, так и из Roslyn
+    CS_ERROR_REGEX = re.compile(r'(?P<file>.*\.cs)\((?P<line>\d+),(?P<col>\d+)\):\s+error\s+(?P<code>CS\d+):\s+(?P<msg>.*)')
+
     @staticmethod
-    def run_build():
-        log.info("Running dotnet build...")
-        res = subprocess.run(["dotnet", "build", TARGET_SLN, "-c", "Release", "/m"], capture_output=True, text=True)
+    def run_build(working_dir: Path):
+        log.info(f"Запуск dotnet build в {working_dir}...")
+        # Учитываем Windows и Linux. Объединяем stdout и stderr
+        res = subprocess.run(
+            ["dotnet", "build", TARGET_SLN, "-c", "Release", "/m"],
+            cwd=working_dir, capture_output=True, text=True, encoding='utf-8'
+        )
         errors = []
-        for line in res.stdout.splitlines():
+        output = res.stdout + "\n" + res.stderr
+        for line in output.splitlines():
             match = DiagnosticParser.CS_ERROR_REGEX.search(line)
             if match:
-                errors.append(match.groupdict())
+                err = match.groupdict()
+                # Нормализация путей
+                err['file'] = str(Path(err['file']).resolve())
+                errors.append(err)
         return errors, res.returncode == 0
 
-# ==========================================
-# SEARCH ENGINE (CROSS-REPO)
-# ==========================================
 class SearchEngine:
     def __init__(self):
         self.setup_refs()
 
     def setup_refs(self):
         REFS_DIR.mkdir(parents=True, exist_ok=True)
-        
-        # ЗАЩИТА ОТ GIT: Автоматически создаем .gitignore для папки с кэшем
         gitignore_file = CACHE_DIR / ".gitignore"
         if not gitignore_file.exists():
             with open(gitignore_file, "w") as f:
                 f.write("*\n!.gitignore\n")
-            log.info("Created .gitignore in .repair_cache to prevent embedded repos leak.")
 
         for name, url in REFERENCE_REPOS.items():
             repo_path = REFS_DIR / name
             if not repo_path.exists():
-                log.info(f"Cloning reference repo: {name}...")
-                subprocess.run(["git", "clone", "--depth", "1", url, str(repo_path)], check=True)
+                log.info(f"Клонирование {name}...")
+                subprocess.run(["git", "clone", "--depth", "1", url, str(repo_path)], check=False)
+            else:
+                # Асинхронное/быстрое обновление (fetch)
+                subprocess.run(["git", "fetch", "--depth", "1"], cwd=repo_path, check=False)
 
-    def search_class_definition(self, class_name: str):
-        """Поиск класса по репозиториям с учетом приоритета (от актуального к старому)."""
+    def find_type_definition(self, type_name: str):
+        # Кроссплатформенный поиск без grep
+        regex = re.compile(rf'\b(?:class|struct|interface|enum|record)\s+{type_name}\b')
+        ns_regex = re.compile(r'namespace\s+([\w\.]+)')
         results = {}
-        # Приоритет: оригинальный движок -> современные крупные форки -> старые базы
-        search_order = ["upstream", "goob", "genesis", "sunrise", "deadspace"]
-        
-        for repo in search_order:
-            path = REFS_DIR / repo
-            if not path.exists():
-                continue
-                
-            cmd = ["grep", "-rnw", str(path), "-e", f"class {class_name}", "-e", f"struct {class_name}"]
-            res = subprocess.run(cmd, capture_output=True, text=True)
-            if res.stdout:
-                results[repo] = res.stdout.splitlines()
-                # Останавливаем поиск, если нашли в самом высокоприоритетном источнике (опционально)
-                
+
+        for repo in REFERENCE_REPOS.keys():
+            repo_path = REFS_DIR / repo
+            if not repo_path.exists(): continue
+
+            for root, _, files in os.walk(repo_path):
+                for file in files:
+                    if file.endswith(".cs"):
+                        filepath = Path(root) / file
+                        try:
+                            with open(filepath, 'r', encoding='utf-8') as f:
+                                content = f.read()
+                                if regex.search(content):
+                                    # Пытаемся определить namespace
+                                    ns_match = ns_regex.search(content)
+                                    ns = ns_match.group(1) if ns_match else None
+                                    results[repo] = {"file": filepath, "namespace": ns, "content": content}
+                                    break # Нашли в этом репо
+                        except Exception:
+                            continue
         return results
 
-# ==========================================
-# FIX GENERATOR & PATCH APPLIER
-# ==========================================
 class FixStrategy:
-    def __init__(self, search_engine: SearchEngine, is_dry_run: bool):
+    def __init__(self, search_engine: SearchEngine, staging_dir: Path):
         self.search = search_engine
-        self.is_dry_run = is_dry_run
+        self.staging_dir = staging_dir
         self.fixes_applied = []
 
-    def analyze_and_fix(self, errors):
-        fixed_count = 0
-        for err in errors:
-            code = err['code']
-            msg = err['msg']
-            file_path = err['file']
-
-            if code == "CS0246": # Отсутствует тип или namespace
-                match = re.search(r"The type or namespace name '(\w+)' could not be found", msg)
-                if match:
-                    missing_type = match.group(1)
-                    if self._handle_missing_type(file_path, missing_type):
-                        fixed_count += 1
-                        continue
-                        
-            elif code == "CS1503": # Ошибка аргументов (часто бывает при изменениях DI в SS14)
-                # Пример: Argument 1: cannot convert from 'IEntityManager' to 'SomeNewDependency'
-                if self._handle_di_change(file_path, err['line'], msg):
-                    fixed_count += 1
-                    continue
-
-        return fixed_count
-
-    def _handle_missing_type(self, file_path, missing_type):
-        log.info(f"Analyzing missing type: {missing_type} in {file_path}")
+    def attempt_fix(self, error) -> bool:
+        code, msg, file_path = error['code'], error['msg'], error['file']
         
-        # ЛОГИКА СОВМЕСТИМОСТИ HARDSUIT HEAD
-        if "Hardsuit" in missing_type or "Head" in missing_type:
-            log.info("Hardsuit Head legacy logic triggered.")
-            return self._port_legacy_system(missing_type, source_repo="genesis", target_subfolder="_Genesis/Entities/Clothing/Head/")
+        # Конвертация абсолютного пути исходника в путь внутри staging
+        rel_path = os.path.relpath(file_path, start=os.getcwd())
+        staging_file_path = self.staging_dir / rel_path
 
-        # Ищем в сторонних репозиториях по приоритету
-        search_results = self.search.search_class_definition(missing_type)
+        if not staging_file_path.exists():
+            return False
+
+        if code == "CS0246": # The type or namespace could not be found
+            match = re.search(r"The type or namespace name '(\w+)' could not be found", msg)
+            if match:
+                missing_type = match.group(1)
+                return self._handle_cs0246(staging_file_path, missing_type)
         
-        if "wizard" in search_results or "upstream" in search_results:
-            log.info(f"Found {missing_type} in modern upstream/wizard. Applying namespace fix. (Confidence: HIGH)")
-            return self._apply_namespace_fix(file_path, missing_type)
-            
-        elif "genesis" in search_results or "deadspace" in search_results:
-            log.info(f"Found {missing_type} in legacy repo. Porting as legacy component. (Confidence: MEDIUM)")
-            # Если это старая система (например, NightVisionOld), портируем её в Legacy
-            return self._port_legacy_system(missing_type, source_repo="genesis", target_subfolder="_Genesis/Legacy/")
-        
-        log.warning(f"Could not find safe fix for {missing_type}. (Confidence: LOW)")
+        elif code == "CS1503": # Argument cannot convert
+            log.warning(f"CS1503 (Requires Context): Небезопасно для автофикса без AST. Файл: {rel_path}")
+            return False
+
         return False
 
-    def _port_legacy_system(self, class_name, source_repo, target_subfolder):
-        if self.is_dry_run:
-            log.info(f"[DRY-RUN] Would port {class_name} from {source_repo} to {target_subfolder}")
-            return True
+    def _handle_cs0246(self, file_path: Path, missing_type: str) -> bool:
+        log.info(f"Анализ отсутствующего типа: {missing_type} в {file_path.name}")
+        search_results = self.search.find_type_definition(missing_type)
 
-        repo_path = REFS_DIR / source_repo
-        if not repo_path.exists():
+        if not search_results:
+            log.warning(f"Тип {missing_type} не найден в reference репозиториях.")
             return False
 
-        res = subprocess.run(["find", str(repo_path), "-name", f"{class_name}.cs"], capture_output=True, text=True)
-        if not res.stdout:
-            return False
-            
-        src_file = res.stdout.splitlines()[0]
-        dest_dir = Path(target_subfolder)
+        # Приоритет: сначала ищем upstream (может просто нужен using), затем остальные (порт)
+        if "upstream" in search_results:
+            ns = search_results["upstream"]["namespace"]
+            if ns:
+                return self._add_using(file_path, ns, missing_type)
+        
+        # Если нет в upstream, но есть в других - пытаемся портировать файл
+        for repo in ["genesis", "goob", "sunrise", "deadspace"]:
+            if repo in search_results:
+                return self._port_legacy_file(search_results[repo], missing_type)
+
+        return False
+
+    def _add_using(self, file_path: Path, namespace: str, type_name: str) -> bool:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        using_str = f"using {namespace};\n"
+        if any(using_str.strip() in line for line in lines):
+            return False # Уже есть
+
+        # Вставляем после последнего using
+        last_using_idx = -1
+        for i, line in enumerate(lines):
+            if line.startswith("using "):
+                last_using_idx = i
+        
+        if last_using_idx != -1:
+            lines.insert(last_using_idx + 1, using_str)
+        else:
+            lines.insert(0, using_str)
+
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.writelines(lines)
+
+        self.fixes_applied.append({"type": "add_using", "file": str(file_path), "namespace": namespace})
+        return True
+
+    def _port_legacy_file(self, repo_result, class_name: str) -> bool:
+        src_content = repo_result["content"]
+        src_namespace = repo_result["namespace"]
+        
+        # Создаем папку в staging
+        dest_dir = self.staging_dir / "Content.Shared" / "_Legacy"
         dest_dir.mkdir(parents=True, exist_ok=True)
+        dest_file = dest_dir / f"{class_name}Old.cs"
+
+        if dest_file.exists():
+            return False # Уже портировали
+
+        # Простейшая замена namespace на локальный
+        new_content = src_content
+        if src_namespace:
+            new_content = re.sub(rf'namespace\s+{src_namespace}', "namespace Content.Shared._Legacy", new_content)
         
-        new_class_name = f"{class_name}Old" if not class_name.endswith("Old") else class_name
-        dest_file = dest_dir / f"{new_class_name}.cs"
-        
-        with open(src_file, 'r', encoding='utf-8') as f:
-            code = f.read()
-        
-        # Переименовываем класс и конструкторы, чтобы не конфликтовать с текущим API
-        code = re.sub(rf'\b{class_name}\b', new_class_name, code)
-        
+        # Переименование класса во избежание конфликтов (Old)
+        new_content = re.sub(rf'\b{class_name}\b', f"{class_name}Old", new_content)
+
         with open(dest_file, 'w', encoding='utf-8') as f:
-            f.write(code)
-            
-        log.info(f"Ported {class_name} to {dest_file} as {new_class_name}")
-        self.fixes_applied.append({"type": "port_legacy", "class": class_name, "dest": str(dest_file)})
+            f.write(new_content)
+
+        self.fixes_applied.append({"type": "port_legacy", "file": str(dest_file), "original_class": class_name})
         return True
 
-    def _apply_namespace_fix(self, file_path, missing_type):
-        if self.is_dry_run:
-            log.info(f"[DRY-RUN] Would add missing using directive for {missing_type} in {file_path}")
-            return True
-        self.fixes_applied.append({"type": "namespace_fix", "file": file_path, "type": missing_type})
-        return True
-
-    def _handle_di_change(self, file_path, line, msg):
-        """Заглушка для обработки изменений в Dependency Injection."""
-        log.warning(f"DI/Argument signature mismatch detected at {file_path}:{line}. Requires structural AST change.")
-        # Здесь будет логика замены IoCManager.Resolve или инъекции в конструктор
-        return False
-
-# ==========================================
-# MAIN ORCHESTRATOR
-# ==========================================
 class RepairEngine:
-    def __init__(self, dry_run=False, max_iterations=5):
-        self.dry_run = dry_run
+    def __init__(self, is_dry_run=False, max_iterations=5):
+        self.is_dry_run = is_dry_run
         self.max_iter = max_iterations
-        self.git = GitManager(".")
         self.search = SearchEngine()
-        self.strategy = FixStrategy(self.search, self.dry_run)
-        
-    def run(self):
-        log.info(f"Starting SS14 PRO Repair Engine (Dry Run: {self.dry_run})")
-        if not self.dry_run:
-            self.git.backup_state()
-
-        prev_error_count = float('inf')
-        
-        for iteration in range(1, self.max_iter + 1):
-            log.info(f"--- Iteration {iteration} ---")
-            errors, success = DiagnosticParser.run_build()
-            
-            if success:
-                log.info("Build succeeded! No C# errors found.")
-                break
-                
-            error_count = len(errors)
-            log.info(f"Found {error_count} build errors.")
-            
-            if error_count == 0:
-                break
-                
-            if error_count >= prev_error_count and iteration > 1:
-                log.warning("No progress detected or loop encountered. Stopping.")
-                break
-            
-            prev_error_count = error_count
-            
-            fixed = self.strategy.analyze_and_fix(errors)
-            log.info(f"Attempted {fixed} automated fixes in iteration {iteration}.")
-            
-            if not self.dry_run and fixed > 0:
-                commit_hash = self.git.create_commit(f"chore: Auto-repair engine loop {iteration}")
-                new_errors, new_success = DiagnosticParser.run_build()
-                if len(new_errors) > error_count:
-                    log.error("Fixes resulted in MORE errors! Rolling back...")
-                    self.git.rollback(commit_hash + "~1")
-                    break
-
-        self.generate_report()
-
-    def generate_report(self):
-        os.makedirs("reports", exist_ok=True)
-        report = {
-            "fixes_applied": self.strategy.fixes_applied,
-            "status": "dry_run" if self.dry_run else "executed"
+        self.start_time = datetime.now()
+        self.report = {
+            "started_at": self.start_time.isoformat(),
+            "initial_errors": 0,
+            "final_errors": 0,
+            "iterations": 0,
+            "fixes_applied": [],
+            "files_changed": [],
+            "status": "failed",
+            "failure_reason": None
         }
-        with open("reports/summary.json", "w") as f:
-            json.dump(report, f, indent=4)
-        log.info("Saved report to reports/summary.json")
+
+    def run_ci(self):
+        log.info("Запуск в режиме CI (прямая модификация, предполагается работа в ветке auto-repair-fixes)")
+        cwd = Path(os.getcwd())
+        
+        errors, success = DiagnosticParser.run_build(cwd)
+        self.report["initial_errors"] = len(errors)
+
+        if success:
+            log.info("Ошибок сборки нет.")
+            self.report["status"] = "success"
+            self.save_report()
+            return
+
+        strategy = FixStrategy(self.search, cwd)
+        prev_errors_count = len(errors)
+
+        for iteration in range(1, self.max_iter + 1):
+            log.info(f"--- Итерация {iteration} ---")
+            fixes_this_round = 0
+            
+            for err in errors:
+                if strategy.attempt_fix(err):
+                    fixes_this_round += 1
+
+            if fixes_this_round == 0:
+                log.info("Не удалось применить новые исправления. Остановка.")
+                self.report["failure_reason"] = "NO_PROGRESS"
+                break
+
+            new_errors, new_success = DiagnosticParser.run_build(cwd)
+            
+            if len(new_errors) >= prev_errors_count:
+                log.warning("Количество ошибок увеличилось или не изменилось. Откат последних изменений...")
+                # В CI мы доверяем Git для отката (так как это отдельная ветка)
+                subprocess.run(["git", "checkout", "."], cwd=cwd)
+                subprocess.run(["git", "clean", "-fd"], cwd=cwd)
+                self.report["failure_reason"] = "MADE_WORSE"
+                break
+
+            errors = new_errors
+            prev_errors_count = len(errors)
+            self.report["iterations"] = iteration
+
+            if new_success:
+                log.info("Сборка успешна!")
+                self.report["status"] = "success"
+                break
+
+        self.report["final_errors"] = len(errors)
+        self.report["fixes_applied"] = strategy.fixes_applied
+        self.report["finished_at"] = datetime.now().isoformat()
+        self.save_report()
+
+    def save_report(self):
+        report_path = f"reports/repair_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(report_path, "w", encoding='utf-8') as f:
+            json.dump(self.report, f, indent=4, ensure_ascii=False)
+        log.info(f"Отчет сохранен в {report_path}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="SS14 Autonomous PRO Repair Engine")
-    parser.add_argument("--dry-run", action="store_true", help="Do not modify files")
-    parser.add_argument("--max-iter", type=int, default=5, help="Maximum repair loops")
+    parser = argparse.ArgumentParser(description="SS14 Autonomous PRO Repair Engine (CI Version)")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--max-iter", type=int, default=5)
     args = parser.parse_args()
-    
-    engine = RepairEngine(dry_run=args.dry_run, max_iterations=args.max_iter)
-    engine.run()
+
+    engine = RepairEngine(is_dry_run=args.dry_run, max_iterations=args.max_iter)
+    engine.run_ci()
