@@ -32,6 +32,19 @@ jobs:
         shell: bash
         run: python repair_engine.py
 
+      - name: Check real project changes
+        id: diff_check
+        shell: bash
+        run: |
+          git status --porcelain --untracked-files=all > status.txt || true
+          grep -vE '(^\s*$|\.repair_cache/|logs/|reports/|auto-repair-fixes/)' status.txt > filtered_status.txt || true
+          grep -E '\.(cs|csproj|sln|slnx|props|targets)$' filtered_status.txt > real_project_changes.txt || true
+          if [ -s real_project_changes.txt ]; then
+            echo "has_project_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_project_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Upload Logs & Reports
         uses: actions/upload-artifact@v4
         if: always()
@@ -42,7 +55,7 @@ jobs:
             logs/
 
       - name: Create Pull Request
-        if: steps.repair_step.outputs.has_fixes == 'true'
+        if: steps.repair_step.outputs.has_fixes == 'true' && steps.diff_check.outputs.has_project_changes == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           branch: auto-repair-fixes
