@@ -248,6 +248,7 @@ class RepairEngine:
 
             if fixes_this_round == 0:
                 self.report["failure_reason"] = "NO_PROGRESS"
+                self.report["status"] = "failed"
                 break
 
             new_errors, new_success = DiagnosticParser.run_build(cwd)
@@ -257,6 +258,7 @@ class RepairEngine:
                 subprocess.run(["git", "checkout", "."], cwd=cwd, check=False)
                 subprocess.run(["git", "clean", "-fd"], cwd=cwd, check=False)
                 self.report["failure_reason"] = "MADE_WORSE"
+                self.report["status"] = "failed"
                 break
 
             errors = new_errors
@@ -271,6 +273,7 @@ class RepairEngine:
         self.report["fixes_applied"] = strategy.fixes_applied
         self.report["finished_at"] = datetime.now().isoformat()
 
+        # Установить has_fixes только если были применены исправления И финальная сборка успешна
         has_fixes = len(strategy.fixes_applied) > 0 and self.report["status"] == "success"
         self._set_github_output(has_fixes=has_fixes)
         self.save_report()
