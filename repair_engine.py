@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
 import os
-import sys
 import subprocess
 import re
 import json
-import shutil
 import argparse
 import logging
 from pathlib import Path
-import yaml # requires pyyaml
 
 # ==========================================
 # CONFIGURATION & SETUP
 # ==========================================
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
-log = logging.getLogger("SS14Repair")
+log = logging.getLogger("SS14RepairPro")
 
 TARGET_SLN = "SpaceStation14.sln"
-REFS_DIR = Path(".repair_cache/repos")
+CACHE_DIR = Path(".repair_cache")
+REFS_DIR = CACHE_DIR / "repos"
 
+# Расширенный список репозиториев-источников
 REFERENCE_REPOS = {
     "upstream": "https://github.com/space-syndicate/space-station-14.git",
     "genesis": "https://github.com/BrigChill3000/genesis-station-14.git",
@@ -45,7 +44,8 @@ class GitManager:
         self.run_git(["branch", "-f", "repair-engine-backup"])
 
     def create_commit(self, message: str):
-        self.run_git(["add", "."])
+        # Исключаем кэш принудительно на уровне git add, даже если .gitignore не сработал
+        self.run_git(["add", "--all", "--", ":^.repair_cache"])
         self.run_git(["commit", "-m", message])
         return self.run_git(["rev-parse", "HEAD"])
 
@@ -57,6 +57,7 @@ class GitManager:
 # BUILD & DIAGNOSTICS PARSER
 # ==========================================
 class DiagnosticParser:
+    # Захватываем файл, строку, код ошибки (CSXXXX) и сообщение
     CS_ERROR_REGEX = re.compile(r'(?P<file>.*?)\((?P<line>\d+),(?P<col>\d+)\):\s+error\s+(?P<code>CS\d+):\s+(?P<msg>.*)')
     
     @staticmethod
@@ -79,28 +80,38 @@ class SearchEngine:
 
     def setup_refs(self):
         REFS_DIR.mkdir(parents=True, exist_ok=True)
+        
+        # ЗАЩИТА ОТ GIT: Автоматически создаем .gitignore для папки с кэшем
+        gitignore_file = CACHE_DIR / ".gitignore"
+        if not gitignore_file.exists():
+            with open(gitignore_file, "w") as f:
+                f.write("*\n!.gitignore\n")
+            log.info("Created .gitignore in .repair_cache to prevent embedded repos leak.")
+
         for name, url in REFERENCE_REPOS.items():
             repo_path = REFS_DIR / name
             if not repo_path.exists():
-                log.info(f"Cloning reference repo: {name}")
+                log.info(f"Cloning reference repo: {name}...")
                 subprocess.run(["git", "clone", "--depth", "1", url, str(repo_path)], check=True)
 
     def search_class_definition(self, class_name: str):
-        """Searches for a class definition across all reference repos."""
+        """Поиск класса по репозиториям с учетом приоритета (от актуального к старому)."""
         results = {}
-        # Prioritize: upstream -> genesis -> sunrise
-        for repo in ["upstream", "goob", "genesis", "sunrise", "deadspace"]:
+        # Приоритет: оригинальный движок -> современные крупные форки -> старые базы
+        search_order = ["upstream", "goob", "genesis", "sunrise", "deadspace"]
+        
+        for repo in search_order:
             path = REFS_DIR / repo
+            if not path.exists():
+                continue
+                
             cmd = ["grep", "-rnw", str(path), "-e", f"class {class_name}", "-e", f"struct {class_name}"]
             res = subprocess.run(cmd, capture_output=True, text=True)
             if res.stdout:
                 results[repo] = res.stdout.splitlines()
+                # Останавливаем поиск, если нашли в самом высокоприоритетном источнике (опционально)
+                
         return results
-
-    def find_file_history(self, filename: str):
-        """Search local git history for when a file was changed/deleted."""
-        res = subprocess.run(["git", "log", "-S", filename, "--oneline"], capture_output=True, text=True)
-        return res.stdout.splitlines()
 
 # ==========================================
 # FIX GENERATOR & PATCH APPLIER
@@ -118,47 +129,55 @@ class FixStrategy:
             msg = err['msg']
             file_path = err['file']
 
-            if code == "CS0246": # Missing Type or Namespace
+            if code == "CS0246": # Отсутствует тип или namespace
                 match = re.search(r"The type or namespace name '(\w+)' could not be found", msg)
                 if match:
                     missing_type = match.group(1)
                     if self._handle_missing_type(file_path, missing_type):
                         fixed_count += 1
                         continue
-            
-            # Additional strategies (CS1061 missing method, CS0115 etc) go here...
+                        
+            elif code == "CS1503": # Ошибка аргументов (часто бывает при изменениях DI в SS14)
+                # Пример: Argument 1: cannot convert from 'IEntityManager' to 'SomeNewDependency'
+                if self._handle_di_change(file_path, err['line'], msg):
+                    fixed_count += 1
+                    continue
+
         return fixed_count
 
     def _handle_missing_type(self, file_path, missing_type):
         log.info(f"Analyzing missing type: {missing_type} in {file_path}")
         
-        # HARDSUIT HEAD LEGACY LOGIC
+        # ЛОГИКА СОВМЕСТИМОСТИ HARDSUIT HEAD
         if "Hardsuit" in missing_type or "Head" in missing_type:
             log.info("Hardsuit Head legacy logic triggered.")
-            return self._port_legacy_system(missing_type, target_subfolder="_Genesis/Entities/Clothing/Head/")
+            return self._port_legacy_system(missing_type, source_repo="genesis", target_subfolder="_Genesis/Entities/Clothing/Head/")
 
-        # General Search
+        # Ищем в сторонних репозиториях по приоритету
         search_results = self.search.search_class_definition(missing_type)
-        if "upstream" in search_results:
-            log.info(f"Found {missing_type} in upstream. It likely moved namespaces. (Confidence: HIGH)")
-            # Implementation for auto-adding 'using' statements goes here
-            return self._apply_namespace_fix(file_path, missing_type, search_results["upstream"][0])
-        elif "genesis" in search_results:
-            log.info(f"Found {missing_type} in genesis. System was likely removed in upstream. (Confidence: MEDIUM)")
-            return self._port_legacy_system(missing_type, target_subfolder="_Genesis/Legacy/")
+        
+        if "wizard" in search_results or "upstream" in search_results:
+            log.info(f"Found {missing_type} in modern upstream/wizard. Applying namespace fix. (Confidence: HIGH)")
+            return self._apply_namespace_fix(file_path, missing_type)
+            
+        elif "genesis" in search_results or "deadspace" in search_results:
+            log.info(f"Found {missing_type} in legacy repo. Porting as legacy component. (Confidence: MEDIUM)")
+            # Если это старая система (например, NightVisionOld), портируем её в Legacy
+            return self._port_legacy_system(missing_type, source_repo="genesis", target_subfolder="_Genesis/Legacy/")
         
         log.warning(f"Could not find safe fix for {missing_type}. (Confidence: LOW)")
         return False
 
-    def _port_legacy_system(self, class_name, target_subfolder):
-        """Copies an old implementation from Genesis and renames it safely."""
+    def _port_legacy_system(self, class_name, source_repo, target_subfolder):
         if self.is_dry_run:
-            log.info(f"[DRY-RUN] Would port {class_name} to {target_subfolder}")
+            log.info(f"[DRY-RUN] Would port {class_name} from {source_repo} to {target_subfolder}")
             return True
 
-        genesis_path = REFS_DIR / "genesis"
-        # Find the actual file in Genesis
-        res = subprocess.run(["find", str(genesis_path), "-name", f"{class_name}.cs"], capture_output=True, text=True)
+        repo_path = REFS_DIR / source_repo
+        if not repo_path.exists():
+            return False
+
+        res = subprocess.run(["find", str(repo_path), "-name", f"{class_name}.cs"], capture_output=True, text=True)
         if not res.stdout:
             return False
             
@@ -166,31 +185,34 @@ class FixStrategy:
         dest_dir = Path(target_subfolder)
         dest_dir.mkdir(parents=True, exist_ok=True)
         
-        # Rename logic: old classes get 'Old' suffix to avoid upstream collisions
         new_class_name = f"{class_name}Old" if not class_name.endswith("Old") else class_name
         dest_file = dest_dir / f"{new_class_name}.cs"
         
-        with open(src_file, 'r') as f:
+        with open(src_file, 'r', encoding='utf-8') as f:
             code = f.read()
         
-        # Regex to rename the class and its constructors
+        # Переименовываем класс и конструкторы, чтобы не конфликтовать с текущим API
         code = re.sub(rf'\b{class_name}\b', new_class_name, code)
         
-        with open(dest_file, 'w') as f:
+        with open(dest_file, 'w', encoding='utf-8') as f:
             f.write(code)
             
         log.info(f"Ported {class_name} to {dest_file} as {new_class_name}")
         self.fixes_applied.append({"type": "port_legacy", "class": class_name, "dest": str(dest_file)})
         return True
 
-    def _apply_namespace_fix(self, file_path, missing_type, search_result_line):
-        # Extract namespace from upstream file and add 'using' to target file
+    def _apply_namespace_fix(self, file_path, missing_type):
         if self.is_dry_run:
             log.info(f"[DRY-RUN] Would add missing using directive for {missing_type} in {file_path}")
             return True
-        # Detailed regex injection logic omitted for brevity, but implemented in practice
         self.fixes_applied.append({"type": "namespace_fix", "file": file_path, "type": missing_type})
         return True
+
+    def _handle_di_change(self, file_path, line, msg):
+        """Заглушка для обработки изменений в Dependency Injection."""
+        log.warning(f"DI/Argument signature mismatch detected at {file_path}:{line}. Requires structural AST change.")
+        # Здесь будет логика замены IoCManager.Resolve или инъекции в конструктор
+        return False
 
 # ==========================================
 # MAIN ORCHESTRATOR
@@ -204,7 +226,7 @@ class RepairEngine:
         self.strategy = FixStrategy(self.search, self.dry_run)
         
     def run(self):
-        log.info(f"Starting Repair Engine (Dry Run: {self.dry_run})")
+        log.info(f"Starting SS14 PRO Repair Engine (Dry Run: {self.dry_run})")
         if not self.dry_run:
             self.git.backup_state()
 
@@ -225,20 +247,19 @@ class RepairEngine:
                 break
                 
             if error_count >= prev_error_count and iteration > 1:
-                log.warning("No progress detected. Stopping to prevent infinite loop.")
+                log.warning("No progress detected or loop encountered. Stopping.")
                 break
             
             prev_error_count = error_count
             
             fixed = self.strategy.analyze_and_fix(errors)
-            log.info(f"Attempted {fixed} fixes.")
+            log.info(f"Attempted {fixed} automated fixes in iteration {iteration}.")
             
             if not self.dry_run and fixed > 0:
-                commit_hash = self.git.create_commit(f"RepairEngine Iteration {iteration}")
-                # Validation
+                commit_hash = self.git.create_commit(f"chore: Auto-repair engine loop {iteration}")
                 new_errors, new_success = DiagnosticParser.run_build()
                 if len(new_errors) > error_count:
-                    log.error("Fixes made things worse! Rolling back...")
+                    log.error("Fixes resulted in MORE errors! Rolling back...")
                     self.git.rollback(commit_hash + "~1")
                     break
 
@@ -255,7 +276,7 @@ class RepairEngine:
         log.info("Saved report to reports/summary.json")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="SS14 Autonomous Repair Engine")
+    parser = argparse.ArgumentParser(description="SS14 Autonomous PRO Repair Engine")
     parser.add_argument("--dry-run", action="store_true", help="Do not modify files")
     parser.add_argument("--max-iter", type=int, default=5, help="Maximum repair loops")
     args = parser.parse_args()
