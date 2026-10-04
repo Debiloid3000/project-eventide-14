@@ -6,7 +6,7 @@
   - type: SiliconLawProvider
     laws: SecurityCrewsimov
   - type: Sprite
-    sprite: Genesis/Mobs/Silicon/Cyborg/chassis.rsi
+    sprite: _Genesis/Mobs/Silicon/Cyborg/chassis.rsi
     layers:
     - state: sec
     - state: sec_e_r
@@ -33,7 +33,7 @@
     energy: 2
   - type: BorgTransponder
     sprite:
-      sprite: Genesis/Mobs/Silicon/Cyborg/chassis.rsi
+      sprite: _Genesis/Mobs/Silicon/Cyborg/chassis.rsi
       state: sec
   - type: IntrinsicRadioTransmitter
     channels:

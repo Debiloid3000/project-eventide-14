@@ -31,7 +31,7 @@ public sealed partial class NightVisionComponent : Component
     public bool PlaySoundOn = true;
 
     [DataField]
-    public SoundSpecifier OffSound = new SoundPathSpecifier("/Audio/Genesis/Misc/night_vision.ogg");
+    public SoundSpecifier OffSound = new SoundPathSpecifier("/Audio/_Genesis/Misc/night_vision.ogg");
 }
 
 public sealed partial class NvInstantActionEvent : InstantActionEvent

@@ -26,7 +26,7 @@
   description: A box full of medpens.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Storage/boxes.rsi
+    sprite: _Genesis/Objects/Storage/boxes.rsi
     layers:
       - state: box_of_doom
       - state: dna

@@ -7,7 +7,7 @@
   description: For the especially violent ones.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Tools/items_cyborg.rsi
+    sprite: _Genesis/Objects/Tools/items_cyborg.rsi
     layers:
     - state: laser_cyborg
   - type: Gun
@@ -34,7 +34,7 @@
   name: дубинка-шокер киборга
   parent: Stunbaton
   id: StunbatonSecBorg
-  description: Электрошоковая дубинка для выведения людей из строя. 
+  description: Электрошоковая дубинка для выведения людей из строя.
   components:
   - type: BatterySelfRecharger
     autoRecharge: true

@@ -5,9 +5,9 @@
   description: The HECU jumpsuit is used to protect against foreign environmental factors (besides, real American patriots like to wear it)
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/hecu.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/hecu.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/hecu.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/hecu.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -16,9 +16,9 @@
   description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -27,9 +27,9 @@
   description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield_turtleneck.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield_turtleneck.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield_turtleneck.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield_turtleneck.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -38,9 +38,9 @@
   description: "A green jumpsuit with gold accents, and wide shoulder pads, for those who like to show off their real power."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -49,9 +49,9 @@
   description: "The formal jumpsuit of the most important representative on the station. It clearly suits you, sir."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant_formal.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant_formal.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant_formal.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_consultant_formal.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -60,9 +60,9 @@
   description: Looks like a jumpsuit senior officer...
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/commander_salvage.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/commander_salvage.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/commander_salvage.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/commander_salvage.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -71,9 +71,9 @@
   description: Miner jumpsuit for mine ore!
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/mining.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/mining.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/mining.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/mining.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -82,9 +82,9 @@
   description: It's a white-grey jumpsuit for Jedies NT.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -93,9 +93,9 @@
   description: It's a white-grey jumpsuit for Jedies NT.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt_alt.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt_alt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt_alt.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/jedi_nt_alt.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -104,9 +104,9 @@
   description: That's the beauty of corporate life, stylish suits to match!
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -115,9 +115,9 @@
   description: The wearer of this costume is required to bring a cup of coffee.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_intern.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_intern.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom_intern.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom_intern.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -126,9 +126,9 @@
   description: Loose and strong uniform of the Central Commander special forces.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom-military.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom-military.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/centcom-military.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/centcom-military.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -144,9 +144,9 @@
   description: This is a black and blue special jumpsuit for the best officers of the "BlueShield".
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield_special.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield_special.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield_special.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield_special.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -155,9 +155,9 @@
   description: Black and blue pants especially for BlueShield officers.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield_pants.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield_pants.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/blueshield_pants.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/blueshield_pants.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -166,6 +166,6 @@
   description: This is a black and red special jumpsuit for the best officers of security.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/security_special.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/security_special.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpsuit/security_special.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpsuit/security_special.rsi

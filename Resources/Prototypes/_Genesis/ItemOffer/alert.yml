@@ -2,7 +2,7 @@
 - type: alert
   id: ItemOffer
   icons:
-  - sprite: /Textures/Genesis/Alerts/ItemOfferAlarm.rsi
+  - sprite: /Textures/_Genesis/Alerts/ItemOfferAlarm.rsi
     state: mrrroew
   clickEvent: !type:ItemOfferAlertEvent
   name: Передача предмета

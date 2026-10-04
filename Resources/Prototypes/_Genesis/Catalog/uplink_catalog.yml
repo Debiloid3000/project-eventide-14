@@ -2,7 +2,7 @@
   id: UplinkEswords
   name: uplink-eswords-name
   description: uplink-eswords-desc
-  icon: { sprite: /Textures/Genesis/Objects/Weapons/Melee/e_sword_ebent_double.rsi, state: icon }
+  icon: { sprite: /Textures/_Genesis/Objects/Weapons/Melee/e_sword_ebent_double.rsi, state: icon }
   productEntity: EnergySwords
   cost:
     Telecrystal: 20
@@ -24,7 +24,7 @@
   id: UplinkKR51Bundle
   name: uplink-bundle-kr51-name
   description: uplink-bundle-kr51-desc
-  icon: { sprite: /Textures/Genesis/Objects/Weapons/Guns/Rifles/kr51.rsi, state: icon }
+  icon: { sprite: /Textures/_Genesis/Objects/Weapons/Guns/Rifles/kr51.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateBundleKR51
   cost:
     Telecrystal: 17
@@ -34,7 +34,7 @@
 - type: listing
   id: UplinkMagazineLightRifle
   name: uplink-magazine-light-rifle-name
-  description: uplink-magazine-light-rifle-desc 
+  description: uplink-magazine-light-rifle-desc
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   productEntity: MagazineLightRifle
   cost:
@@ -101,7 +101,7 @@
   id: UplinkSpecialDelivery
   name: особая посылка
   description: Посылка с случайной маской психов Майами!
-  icon: { sprite: Genesis/Objects/Misc/specialdelivery.rsi, state: specialdelivery }
+  icon: { sprite: _Genesis/Objects/Misc/specialdelivery.rsi, state: specialdelivery }
   productEntity: SpecialDeliveryBox
   cost:
     Telecrystal: 1

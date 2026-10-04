@@ -1,4 +1,4 @@
-# Genesis
+# _Genesis
 # Gloves
 - type: loadout
   id: FingerlessGloves
@@ -70,7 +70,7 @@
   equipment:
     gloves: ClothingHandsGlovesColorYellowBudget
 
-# Genesis Gloves
+# _Genesis Gloves
 - type: loadout
   id: AtmosGloves
   equipment:

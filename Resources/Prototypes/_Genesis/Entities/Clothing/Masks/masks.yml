@@ -5,9 +5,9 @@
   description: A elite issue Blueshield gas mask.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Mask/blueshield.rsi
+    sprite: _Genesis/Clothing/Mask/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Mask/blueshield.rsi
+    sprite: _Genesis/Clothing/Mask/blueshield.rsi
 
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -16,9 +16,9 @@
   description: A elite issue Blueshield gas mask.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Mask/blueshieldalt.rsi
+    sprite: _Genesis/Clothing/Mask/blueshieldalt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Mask/blueshieldalt.rsi
+    sprite: _Genesis/Clothing/Mask/blueshieldalt.rsi
 
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -27,9 +27,9 @@
   description: A elite issue Brigmedic gas mask.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Mask/brigmedic.rsi
+    sprite: _Genesis/Clothing/Mask/brigmedic.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Mask/brigmedic.rsi
+    sprite: _Genesis/Clothing/Mask/brigmedic.rsi
 
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -38,9 +38,9 @@
   description: Gas mask especially for pilots security.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Mask/pilotmask.rsi
+    sprite: _Genesis/Clothing/Mask/pilotmask.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Mask/pilotmask.rsi
+    sprite: _Genesis/Clothing/Mask/pilotmask.rsi
 
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -49,6 +49,6 @@
   description: A elite issue Jedi NT gas mask.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Mask/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Mask/jedi_nt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Mask/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Mask/jedi_nt.rsi

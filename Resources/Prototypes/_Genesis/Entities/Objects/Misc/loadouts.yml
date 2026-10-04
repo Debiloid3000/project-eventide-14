@@ -5,7 +5,7 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
+    sprite: _Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
@@ -32,7 +32,7 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
+    sprite: _Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
@@ -59,7 +59,7 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
+    sprite: _Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
@@ -86,7 +86,7 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
+    sprite: _Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
@@ -112,7 +112,7 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
+    sprite: _Genesis/Objects/Storage/Briefcases/weapon_case_syndie.rsi
     state: icon
   - type: ThiefUndeterminedBackpack
     maxSelectedSets: 1
@@ -428,7 +428,7 @@
   name: hardsuit-loadout-category-blueshield1-name
   description: hardsuit-loadout-category-blueshield1-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/blueshield.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/blueshield.rsi
     state: icon
   content:
   - ClothingOuterHardsuitBlueShield
@@ -450,7 +450,7 @@
   name: hardsuit-loadout-category-syndie2-name
   description: hardsuit-loadout-category-syndie2-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndicate.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndicate.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieBackmen
@@ -460,7 +460,7 @@
   name: hardsuit-loadout-category-syndie3-name
   description: hardsuit-loadout-category-syndie3-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndicate.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndicate.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieCorvax
@@ -470,7 +470,7 @@
   name: hardsuit-loadout-category-syndie4-name
   description: hardsuit-loadout-category-syndie4-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndicate.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndicate.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieSunRise
@@ -480,7 +480,7 @@
   name: hardsuit-loadout-category-syndie5-name
   description: hardsuit-loadout-category-syndie5-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndicate.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndicate.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieXeno
@@ -501,7 +501,7 @@
   name: hardsuit-loadout-category-syndiecommander2-name
   description: hardsuit-loadout-category-syndiecommander2-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndiecommander.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndiecommander.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieCommanderBackmen
@@ -511,7 +511,7 @@
   name: hardsuit-loadout-category-syndiecommander3-name
   description: hardsuit-loadout-category-syndiecommander3-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieCommanderCorvax
@@ -521,7 +521,7 @@
   name: hardsuit-loadout-category-syndiecommander4-name
   description: hardsuit-loadout-category-syndiecommander4-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieCommanderSunRise
@@ -531,7 +531,7 @@
   name: hardsuit-loadout-category-syndiecommander5-name
   description: hardsuit-loadout-category-syndiecommander5-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieCommanderXeno
@@ -552,7 +552,7 @@
   name: hardsuit-loadout-category-syndiemedic2-name
   description: hardsuit-loadout-category-syndiemedic2-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndicate.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndicate.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieBackmen
@@ -562,7 +562,7 @@
   name: hardsuit-loadout-category-syndiemedic3-name
   description: hardsuit-loadout-category-syndiemedic3-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieMedicCorvax
@@ -572,7 +572,7 @@
   name: hardsuit-loadout-category-syndiemedic4-name
   description: hardsuit-loadout-category-syndiemedic4-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieMedicSunRise
@@ -582,7 +582,7 @@
   name: hardsuit-loadout-category-syndiemedic5-name
   description: hardsuit-loadout-category-syndiemedic5-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieMedicXeno
@@ -603,7 +603,7 @@
   name: hardsuit-loadout-category-syndiemedic2-name
   description: hardsuit-loadout-category-syndiemedic2-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndieelite.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndieelite.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieEliteBackmen
@@ -613,7 +613,7 @@
   name: hardsuit-loadout-category-syndiemedic3-name
   description: hardsuit-loadout-category-syndiemedic3-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndieelite.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndieelite.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieEliteCorvax
@@ -623,7 +623,7 @@
   name: hardsuit-loadout-category-syndiemedic4-name
   description: hardsuit-loadout-category-syndiemedic4-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndieelite.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndieelite.rsi
     state: icon
   content:
   - ClothingOuterHardsuitSyndieEliteSunRise
@@ -644,7 +644,7 @@
   name: hardsuit-loadout-category-syndiemedic2-name
   description: hardsuit-loadout-category-syndiemedic2-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/cybersun.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/cybersun.rsi
     state: icon
   content:
   - ClothingOuterHardsuitJuggernautBackmen
@@ -654,7 +654,7 @@
   name: hardsuit-loadout-category-syndiemedic3-name
   description: hardsuit-loadout-category-syndiemedic3-description
   sprite:
-    sprite: Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/cybersun.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/cybersun.rsi
     state: icon
   content:
   - ClothingOuterHardsuitJuggernautCorvax

@@ -4,8 +4,8 @@
   name: blueshield's winter coat
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/WinterCoats/coatbs.rsi
+    sprite: _Genesis/Clothing/OuterClothing/WinterCoats/coatbs.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/WinterCoats/coatbs.rsi
+    sprite: _Genesis/Clothing/OuterClothing/WinterCoats/coatbs.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterBlueShield

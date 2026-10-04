@@ -1,5 +1,5 @@
 - type: job
-  id: Brigmedic
+  id: Brigmedic # _Genesis-edit // Brigmedic_Genesis // if will be
   name: job-name-brigmedic
   description: job-description-brigmedic
   playTimeTracker: JobBrigmedic
@@ -10,7 +10,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 25200 #7 hrs
-  startingGear: BrigmedicNewGear
+  startingGear: Brigmedic_GenesisGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
@@ -26,7 +26,7 @@
     implants: [ MindShieldImplant ]
 
 - type: startingGear
-  id: BrigmedicNewGear
+  id: Brigmedic_GenesisGear
   equipment:
     shoes: ClothingShoesBootsJackSec
     eyes: ClothingEyesGlassesMed

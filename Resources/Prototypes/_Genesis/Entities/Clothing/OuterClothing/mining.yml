@@ -5,9 +5,9 @@
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Armor/miner.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/miner.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Armor/miner.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/miner.rsi
   - type: Item
     size: Huge
   - type: Armor
@@ -35,9 +35,9 @@
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Armor/miner_red.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/miner_red.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Armor/miner_red.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/miner_red.rsi
   - type: Item
     size: Huge
   - type: Armor
@@ -144,7 +144,7 @@
     layers:
     - state: icon
     - state: icon-unshaded-layer
-      shader: unshaded 
+      shader: unshaded
   - type: Clothing
     clothingVisuals:
       outerClothing:

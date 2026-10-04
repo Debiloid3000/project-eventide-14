@@ -5,7 +5,7 @@
   description: Silent automatic rifle. Uses .30 rifle ammo.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Rifles/kr51.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Rifles/kr51.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -14,7 +14,7 @@
   - type: Gun
     fireRate: 5
     soundGunshot:
-      path: /Audio/Genesis/Weapons/Guns/GunShots/heavy_shot_suppressed.ogg
+      path: /Audio/_Genesis/Weapons/Guns/GunShots/heavy_shot_suppressed.ogg
       params:
         volume: -2
   - type: ChamberMagazineAmmoProvider
@@ -55,7 +55,7 @@
   description: Silent automatic rifle. Uses .25 caseless ammo
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Rifles/ash9.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Rifles/ash9.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -64,7 +64,7 @@
   - type: Gun
     fireRate: 5
     soundGunshot:
-      path: /Audio/Genesis/Weapons/Guns/GunShots/ash9.ogg
+      path: /Audio/_Genesis/Weapons/Guns/GunShots/ash9.ogg
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -101,26 +101,26 @@
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Snipers/vssk.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Snipers/vssk.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Snipers/vssk.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Snipers/vssk.rsi
   - type: Gun
     fireRate: 1
     soundGunshot:
-      path: /Audio/Genesis/Weapons/Guns/GunShots/vssk14.ogg
+      path: /Audio/_Genesis/Weapons/Guns/GunShots/vssk14.ogg
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: MagazineUniversal
-        insertSound: /Audio/Genesis/Weapons/Guns/MagIn/vssk_magin.ogg
-        ejectSound: /Audio/Genesis/Weapons/Guns/MagOut/vssk_magout.ogg
+        insertSound: /Audio/_Genesis/Weapons/Guns/MagIn/vssk_magin.ogg
+        ejectSound: /Audio/_Genesis/Weapons/Guns/MagOut/vssk_magout.ogg
         priority: 2
         whitelist:
           tags:

@@ -8,7 +8,7 @@
     stackType: DragonSinew
     count: 10
   - type: Sprite
-    sprite: Genesis/Objects/Materials/materials.rsi
+    sprite: _Genesis/Objects/Materials/materials.rsi
     state: dragonsinew
   - type: Item
     size: Normal
@@ -23,7 +23,7 @@
     stackType: XenoScale
     count: 10
   - type: Sprite
-    sprite: Genesis/Objects/Materials/materials.rsi
+    sprite: _Genesis/Objects/Materials/materials.rsi
     state: alienplate
   - type: Item
     size: Normal

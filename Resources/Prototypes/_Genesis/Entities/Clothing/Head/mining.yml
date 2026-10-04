@@ -5,9 +5,9 @@
   description: A robust, evil-looking cult helmet.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Helmets/mining.rsi
+    sprite: _Genesis/Clothing/Head/Helmets/mining.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Helmets/mining.rsi
+    sprite: _Genesis/Clothing/Head/Helmets/mining.rsi
   - type: IngestionBlocker
   - type: Armor
     modifiers:
@@ -27,9 +27,9 @@
   description: A robust, evil-looking cult helmet.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Helmets/mining_red.rsi
+    sprite: _Genesis/Clothing/Head/Helmets/mining_red.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Helmets/mining_red.rsi
+    sprite: _Genesis/Clothing/Head/Helmets/mining_red.rsi
   - type: IngestionBlocker
   - type: Armor
     modifiers:

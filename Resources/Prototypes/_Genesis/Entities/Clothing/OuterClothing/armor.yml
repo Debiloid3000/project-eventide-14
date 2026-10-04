@@ -5,9 +5,9 @@
   description: Armor vest especially for Blueshield Officer
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Armor/blueshield.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Armor/blueshield.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/blueshield.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -27,9 +27,9 @@
   description: Armor vest especially for Blueshield Officer
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Coats/jacketbs.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/jacketbs.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Coats/jacketbs.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/jacketbs.rsi
 
 - type: entity
   parent: ClothingOuterArmorBlueShield
@@ -38,9 +38,9 @@
   description: Armor slim vest especially for Blueshield Officer
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Armor/blueshield_slim.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/blueshield_slim.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Armor/blueshield_slim.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/blueshield_slim.rsi
 
 - type: entity
   parent: ClothingOuterArmorBlueShield
@@ -49,6 +49,6 @@
   description: Armor vest especially for Jedi NT
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Armor/jedi_nt.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/jedi_nt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Armor/jedi_nt.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Armor/jedi_nt.rsi

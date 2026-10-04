@@ -5,7 +5,7 @@
   description: A large duffel bag for holding extra captainly goods.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Duffels/blueshield.rsi
+    sprite: _Genesis/Clothing/Back/Duffels/blueshield.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -14,7 +14,7 @@
   description: A duffel bag for storing expensive items of Central Command representatives.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Duffels/centcom.rsi
+    sprite: _Genesis/Clothing/Back/Duffels/centcom.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -23,4 +23,4 @@
   description: A duffel bag for storing expensive items of Jedi NT.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Duffels/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Back/Duffels/jedi_nt.rsi

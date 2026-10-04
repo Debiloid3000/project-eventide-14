@@ -18,7 +18,7 @@
   - type: DisarmMalus
     malus: 0.225
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Melee/telescopic.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/telescopic.rsi
     layers:
     - state: telescopic_off
     - state: telescopic_on
@@ -41,7 +41,7 @@
   - type: UseDelay
     delay: 0.4
   - type: Item
-    sprite: Genesis/Objects/Weapons/Melee/telescopic.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/telescopic.rsi
     size: Small
   - type: Appearance
   - type: ToggleableLightVisuals

@@ -9,7 +9,7 @@
       - NonEnergy
   - type: Sprite
     noRot: false
-    sprite: Genesis/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Projectiles/projectiles.rsi
     layers:
     - state: scatterlaser
   - type: GatheringProjectile
@@ -134,7 +134,7 @@
   components:
   - type: Sprite
     noRot: false
-    sprite: Genesis/Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: cbbolt
   - type: GatheringProjectile

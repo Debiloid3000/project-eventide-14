@@ -12,7 +12,7 @@
             - tag: MinerArmor
               name: construction-graph-tag-miner-armor
               icon:
-                sprite: Genesis/Clothing/OuterClothing/Armor/miner.rsi
+                sprite: _Genesis/Clothing/OuterClothing/Armor/miner.rsi
                 state: icon
               doAfter: 1
     - node: armorminerlight

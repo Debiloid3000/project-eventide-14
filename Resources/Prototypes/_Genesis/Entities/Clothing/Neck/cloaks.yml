@@ -5,7 +5,7 @@
   description: Why does the defender of the heads of the station need it? In order to look more stylish, of course.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Neck/Cloaks/blueshield.rsi
+    sprite: _Genesis/Clothing/Neck/Cloaks/blueshield.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -14,7 +14,7 @@
   description: Why does the defender of the heads of the station need it? In order to look more stylish, of course.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Neck/Cloaks/blueshieldalt.rsi
+    sprite: _Genesis/Clothing/Neck/Cloaks/blueshieldalt.rsi
 
 - type: entity
   parent: ClothingNeckCloakCe
@@ -23,7 +23,7 @@
   description: A dark green cloak with light blue ornaments, given to those who proved themselves to master the precise art of engineering.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Neck/Cloaks/cealt.rsi
+    sprite: _Genesis/Clothing/Neck/Cloaks/cealt.rsi
 
 - type: entity
   parent: ClothingNeckCloakRd
@@ -32,4 +32,4 @@
   description: A white cloak with violet stripes, showing your status as the arbiter of cutting-edge technology.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Neck/Cloaks/rdalt.rsi
+    sprite: _Genesis/Clothing/Neck/Cloaks/rdalt.rsi

@@ -6,7 +6,7 @@
   roles:
   - CentComConsultant
   - BlueShield
-  - JediNT # By Space Stories Reworked by Genesis
+  - JediNT # By Space Stories Reworked by _Genesis
 
 - type: department
   id: Law

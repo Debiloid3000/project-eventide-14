@@ -3,7 +3,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Genesis/Mobs/Customization/human_hair.rsi
+    - sprite: _Genesis/Mobs/Customization/human_hair.rsi
       state: long_bedhead
 
 - type: marking
@@ -11,7 +11,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Genesis/Mobs/Customization/human_hair.rsi
+    - sprite: _Genesis/Mobs/Customization/human_hair.rsi
       state: rick
 
 - type: marking
@@ -19,7 +19,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Genesis/Mobs/Customization/human_hair.rsi
+    - sprite: _Genesis/Mobs/Customization/human_hair.rsi
       state: morty
 
 - type: marking
@@ -27,7 +27,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Genesis/Mobs/Customization/deb_human_hair.rsi
+    - sprite: _Genesis/Mobs/Customization/deb_human_hair.rsi
       state: classicmessy
 
 - type: marking
@@ -35,7 +35,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Genesis/Mobs/Customization/deb_human_hair.rsi
+    - sprite: _Genesis/Mobs/Customization/deb_human_hair.rsi
       state: classicspiky
 
 - type: marking
@@ -43,7 +43,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Genesis/Mobs/Customization/deb_human_hair.rsi
+    - sprite: _Genesis/Mobs/Customization/deb_human_hair.rsi
       state: modern
 
 - type: marking
@@ -51,7 +51,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: basarab
 
 - type: marking
@@ -59,7 +59,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: crayfish
 
 - type: marking
@@ -67,7 +67,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: hank
 
 - type: marking
@@ -75,7 +75,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: honor
 
 - type: marking
@@ -83,7 +83,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: madscientist
 
 - type: marking
@@ -91,7 +91,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: monday
 
 - type: marking
@@ -99,7 +99,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: nemesida
 
 - type: marking
@@ -107,7 +107,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: punk
 
 - type: marking
@@ -115,7 +115,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: turanga
 
 - type: marking
@@ -123,7 +123,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: ayanami
 
 - type: marking
@@ -131,7 +131,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: bubble_gum
 
 - type: marking
@@ -139,7 +139,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: mavis
 
 - type: marking
@@ -147,7 +147,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: cloud
 
 - type: marking
@@ -155,7 +155,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: morning_hairstyle
 
 - type: marking
@@ -163,7 +163,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: morning_hairstyle_2
 
 - type: marking
@@ -171,7 +171,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: ponytail
 
 - type: marking
@@ -179,7 +179,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: prince_charming
 
 - type: marking
@@ -187,7 +187,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: shaved_female
 
 - type: marking
@@ -195,5 +195,5 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: Genesis/Mobs/Customization/newhair.rsi
+  - sprite: _Genesis/Mobs/Customization/newhair.rsi
     state: shaved_unisex

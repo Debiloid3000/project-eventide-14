@@ -10,7 +10,7 @@
     tags:
     - Katana
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Melee/katana_cursed.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/katana_cursed.rsi
     state: icon
   - type: MeleeWeapon
     damage:
@@ -20,7 +20,7 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal
-    sprite: Genesis/Objects/Weapons/Melee/katana_cursed.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
 
 - type: entity
@@ -30,7 +30,7 @@
   description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Melee/katana_cursed.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/katana_cursed.rsi
     state: katana-shard
   - type: SpawnItemsOnUse
     items:
@@ -45,7 +45,7 @@
   description: This sacred saber, known as the "Lightbringer Blade", is given to priests who have distinguished themselves in a region with demonic creatures. With her blade carved from a mystical metal and tempered with prayers, she emits a light that can cut you down and cleanse you of impurity. The "Lightbringer Blade" represents perseverance and sacred rage in the fight for light against evil.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Melee/holysabre.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/holysabre.rsi
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -59,9 +59,9 @@
     reflectProb: .1
     spread: 90
   - type: Item
-    sprite: Genesis/Objects/Weapons/Melee/holysabre.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/holysabre.rsi
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Melee/holysabre.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/holysabre.rsi
     quickEquip: false
     slots:
     - suitstorage

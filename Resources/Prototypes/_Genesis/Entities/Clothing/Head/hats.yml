@@ -5,9 +5,9 @@
   description: Beret for a officer blueshield.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_blueshield.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_blueshield.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_blueshield.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -24,9 +24,9 @@
   description: "An expensive cap, with a bright gold emblem on your forehead, saying that you are the inspector of order at this station."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/Head/Hats/centcom_consultant.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/Head/Hats/centcom_consultant.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -35,9 +35,9 @@
   description: A beret for real scientists.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_rnd.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_rnd.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_rnd.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_rnd.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -54,9 +54,9 @@
   description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_engineering.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_engineering.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_engineering.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_engineering.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -70,12 +70,12 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetPilot
   name: pilot helmet
-  description: Standard pilot's helmet. 
+  description: Standard pilot's helmet.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/pilothelmet.rsi
+    sprite: _Genesis/Clothing/Head/Hats/pilothelmet.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/pilothelmet.rsi
+    sprite: _Genesis/Clothing/Head/Hats/pilothelmet.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -84,9 +84,9 @@
   description: A beret with the cargo's insignia emblazoned on it. For cargo that are more inclined towards style.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_cargo.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_cargo.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_cargo.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_cargo.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -100,12 +100,12 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHatBeretSalvage
   name: salvage's beret
-  description: A beret with the cargo's insignia emblazoned on it. For salvages that are more inclined towards style. 
+  description: A beret with the cargo's insignia emblazoned on it. For salvages that are more inclined towards style.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_salvage.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_salvage.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_salvage.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_salvage.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -122,9 +122,9 @@
   description: Beret for a captain.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_captain.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_captain.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_captain.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_captain.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -141,9 +141,9 @@
   description: Beret for a jedi nt.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/beret_jedi_nt.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_jedi_nt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/beret_jedi_nt.rsi
+    sprite: _Genesis/Clothing/Head/Hats/beret_jedi_nt.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -152,7 +152,7 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-    
+
 - type: entity
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHatBlueShieldHat
@@ -160,9 +160,9 @@
   description: The robust standard-issue cap of the BlueShield. For showing the officers who's in charge.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/blueshield_hat.rsi
+    sprite: _Genesis/Clothing/Head/Hats/blueshield_hat.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/blueshield_hat.rsi
+    sprite: _Genesis/Clothing/Head/Hats/blueshield_hat.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -179,9 +179,9 @@
   description: The robust standard-issue cap of the Jedi NT. For showing the officers who's in charge.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/jedi_nt_hat.rsi
+    sprite: _Genesis/Clothing/Head/Hats/jedi_nt_hat.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/jedi_nt_hat.rsi
+    sprite: _Genesis/Clothing/Head/Hats/jedi_nt_hat.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -198,9 +198,9 @@
   description: Hat of a hunter of mythical creatures, namely witches in the style of the Middle Ages.
   components:
     - type: Sprite
-      sprite: Genesis/Clothing/Head/Hats/witch_hunter_hat.rsi
+      sprite: _Genesis/Clothing/Head/Hats/witch_hunter_hat.rsi
     - type: Clothing
-      sprite: Genesis/Clothing/Head/Hats/witch_hunter_hat.rsi
+      sprite: _Genesis/Clothing/Head/Hats/witch_hunter_hat.rsi
 
 - type: entity
   parent: ClothingHeadHelmetBasic
@@ -209,9 +209,9 @@
   description: Beret for a head of security.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
+    sprite: _Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
+    sprite: _Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
   - type: Tag
     tags:
     - PetWearable

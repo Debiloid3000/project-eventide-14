@@ -5,7 +5,7 @@
   description: "A basic hybrid energy gun with two settings: disable and kill."
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -16,7 +16,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/energygun.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -58,7 +58,7 @@
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -69,7 +69,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -121,7 +121,7 @@
   description: A light version of the Energy gun with a smaller capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/mini_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -129,7 +129,7 @@
       shader: unshaded
       map: [ "Firemode" ]
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/mini_energygun.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -167,7 +167,7 @@
   description: A military grade sidearm, used by many militia forces throughout the local sector.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun_pistol.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/energygun_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -178,7 +178,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -224,7 +224,7 @@
   description: "A 20 round semi-automatic laser carbine."
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -232,7 +232,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -262,7 +262,7 @@
   description: ""
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/ion_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -299,12 +299,12 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
     - type: Sprite
-      sprite: Genesis/Objects/Weapons/Guns/Battery/cutter.rsi
+      sprite: _Genesis/Objects/Weapons/Guns/Battery/cutter.rsi
       state: icon
     - type: Gun
       fireRate: 0.6
       soundGunshot:
-        path: /Audio/Genesis/Weapons/Guns/GunShots/plasma_cutter.ogg
+        path: /Audio/_Genesis/Weapons/Guns/GunShots/plasma_cutter.ogg
     - type: Item
       size: Normal
     - type: ProjectileBatteryAmmoProvider
@@ -322,12 +322,12 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
     - type: Sprite
-      sprite: Genesis/Objects/Weapons/Guns/Battery/cutteradv.rsi
+      sprite: _Genesis/Objects/Weapons/Guns/Battery/cutteradv.rsi
       state: icon
     - type: Gun
       fireRate: 1
       soundGunshot:
-        path: /Audio/Genesis/Weapons/Guns/GunShots/plasma_cutter.ogg
+        path: /Audio/_Genesis/Weapons/Guns/GunShots/plasma_cutter.ogg
     - type: ProjectileBatteryAmmoProvider
       proto: BulletCutterAdv
       fireCost: 100
@@ -340,7 +340,7 @@
   description: Robust and powerful laserarm revolver for protecting the station heads. It's so badass that even the most hardened criminals would stop and praise it.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/laser_revolver.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/laser_revolver.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -348,7 +348,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/laser_revolver.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/laser_revolver.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -383,11 +383,11 @@
   description: Blaster carbine, which is a variant of the Blaster DC-15 rifle
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15A.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/DC-15A.rsi
     layers:
     - state: icon
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15A.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/DC-15A.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -423,11 +423,11 @@
   description: A standard blaster rifle used by clone troopers of the Grand Army of the Republic and stormstroopers of the Grand Army of The Imperia.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
     layers:
     - state: icon
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -463,11 +463,11 @@
   description: A standard blaster rifle used by clone troopers of the Grand Army of the Republic and stormstroopers of the Grand Army of The Imperia.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
     layers:
     - state: icon
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Battery/DC-15S.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg

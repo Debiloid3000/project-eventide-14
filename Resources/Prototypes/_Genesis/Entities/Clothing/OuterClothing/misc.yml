@@ -5,6 +5,6 @@
   description: Kill these witches!
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Misc/witch_hunter_coat.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Misc/witch_hunter_coat.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Misc/witch_hunter_coat.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Misc/witch_hunter_coat.rsi

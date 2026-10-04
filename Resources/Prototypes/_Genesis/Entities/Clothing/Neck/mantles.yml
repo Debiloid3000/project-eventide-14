@@ -5,9 +5,9 @@
   description: A nice mantle to protect your back, with a bright and completely inconspicuous, white shield emblem.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Neck/mantles/bsmantle.rsi
+    sprite: _Genesis/Clothing/Neck/mantles/bsmantle.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Neck/mantles/bsmantle.rsi
+    sprite: _Genesis/Clothing/Neck/mantles/bsmantle.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -16,6 +16,6 @@
   description: Shootouts with nukies are just another Tuesday for this Jedi NT. This mantle is a symbol of commitment to the station.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Neck/mantles/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Neck/mantles/jedi_nt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Neck/mantles/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Neck/mantles/jedi_nt.rsi

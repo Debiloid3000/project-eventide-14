@@ -6,11 +6,11 @@
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/standard.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/standard.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/standard.rsi
-    equipSound: /Audio/Genesis/Items/ballin.ogg
-    unequipSound: /Audio/Genesis/Items/ballout.ogg
+    sprite: _Genesis/Clothing/Head/Modsuit/standard.rsi
+    equipSound: /Audio/_Genesis/Items/ballin.ogg
+    unequipSound: /Audio/_Genesis/Items/ballout.ogg
   - type: Armor
     modifiers:
       coefficients:
@@ -39,11 +39,11 @@
   description: A helmet for a MODsuit. A fancy, high-tech suit for Nanotrasen's high ranking officers.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/blueshield.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/blueshield.rsi
-    equipSound: /Audio/Genesis/Items/ballin.ogg
-    unequipSound: /Audio/Genesis/Items/ballout.ogg
+    sprite: _Genesis/Clothing/Head/Modsuit/blueshield.rsi
+    equipSound: /Audio/_Genesis/Items/ballin.ogg
+    unequipSound: /Audio/_Genesis/Items/ballout.ogg
   - type: PointLight
     color: "#6088FF"
 
@@ -54,9 +54,9 @@
   description: A helmet for a MODsuit. A fancy, high-tech suit for Nanotrasen's high ranking officers.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/corp.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/corp.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/corp.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/corp.rsi
   - type: PointLight
     color: "#00ff00"
   - type: ToggleableClothing
@@ -69,9 +69,9 @@
   description: A helmet for a MODsuit. A suit made of adminium. Who comes up with these stupid mineral names?
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/admin.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/admin.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/admin.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/admin.rsi
   - type: PointLight
     color: "#87ceeb"
     radius: 7
@@ -86,9 +86,9 @@
   description: A helmet for a MODsuit. A suit beyond our time, beyond time itself. Used to traverse timelines and "correct their course".
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/chrono.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/chrono.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/chrono.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/chrono.rsi
   - type: PointLight
     color: "#fffafa"
   - type: ToggleableClothing
@@ -101,9 +101,9 @@
   description: A helmet for a MODsuit. An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/atmospheric.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/atmospheric.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/atmospheric.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/atmospheric.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitAtmospheric
   - type: EyeProtection
@@ -117,9 +117,9 @@
   description: A helmet for a MODsuit. A suit by Honk Ltd. Protects against low humor environments. Most of the tech went to lower the power cost.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/clown.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/clown.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/clown.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/clown.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitClown
   - type: PointLight
@@ -132,9 +132,9 @@
   description: A helmet for a MODsuit. An engineer-fit suit with heat and shock resistance. Nakamura Engineering's classic.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/engineering.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/engineering.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/engineering.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/engineering.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitEngineering
   - type: EyeProtection
@@ -148,16 +148,16 @@
   description: A helmet for a MODsuit. A lightweight suit by DeForest Medical Corporation, allows for easier movement.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/medical.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/medical.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/medical.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/medical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitMedical
   - type: ShowHealthBars
-    damageContainers: 
+    damageContainers:
     - Biological
   - type: ShowHealthIcons
-    damageContainers: 
+    damageContainers:
     - Biological
 
 - type: entity
@@ -167,9 +167,9 @@
   description: A helmet for a MODsuit. A Nanotrasen mining suit for on-site operations, fit with accreting ash armor and a sphere form.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/mining.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/mining.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/mining.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/mining.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitMining
   - type: PointLight
@@ -184,9 +184,9 @@
   description: A helmet for a MODsuit. An advanced version of DeForest Medical Corporation's medical suit, designed for quick rescue of bodies from the most dangerous environments.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/rescue.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/rescue.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/rescue.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/rescue.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitRescue
 
@@ -197,9 +197,9 @@
   description: A helmet for a MODsuit. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/security.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/security.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/security.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/security.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitSecurity
   - type: FlashImmunity
@@ -213,9 +213,9 @@
   description: A helmet for a MODsuit. A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/standard.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/standard.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/standard.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/standard.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHandsModsuitStandard
   - type: PointLight
@@ -227,11 +227,11 @@
   name: captain modsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/capspace.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/capspace.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/capspace.rsi
-    equipSound: /Audio/Genesis/Items/ballin.ogg
-    unequipSound: /Audio/Genesis/Items/ballout.ogg
+    sprite: _Genesis/Clothing/Head/Modsuit/capspace.rsi
+    equipSound: /Audio/_Genesis/Items/ballin.ogg
+    unequipSound: /Audio/_Genesis/Items/ballout.ogg
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -240,11 +240,11 @@
   description: A helmet for a MODsuit. An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/engineering-white.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/engineering-white.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/engineering-white.rsi
-    equipSound: /Audio/Genesis/Items/ballin.ogg
-    unequipSound: /Audio/Genesis/Items/ballout.ogg
+    sprite: _Genesis/Clothing/Head/Modsuit/engineering-white.rsi
+    equipSound: /Audio/_Genesis/Items/ballin.ogg
+    unequipSound: /Audio/_Genesis/Items/ballout.ogg
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -271,11 +271,11 @@
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/rd.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/rd.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/rd.rsi
-    equipSound: /Audio/Genesis/Items/ballin.ogg
-    unequipSound: /Audio/Genesis/Items/ballout.ogg
+    sprite: _Genesis/Clothing/Head/Modsuit/rd.rsi
+    equipSound: /Audio/_Genesis/Items/ballin.ogg
+    unequipSound: /Audio/_Genesis/Items/ballout.ogg
 
 - type: entity
   parent: ClothingHeadHelmetModsuitBlueShield
@@ -284,9 +284,9 @@
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/inquisitor.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/inquisitor.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/inquisitor.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/inquisitor.rsi
   - type: PointLight
     color: "#ffffff"
   - type: ContainerContainer
@@ -304,9 +304,9 @@
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/security-warden.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/security-warden.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/security-warden.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/security-warden.rsi
 
 - type: entity
   parent: ClothingHeadHelmetModsuitSecurity
@@ -315,6 +315,6 @@
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Modsuit/security-red.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/security-red.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Modsuit/security-red.rsi
+    sprite: _Genesis/Clothing/Head/Modsuit/security-red.rsi

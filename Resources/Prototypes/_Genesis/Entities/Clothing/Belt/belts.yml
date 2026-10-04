@@ -5,9 +5,9 @@
   description: Universal unloading system for work in space.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/miningwebbing.rsi
+    sprite: _Genesis/Clothing/Belt/miningwebbing.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/miningwebbing.rsi
+    sprite: _Genesis/Clothing/Belt/miningwebbing.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -16,9 +16,9 @@
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/blueshieldwebbing.rsi
+    sprite: _Genesis/Clothing/Belt/blueshieldwebbing.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/blueshieldwebbing.rsi
+    sprite: _Genesis/Clothing/Belt/blueshieldwebbing.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -27,9 +27,9 @@
   description: Universal belt, can hold almost everything.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/universalslim.rsi
+    sprite: _Genesis/Clothing/Belt/universalslim.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/universalslim.rsi
+    sprite: _Genesis/Clothing/Belt/universalslim.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -38,9 +38,9 @@
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/blueshieldwebbingalt.rsi
+    sprite: _Genesis/Clothing/Belt/blueshieldwebbingalt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/blueshieldwebbingalt.rsi
+    sprite: _Genesis/Clothing/Belt/blueshieldwebbingalt.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -49,9 +49,9 @@
   description: Universal belt, can hold almost everything.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/jedi_belt.rsi
+    sprite: _Genesis/Clothing/Belt/jedi_belt.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/jedi_belt.rsi
+    sprite: _Genesis/Clothing/Belt/jedi_belt.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -60,9 +60,9 @@
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/jediwebbing.rsi
+    sprite: _Genesis/Clothing/Belt/jediwebbing.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/jediwebbing.rsi
+    sprite: _Genesis/Clothing/Belt/jediwebbing.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -71,6 +71,6 @@
   description: Unique and versatile chest rig for work in medbay.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Belt/cmowebbing.rsi
+    sprite: _Genesis/Clothing/Belt/cmowebbing.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Belt/cmowebbing.rsi
+    sprite: _Genesis/Clothing/Belt/cmowebbing.rsi

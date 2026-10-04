@@ -5,9 +5,9 @@
   description: "A warm and long coat with gold accents, showing who is really in charge."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Coats/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/centcom_consultant.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Coats/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/centcom_consultant.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -15,7 +15,7 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.7
-        Caustic: 0.75 
+        Caustic: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -26,9 +26,9 @@
   description: "A warm and long coat with gold accents, showing who is really in charge."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Coats/centcom.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/centcom.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Coats/centcom.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/centcom.rsi
 
 - type: entity
   parent: [ClothingOuterArmorBlueShield, ClothingOuterStorageBase]
@@ -37,6 +37,6 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/OuterClothing/Coats/blueshield_trenchcoat.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/blueshield_trenchcoat.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/OuterClothing/Coats/blueshield_trenchcoat.rsi
+    sprite: _Genesis/Clothing/OuterClothing/Coats/blueshield_trenchcoat.rsi

@@ -4,9 +4,9 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
   - type: Item
-    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
     size: Normal
   - type: GunWieldBonus
     minAngle: -43
@@ -41,7 +41,7 @@
     capacity: 1
     count: 1
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -81,7 +81,7 @@
   description: Fires low-damage kinetic bolts at a short range.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Basic/kinetic_accelerator_re.rsi
     layers:
     - state: gun
     - state: empty

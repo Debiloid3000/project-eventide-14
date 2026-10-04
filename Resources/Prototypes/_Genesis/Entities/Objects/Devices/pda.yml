@@ -5,7 +5,7 @@
   description: Surprisingly no different from your PDA.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
   - type: Pda
     id: BlueShieldIDCard
     penSlot:
@@ -18,7 +18,7 @@
     borderColor: "#1E1E32"
     accentHColor: "#2851A4"
   - type: Icon
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
     state: pda-blueshield
 
 - type: entity
@@ -28,7 +28,7 @@
   description: Light green sign of walking bureaucracy.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
   - type: Pda
     id: CentcomConsultantIDCard
     penSlot:
@@ -42,7 +42,7 @@
     accentHColor: "#dfc910"
     accentVColor: "#dfc910"
   - type: Icon
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
     state: pda-centcom
 
 - type: entity
@@ -52,7 +52,7 @@
   description: Corporation and profit are best friends.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
   - type: Pda
     id: MagistratIDCard
     penSlot:
@@ -65,7 +65,7 @@
     borderColor: "#6f6192"
     accentHColor: "#2851A4"
   - type: Icon
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
     state: pda-magistrat
 
 - type: entity
@@ -92,13 +92,13 @@
   description: Just a PDA.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
   - type: Pda
     id: SeniorSalvageIDCard
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
     state: pda-seniorsalvage
 
 - type: entity
@@ -122,14 +122,14 @@
   description: Smells like ash.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
   - type: Pda
     id: MinerIDCard
   - type: PdaBorderColor
     borderColor: "#af9366"
     accentVColor: "#8900c9"
   - type: Icon
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
     state: pda-mining
 
 - type: entity
@@ -139,14 +139,14 @@
   description: Smells like power.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
   - type: Pda
     id: JediNTIDCard
   - type: PdaBorderColor
     borderColor: "#808080"
     accentVColor: "#ffffff"
   - type: Icon
-    sprite: Genesis/Objects/Devices/pda.rsi
+    sprite: _Genesis/Objects/Devices/pda.rsi
     state: pda-jedint
 
 - type: entity

@@ -14,7 +14,7 @@
   name: security module cyborg
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Specific/Robotics/borgmodule.rsi
+    sprite: _Genesis/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: sec
     - state: sec-icon

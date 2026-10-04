@@ -5,7 +5,7 @@
   description: Nevermind the pickaxe.
   components:
   - type: Sprite
-    sprite: Genesis/Structures/Storage/closet.rsi
+    sprite: _Genesis/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: blueshield
@@ -21,7 +21,7 @@
   description: An expensive version of the regular Nanotrasen storage locker.
   components:
   - type: Sprite
-    sprite: Genesis/Structures/Storage/closet.rsi
+    sprite: _Genesis/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: cc
@@ -37,7 +37,7 @@
   description: An expensive version of the regular Nanotrasen storage locker.
   components:
   - type: Sprite
-    sprite: Genesis/Structures/Storage/closet.rsi
+    sprite: _Genesis/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: ccc
@@ -53,7 +53,7 @@
   description: Nevermind the pickaxe.
   components:
   - type: Sprite
-    sprite: Genesis/Structures/Storage/closet.rsi
+    sprite: _Genesis/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: comsalvage
@@ -69,7 +69,7 @@
   description: Nevermind the pickaxe.
   components:
   - type: Sprite
-    sprite: Genesis/Structures/Storage/closet.rsi
+    sprite: _Genesis/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: shaftminer
@@ -85,7 +85,7 @@
   description: Nevermind the pickaxe.
   components:
   - type: Sprite
-    sprite: Genesis/Structures/Storage/closet.rsi
+    sprite: _Genesis/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: jedi_nt

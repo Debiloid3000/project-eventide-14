@@ -12,7 +12,7 @@
             - tag: SyndieMinerArmor
               name: construction-graph-tag-miner-armor-syndie
               icon:
-                sprite: Genesis/Clothing/OuterClothing/Armor/miner_red.rsi
+                sprite: _Genesis/Clothing/OuterClothing/Armor/miner_red.rsi
                 state: icon
               doAfter: 1
     - node: armorsyndieminerheavy

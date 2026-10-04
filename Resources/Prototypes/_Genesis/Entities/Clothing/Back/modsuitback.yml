@@ -6,7 +6,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/standard.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/standard.rsi
     state: icon
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyStandard
@@ -30,10 +30,10 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/blueshield.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/blueshield.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyBlueShield
-    
+
 # Security
 - type: entity
   parent: ClothingModsuitBackBase
@@ -42,7 +42,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/security.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/security.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodySecurity
 
@@ -54,7 +54,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/atmospheric.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/atmospheric.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyAtmospheric
 
@@ -65,7 +65,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An engineer-fit suit with heat and shock resistance. Nakamura Engineering's classic.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/engineering.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/engineering.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyEngineering
 
@@ -77,7 +77,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An advanced version of DeForest Medical Corporation's medical suit, designed for quick rescue of bodies from the most dangerous environments.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/rescue.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/rescue.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyRescue
 
@@ -88,7 +88,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. A lightweight suit by DeForest Medical Corporation, allows for easier movement.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/medical.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/medical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyMedical
 
@@ -100,7 +100,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. A Nanotrasen mining suit for on-site operations, fit with accreting ash armor and a sphere form.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/mining.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/mining.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyMining
 
@@ -112,7 +112,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/standard.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/standard.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyStandard
 
@@ -123,7 +123,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. A suit by Honk Ltd. Protects against low humor environments. Most of the tech went to lower the power cost.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/clown.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/clown.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyClown
 
@@ -140,7 +140,7 @@
     grid:
     - 0,0,19,9
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/admin.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/admin.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyAdmin
 
@@ -156,7 +156,7 @@
     grid:
     - 0,0,15,5
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/chrono.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/chrono.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyChrono
 
@@ -170,7 +170,7 @@
     grid:
     - 0,0,10,3
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/corp.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/corp.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyCorp
 
@@ -182,7 +182,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/cap.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/cap.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyCaptain
 
@@ -194,7 +194,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. A lightweight suit by DeForest Medical Corporation, allows for easier movement.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/ce.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/ce.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyCE
 
@@ -206,7 +206,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/rd.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/rd.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyRD
 
@@ -218,7 +218,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/inquisitor.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/inquisitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodyInquisitor
 
@@ -230,7 +230,7 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/security.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/security.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodySecurityWarden
 
@@ -242,6 +242,6 @@
   description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments. An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Modsuit/security.rsi
+    sprite: _Genesis/Clothing/Back/Modsuit/security.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterModsuitBodySecurityRed

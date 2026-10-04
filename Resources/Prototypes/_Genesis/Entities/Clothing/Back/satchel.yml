@@ -5,7 +5,7 @@
   description: An exclusive satchel for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Satchels/blueshield.rsi
+    sprite: _Genesis/Clothing/Back/Satchels/blueshield.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -14,7 +14,7 @@
   description: An exclusive satchel for CentCom officers.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Satchels/centcom.rsi
+    sprite: _Genesis/Clothing/Back/Satchels/centcom.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -23,4 +23,4 @@
   description: An exclusive satchel for Jedies NT.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Satchels/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Back/Satchels/jedi_nt.rsi

@@ -1,5 +1,5 @@
 - type: gameMap
-  id: CentCommGenesis
+  id: CentComm_Genesis
   mapName: 'Central Command'
   isGrid: true # Did you know that centcomm is the only "game map" that isn't actually a map? Send help.
   mapPath: /Maps/_Genesis/centcomm.yml

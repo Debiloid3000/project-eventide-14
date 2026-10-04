@@ -7,7 +7,7 @@
   - type: Item
     size: Normal
   - type: Sprite
-    sprite: Genesis/Objects/Misc/specialdelivery.rsi
+    sprite: _Genesis/Objects/Misc/specialdelivery.rsi
     layers:
       - state: specialdelivery
   - type: SpawnItemsOnUse
@@ -25,7 +25,7 @@
         orGroup: HotMask
       - id: ClothingHeadHatTony
         orGroup: HotMask
-        
+
 - type: entity
   id: SpecialDeliveryBoxTrash
   parent: BaseItem
@@ -36,7 +36,7 @@
     materialComposition:
       Cardboard: 50
   - type: Sprite
-    sprite: Genesis/Objects/Misc/specialdelivery.rsi
+    sprite: _Genesis/Objects/Misc/specialdelivery.rsi
     state: specialdelivery_unfolded
   - type: Tag
     tags:

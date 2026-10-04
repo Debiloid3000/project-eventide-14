@@ -35,9 +35,9 @@
   id: ClothingShoesBootsJackBlueShield
   components:
     - type: Sprite
-      sprite: Genesis/Clothing/Shoes/Boots/jackboots_blueshield.rsi
+      sprite: _Genesis/Clothing/Shoes/Boots/jackboots_blueshield.rsi
     - type: Clothing
-      sprite: Genesis/Clothing/Shoes/Boots/jackboots_blueshield.rsi
+      sprite: _Genesis/Clothing/Shoes/Boots/jackboots_blueshield.rsi
     - type: Armor
       modifiers:
         coefficients:

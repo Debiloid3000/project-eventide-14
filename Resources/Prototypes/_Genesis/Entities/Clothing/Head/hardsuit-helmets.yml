@@ -5,9 +5,9 @@
   name: blueshield hardsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/blueshield.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/blueshield.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/blueshield.rsi
   - type: PointLight
     color: cyan  # old color "#ffffff", old too "#6088FF"
 
@@ -18,9 +18,9 @@
   name: inqusitory hardsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/inquisitoryhead.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/inquisitoryhead.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/inquisitoryhead.rsi
   - type: PointLight
     color: "#ffffff"
 
@@ -32,9 +32,9 @@
   description: A special helmet quatermaster.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/kmsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/kmsuit.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/kmsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/kmsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -50,9 +50,9 @@
   description: Special Carporate space helmet made for various situations with a good flashlight of the NanoTraisen loyalist.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/centcom_corparat.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/centcom_corparat.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/centcom_corparat.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/centcom_corparat.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -76,9 +76,9 @@
   description: Lightweight hardsuit helmet that doesn't restrict your head movements.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/seniorsalvage.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/seniorsalvage.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/seniorsalvage.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/seniorsalvage.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
@@ -97,9 +97,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeam.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeam.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeam.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeam.rsi
   - type: PointLight
     color: cyan
 
@@ -110,9 +110,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamMedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamMedic.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamMedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamMedic.rsi
   - type: PointLight
     color: cyan
 
@@ -123,10 +123,10 @@
   name: special force hardsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/specialforce.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/specialforce.rsi
   - type: Clothing
     equippedPrefix: off
-    sprite: Genesis/Clothing/Head/Hardsuits/specialforce.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/specialforce.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitRTULeader
@@ -135,9 +135,9 @@
   description: A rescue troop unit helmet designed specifically for combat in space and the harsh far-off worlds.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitRTULeader
@@ -145,9 +145,9 @@
   name: RTU hardsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitRTULeader
@@ -155,9 +155,9 @@
   name: RTU hardsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -165,10 +165,10 @@
   name: RTU hardsuit helmet
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
   - type: Clothing
     equippedPrefix: off
-    sprite: Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -177,9 +177,9 @@
   description: A marine helmet designed specifically for combat in space and the harsh far-off worlds.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/marinehardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/marinehardsuit.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/marinehardsuit.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/marinehardsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 10000
@@ -200,9 +200,9 @@
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndicate.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndicate.rsi #backmen resprite
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndicate.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndicate.rsi #backmen resprite
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -224,9 +224,9 @@
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndieelite.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndieelite.rsi #backmen resprite
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndieelite.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndieelite.rsi #backmen resprite
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -253,9 +253,9 @@
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndiecommander.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndiecommander.rsi #backmen resprite
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndiecommander.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/syndiecommander.rsi #backmen resprite
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -277,9 +277,9 @@
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/cybersun.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/cybersun.rsi #backmen resprite
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/cybersun.rsi #backmen resprite
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Backmen/cybersun.rsi #backmen resprite
   - type: PointLight # Corvax-Resprite
     color: red
   - type: PressureProtection
@@ -302,9 +302,9 @@
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndicate.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndicate.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndicate.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndicate.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -326,9 +326,9 @@
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiemedic.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -350,9 +350,9 @@
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndieelite.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndieelite.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndieelite.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndieelite.rsi
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -379,9 +379,9 @@
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/syndiecommander.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -403,9 +403,9 @@
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/cybersun.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/cybersun.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/cybersun.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/Corvax/cybersun.rsi
   - type: PointLight # Corvax-Resprite
     color: red
   - type: PressureProtection
@@ -428,9 +428,9 @@
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndicate.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndicate.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndicate.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndicate.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -452,9 +452,9 @@
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiemedic.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -476,9 +476,9 @@
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndieelite.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndieelite.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndieelite.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndieelite.rsi
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -505,9 +505,9 @@
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/SunRise/syndiecommander.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -530,9 +530,9 @@
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndicate.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndicate.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndicate.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndicate.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -554,9 +554,9 @@
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiemedic.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -578,9 +578,9 @@
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/NukeOps/XenoStation/syndiecommander.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -604,9 +604,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/AlphaSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/AlphaSquad/ertspecial.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/AlphaSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/AlphaSquad/ertspecial.rsi
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -626,9 +626,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertleader.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertleader.rsi
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -647,9 +647,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertengineer.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
   - type: Armor
@@ -668,9 +668,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertmedical.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
 
@@ -682,9 +682,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertsecurity.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -703,9 +703,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertjanitor.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
 
@@ -717,9 +717,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertspecial.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertspecial.rsi
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -739,9 +739,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertleader.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertleader.rsi
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -760,9 +760,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertengineer.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
   - type: Armor
@@ -781,9 +781,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertmedical.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
 
@@ -795,9 +795,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertsecurity.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -816,9 +816,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertjanitor.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
 
@@ -830,7 +830,7 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertspecial.rsi
     layers:
     - state: icon
     - state: icon-unshaded
@@ -848,7 +848,7 @@
       - state: equipped-head-light
         shader: unshaded
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/BravoSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertspecial.rsi
     clothingVisuals:
       head:
       - state: equipped-head
@@ -873,9 +873,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertleader.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertleader.rsi
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -894,9 +894,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertengineer.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
   - type: Armor
@@ -915,9 +915,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertmedical.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
 
@@ -929,9 +929,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertsecurity.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -950,9 +950,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertjanitor.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
 
@@ -964,9 +964,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertspecial.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertspecial.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertspecial.rsi
   - type: PointLight
     color: "#ffffff"
   - type: Armor
@@ -986,9 +986,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertleader.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertleader.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertleader.rsi
   - type: PointLight
     color: "#addbff"
   - type: Armor
@@ -1007,9 +1007,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertengineer.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertengineer.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
   - type: Armor
@@ -1028,9 +1028,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertmedical.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertmedical.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
 
@@ -1042,9 +1042,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertsecurity.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertsecurity.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
   - type: Armor
@@ -1063,9 +1063,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/ERTSuits/ertjanitor.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
 
@@ -1078,9 +1078,9 @@
   description: Special hardsuit helmet phase 1, made for the republic clones.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -1100,9 +1100,9 @@
   description: Special hardsuit helmet phase 2, made for the republic clones.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
 
 #Stormtrooper Hardsuit
 - type: entity
@@ -1112,6 +1112,6 @@
   description: Special hardsuit helmet, made for the imperial stormtrooper.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hardsuits/StarWars/storm.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/storm.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hardsuits/StarWars/storm.rsi
+    sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/storm.rsi

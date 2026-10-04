@@ -5,9 +5,9 @@
   description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/blueshield.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/blueshield.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/blueshield.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -16,9 +16,9 @@
   description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/blueshield_turtleneck.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/blueshield_turtleneck.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/blueshield_turtleneck.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/blueshield_turtleneck.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -27,9 +27,9 @@
   description: "A green jumpskirt with gold accents, and wide shoulder pads, for those who like to show off their real power."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -38,9 +38,9 @@
   description: "The formal jumpskirt of the most important representative on the station. It clearly suits you, sir."
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant_formal.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant_formal.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant_formal.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/centcom_consultant_formal.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -49,6 +49,6 @@
   description: That's the beauty of corporate life, stylish suits with a skirt to match!
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+    sprite: _Genesis/Clothing/Uniforms/Jumpskirt/centcom_official.rsi

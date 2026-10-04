@@ -5,7 +5,7 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: single_curved
 
 - type: marking
@@ -15,7 +15,7 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: single_left_curved
 
 - type: marking
@@ -25,7 +25,7 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: single_right_curved
 
 - type: marking
@@ -35,7 +35,7 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: double_curved_outwards
 
 - type: marking
@@ -45,7 +45,7 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: double_curved
 
 - type: marking
@@ -55,7 +55,7 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: double_left_broke_curved
 
 - type: marking
@@ -65,5 +65,5 @@
   forcedColoring: false
   speciesRestriction: [Human]
   sprites:
-  - sprite: Genesis/Mobs/Customization/oni_horns.rsi
+  - sprite: _Genesis/Mobs/Customization/oni_horns.rsi
     state: double_right_broke_curved

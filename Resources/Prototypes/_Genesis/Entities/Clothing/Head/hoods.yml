@@ -5,6 +5,6 @@
   description: An expensive hood, to keep the blueshield's head warm.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Head/Hoods/Coat/hoodblueshield.rsi
+    sprite: _Genesis/Clothing/Head/Hoods/Coat/hoodblueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Head/Hoods/Coat/hoodblueshield.rsi
+    sprite: _Genesis/Clothing/Head/Hoods/Coat/hoodblueshield.rsi

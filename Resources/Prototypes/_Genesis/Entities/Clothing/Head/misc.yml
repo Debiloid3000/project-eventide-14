@@ -5,9 +5,9 @@
   description: Who invited all these idiots?
   components:
    - type: Sprite
-     sprite: Genesis/Clothing/Head/Misc/alex.rsi
+     sprite: _Genesis/Clothing/Head/Misc/alex.rsi
    - type: Clothing
-     sprite: Genesis/Clothing/Head/Misc/alex.rsi
+     sprite: _Genesis/Clothing/Head/Misc/alex.rsi
    - type: IngestionBlocker
    - type: IdentityBlocker
 
@@ -18,9 +18,9 @@
   description: Damn what kind of disrespect!
   components:
    - type: Sprite
-     sprite: Genesis/Clothing/Head/Misc/jake.rsi
+     sprite: _Genesis/Clothing/Head/Misc/jake.rsi
    - type: Clothing
-     sprite: Genesis/Clothing/Head/Misc/jake.rsi
+     sprite: _Genesis/Clothing/Head/Misc/jake.rsi
    - type: IngestionBlocker
    - type: IdentityBlocker
 
@@ -31,9 +31,9 @@
   description: I don't know you! Why are you here? I didn't invite you.
   components:
    - type: Sprite
-     sprite: Genesis/Clothing/Head/Misc/rasmus.rsi
+     sprite: _Genesis/Clothing/Head/Misc/rasmus.rsi
    - type: Clothing
-     sprite: Genesis/Clothing/Head/Misc/rasmus.rsi
+     sprite: _Genesis/Clothing/Head/Misc/rasmus.rsi
    - type: IngestionBlocker
    - type: IdentityBlocker
 
@@ -44,9 +44,9 @@
   description: Ahh, there you are! And I kept wondering, when will you come back?
   components:
    - type: Sprite
-     sprite: Genesis/Clothing/Head/Misc/richter.rsi
+     sprite: _Genesis/Clothing/Head/Misc/richter.rsi
    - type: Clothing
-     sprite: Genesis/Clothing/Head/Misc/richter.rsi
+     sprite: _Genesis/Clothing/Head/Misc/richter.rsi
    - type: IngestionBlocker
    - type: IdentityBlocker
 
@@ -57,8 +57,8 @@
   description: Dude, this party sucks. I hate these people.
   components:
    - type: Sprite
-     sprite: Genesis/Clothing/Head/Misc/tony.rsi
+     sprite: _Genesis/Clothing/Head/Misc/tony.rsi
    - type: Clothing
-     sprite: Genesis/Clothing/Head/Misc/tony.rsi
+     sprite: _Genesis/Clothing/Head/Misc/tony.rsi
    - type: IngestionBlocker
    - type: IdentityBlocker

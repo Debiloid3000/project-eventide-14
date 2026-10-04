@@ -5,10 +5,10 @@
 #  description: Camera
 #  components:
 #  - type: Item
-#    sprite: Genesis/Entities/Objects/Devices/handheld_camera.rsi
+#    sprite: _Genesis/Entities/Objects/Devices/handheld_camera.rsi
 #  - type: Sprite
 #    state: icon
-#    sprite: Genesis/Entities/Objects/Devices/handheld_camera.rsi
+#    sprite: _Genesis/Entities/Objects/Devices/handheld_camera.rsi
 #  - type: Clothing
 #    quickEquip: true
 #    slots:

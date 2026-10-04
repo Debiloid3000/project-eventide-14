@@ -45,7 +45,7 @@
       types:
         Blunt: 4.5
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Melee/e_sword_ebent_double.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/e_sword_ebent_double.rsi
     layers:
       - state: e_sword_double
       - state: e_sword_double_blade
@@ -55,7 +55,7 @@
         map: [ "blade" ]
   - type: Item
     size: Small
-    sprite: Genesis/Objects/Weapons/Melee/e_sword_ebent_inhands_double.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/e_sword_ebent_inhands_double.rsi
   - type: Reflect
     reflectProb: .75
     spread: 75
@@ -114,7 +114,7 @@
             Heat: 15
             Structural: 20
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Melee/e_sword_kylo.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/e_sword_kylo.rsi
     layers:
       - state: e_sword
       - state: e_sword_blade
@@ -130,7 +130,7 @@
         Blunt: 4.5
   - type: Item
     size: Small
-    sprite: Genesis/Objects/Weapons/Melee/e_sword_kylo_inhands.rsi
+    sprite: _Genesis/Objects/Weapons/Melee/e_sword_kylo_inhands.rsi
   - type: UseDelay
     delay: 1.0
   - type: PointLight

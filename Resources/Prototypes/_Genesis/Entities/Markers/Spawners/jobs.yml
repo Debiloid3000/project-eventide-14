@@ -6,7 +6,7 @@
   - type: SpawnPoint
     job_id: BlueShield
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: blueshield
@@ -19,7 +19,7 @@
   - type: SpawnPoint
     job_id: CentComConsultant
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: consultant
@@ -32,7 +32,7 @@
   - type: SpawnPoint
     job_id: CentComOfficial
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -45,7 +45,7 @@
   - type: SpawnPoint
     job_id: HeadOfStaffCentCom
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -58,7 +58,7 @@
   - type: SpawnPoint
     job_id: CentComOperator
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcomoperator
@@ -71,7 +71,7 @@
   - type: SpawnPoint
     job_id: Magistrat
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: magistrat
@@ -84,7 +84,7 @@
   - type: SpawnPoint
     job_id: SeniorEngineer
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: seniorengineer
@@ -97,7 +97,7 @@
   - type: SpawnPoint
     job_id: SeniorPhysician
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: seniorphysician
@@ -122,7 +122,7 @@
   - type: SpawnPoint
     job_id: SeniorOfficer
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: seniorofficer
@@ -135,7 +135,7 @@
   - type: SpawnPoint
     job_id: SeniorSalvage
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: seniorsalvage
@@ -148,7 +148,7 @@
   - type: SpawnPoint
     job_id: Miner
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: miner
@@ -173,7 +173,7 @@
   - type: SpawnPoint
     job_id: JediNT
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: jedint
@@ -198,7 +198,7 @@
   - type: SpawnPoint
     job_id: CentralCommandAssistant
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -211,7 +211,7 @@
   - type: SpawnPoint
     job_id: CentralCommandSecurityOfficer
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -224,7 +224,7 @@
   - type: SpawnPoint
     job_id: CentralCommandCargoTechnician
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -237,7 +237,7 @@
   - type: SpawnPoint
     job_id: HeadOfSecurityCentCom
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -250,7 +250,7 @@
   - type: SpawnPoint
     job_id: CentralCommandMedicalDoctor
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember
@@ -263,7 +263,7 @@
   - type: SpawnPoint
     job_id: CentralCommandEngineer
   - type: Sprite
-    sprite: Genesis/Markers/jobs.rsi
+    sprite: _Genesis/Markers/jobs.rsi
     layers:
       - state: green
       - state: centcommember

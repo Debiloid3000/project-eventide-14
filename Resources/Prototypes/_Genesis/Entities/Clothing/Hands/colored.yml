@@ -5,9 +5,9 @@
   description: Heavy duty gloves for firefighters. These are thick, non-flammable and let you carry people faster.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Hands/Gloves/atmos.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/atmos.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Hands/Gloves/atmos.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/atmos.rsi
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -21,9 +21,9 @@
   description: These gloves provide excellent heat and electric insulation. They are so thin you can barely feel them.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Hands/Gloves/ce.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/ce.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Hands/Gloves/ce.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/ce.rsi
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -37,9 +37,9 @@
   description: Tactical blueshield gloves, every self-respecting blueshield officer should be able to discreetly eliminate his goals.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Hands/Gloves/blueshield.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/blueshield.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Hands/Gloves/blueshield.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/blueshield.rsi
 
 - type: entity
   parent: ClothingHandsGlovesCombat
@@ -48,6 +48,6 @@
   description: Tactical security gloves, every self-respecting security officer should be able to discreetly eliminate his goals.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Hands/Gloves/security.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/security.rsi
   - type: Clothing
-    sprite: Genesis/Clothing/Hands/Gloves/security.rsi
+    sprite: _Genesis/Clothing/Hands/Gloves/security.rsi

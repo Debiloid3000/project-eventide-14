@@ -4,7 +4,7 @@
   name: blueshield ID card
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Misc/id_cards.rsi
+    sprite: _Genesis/Objects/Misc/id_cards.rsi
     layers:
     - state: blue
     - state: idblueshield
@@ -30,7 +30,7 @@
   name: magistrat ID card
   components:
     - type: Sprite
-      sprite: Genesis/Objects/Misc/id_cards.rsi
+      sprite: _Genesis/Objects/Misc/id_cards.rsi
       layers:
         - state: silver
         - state: idmagistrat
@@ -55,7 +55,7 @@
   name: senior salvage ID card
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Misc/id_cards.rsi
+    sprite: _Genesis/Objects/Misc/id_cards.rsi
     layers:
     - state: default
     - state: idseniorshaft
@@ -68,7 +68,7 @@
   name: senior service ID card
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Misc/id_cards.rsi
+    sprite: _Genesis/Objects/Misc/id_cards.rsi
     layers:
     - state: default
     - state: idseniorservice
@@ -93,7 +93,7 @@
   name: jedi nt ID card
   components:
     - type: Sprite
-      sprite: Genesis/Objects/Misc/id_cards.rsi
+      sprite: _Genesis/Objects/Misc/id_cards.rsi
       layers:
         - state: silver
         - state: idjedint

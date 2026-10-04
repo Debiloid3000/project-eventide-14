@@ -6,7 +6,7 @@
   description: A hand-held crew monitor displaying the status of wanted persons on station.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Specific/handheldcriminalrecordsmonitor.rsi
+    sprite: _Genesis/Objects/Specific/handheldcriminalrecordsmonitor.rsi
     state: monitor
   - type: CriminalRecordsConsole
   - type: UserInterface

@@ -5,9 +5,9 @@
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Genesis/Objects/Weapons/Guns/Revolvers/rsh18.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Revolvers/rsh18.rsi
   - type: Clothing
-    sprite: Genesis/Objects/Weapons/Guns/Revolvers/rsh18.rsi
+    sprite: _Genesis/Objects/Weapons/Guns/Revolvers/rsh18.rsi
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -17,4 +17,4 @@
   - type: Gun
     fireRate: 3
     soundGunshot:
-      path: /Audio/Genesis/Weapons/Guns/GunShots/rsh18.ogg
+      path: /Audio/_Genesis/Weapons/Guns/GunShots/rsh18.ogg

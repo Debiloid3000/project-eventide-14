@@ -5,7 +5,7 @@
   description: It's a special backpack made exclusively for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Backpacks/blueshield.rsi
+    sprite: _Genesis/Clothing/Back/Backpacks/blueshield.rsi
 
 - type: entity
   parent: ClothingBackpack
@@ -14,7 +14,7 @@
   description: This is a special backpack designed exclusively for representatives of the Central Command.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Backpacks/centcom.rsi
+    sprite: _Genesis/Clothing/Back/Backpacks/centcom.rsi
 
 - type: entity
   parent: ClothingBackpack
@@ -23,4 +23,4 @@
   description: It's a special backpack made exclusively for Jedies NT.
   components:
   - type: Sprite
-    sprite: Genesis/Clothing/Back/Backpacks/jedi_nt.rsi
+    sprite: _Genesis/Clothing/Back/Backpacks/jedi_nt.rsi
