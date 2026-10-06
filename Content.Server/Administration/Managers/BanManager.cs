@@ -168,7 +168,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
 
-        KickMatchingConnectedPlayers(banDef, "newly placed ban");
+        await KickMatchingConnectedPlayers(banDef, "newly placed ban");
     }
 
     private NoteSeverity GetSeverityForServerBan(CreateBanInfo banInfo, CVarDef<string> defaultCVar)
@@ -183,13 +183,17 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         return NoteSeverity.None;
     }
 
-    private void KickMatchingConnectedPlayers(BanDef def, string source)
+    private async Task KickMatchingConnectedPlayers(BanDef def, string source)
     {
+        var adminName = def.BanningAdmin is { } adminId
+            ? (await _db.GetPlayerRecordByUserId(adminId))?.LastSeenUserName ?? Loc.GetString("system-user")
+            : Loc.GetString("system-user");
+
         foreach (var player in _playerManager.Sessions)
         {
             if (BanMatchesPlayer(player, def))
             {
-                KickForBanDef(player, def);
+                KickForBanDef(player, def, adminName);
                 _sawmill.Info($"Kicked player {player.Name} ({player.UserId}) through {source}");
             }
         }
@@ -212,9 +216,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         return BanMatcher.BanMatches(ban, playerInfo);
     }
 
-    private void KickForBanDef(ICommonSession player, BanDef def)
+    private void KickForBanDef(ICommonSession player, BanDef def, string adminName)
     {
-        var message = def.FormatBanMessage(_cfg, _localizationManager);
+        var message = def.FormatBanMessage(_cfg, _localizationManager, adminName);
         player.Channel.Disconnect(message);
     }
 

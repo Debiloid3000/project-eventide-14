@@ -276,6 +276,9 @@ namespace Content.Server.GameTicking
 
             DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName);
 
+            if (jobPrototype.AlwaysUseSpawner)
+                lateJoin = false;
+
             if (lateJoin && !silent)
             {
                 if (jobPrototype.JoinNotifyCrew)

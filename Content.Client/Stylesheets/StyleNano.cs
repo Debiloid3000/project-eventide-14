@@ -71,12 +71,12 @@ namespace Content.Client.Stylesheets
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
         public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
-        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
-        public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
-        public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#30313c");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#29282f");
+        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#992327");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#3f3d48");
+        public static readonly Color ButtonColorHoveredRed = Color.FromHex("#4D5D53");
+        public static readonly Color ButtonColorPressed = Color.FromHex("#0f0f0f");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#0f0f0f");
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
@@ -1097,9 +1097,17 @@ namespace Content.Client.Stylesheets
                     .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat(Color.FromHex("#25252A"))),
 
                 // Different Background shapes ---
+                Element<PanelContainer>().Class("LowDivider")
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
+                    {
+                        BackgroundColor = Color.FromHex("#25252A"),
+                        ContentMarginLeftOverride = 2,
+                        ContentMarginBottomOverride = 2
+                    }),
+
                 Element<PanelContainer>().Class(ClassAngleRect)
                     .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252A")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#0f0f0f")),
 
                 Element<PanelContainer>().Class("BackgroundOpenRight")
                     .Prop(PanelContainer.StylePropertyPanel, BaseButtonOpenRight)
@@ -1343,7 +1351,7 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>().Class("InsetBackground")
                     .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
                     {
-                        BackgroundColor = Color.FromHex("#202023"),
+                        BackgroundColor = Color.FromHex("#663399"),
                     }),
 
                 // Default fancy window border styles
