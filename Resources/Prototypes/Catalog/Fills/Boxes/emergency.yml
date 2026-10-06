@@ -16,6 +16,8 @@
   name: O2 survival box
   description: A small box containing a breath mask, an emergency oxygen tank, and an emergency medipen. Standard-issue for most oxygen-breathing crew.
   components:
+  - type: Item
+    size: Large
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -246,6 +248,10 @@
   name: syndicate O2 survival box
   description: A Syndicate-designed survival box containing a syndicate gas mask, an extended-capacity emergency oxygen tank, an emergency medipen, an emergency flare, and a bit of food.
   components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector

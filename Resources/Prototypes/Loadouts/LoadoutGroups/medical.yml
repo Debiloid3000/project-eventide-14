@@ -23,6 +23,14 @@
   - MedicalWinterBoots
 
 - type: loadoutGroup
+  id: MedicalGloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
   id: SurvivalMedical
   name: loadout-group-survival-medical
   minLimit: 2

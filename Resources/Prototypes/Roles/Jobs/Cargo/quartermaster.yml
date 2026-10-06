@@ -46,9 +46,11 @@
     ears: ClothingHeadsetQM
     belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
+    pocket2: BoxFolderClipboard
   storage:
     back:
     - Flash
+    - TelescopicBaton
 
 - type: chameleonOutfit
   id: QuartermasterChameleonOutfit

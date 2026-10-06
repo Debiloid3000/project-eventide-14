@@ -40,6 +40,12 @@
   equipment:
     head: ClothingHeadNurseHat
 
+# Gloves
+- type: loadout
+  id: NitrileGloves
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
 # Jumpsuit
 - type: loadout
   id: MedicalDoctorJumpsuit

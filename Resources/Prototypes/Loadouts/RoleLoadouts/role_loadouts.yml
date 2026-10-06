@@ -256,6 +256,8 @@
   - CargoTechnicianBackpack
   - QuartermasterOuterClothing
   - QuartermasterShoes
+  - CargoGloves
+  - CargoBelt
   - Glasses
   - AssistiveItems
   - Survival
@@ -271,6 +273,8 @@
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
+  - CargoGloves
+  - CargoBelt
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - CargoTechnicianID
@@ -286,9 +290,13 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - SalvageSpecialistHead
+  - SalvageSpecialistJumpsuit
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
+  - CargoGloves
+  - SalvageSpecialistBelt
   - Glasses
   - AssistiveItems
   - Survival
@@ -308,6 +316,7 @@
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
+  - ChiefEngineerGloves
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -319,8 +328,11 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - StationEngineerHead
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - StationEngineerOuterClothing
+  - StationEngineerShoes
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -338,6 +350,7 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
+  - EngineeringGloves
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -353,6 +366,7 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - AtmosGloves
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -368,7 +382,7 @@
   - ResearchDirectorHead
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
-  - ScientistBackpack
+  - ResearchDirecctorBackpack
   - ResearchDirectorOuterClothing
   - ScientistGloves
   - ResearchDirectorShoes
@@ -406,6 +420,11 @@
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
+  - ScientistHead
+  - ScientistNeck
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
   - Glasses
   - AssistiveItems
   - Survival
@@ -421,10 +440,13 @@
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
-  - SecurityBackpack
+  - HeadOfSecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+  - SecurityGloves
+  - SecurityOfficerPocket
+  - SecurityOfficerPocket2
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
@@ -437,10 +459,13 @@
   - Inventory # Corvax-Loadouts
   - WardenHead
   - WardenJumpsuit
-  - SecurityBackpack
+  - WardenBackpack
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  - SecurityGloves
+  - SecurityPocket
+  - SecurityPocket2
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
@@ -456,8 +481,11 @@
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
+  - SecurityGloves
   - SecurityPDA
   - SecurityBelt
+  - SecurityPocket
+  - SecurityPocket2
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
@@ -485,7 +513,13 @@
   groups:
   - Inventory # Corvax-Loadouts
   - SecurityCadetJumpsuit
+  - SecurityHead
   - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityCadetGloves
+  - SecurityShoes
+  - SecurityBelt
+  - SecurityJobTrinkets
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets

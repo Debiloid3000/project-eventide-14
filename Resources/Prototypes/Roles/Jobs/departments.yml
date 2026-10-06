@@ -7,6 +7,8 @@
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
+  - SeniorSalvage
+  - Miner
 
 - type: department
   id: CentralCommand
@@ -15,8 +17,18 @@
   color: "#0c344d"
   weight: 120 # Highest weight of all NT departments; Central Command's authority is absolute
   editorHidden: true
+  primary: false
   roles:
   - CentralCommandOfficial
+  - HeadOfStaffCentCom
+  - CentComOfficial
+  - CentComOperator
+  - HeadOfSecurityCentCom
+  - CentralCommandSecurityOfficer
+  - CentralCommandMedicalDoctor
+  - CentralCommandEngineer
+  - CentralCommandAssistant
+  - CentralCommandCargoTechnician
 
 - type: department
   id: Civilian
@@ -28,6 +40,8 @@
   roles:
   - Passenger
   - Visitor
+  - SeniorService
+  - Prisoner
 
 - type: department
   id: Command
@@ -44,6 +58,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  - Magistrate
 
 - type: department
   id: Engineering
@@ -80,6 +95,7 @@
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - Roboticist
   - SeniorResearcher # Corvax-MentorRoles
 
 - type: department
@@ -158,4 +174,5 @@
   - Psychologist
   - TramDriver
   - Pilot # Corvax-Pilot
+  - Prisoner
   primary: false

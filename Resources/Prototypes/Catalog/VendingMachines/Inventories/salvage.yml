@@ -10,5 +10,7 @@
     RadioHandheld: 2
     WeaponGrapplingGun: 4
     WeaponProtoKineticAccelerator: 4
+    ClothingBeltMiningWebbing: 3
+    ClothingBeltSalvageWebbing: 3
   contrabandInventory:
     PlushieCarp: 1

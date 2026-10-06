@@ -152,6 +152,8 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  - type: CanEscapeInventory
+  - type: Carriable
 
 - type: entity
   abstract: true

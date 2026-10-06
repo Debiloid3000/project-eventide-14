@@ -25,6 +25,7 @@
   id: DoctorGear
   equipment:
     ears: ClothingHeadsetMedical
+    id: MedicalPDA
 
 - type: chameleonOutfit
   id: MedicalDoctorChameleonOutfit

@@ -33,6 +33,11 @@
     - 1,1,1,2
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     storedRotation: -45
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
   - type: UseDelay
   - type: PhysicalComposition
     materialComposition:

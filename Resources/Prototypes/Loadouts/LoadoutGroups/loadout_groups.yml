@@ -7,6 +7,7 @@
   - Glasses
   - GlassesJamjar
   - GlassesJensen
+  - CheapSunglasses
 
 - type: loadoutGroup
   id: Trinkets
@@ -164,6 +165,7 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
+  - CaptainModSuit
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -414,6 +416,7 @@
   - ChaplainPlagueHat
   - ChaplainWitchHat
   - ChaplainWitchHatAlt
+  - WitchHunterHat
 
 - type: loadoutGroup
   id: ChaplainMask
@@ -440,6 +443,7 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - WitchHunterCoat
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -447,6 +451,7 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  - HolyMedal
 
 - type: loadoutGroup
   id: ChaplainShoes
@@ -863,6 +868,7 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
+  - ChiefEngineerCloakAlt
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -905,6 +911,7 @@
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
+  - EngineeringBeret
   - SeniorEngineerBeret
 
 - type: loadoutGroup
@@ -1007,6 +1014,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - ResearchDirectorBeretAlt
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1015,6 +1023,7 @@
   loadouts:
   - ResearchDirectorMantle
   - ResearchDirectorCloak
+  - ResearchDirectorCloakAlt
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -1056,6 +1065,7 @@
   - RoboticistCap
   - SkullBandana
   - ScientificBeret
+  - ScientificBeretAlt
 
 - type: loadoutGroup
   id: ScientistNeck
@@ -1233,6 +1243,8 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
+  - HECUUniform
+  - SecuritySpecialJumpsuit
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
@@ -1268,6 +1280,8 @@
   loadouts:
   - JackSecBoots # Corvax
   - JackBoots
+  - CombatBoots
+  - SpetsnazBoots
   - SecurityWinterBoots
 
 - type: loadoutGroup
