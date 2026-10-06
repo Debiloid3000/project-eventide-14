@@ -4,7 +4,6 @@ using Content.Shared.Actions;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Genesis.Eye.NightVision.Systems;
 
@@ -20,10 +19,9 @@ public sealed class NightVisionSystem : EntitySystem
 
         if(_net.IsServer)
             SubscribeLocalEvent<NightVisionComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<NightVisionComponent, NvInstantActionEvent>(OnActionToggle);
+            SubscribeLocalEvent<NightVisionComponent, NvInstantActionEvent>(OnActionToggle);
     }
 
-    [ValidatePrototypeId<EntityPrototype>]
     private const string SwitchNightVisionAction = "SwitchNightVision";
 
     private void OnComponentStartup(EntityUid uid, NightVisionComponent component, ComponentStartup args)

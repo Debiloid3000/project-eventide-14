@@ -5,7 +5,7 @@ using Robust.Client.Graphics;
 
 namespace Content.Client._Genesis.Eye.NightVision;
 
-public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
+public sealed class NightVisionSystem : EquipmentHudSystem<GenesisNightVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
@@ -20,7 +20,7 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
         _overlay = new NightVisionOverlay(Color.Green);
     }
 
-    protected override void UpdateInternal(RefreshEquipmentHudEvent<NightVisionComponent> component)
+    protected override void UpdateInternal(RefreshEquipmentHudEvent<GenesisNightVisionComponent> component)
     {
         base.UpdateInternal(component);
 

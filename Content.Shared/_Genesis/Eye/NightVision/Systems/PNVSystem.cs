@@ -33,14 +33,14 @@ public sealed class PNVSystem : EntitySystem
         if (args.Slot is not ("eyes" or "mask" or "head"))
             return;
 
-        if (HasComp<NightVisionComponent>(args.Equipee))
+        if (HasComp<>(args.EquipTarget))
             return;
 
-        var nvComp = EnsureComp<NightVisionComponent>(args.Equipee);
+        var nvComp = EnsureComp<NightVisionComponent>(args.EquipTarget);
 
-        _nightvisionableSystem.UpdateIsNightVision(args.Equipee, nvComp);
+        _nightvisionableSystem.UpdateIsNightVision(args.EquipTarget, nvComp);
         if(component.ActionContainer == null)
-            _actionsSystem.AddAction(args.Equipee, ref component.ActionContainer, component.ActionProto);
+            _actionsSystem.AddAction(args.EquipTarget, ref component.ActionContainer, component.ActionProto);
         _actionsSystem.SetCooldown(component.ActionContainer, TimeSpan.FromSeconds(1)); // GCD?
 
         if (!nvComp.PlaySoundOn)
@@ -55,13 +55,13 @@ public sealed class PNVSystem : EntitySystem
         if (args.Slot is not ("eyes" or "mask" or "head"))
             return;
 
-        if (!TryComp<NightVisionComponent>(args.Equipee, out var nvComp))
+        if (!TryComp<NightVisionComponent>(args.EquipTarget, out var nvComp))
             return;
 
-        _nightvisionableSystem.UpdateIsNightVision(args.Equipee, nvComp);
-        _actionsSystem.RemoveAction(args.Equipee, component.ActionContainer);
+        _nightvisionableSystem.UpdateIsNightVision(args.EquipTarget, nvComp);
+        _actionsSystem.RemoveAction(args.EquipTarget, component.ActionContainer);
         component.ActionContainer = null;
 
-        RemCompDeferred<NightVisionComponent>(args.Equipee);
+        RemCompDeferred<NightVisionComponent>(args.EquipTarget);
     }
 }
