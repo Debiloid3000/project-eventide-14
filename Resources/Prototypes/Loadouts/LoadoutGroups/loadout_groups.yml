@@ -912,7 +912,6 @@
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - EngineeringBeret
-  - SeniorEngineerBeret
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
@@ -921,8 +920,6 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
-  - SeniorEngineerJumpsuit
-  - SeniorEngineerJumpskirt
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -946,13 +943,6 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
-
-- type: loadoutGroup
-  id: StationEngineerID
-  name: loadout-group-station-engineer-id
-  loadouts:
-  - StationEngineerPDA
-  - SeniorEngineerPDA
 
 #- type: loadoutGroup
 #  id: StationEngineerJobTrinkets
@@ -1082,8 +1072,6 @@
   - ScientistJumpskirt
   - RoboticistJumpsuit
   - RoboticistJumpskirt
-  - SeniorResearcherJumpsuit
-  - SeniorResearcherJumpskirt
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1103,7 +1091,6 @@
   - ScienceWintercoat
   - RoboticistLabCoat
   - RoboticistWintercoat
-  - SeniorResearcherLabCoat
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1121,13 +1108,6 @@
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
-
-- type: loadoutGroup
-  id: ScientistPDA
-  name: loadout-group-scientist-id
-  loadouts:
-  - ScientistPDA
-  - SeniorResearcherPDA
 
 #- type: loadoutGroup
 #  id: ScientistJobTrinkets
@@ -1245,8 +1225,6 @@
   - SecurityJumpskirtGrey
   - HECUUniform
   - SecuritySpecialJumpsuit
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
   - TrooperUniform
 
 - type: loadoutGroup
@@ -1283,13 +1261,6 @@
   - CombatBoots
   - SpetsnazBoots
   - SecurityWinterBoots
-
-- type: loadoutGroup
-  id: SecurityPDA
-  name: loadout-group-security-id
-  loadouts:
-  - SecurityPDA
-  - SeniorOfficerPDA
 
 - type: loadoutGroup
   id: SecurityJobTrinkets

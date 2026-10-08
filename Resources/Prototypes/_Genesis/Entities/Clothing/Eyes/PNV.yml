@@ -12,4 +12,7 @@
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
     quickEquip: true
     slots: [ Eyes ]
-  - type: PNV
+  - type: NightVision
+    enabled: false
+    relayOverlay: true
+    action: NVToggleAction

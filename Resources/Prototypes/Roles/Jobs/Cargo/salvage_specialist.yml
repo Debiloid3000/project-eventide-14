@@ -7,6 +7,8 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 3h
+    - !type:OverallPlaytimeRequirement
+      time: 10h
   icon: "JobIconSalvage"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm

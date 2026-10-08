@@ -5,9 +5,10 @@
   description: He's da rat. He make da roolz.
   components:
   - type: NightVision
-    isToggle: true
-    color: "#ff6161"
-    playSoundOn: false
+    enabled: false
+    action: NVToggleAction
+    overlayColor: "#ff6161"
+    lightingColor: "#ff616115"
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00

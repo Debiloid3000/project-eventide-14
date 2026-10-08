@@ -1,7 +1,10 @@
 //using Content.Server.Disease.Components;
 //using Content.Server.Disease;
 using Content.Server.Body.Systems;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Actions;
@@ -10,7 +13,6 @@ using Content.Shared.Mobs;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
-using Content.Shared.Body.Components;
 using WoundLickingActionEvent = Content.Shared._Genesis.WoundLicking.WoundLickingActionEvent;
 using WoundLickingDoAfterEvent = Content.Shared._Genesis.WoundLicking.WoundLickingDoAfterEvent;
 
@@ -27,6 +29,7 @@ namespace Content.Server._Genesis.Felinid
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+        [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
 
         public override void Initialize()
         {
@@ -85,8 +88,10 @@ namespace Content.Server._Genesis.Felinid
             }
 
             if (woundLicking.ReagentWhitelist.Any() &&
-                !woundLicking.ReagentWhitelist.Contains(bloodstream.BloodReagent)
-            ) return;
+                (!_solutionContainer.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
+                    || woundLicking.ReagentWhitelist.All(reagent => !bloodSolution.ContainsPrototype(reagent)))
+            )
+                return;
 
             // Check bloodstream
             if (bloodstream.BleedAmount == 0)

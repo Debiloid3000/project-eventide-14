@@ -169,6 +169,11 @@
   id: BoxSurvivalHug
   suffix: Survival; O2
   components:
+  - type: Item
+    heldPrefix: hug
+    size: Large
+    shape:
+    - 0,0,1,1
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -203,6 +208,10 @@
   name: deluxe extended-capacity O2 survival box
   description: A deluxe survival box containing a breath mask, an extended-capacity emergency oxygen tank, an emergency medipen, an emergency flare, and a bit of food and water.
   components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector

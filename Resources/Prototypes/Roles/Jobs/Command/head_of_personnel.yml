@@ -76,7 +76,6 @@
     eyes: ClothingEyesHudCommand
   storage:
     back:
-    - Flash
     - TelescopicBaton
 
 - type: chameleonOutfit

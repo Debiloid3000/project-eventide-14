@@ -15,7 +15,7 @@
     slots:
     - belt
   - type: Item
-    size: Ginormous
+    size: Small
     shape:
     - 0,0,2,2
   - type: Storage
