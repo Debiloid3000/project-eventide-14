@@ -1,16 +1,101 @@
-# Genesis Old Hardsuit compatibility parents.
-# These preserve the legacy prototype IDs separately from Eventide's modern hardsuit bases.
+# Legacy Genesis hardsuit helmet bases.
+# These deliberately do not inherit from Eventide's modern hardsuit bases.
+# The classic equippedPrefix/off-on visual flow is needed by the _Genesis RSI assets.
+
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  abstract: true
+  # No parent: the legacy hardsuit helmet base is not an item itself.
   id: ClothingHeadHardsuitBaseOld
-  abstract: true
+  name: base hardsuit helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BreathMask
+  - type: Sprite
+    state: icon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    quickEquip: false
+    slots: [ HEAD ]
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
+  - type: GroupExamine
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+    - FacialHair
 
 - type: entity
-  parent: ClothingHeadSuitWithLightBase
+  abstract: true
+  # No parent: pair this with ClothingHeadHardsuitBaseOld for classic lighted helmets.
   id: ClothingHeadSuitWithLightBaseOld
-  abstract: true
-
-- type: entity
-  parent: ClothingHeadHardsuitInsulatedBase
-  id: ClothingHeadHardsuitInsulatedBaseOld
-  abstract: true
+  name: base hardsuit helmet with light
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: Clothing
+    equippedPrefix: off
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 2
+    lightMask: ConeSingle
+    autoRot: true
+    netsync: false
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        interpolate: Linear
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRechargeRate: 2
