@@ -179,7 +179,7 @@
 
 #UEG
 - type: entity
-  parent: ClothingHeadHardsuitBaseOld
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSpecialForce
   name: special force hardsuit helmet
   components:
@@ -190,7 +190,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/specialforce.rsi
 
 - type: entity
-  parent: ClothingHeadHardsuitBaseOld
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTU
   name: RTU hardsuit helmet
   description: A rescue troop unit helmet designed specifically for combat in space and the harsh far-off worlds.
@@ -202,7 +202,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHardsuitBaseOld
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTUMedick
   name: RTU hardsuit helmet
   components:
@@ -213,7 +213,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHardsuitBaseOld
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTUEnginegr
   name: RTU hardsuit helmet
   components:
@@ -224,7 +224,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHardsuitBaseOld
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTULeader
   name: RTU hardsuit helmet
   components:
