@@ -1,0 +1,16 @@
+# Genesis Old Hardsuit compatibility parents.
+# These preserve the legacy prototype IDs separately from Eventide's modern hardsuit bases.
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHardsuitBaseOld
+  abstract: true
+
+- type: entity
+  parent: ClothingHeadSuitWithLightBase
+  id: ClothingHeadSuitWithLightBaseOld
+  abstract: true
+
+- type: entity
+  parent: ClothingHeadHardsuitInsulatedBase
+  id: ClothingHeadHardsuitInsulatedBaseOld
+  abstract: true
