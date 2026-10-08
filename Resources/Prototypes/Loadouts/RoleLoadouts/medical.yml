@@ -12,6 +12,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
+  - ChiefMedicalOfficerBelt
   - Glasses
   - AssistiveItems
   - SurvivalMedical
@@ -30,7 +31,6 @@
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
   - Glasses
   - AssistiveItems
   - SurvivalMedical
@@ -43,8 +43,13 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - MedicalGloves
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
   - Glasses
   - AssistiveItems
   - SurvivalMedical

@@ -25,6 +25,13 @@
     head: ClothingHeadHatBeretEngineering
 
 - type: loadout
+  id: EngineeringBeret
+  startingGear: EngineeringBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+
+- type: loadout
   id: StationEngineerHardhatYellow
   equipment:
     head: ClothingHeadHatHardhatYellow
@@ -38,13 +45,6 @@
   id: StationEngineerHardhatRed
   equipment:
     head: ClothingHeadHatHardhatRed
-
-- type: loadout
-  id: SeniorEngineerBeret
-  startingGear: EngineeringBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
 
 # Jumpsuit
 - type: loadout
@@ -61,22 +61,6 @@
   id: StationEngineerHazardsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
-
-- type: loadout
-  id: SeniorEngineerJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorEngineer
-
-- type: loadout
-  id: SeniorEngineerJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorEngineer
 
 # Back
 - type: loadout
@@ -115,17 +99,3 @@
   id: EngineeringWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterEngi
-
-# ID
-- type: loadout
-  id: StationEngineerPDA
-  equipment:
-    id: EngineerPDA
-
-- type: loadout
-  id: SeniorEngineerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
-  equipment:
-    id: SeniorEngineerPDA

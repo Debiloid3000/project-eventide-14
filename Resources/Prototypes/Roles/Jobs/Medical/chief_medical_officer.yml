@@ -47,7 +47,7 @@
     ears: ClothingHeadsetCMO
   storage:
     back:
-    - Flash
+    - TelescopicBaton
 
 - type: chameleonOutfit
   id: ChiefMedicalOfficerChameleonOutfit

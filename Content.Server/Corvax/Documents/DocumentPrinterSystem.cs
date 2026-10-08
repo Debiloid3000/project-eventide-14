@@ -1,10 +1,10 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Corvax.Documents;
-using Content.Shared.GameTicking;
 using Content.Shared.Lathe;
 using Content.Shared.Paper;
 using Content.Shared.Station.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Corvax.Documents;
 
@@ -13,7 +13,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
     [Dependency] private ItemSlotsSystem _itemSlots = default!;
     [Dependency] private PaperSystem _paper = default!;
     [Dependency] private StationSystem _station = default!;
-    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -56,8 +56,11 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
 
     private string GetTimeStation()
     {
-        var time = _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss");
-        return time + " " + DateTime.Now.AddYears(1000).ToShortDateString();
+        // Genesis-start: preserve the fork's station-time formatting.
+        var curTime = _timing.CurTime;
+        var formattedTime = $"{(int)curTime.TotalHours:D2}:{curTime.Minutes:D2}:{curTime.Seconds:D2}";
+        return formattedTime + " " + DateTime.UtcNow.AddYears(1000).ToShortDateString();
+        // Genesis-end
     }
 
 }

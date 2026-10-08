@@ -239,7 +239,10 @@ namespace Content.Server.Connection
             if (bans.Count > 0)
             {
                 var firstBan = bans[0];
-                var message = firstBan.FormatBanMessage(_cfg, _loc);
+                var adminName = firstBan.BanningAdmin is { } adminId
+                    ? (await _db.GetPlayerRecordByUserId(adminId))?.LastSeenUserName ?? _loc.GetString("system-user")
+                    : _loc.GetString("system-user");
+                var message = firstBan.FormatBanMessage(_cfg, _loc, adminName);
                 return (ConnectionDenyReason.Ban, message, bans);
             }
 

@@ -298,7 +298,13 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingOuterHardsuitSyndie
+        - !type:GroupSelector
+          children:
+          - id: ClothingOuterHardsuitSyndie
+          - id: ClothingOuterHardsuitSyndieBackmen
+          - id: ClothingOuterHardsuitSyndieCorvax
+          - id: ClothingOuterHardsuitSyndieSunRise
+          - id: ClothingOuterHardsuitSyndieXeno
         - !type:NestedSelector
           tableId: SyndicateHardsuitExtrasEntityTable
 
@@ -312,7 +318,12 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingOuterHardsuitSyndieElite
+        - !type:GroupSelector
+          children:
+          - id: ClothingOuterHardsuitSyndieElite
+          - id: ClothingOuterHardsuitSyndieEliteBackmen
+          - id: ClothingOuterHardsuitSyndieEliteCorvax
+          - id: ClothingOuterHardsuitSyndieEliteSunRise
         - !type:NestedSelector
           tableId: SyndicateHardsuitExtrasEntityTable
 

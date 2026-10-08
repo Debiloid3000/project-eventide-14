@@ -9,16 +9,18 @@ using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Medical;
 using Content.Server.Medical;
 using Content.Server.Popups;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Server.Audio;
-using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Tag;
 using Content.Server._Genesis.Abilities.Felinid;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Charges.Components;
 
@@ -27,7 +29,7 @@ namespace Content.Server._Genesis.Abilities.Felinid;
 public sealed class FelinidSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly HungerSystem _hungerSystem = default!;
+    [Dependency] private readonly SatiationSystem _satiationSystem = default!;
     [Dependency] private readonly VomitSystem _vomitSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -121,10 +123,10 @@ public sealed class FelinidSystem : EntitySystem
         if (component.PotentialTarget == null)
             return;
 
-        if (!TryComp<HungerComponent>(uid, out var hunger))
+        if (!TryComp<SatiationComponent>(uid, out var satiation))
             return;
 
-        if (hunger.CurrentThreshold == Shared.Nutrition.Components.HungerThreshold.Overfed)
+        if (_satiationSystem.IsValueInRange((uid, satiation), SatiationSystem.Hunger, above: "Overfed"))
         {
             _popupSystem.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
             return;
@@ -151,7 +153,7 @@ public sealed class FelinidSystem : EntitySystem
 
         _audio.PlayEntity(component.EatSound, Filter.Pvs(uid), uid, true, AudioHelpers.WithVariation(0.15f));
 
-        _hungerSystem.ModifyHunger(uid, 70f, hunger);
+        _satiationSystem.ModifyValue((uid, satiation), SatiationSystem.Hunger, 70f);
 
         _actionsSystem.RemoveAction(uid, component.EatMouse);
     }
@@ -162,9 +164,9 @@ public sealed class FelinidSystem : EntitySystem
         var hairballComp = Comp<HairballComponent>(hairball);
 
         if (TryComp<BloodstreamComponent>(uid, out var bloodStream) &&
-            _solutionContainer.ResolveSolution(uid, bloodStream.ChemicalSolutionName, ref bloodStream.ChemicalSolution))
+            _solutionContainer.ResolveSolution(uid, bloodStream.BloodSolutionName, ref bloodStream.BloodSolution))
         {
-            var vomitChemstreamAmount = _solutionContainer.SplitSolution(bloodStream.ChemicalSolution.Value, 20);
+            var vomitChemstreamAmount = _solutionContainer.SplitSolution(bloodStream.BloodSolution.Value, 20);
 
             if (_solutionContainer.TryGetSolution(hairball, hairballComp.SolutionName, out var hairballSolution))
             {

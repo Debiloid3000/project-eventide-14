@@ -5,7 +5,7 @@
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
-  dollPrototype: MobFelinidDummy
+  dollPrototype: AppearanceFelinid
   skinColoration: HumanToned
 
 - type: markingPoints

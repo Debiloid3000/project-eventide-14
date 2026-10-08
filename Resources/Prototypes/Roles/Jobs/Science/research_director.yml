@@ -39,7 +39,7 @@
     ears: ClothingHeadsetRD
   storage:
     back:
-    - Flash
+    - TelescopicBaton
 
 - type: chameleonOutfit
   id: ResearchDirectorChameleonOutfit

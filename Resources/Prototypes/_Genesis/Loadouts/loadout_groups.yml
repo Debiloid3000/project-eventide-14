@@ -517,7 +517,7 @@
   - SkullBandana
 
 - type: loadoutGroup
-  id: ResearchDirecctorBackpack
+  id: ResearchDirectorBackpack
   name: loadout-group-backpack
   loadouts:
   - ScientistBackpack

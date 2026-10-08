@@ -1,7 +1,18 @@
 - type: entity
+  parent: AppearanceHuman
+  id: AppearanceFelinid
+  categories: [ HideSpawnMenu ]
+  name: felinid appearance
+  components:
+  - type: HumanoidProfile
+    species: Felinid
+
+- type: entity
   save: false
   name: Urist McFelinid
-  parent: BaseMobHuman
+  parent:
+  - AppearanceFelinid
+  - BaseSpeciesMobOrganic
   id: MobFelinidBase
   abstract: true
   components:
@@ -76,12 +87,5 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 4.0
     baseWalkSpeed: 2.0
-
-- type: entity
-  save: false
-  name: Urist McHands
-  parent: MobHumanDummy
-  id: MobFelinidDummy
-  description: A dummy felinid meant to be used in character setup.
 
 #Nya~~

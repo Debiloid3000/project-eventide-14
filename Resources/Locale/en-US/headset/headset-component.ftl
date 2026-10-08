@@ -1,6 +1,7 @@
 # Chat window radio wrap (prefix and postfix)
-chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}, [font={$fontType} size={$fontSize}]{ chat-manager-speech-double-quote-begin }{$message}{ chat-manager-speech-double-quote-end }[/font][/color]
-chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}, [font={$fontType} size={$fontSize}][bold]{ chat-manager-speech-double-quote-begin }{$message}{ chat-manager-speech-double-quote-end }[/bold][/font][/color]
+chat-radio-message-wrap = [bold][color={ $channel-color }]{ $channel } [/color][color={ $headset-color }]{ $job }{ $name }[/bold][/color][color={ $channel-color }] { $verb }, [font={ $fontType } size={ $fontSize }]{ chat-manager-speech-double-quote-begin }{ $message }{ chat-manager-speech-double-quote-end }[/font][/color]
+chat-radio-message-wrap-bold = [bold][color={ $channel-color }]{ $channel } [/color][color={ $headset-color }]{ $job }{ $name }[/bold][/color][color={ $channel-color }] { $verb }, [font={ $fontType } size={ $fontSize }][bold]{ chat-manager-speech-double-quote-begin }{ $message }{ chat-manager-speech-double-quote-end }[/bold][/font][/color]
+chat-radio-source-unknown = Unknown job
 
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
 
