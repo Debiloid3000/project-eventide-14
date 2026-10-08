@@ -26,7 +26,7 @@
 
 #QM Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitQM
   name: quartermaster hardsuit helmet
   description: A special helmet quatermaster.
@@ -44,7 +44,7 @@
 
 #Carporate Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitCentcomCarporate
   name: helmet hardsuit corporate CentCom
   description: Special Carporate space helmet made for various situations with a good flashlight of the NanoTraisen loyalist.
@@ -70,7 +70,7 @@
         Radiation: 0.9
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSeniorSalvage
   name: senior's salvage hardsuit
   description: Lightweight hardsuit helmet that doesn't restrict your head movements.
@@ -118,7 +118,7 @@
 
 #UEG
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHardsuitBaseOld
   id: ClothingHeadHelmetHardsuitSpecialForce
   name: special force hardsuit helmet
   components:
@@ -160,7 +160,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHardsuitBaseOld
   id: ClothingHeadHelmetHardsuitRTULeader
   name: RTU hardsuit helmet
   components:
@@ -171,7 +171,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSecurityEgov
   name: marine hardsuit helmet
   description: A marine helmet designed specifically for combat in space and the harsh far-off worlds.
@@ -194,7 +194,7 @@
 #Backmen
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieBackmen
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -218,7 +218,7 @@
 
 #Syndicate Elite Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieEliteBackmen
   name: syndicate elite helmet
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
@@ -247,7 +247,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderBackmen
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -271,7 +271,7 @@
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitCybersunBackmen
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
@@ -296,7 +296,7 @@
 #Corvax
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCorvax
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -320,7 +320,7 @@
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieMedicCorvax
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
@@ -344,7 +344,7 @@
 
 #Syndicate Elite Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieEliteCorvax
   name: syndicate elite helmet
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
@@ -373,7 +373,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderCorvax
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -397,7 +397,7 @@
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitCybersunCorvax
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
@@ -422,7 +422,7 @@
 #SunRise
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieSunRise
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -446,7 +446,7 @@
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieMedicSunRise
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
@@ -470,7 +470,7 @@
 
 #Syndicate Elite Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieEliteSunRise
   name: syndicate elite helmet
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
@@ -499,7 +499,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderSunRise
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -524,7 +524,7 @@
 #XenoStation/IanStation
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieXeno
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -548,7 +548,7 @@
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieMedicXeno
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
@@ -572,7 +572,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderXeno
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -1072,7 +1072,7 @@
 #Star Wars
 #Republic Clone Phase 1 Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHardsuitBaseOld
   id: ClothingHeadHelmetHardsuitRepublicClonePhase1
   name: republic clone's hardsuit helmet phase 1
   description: Special hardsuit helmet phase 1, made for the republic clones.
