@@ -200,6 +200,23 @@
   parent: [ TemperatureProtection, ClothingHeadHardsuitBase ]
   id: ClothingHeadHardsuitInsulatedBase
 
+# Genesis legacy hardsuit bases. Keep separate from modern Eventide bases.
+- type: entity
+  abstract: true
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHardsuitBaseOld
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadSuitWithLightBase
+  id: ClothingHeadSuitWithLightBaseOld
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadHardsuitInsulatedBase
+  id: ClothingHeadHardsuitInsulatedBaseOld
+
+
 - type: entity
   abstract: true
   # No parent since it isn't an item
