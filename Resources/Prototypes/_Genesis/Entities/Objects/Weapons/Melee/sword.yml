@@ -4,7 +4,7 @@
   id: Katanacursed
   description: Ancient craftwork made with not so ancient plasteel.
   components:
-  - type: Sharp
+  # The legacy Sharp marker is not registered in this engine; the explicit Slash damage below defines this weapon's melee behavior.
   - type: Unremoveable
   - type: Tag
     tags:
