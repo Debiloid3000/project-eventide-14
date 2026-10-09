@@ -4,7 +4,10 @@
   id: Katanacursed
   description: Ancient craftwork made with not so ancient plasteel.
   components:
-  # The legacy Sharp marker is not registered in this engine; the explicit Slash damage below defines this weapon's melee behavior.
+  # The current Eventide tool system uses Slicing quality in place of the legacy Sharp marker.
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Unremoveable
   - type: Tag
     tags:
