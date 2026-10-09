@@ -7,6 +7,7 @@
   startingGear: ERTMedicalGearEVA
   icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
+  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
