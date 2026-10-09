@@ -1,6 +1,6 @@
 #BlueShield
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitBlueShield
   name: blueshield hardsuit helmet
   components:
@@ -10,10 +10,24 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/blueshield.rsi
   - type: PointLight
     color: cyan  # old color "#ffffff", old too "#6088FF"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Inqusitory
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSecurityRed
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitInqusitory
   name: inqusitory hardsuit helmet
   components:
@@ -23,10 +37,20 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/inquisitoryhead.rsi
   - type: PointLight
     color: "#ffffff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
 
 #QM Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitQM
   name: quartermaster hardsuit helmet
   description: A special helmet quatermaster.
@@ -44,7 +68,7 @@
 
 #Carporate Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitCentcomCarporate
   name: helmet hardsuit corporate CentCom
   description: Special Carporate space helmet made for various situations with a good flashlight of the NanoTraisen loyalist.
@@ -70,7 +94,7 @@
         Radiation: 0.9
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSeniorSalvage
   name: senior's salvage hardsuit
   description: Lightweight hardsuit helmet that doesn't restrict your head movements.
@@ -91,7 +115,7 @@
         Heat: 0.9
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTTay39
   name: helmet ERT leader hardsuit
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -102,9 +126,27 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeam.rsi
   - type: PointLight
     color: cyan
-
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTMedicTay39
   name: helmet ERT medic hardsuit
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -115,10 +157,29 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/ERThelmets/ertTraumaTeamMedic.rsi
   - type: PointLight
     color: cyan
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #UEG
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSpecialForce
   name: special force hardsuit helmet
   components:
@@ -129,7 +190,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/specialforce.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitRTULeader
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTU
   name: RTU hardsuit helmet
   description: A rescue troop unit helmet designed specifically for combat in space and the harsh far-off worlds.
@@ -137,30 +198,33 @@
   - type: Sprite
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
   - type: Clothing
+    equippedPrefix: off
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/grunthardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitRTULeader
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTUMedick
   name: RTU hardsuit helmet
   components:
   - type: Sprite
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
   - type: Clothing
+    equippedPrefix: off
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/medickhardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitRTULeader
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTUEnginegr
   name: RTU hardsuit helmet
   components:
   - type: Sprite
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
   - type: Clothing
+    equippedPrefix: off
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/enginegrhardsuit.rsi
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitRTULeader
   name: RTU hardsuit helmet
   components:
@@ -171,7 +235,7 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/RescueTroopsUnits/dungeonmasterhardsuit.rsi
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSecurityEgov
   name: marine hardsuit helmet
   description: A marine helmet designed specifically for combat in space and the harsh far-off worlds.
@@ -194,7 +258,7 @@
 #Backmen
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieBackmen
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -218,7 +282,7 @@
 
 #Syndicate Elite Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieEliteBackmen
   name: syndicate elite helmet
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
@@ -247,7 +311,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderBackmen
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -271,7 +335,7 @@
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitCybersunBackmen
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
@@ -422,7 +486,7 @@
 #SunRise
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieSunRise
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -446,7 +510,7 @@
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieMedicSunRise
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
@@ -470,7 +534,7 @@
 
 #Syndicate Elite Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieEliteSunRise
   name: syndicate elite helmet
   description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
@@ -499,7 +563,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderSunRise
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -524,7 +588,7 @@
 #XenoStation/IanStation
 #Blood-red Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieXeno
   name: blood-red hardsuit helmet
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
@@ -548,7 +612,7 @@
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieMedicXeno
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
@@ -572,7 +636,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitSyndieCommanderXeno
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
@@ -598,7 +662,7 @@
 #Alpha
 #ERT Specialist Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSpecialistAlpha
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -616,11 +680,18 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Delta
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTLeaderDelta
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -638,10 +709,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTEngineerDelta
   name: ERT engineer hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -659,10 +737,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTMedicalDelta
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -673,10 +758,29 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Security Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSecurityDelta
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -694,10 +798,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTJanitorDelta
   name: ERT janitor hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -708,10 +819,24 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/DeltaSquad/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Specialist Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSpecialistDelta
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -729,11 +854,18 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Bravo
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTLeaderBravo
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -751,10 +883,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTEngineerBravo
   name: ERT engineer hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -772,10 +911,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTMedicalBravo
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -786,10 +932,29 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Security Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSecurityBravo
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -807,10 +972,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTJanitorBravo
   name: ERT janitor hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -821,10 +993,24 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/BravoSquad/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Specialist Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSpecialistBravo
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -863,11 +1049,18 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Charlie
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTLeaderCharlie
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -885,10 +1078,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTEngineerCharlie
   name: ERT engineer hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -906,10 +1106,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTMedicalCharlie
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -920,10 +1127,29 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Security Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSecurityCharlie
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -941,10 +1167,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTJanitorCharlie
   name: ERT janitor hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -955,10 +1188,24 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/CharlieSquad/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Specialist Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSpecialistCharlie
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -976,11 +1223,18 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Gamma
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieCommander
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTLeaderGamma
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -998,10 +1252,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTEngineerGamma
   name: ERT engineer hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -1019,10 +1280,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTMedicalGamma
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -1033,10 +1301,29 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Security Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTSecurityGamma
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -1054,10 +1341,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTJanitorGamma
   name: ERT janitor hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -1068,11 +1362,25 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Star Wars
 #Republic Clone Phase 1 Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHardsuitBaseOld
   id: ClothingHeadHelmetHardsuitRepublicClonePhase1
   name: republic clone's hardsuit helmet phase 1
   description: Special hardsuit helmet phase 1, made for the republic clones.
@@ -1094,7 +1402,7 @@
 
 #Republic Clone Phase 2 Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitRepublicClonePhase1
+  parent: ClothingHeadHardsuitBaseOld
   id: ClothingHeadHelmetHardsuitRepublicClonePhase2
   name: republic clone's hardsuit helmet phase 2
   description: Special hardsuit helmet phase 2, made for the republic clones.
@@ -1103,10 +1411,20 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
   - type: Clothing
     sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/1phase.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
 
 #Stormtrooper Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitRepublicClonePhase1
+  parent: ClothingHeadHardsuitBaseOld
   id: ClothingHeadHelmetHardsuitStormtrooper
   name: stormtrooper's hardsuit helmet
   description: Special hardsuit helmet, made for the imperial stormtrooper.
@@ -1115,3 +1433,13 @@
     sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/storm.rsi
   - type: Clothing
     sprite: _Genesis/Clothing/Head/Hardsuits/StarWars/storm.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
