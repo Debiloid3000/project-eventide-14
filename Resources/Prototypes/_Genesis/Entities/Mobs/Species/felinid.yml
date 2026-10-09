@@ -57,8 +57,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Body
-    prototype: Felinid
   - type: Damageable
     damageContainer: Biological
   - type: MeleeWeapon
