@@ -1,4 +1,5 @@
 ﻿- type: entity
+  parent: BaseAction
   id: ActionEatMouse
   name: eat mouse
   description: Take the mouse in your hand and remove the batteries and charger from it.
@@ -6,11 +7,11 @@
   components:
   - type: Action
     checkCanInteract: false
-    icon: _Genesis/Icons/verbiconfangs.png
   - type: InstantAction
     event: !type:EatMouseActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionHairball
   name: cough up
   description: Cleanse your digestive system and get a cool hairball to throw at people.
@@ -25,16 +26,21 @@
     event: !type:HairballActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionWoundLicking
   name: lick wound
   description: Stop bleeding by licking your wounds
   components:
   - type: Action
-    icon: { sprite: Mobs/Species/Human/organs.rsi, state: tongue }
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    layers:
+    - state: tongue
+      map: ["enum.ActionVisuals.Icon"]
     priority: -1
   - type: TargetAction
   - type: EntityTargetAction
     whitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     event: !type:WoundLickingActionEvent
