@@ -9,6 +9,7 @@ using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Medical;
 using Content.Server.Medical;
 using Content.Server.Popups;
