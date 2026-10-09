@@ -26,9 +26,10 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: luxpen_empty
-  - type: Hypospray
+  - type: Injector
+    # The current injector system uses currentTransferAmount instead of the legacy Hypospray component.
     solutionName: pen
-    transferAmount: 30
+    currentTransferAmount: 30
   - type: StaticPrice
     price: 500
   - type: Tag
