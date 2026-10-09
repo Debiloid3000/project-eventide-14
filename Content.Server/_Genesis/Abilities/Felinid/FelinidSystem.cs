@@ -26,20 +26,22 @@ using Content.Shared.Charges.Components;
 
 namespace Content.Server._Genesis.Abilities.Felinid;
 
-public sealed class FelinidSystem : EntitySystem
+public sealed partial class FelinidSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SatiationSystem _satiationSystem = default!;
-    [Dependency] private readonly VomitSystem _vomitSystem = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SatiationSystem _satiationSystem = default!;
+    [Dependency] private VomitSystem _vomitSystem = default!;
+    [Dependency] private SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
 
     private static readonly EntProtoId EatMouseActionId = "ActionEatMouse";
+    private static readonly ProtoId<TagPrototype> FelinidFoodTag = "FelinidFood";
+    private static readonly SatiationValue OverfedThreshold = "Overfed";
 
     public override void Initialize()
     {
@@ -84,7 +86,7 @@ public sealed class FelinidSystem : EntitySystem
 
     private void OnEquipped(EntityUid uid, FelinidComponent component, DidEquipHandEvent args)
     {
-        if (!_tagSystem.HasTag(args.Equipped, "FelinidFood"))
+        if (!_tagSystem.HasTag(args.Equipped, FelinidFoodTag))
             return;
 
         component.PotentialTarget = args.Equipped;
@@ -104,7 +106,7 @@ public sealed class FelinidSystem : EntitySystem
     private void OnHairball(EntityUid uid, FelinidComponent component, HairballActionEvent args)
     {
         if (_inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
-        EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
+        TryComp(maskUid, out IngestionBlockerComponent? blocker) &&
         blocker.Enabled)
         {
             _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, uid);
@@ -126,7 +128,7 @@ public sealed class FelinidSystem : EntitySystem
         if (!TryComp<SatiationComponent>(uid, out var satiation))
             return;
 
-        if (_satiationSystem.IsValueInRange((uid, satiation), SatiationSystem.Hunger, above: "Overfed"))
+        if (_satiationSystem.IsValueInRange((uid, satiation), SatiationSystem.Hunger, above: OverfedThreshold))
         {
             _popupSystem.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
             return;
@@ -160,7 +162,7 @@ public sealed class FelinidSystem : EntitySystem
 
     private void SpawnHairball(EntityUid uid, FelinidComponent component)
     {
-        var hairball = EntityManager.SpawnEntity(component.HairballPrototype, Transform(uid).Coordinates);
+        var hairball = Spawn(component.HairballPrototype, Transform(uid).Coordinates);
         var hairballComp = Comp<HairballComponent>(hairball);
 
         if (TryComp<BloodstreamComponent>(uid, out var bloodStream) &&
