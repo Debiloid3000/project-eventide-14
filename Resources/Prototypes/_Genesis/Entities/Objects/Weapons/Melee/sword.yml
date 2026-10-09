@@ -4,7 +4,10 @@
   id: Katanacursed
   description: Ancient craftwork made with not so ancient plasteel.
   components:
-  - type: Sharp
+  # The current Eventide tool system uses Slicing quality in place of the legacy Sharp marker.
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Unremoveable
   - type: Tag
     tags:

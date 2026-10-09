@@ -1,11 +1,14 @@
 name: "Labels: Review"
 
 on:
-  pull_request_target:
-    types: [review_requested, opened]
+  pull_request:
+    types: [opened, reopened, review_requested, synchronize]
 
 jobs:
   add_label:
+    permissions:
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions-ecosystem/action-add-labels@v1
