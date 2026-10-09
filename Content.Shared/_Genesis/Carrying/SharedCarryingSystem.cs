@@ -97,7 +97,7 @@ public sealed partial class SharedCarryingSystem : EntitySystem
             if (!TryComp(carrier.Carried, out TransformComponent? carriedXform))
                 continue;
 
-            if (!carrierXform.Coordinates.TryDistance(EntityManager, carriedXform.Coordinates, out var distance))
+            if (!carrierXform.Coordinates.TryDistance(_entityManager, carriedXform.Coordinates, out var distance))
                 continue;
 
             if (distance > CarryDistanceThreshold)
@@ -161,7 +161,7 @@ public sealed partial class SharedCarryingSystem : EntitySystem
         }
 
         var ev = new CarryDoAfterEvent();
-        var args = new DoAfterArgs(EntityManager, carrier, length, ev, carried, target: carried)
+        var args = new DoAfterArgs(_entityManager, carrier, length, ev, carried, target: carried)
         {
             BreakOnMove = true,
             NeedHand = true,
@@ -316,7 +316,7 @@ public sealed partial class SharedCarryingSystem : EntitySystem
 
     private void ShowCarryPopup(string locString, Filter filter, PopupType type, EntityUid carrier, EntityUid carried)
     {
-        _popupSystem.PopupPredicted(Loc.GetString(locString, ("carrier", Identity.Name(carrier, EntityManager)), ("target", Identity.Name(carried, EntityManager))), carrier, carried, filter, true, type);
+        _popupSystem.PopupPredicted(Loc.GetString(locString, ("carrier", Identity.Name(carrier, _entityManager)), ("target", Identity.Name(carried, _entityManager))), carrier, carried, filter, true, type);
     }
 
     public float MassContest(EntityUid roller, EntityUid target, PhysicsComponent? rollerPhysics = null, PhysicsComponent? targetPhysics = null)
