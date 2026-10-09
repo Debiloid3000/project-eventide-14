@@ -4,6 +4,7 @@
   description: job-description-prisoner
   playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
+  canBeAntag: false
   alwaysUseSpawner: true
   icon: JobIconPrisoner
   supervisors: job-supervisors-security
@@ -13,3 +14,10 @@
   special:
     - !type:AddImplantSpecial
       implants: [ TrackingImplant ]
+
+- type: chameleonOutfit
+  id: PrisonerChameleonOutfit
+  job: Prisoner
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorBlack

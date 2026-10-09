@@ -14,6 +14,7 @@
       role: JobCentralCommandSecurityOfficer
       time: 9000  # ?
   startingGear: HoSCentComGear
+  canBeAntag: false
   icon: "JobIconHeadOfSecurity"
   requireAdminNotify: true
   supervisors: job-supervisors-centcom

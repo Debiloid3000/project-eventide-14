@@ -11,6 +11,7 @@
       department: Law
       time: 108000 #30 hrs
   startingGear: MagistratGear
+  canBeAntag: false
   icon: "JobIconMagistrat"
   supervisors: job-supervisors-service
   setPreference: true

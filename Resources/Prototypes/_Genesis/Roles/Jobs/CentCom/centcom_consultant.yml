@@ -8,6 +8,7 @@
       department: Command
       time: 468000  # 130 hours
   startingGear: ConsultantGear
+  canBeAntag: false
   icon: "JobIconNanotrasen"
   requireAdminNotify: true
   joinNotifyCrew: true

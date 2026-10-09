@@ -93,6 +93,9 @@ public abstract partial class AntagSelectionSystem
         if (IsAntagBanned(player, def))
             return false;
 
+        if (!Jobs.CanBeAntag(player))
+            return false;
+
         // If our antag is mutually exclusive with other antags, yell about it!
         switch (def.MultiAntagSetting)
         {
