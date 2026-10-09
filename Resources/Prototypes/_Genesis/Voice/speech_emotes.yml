@@ -74,10 +74,11 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-purrs"]
   chatTriggers:
-    - мурчит
-    - мурчит.
-    - мурчит!
-    - Purrs
-    - Purrs.
-    - Purrs!
+    # Keep these distinct from the Corvax Purr emote's triggers.
+    - мурлыкает
+    - мурлыкает.
+    - мурлыкает!
+    - мурлыканье
+    - мурлыканье.
+    - мурлыканье!
 
