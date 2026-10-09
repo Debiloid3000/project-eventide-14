@@ -58,7 +58,6 @@
         layer:
         - MobLayer
   - type: Damageable
-    damageContainer: Biological
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -82,7 +81,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Stamina
-    critThreshold: 85
+    baseCritThreshold: 85
 #  - type: PseudoItem  - when backmen reborn and fix that xddd
   - type: WoundLicking # ХАХАХААХАХ МИЛЕНСВУЛЬФ УСЛЫШАЛ МЕНЯ Я ВЧЕРА ЗАНИМАЛСЯ СБОРКОЙ А СЕГОДНЯ В 11 ВЫПУСТИЛ ОБНОВУ МИЛЕНСВУЛЬФ ХАХАХАХАХХ
   - type: OwOAccent
