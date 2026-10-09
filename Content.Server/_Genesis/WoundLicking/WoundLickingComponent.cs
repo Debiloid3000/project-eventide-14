@@ -9,7 +9,7 @@ namespace Content.Server._Genesis.Felinid
     public sealed partial class WoundLickingComponent : Component
     {
         [DataField("woundLickingAction")]
-        public EntProtoId<InstantActionComponent> WoundLickingAction = "ActionWoundLicking";
+        public EntProtoId<EntityTargetActionComponent> WoundLickingAction = "ActionWoundLicking";
 
         [DataField("woundLickingActionEntity")]
         public EntityUid? WoundLickingActionEntity;
