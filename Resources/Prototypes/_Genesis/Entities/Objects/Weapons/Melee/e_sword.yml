@@ -32,7 +32,7 @@
         volume: 3
   - type: ComponentToggler
     components:
-    - type: Sharp
+    # The legacy Sharp marker is not registered in this engine; the active blade damage is defined by ItemToggleMeleeWeapon.
     - type: DisarmMalus
       malus: 0.7
   - type: Wieldable
@@ -88,7 +88,7 @@
       path: /Audio/Weapons/ebladehum.ogg
   - type: ComponentToggler
     components:
-    - type: Sharp
+    # The legacy Sharp marker is not registered in this engine; the active blade damage is defined by ItemToggleMeleeWeapon.
     - type: DisarmMalus
       malus: 0.6
   - type: ItemToggleHot
