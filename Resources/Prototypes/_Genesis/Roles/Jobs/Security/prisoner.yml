@@ -13,17 +13,3 @@
   special:
     - !type:AddImplantSpecial
       implants: [ TrackingImplant ]
-
-- type: startingGear
-  id: PrisonerGear
-  equipment:
-    shoes: ClothingShoesColorBlack
-    id: PrisonerPDA
-    ears: ClothingHeadsetGrey
-
-- type: chameleonOutfit
-  id: PrisonerChameleonOutfit
-  job: Prisoner
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitPrisoner
-    shoes: ClothingShoesColorBlack
