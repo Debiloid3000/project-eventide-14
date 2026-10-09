@@ -1,4 +1,11 @@
 name: "Labels: Size"
+
+# The size-label action writes a label to the pull request's issue record.
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 on: pull_request_target
 jobs:
   size-label:
