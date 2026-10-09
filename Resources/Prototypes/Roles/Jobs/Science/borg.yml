@@ -12,6 +12,7 @@
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
+  canBeAntag: false
   jobPreviewEntity: PlayerStationAiPreview
   applyTraits: false
 
@@ -27,4 +28,5 @@
   supervisors: job-supervisors-rd
   guides: [ Cyborgs ]
   jobEntity: PlayerBorgBattery
+  canBeAntag: false
   applyTraits: false
