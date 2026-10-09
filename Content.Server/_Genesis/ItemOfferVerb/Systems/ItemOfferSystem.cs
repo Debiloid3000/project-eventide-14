@@ -18,12 +18,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Genesis.ItemOfferVerb.Systems;
 
-public sealed class ItemOfferSystem : EntitySystem
+public sealed partial class ItemOfferSystem : EntitySystem
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private EntityManager _entMan = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private HandsSystem _hands = default!;
 
     private readonly ProtoId<AlertPrototype> _itemOfferAlert = "ItemOffer";
 
@@ -42,7 +42,7 @@ public sealed class ItemOfferSystem : EntitySystem
 
     private bool HandleItemOfferKey(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
-        if (!args.EntityUid.IsValid() || !EntityManager.EntityExists(args.EntityUid))
+        if (!args.EntityUid.IsValid() || !Exists(args.EntityUid))
             return false;
 
         if (args.Session?.AttachedEntity == null)
