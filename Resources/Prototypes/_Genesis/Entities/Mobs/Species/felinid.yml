@@ -18,7 +18,8 @@
   components:
   - type: Sprite
     scale: 0.8, 0.8
-  - type: HumanoidAppearance
+  # Current Eventide stores humanoid species on HumanoidProfileComponent.
+  - type: HumanoidProfile
     species: Felinid
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
