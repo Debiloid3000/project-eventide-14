@@ -15,13 +15,13 @@
       hypospray:
         maxVol: 15
   - type: SolutionRegeneration
-    solution: hypospray
+    generated: hypospray
     generated:
       reagents:
       - ReagentId: Epinephrine
         Quantity: 0.1
   - type: ExaminableSolution
-    solution: hypospray
+    generated: hypospray
   - type: Injector
     # Hyposprays in this engine use InjectorModePrototype for instant, inject-only behavior.
     solutionName: hypospray
@@ -68,7 +68,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SolutionRegeneration
-      solution: spray
+      generated: spray
       generated:
         reagents:
         - ReagentId: Water
