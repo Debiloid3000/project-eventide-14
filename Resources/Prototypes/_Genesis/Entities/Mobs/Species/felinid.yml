@@ -6,6 +6,30 @@
   components:
   - type: HumanoidProfile
     species: Felinid
+  # Give Felinid external organs their own markings group so the legacy
+  # ears/tail defaults and the Felinid-specific slot limits remain active.
+  - type: InitialBody
+    organs:
+      Torso: OrganFelinidTorso
+      Head: OrganFelinidHead
+      ArmLeft: OrganFelinidArmLeft
+      ArmRight: OrganFelinidArmRight
+      HandRight: OrganFelinidHandRight
+      HandLeft: OrganFelinidHandLeft
+      LegLeft: OrganFelinidLegLeft
+      LegRight: OrganFelinidLegRight
+      FootLeft: OrganFelinidFootLeft
+      FootRight: OrganFelinidFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
 
 - type: entity
   save: false
@@ -90,3 +114,59 @@
     baseWalkSpeed: 2.0
 
 #Nya~~
+
+# Felinid external organs use the Felinid markings group instead of the human group.
+- type: entity
+  parent: OrganHumanExternal
+  id: OrganFelinidExternal
+  abstract: true
+  components:
+  - type: VisualOrganMarkings
+    markingData:
+      group: Felinid
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganFelinidExternal ]
+  id: OrganFelinidTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganFelinidExternal ]
+  id: OrganFelinidHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.FacialHair
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganFelinidExternal ]
+  id: OrganFelinidArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganFelinidExternal ]
+  id: OrganFelinidArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganFelinidExternal ]
+  id: OrganFelinidHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganFelinidExternal ]
+  id: OrganFelinidHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganFelinidExternal ]
+  id: OrganFelinidLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganFelinidExternal ]
+  id: OrganFelinidLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganFelinidExternal ]
+  id: OrganFelinidFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganFelinidExternal ]
+  id: OrganFelinidFootRight
