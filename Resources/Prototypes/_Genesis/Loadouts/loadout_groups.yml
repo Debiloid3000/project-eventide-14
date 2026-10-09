@@ -97,20 +97,20 @@
   name: loadout-group-head
   minLimit: 0
   loadouts:
-  - CentComAdmiralHead
+  - HeadHatCentcomcap
 
 - type: loadoutGroup
   id: HeadOfStaffCentComJumpsuit
   name: loadout-group-jumpsuit
   loadouts:
-  - CentComAdmiralJumpsuit
+  - CentComOfficialJumpsuit
 
 - type: loadoutGroup
   id: HeadOfStaffCentComNeck
   name: loadout-group-neck
   minLimit: 0
   loadouts:
-  - CentComAdmiralCloak
+  - CentcomCloak
   - CentcomCloak
 
 # BlueShield
@@ -271,6 +271,13 @@
   - SecuritySatchel
   - SecurityDuffel
   - WardenModSuit
+
+- type: loadoutGroup
+  id: SecurityStar
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - SecurityStar
 
 - type: loadoutGroup
   id: SecurityPocket
