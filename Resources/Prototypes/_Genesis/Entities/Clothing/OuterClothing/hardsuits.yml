@@ -169,7 +169,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeaderTay39
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndieElite
+  parent: [ ClothingHeadHardsuitBaseOld, ClothingHeadSuitWithLightBaseOld ]
   id: ClothingHeadHelmetHardsuitERTLeaderTay39
   name: helmet ERT leader hardsuit
   description: A special hardsuit helmet worn by members of an emergency response team.
