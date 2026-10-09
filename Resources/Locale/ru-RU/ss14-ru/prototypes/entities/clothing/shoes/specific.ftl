@@ -15,6 +15,7 @@ ent-ClothingShoesGaloshes = галоши
 ent-ClothingShoesSpaceNinja = ботинки космического ниндзя
     .desc = Пара нано-усиленных ботинок со встроенными магнитными присосками.
 ent-ClothingShoesSwat = ботинки спецназа
+ent-ClothingShoesBootsSpetsnaz = { ent-ClothingShoesSwat }
     .desc = Когда хотите задать жару.
 ent-ClothingShoesChameleon = чёрные туфли
     .desc = Стильные чёрные туфли.
