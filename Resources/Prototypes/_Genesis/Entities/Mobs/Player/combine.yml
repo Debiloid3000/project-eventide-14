@@ -11,7 +11,7 @@
     speechSounds: Combine
     soundCooldownTime: 0.1
   - type: Stamina
-    critThreshold: 250
+    baseCritThreshold: 250
   - type: MobState
   - type: MobThresholds
     thresholds:
