@@ -23,13 +23,12 @@ namespace Content.Server._Genesis.Felinid
     /// </summary>
     public sealed partial class WoundLickingSystem : EntitySystem
     {
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
 //        [Dependency] private readonly DiseaseSystem _disease = default!;
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-        [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+        [Dependency] private SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+        [Dependency] private SolutionContainerSystem _solutionContainer = default!;
 
         public override void Initialize()
         {
@@ -50,7 +49,7 @@ namespace Content.Server._Genesis.Felinid
             _actionsSystem.RemoveAction(uid, comp.WoundLickingActionEntity);
         }
 
-        protected void OnActionPerform(WoundLickingActionEvent args)
+        private void OnActionPerform(WoundLickingActionEvent args)
         {
             if (args.Handled)
                 return;
