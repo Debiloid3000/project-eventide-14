@@ -115,7 +115,7 @@ public sealed partial class FelinidSystem : EntitySystem
         }
 
         _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", Identity.Entity(uid, EntityManager))), uid);
-        _audio.PlayEntity("/Audio/Backmen/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, true, AudioHelpers.WithVariation(0.15f));
+        _audio.PlayEntity("/Audio/_Backmen/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, true, AudioHelpers.WithVariation(0.15f));
 
         EnsureComp<CoughingUpHairballComponent>(uid);
         args.Handled = true;
