@@ -143,6 +143,9 @@ public sealed partial class FelinidSystem : EntitySystem
             return;
         }
 
+        // We have passed validation and are consuming the held mouse.
+        args.Handled = true;
+
         if (_actionsSystem.GetAction(component.HairballActionEntity) is { } action)
         {
             EnsureComp<LimitedChargesComponent>(action, out var chargeComp);
