@@ -6,7 +6,7 @@ ent-NVToggleAction = Toggle NVD
 
 # Felinid actions
 ent-ActionEatMouse = Eat mouse
-    .desc = Take the mouse in your hand and remove the batteries and charger from it.
+    .desc = Eat a mouse to ease your hunger and prepare to cough up a hairball.
 ent-ActionHairball = Cough up hairball
     .desc = Cleanse your digestive system and get a hairball to throw at people.
 ent-ActionWoundLicking = Lick wounds
