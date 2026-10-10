@@ -1,10 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles.Components;
 using Content.Shared.StatusIcon;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -16,7 +14,6 @@ namespace Content.Shared.Roles.Jobs;
 public abstract partial class SharedJobSystem : EntitySystem
 {
     [Dependency] private SharedRoleSystem _roles = default!;
-    [Dependency] private SharedPlayerSystem _playerSystem = default!;
 
     private readonly Dictionary<string, string> _inverseTrackerLookup = new();
 
@@ -286,16 +283,4 @@ public abstract partial class SharedJobSystem : EntitySystem
         return name;
     }
 
-
-    public bool CanBeAntag(ICommonSession player)
-    {
-        // Lobby players without an assigned job remain eligible for normal selection.
-        if (_playerSystem.ContentData(player) is not { Mind: { } mindId })
-            return true;
-
-        if (!MindTryGetJob(mindId, out var prototype))
-            return true;
-
-        return prototype.CanBeAntag;
-    }
 }

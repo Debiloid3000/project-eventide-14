@@ -90,12 +90,6 @@ public sealed partial class JobPrototype : IPrototype
     [DataField]
     public int AntagAdvantage;
 
-    /// <summary>
-    /// Whether players assigned to this job can be selected as an antagonist.
-    /// </summary>
-    [DataField("canBeAntag")]
-    public bool CanBeAntag { get; private set; } = true;
-
     [DataField]
     public ProtoId<StartingGearPrototype>? StartingGear { get; private set; }
 
