@@ -14,7 +14,6 @@
       role: JobChiefMedicalOfficer
       time: 18000 #5 hrs
   startingGear: BlueShieldGear
-  canBeAntag: false
   icon: "JobIconBlueShield"
   requireAdminNotify: true
   joinNotifyCrew: true

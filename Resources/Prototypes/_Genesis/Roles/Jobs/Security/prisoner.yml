@@ -4,7 +4,6 @@
   description: job-description-prisoner
   playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
-  canBeAntag: false
   alwaysUseSpawner: true
   icon: JobIconPrisoner
   supervisors: job-supervisors-security

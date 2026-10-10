@@ -14,7 +14,6 @@
       role: JobDetective
       time: 18000 # 5 hours
   startingGear: JediNTGear
-  canBeAntag: false
   icon: "JobIconJediNT"
   supervisors: job-supervisors-hos
   access:
