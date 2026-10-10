@@ -1,8 +1,8 @@
-﻿- type: entity
+- type: entity
   parent: BaseAction
   id: ActionEatMouse
-  name: eat mouse
-  description: Take the mouse in your hand and remove the batteries and charger from it.
+  name: genesis-action-name-eat-mouse
+  description: genesis-action-description-eat-mouse
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHairball
-  name: cough up
-  description: Cleanse your digestive system and get a cool hairball to throw at people.
+  name: genesis-action-name-hairball
+  description: genesis-action-description-hairball
   components:
   - type: LimitedCharges
     maxCharges: 1
@@ -28,8 +28,8 @@
 - type: entity
   parent: BaseAction
   id: ActionWoundLicking
-  name: lick wound
-  description: Stop bleeding by licking your wounds
+  name: genesis-action-name-wound-licking
+  description: genesis-action-description-wound-licking
   components:
   - type: Action
     priority: -1
