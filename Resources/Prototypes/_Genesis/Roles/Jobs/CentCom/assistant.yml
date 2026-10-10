@@ -4,7 +4,6 @@
   description: job-description-centcom-assistant
   playTimeTracker: JobCentralCommandAssistant
   startingGear: CentComAssistantGear
-  canBeAntag: false
   icon: "JobIconCentComService"
   supervisors: job-supervisors-centcom
   access:
