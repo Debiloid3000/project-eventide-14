@@ -44,6 +44,7 @@
     sprite: Structures/Walls/solid.rsi
     layers:
     - state: full
+      map: ["enum.ActionVisuals.Icon"]
   - type: InstantAction
     event: !type:InvisibleWallActionEvent
 
