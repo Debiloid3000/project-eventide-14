@@ -58,7 +58,7 @@
     IAA: 9 # Corvax
     Magistrate: 9 # Corvax
 
-    # Genesis roles use JobPrototype.Weight defaults via Eventide's job-weight profile.
+    # Genesis role IDs are assigned weights in Eventide's job-weight profile.
     CentralCommandAssistant: 0 # Genesis
     CentComConsultant: 0 # Genesis
     CentralCommandEngineer: 0 # Genesis

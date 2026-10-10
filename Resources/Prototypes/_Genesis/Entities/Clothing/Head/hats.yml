@@ -224,6 +224,8 @@
   components:
   - type: Sprite
     sprite: _Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: _Genesis/Clothing/Head/Hats/centcom_military_beret.rsi
   - type: Tag
