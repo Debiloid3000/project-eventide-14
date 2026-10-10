@@ -7,7 +7,6 @@
   startingGear: ERTEngineerGearEVA
   icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:

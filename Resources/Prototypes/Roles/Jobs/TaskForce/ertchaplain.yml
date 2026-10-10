@@ -7,7 +7,6 @@
   startingGear: ERTChaplainGear
   icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:

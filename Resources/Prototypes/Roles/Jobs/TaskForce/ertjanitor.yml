@@ -7,7 +7,6 @@
   startingGear: ERTJanitorGearEVA
   icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
