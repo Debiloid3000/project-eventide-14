@@ -8,7 +8,6 @@
       department: Command
       time: 468000  # 130 hours
   startingGear: HeadOfStaffCentComGear
-  canBeAntag: false
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   setPreference: true

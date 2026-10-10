@@ -4,7 +4,6 @@
   description: job-description-senior-service
   playTimeTracker: JobSeniorService
   startingGear: SeniorServiceGear
-  canBeAntag: false
   icon: "JobIconSeniorService"
   supervisors: job-supervisors-service
   access:
