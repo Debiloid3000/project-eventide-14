@@ -15,7 +15,6 @@
     traits:
     - Muted
   startingGear: BrigmedicGear
-  canBeAntag: false
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-cmo
   access:
