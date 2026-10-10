@@ -13,10 +13,3 @@
   special:
     - !type:AddImplantSpecial
       implants: [ TrackingImplant ]
-
-- type: chameleonOutfit
-  id: PrisonerChameleonOutfit
-  job: Prisoner
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitPrisoner
-    shoes: ClothingShoesColorBlack
