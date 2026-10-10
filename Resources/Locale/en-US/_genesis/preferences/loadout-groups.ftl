@@ -8,4 +8,3 @@ loadout-group-outerclothing = OuterClothing
 loadout-group-shoes = Shoes
 loadout-group-belt = Belt
 loadout-group-pda = PDA
-loadout-group-janitor-plunger = Janitor plunger
