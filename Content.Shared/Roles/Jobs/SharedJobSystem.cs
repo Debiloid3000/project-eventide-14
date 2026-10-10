@@ -282,5 +282,4 @@ public abstract partial class SharedJobSystem : EntitySystem
         MindTryGetJobName(mindId, out var name);
         return name;
     }
-
 }
