@@ -5,5 +5,5 @@ mime-invisible-wall-failed = Вы не можете создать здесь н
 mime-not-ready-repent = Вы ещё не готовы покаяться за нарушенный обет.
 mime-ready-to-repent = Вы чувствуете, что готовы снова дать обет молчания.
 
-mime-invisible-wall-action-name = Создать невидимую стену
-mime-invisible-wall-action-description = Создаёт перед вами невидимую стену, если в этом месте её можно поставить.
+ent-ActionMimeInvisibleWall = Создать невидимую стену
+    .desc = Создаёт перед вами невидимую стену, если в этом месте её можно поставить.

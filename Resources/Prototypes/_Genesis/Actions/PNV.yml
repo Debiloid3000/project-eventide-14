@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: SwitchNightVision
-  name: genesis-action-name-switch-night-vision
-  description: genesis-action-description-switch-night-vision
+  name: Switch night vision
+  description: Switch night vision on or off.
   components:
   - type: Action
     useDelay: 2.5
@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseAction
   id: NVToggleAction
-  name: genesis-action-name-toggle-nvd
-  description: genesis-action-description-toggle-nvd
+  name: Toggle NVD
+  description: Toggles your night-vision device.
   components:
   - type: Action
     useDelay: 2.5

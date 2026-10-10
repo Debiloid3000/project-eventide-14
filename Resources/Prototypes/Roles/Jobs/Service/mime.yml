@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMimeInvisibleWall
-  name: mime-invisible-wall-action-name
-  description: mime-invisible-wall-action-description
+  name: Create invisible wall
+  description: Create an invisible wall in front of you, if placeable there.
   components:
   - type: Action
     priority: -1
