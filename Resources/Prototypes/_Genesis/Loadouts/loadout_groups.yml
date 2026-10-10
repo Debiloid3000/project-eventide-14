@@ -111,7 +111,6 @@
   minLimit: 0
   loadouts:
   - CentcomCloak
-  - CentcomCloak
 
 # BlueShield
 - type: loadoutGroup
