@@ -1,9 +1,9 @@
-ent-BlueShieldPDA = PDA officer blueshield
+ent-BlueShieldPDA = BlueShield officer PDA
     .desc = Covered in the blood of past chapters.
     .suffix = { "" }
 ent-HoSPDABlue = { ent-HoSPDA }
     .desc = { ent-HoSPDA.desc }
-    .suffix = Синий
+    .suffix = Blue
 ent-WardenPDABlue = { ent-WardenPDA }
     .desc = { ent-WardenPDA.desc }
     .suffix = Blue
