@@ -1,0 +1,42 @@
+- type: job
+  id: SeniorSalvage
+  name: job-name-senior-salvage
+  description: job-description-senior-salvage
+  playTimeTracker: JobSeniorSalvage
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 108000 # 30 hrs
+    - !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobMiner
+      time: 36000 #10 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 108000 #30 hrs
+  icon: "JobIconSeniorSalvage"
+  startingGear: SeniorSalvageGear
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Salvage
+  - Quartermaster
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: SeniorSalvageGear
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+    id: SeniorSalvagePDA
+    ears: ClothingHeadsetCargo
+
+- type: chameleonOutfit
+  id: SeniorSalvageChameleonOutfit
+  job: SeniorSalvage
+  equipment:
+    head: ClothingHeadHatBeretSalvage
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGasExplorer
+    gloves: ClothingHandsGlovesColorBlack

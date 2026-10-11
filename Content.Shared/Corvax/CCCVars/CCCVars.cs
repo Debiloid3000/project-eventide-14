@@ -123,7 +123,9 @@ public sealed class CCCVars
     /// Making everyone a pacifist at the end of a round.
     /// </summary>
     public static readonly CVarDef<bool> PeacefulRoundEnd =
+        // Genesis-start: this fork enables peaceful round end by default.
         CVarDef.Create("game.peaceful_end", false, CVar.SERVERONLY);
+        // Genesis-end
 
     /*
      * Station Goal

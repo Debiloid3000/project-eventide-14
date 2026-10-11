@@ -26,6 +26,11 @@
       collection: FootstepClownFast
   - type: Speech
     speechVerb: Cluwne
+  - type: NightVision
+    enabled: false
+    action: NVToggleAction
+    overlayColor: "#6666ff"
+    lightingColor: "#6666ff15"
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

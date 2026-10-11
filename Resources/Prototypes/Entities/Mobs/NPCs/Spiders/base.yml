@@ -59,6 +59,11 @@
       reagents:
       - ReagentId: CopperBlood
         Quantity: 150
+  - type: NightVision
+    enabled: false
+    action: NVToggleAction
+    overlayColor: "#ff6161"
+    lightingColor: "#ff616115"
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid

@@ -1,8 +1,12 @@
+using System.Text.RegularExpressions;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
+using Content.Shared.Access.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Inventory;
+using Content.Shared.PDA;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
@@ -24,7 +28,23 @@ public sealed partial class RadioSystem : SharedRadioSystem
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
+
+    private readonly Dictionary<string, string[]> _departments = new()
+    {
+        { "fcdf03", ["командование", "кэп", "капитан", "глава персонала"] },
+        { "d98b71", ["юридический отдел", "магистрат", "юрист", "агент внутренних дел"] },
+        { "1563bd", ["служба безопасности", "бриг", "варден", "смотритель", "инструктор", "детектив", "пилот сб", "бригмед", "кадет"] },
+        { "57b8f0", ["медицинский отдел", "главный врач", "ведущий врач", "химик", "врач", "парамед", "коронер", "психолог", "интерн"] },
+        { "c68cfa", ["научный отдел", "рнд", "нио", "научный руководитель", "ведущий учёный", "учёный", "робоёб", "лаборант", "анома"] },
+        { "f2ac26", ["инженерный отдел", "инженерный", "старший инженер", "ведущий инженер", "атмосферный техник", "атмос", "инженер", "инженер стажёр"] },
+        { "a46106", ["отдел снабжения", "карго", "каргонцы", "ведущий утилизатор", "ведущий утиль", "утиль", "утилизатор", "грузчик"] },
+        { "6ca729", ["сервисный отдел", "сервис", "менеджер", "шеф", "повар", "ботаник", "бармен", "боксер", "уборщик", "библиотекарь", "священик", "святой отец", "зоотехник", "репортёр", "музыкант"] },
+        { "2ed2fd", ["искусственный интеллект", "юнит", "борг"] },
+        { "fb77f3", ["клуня", "клоун"] },
+        { "d0d0d0", ["мим"] }
+    };
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -74,14 +94,37 @@ public sealed partial class RadioSystem : SharedRadioSystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
+        var headsetColor = TryComp(radioSource, out HeadsetComponent? headset) ? headset.Color : channel.Color;
+        var job = string.Empty;
+        if (_inventory.HasSlot(messageSource, "id"))
+        {
+            job = Loc.GetString("chat-radio-source-unknown");
+
+            if (_inventory.TryGetSlotEntity(messageSource, "id", out var idSlotEntity))
+            {
+                if (TryComp(idSlotEntity, out PdaComponent? pda))
+                    idSlotEntity = pda.ContainedId;
+
+                job = TryComp(idSlotEntity, out IdCardComponent? idCard) && !string.IsNullOrEmpty(idCard.LocalizedJobTitle)
+                    ? _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle)
+                    : Loc.GetString("chat-radio-source-unknown");
+            }
+
+            job = $"\\[{job}\\] ";
+        }
+
+        content = Highlight(content);
+
         var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("color", channel.Color),
+            ("channel-color", channel.Color),
+            ("headset-color", headsetColor),
             ("fontType", speech.FontId),
             ("fontSize", speech.FontSize),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
-            ("message", content));
+            ("message", content),
+            ("job", job));
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         var chat = new ChatMessage(
@@ -154,5 +197,39 @@ public sealed partial class RadioSystem : SharedRadioSystem
             }
         }
         return false;
+    }
+
+    private string Highlight(string message)
+    {
+        foreach (var (color, words) in _departments)
+        {
+            foreach (var word in words)
+            {
+                var pattern = BuildDepartmentWordPattern(word);
+                var regex = new Regex($@"\w*{pattern}\w*", RegexOptions.IgnoreCase);
+                message = regex.Replace(message, match => $"[color=#{color}]{match.Value}[/color]");
+            }
+        }
+
+        return message;
+    }
+
+    private static string BuildDepartmentWordPattern(string word)
+    {
+        var pattern = string.Empty;
+        foreach (var letter in word)
+        {
+            var letterPattern = letter switch
+            {
+                'л' => "[лв]",
+                'р' => "[рв]",
+                'ы' => "[иы]",
+                _ => Regex.Escape(letter.ToString())
+            };
+
+            pattern += letterPattern + "+";
+        }
+
+        return pattern;
     }
 }

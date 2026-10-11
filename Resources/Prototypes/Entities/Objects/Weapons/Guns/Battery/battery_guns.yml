@@ -279,6 +279,13 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
+  components:
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
 
 - type: entity
   name: practice laser carbine
@@ -497,6 +504,11 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
   - type: Gun
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider

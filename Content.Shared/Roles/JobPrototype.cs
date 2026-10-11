@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
@@ -134,6 +135,12 @@ public sealed partial class JobPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<GuideEntryPrototype>>? Guides;
+
+    [DataField("speciesBlacklist")]
+    public List<string> SpeciesBlacklist = new();
+
+    [DataField("alwaysUseSpawner")]
+    public bool AlwaysUseSpawner { get; private set; }
 }
 
 /// <summary>

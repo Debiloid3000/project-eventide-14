@@ -1,0 +1,9 @@
+- type: chameleonOutfit
+  id: SeniorResearcherOutfit
+  job: SeniorResearcher
+  equipment:
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGas
+    outerClothing: ClothingOuterCoatLabSeniorResearcher
+    gloves: ClothingHandsGlovesLatex

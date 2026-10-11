@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseAction
+  id: SwitchNightVision
+  name: Switch night vision
+  description: Switch night vision on or off.
+  components:
+  - type: Action
+    useDelay: 2.5
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:ToggleNightVisionEvent
+
+- type: entity
+  parent: BaseAction
+  id: NVToggleAction
+  name: Toggle NVD
+  description: Toggles your night-vision device.
+  components:
+  - type: Action
+    useDelay: 2.5
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    layers:
+    - state: icon
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:ToggleNightVisionEvent

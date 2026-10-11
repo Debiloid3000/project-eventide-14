@@ -1,0 +1,133 @@
+- type: marking
+  id: TailAxolotl
+  bodyPart: Tail
+  groupWhitelist: [Reptilian]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: axolotl
+
+- type: marking
+  id: TailDatashark
+  bodyPart: Tail
+  groupWhitelist: [Reptilian]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: datashark_ears_inner
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: datashark_ears
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: datashark_fin
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: datashark_tail
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: datashark_taildata
+
+- type: marking
+  id: TailEasternDragon
+  bodyPart: Tail
+  groupWhitelist: [Reptilian]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: easternd_primary
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: easternd_secondary
+
+- type: marking
+  id: TailFennec
+  bodyPart: Tail
+  groupWhitelist: [Felinid]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: fennec
+
+- type: marking
+  id: TailFish
+  bodyPart: Tail
+  groupWhitelist: [Reptilian]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: fish_primary
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: fish_secondary
+
+- type: marking
+  id: TailFluffy
+  bodyPart: Tail
+  groupWhitelist: [Felinid]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: fluffy
+
+- type: marking
+  id: TailFox
+  bodyPart: Tail
+  groupWhitelist: [Felinid]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: fox_primary
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: fox_secondary
+
+- type: marking
+  id: TailGecko
+  bodyPart: Tail
+  groupWhitelist: [Reptilian]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: gecko_primary
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: gecko_secondary
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: gecko_tertiary
+
+- type: marking
+  id: TailKitsune
+  bodyPart: Tail
+  groupWhitelist: [Felinid]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: kitsune_primary
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: kitsune_secondary
+
+- type: marking
+  id: TailMaw
+  bodyPart: Tail
+  groupWhitelist: [Reptilian, Slime]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: maw
+
+- type: marking
+  id: TailShark
+  bodyPart: Tail
+  groupWhitelist: [Reptilian]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: shark_fin
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: shark_tail
+
+- type: marking
+  id: TailSnake
+  bodyPart: Tail
+  groupWhitelist: [Reptilian, Slime]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: snake
+
+- type: marking
+  id: TailSuccubus
+  bodyPart: Tail
+  groupWhitelist: [Moth, Felinid]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: succubus
+
+- type: marking
+  id: TailTentacle
+  bodyPart: Tail
+  groupWhitelist: [Human]
+  sprites:
+    - sprite: _Genesis/Mobs/Customization/tails32x32.rsi
+      state: tentacle
