@@ -156,7 +156,7 @@ start_process() {
 start_process xvfb Xvfb "$DISPLAY_NUM" -screen 0 1280x800x24 -ac +extension GLX +render -noreset
 sleep 2
 kill -0 "$(cat "$RUNTIME_DIR/xvfb.pid")" 2>/dev/null || { tail -n 80 "$LOG_DIR/xvfb.log"; die "Xvfb не запустился."; }
-start_process openbox openbox --display "$DISPLAY_NUM"
+start_process openbox openbox
 start_process vnc x11vnc -display "$DISPLAY_NUM" -rfbport "$VNC_PORT" -listen 127.0.0.1 -forever -shared -nopw
 start_process websockify websockify --web="$NOVNC_DIR" "$WEB_PORT" "127.0.0.1:$VNC_PORT"
 
@@ -177,15 +177,27 @@ fi
 log "Запускаю Content.Client внутри виртуального рабочего стола..."
 (
     cd "$ROOT"
-    exec env DISPLAY="$DISPLAY_NUM" LIBGL_ALWAYS_SOFTWARE=1 SDL_VIDEODRIVER=x11 \
+    # Codespaces has no physical audio output device; use OpenAL Soft null output.
+    exec env DISPLAY="$DISPLAY_NUM" LIBGL_ALWAYS_SOFTWARE=1 SDL_VIDEODRIVER=x11 ALSOFT_DRIVERS=null \
         dotnet run --no-build --project Content.Client/Content.Client.csproj
 ) >>"$LOG_DIR/client.log" 2>&1 </dev/null &
 echo "$!" > "$RUNTIME_DIR/client.pid"
 
-sleep 3
+sleep 2
+if ! kill -0 "$(cat "$RUNTIME_DIR/openbox.pid")" 2>/dev/null; then
+    tail -n 80 "$LOG_DIR/openbox.log" >&2 || true
+    die "Openbox не запустился. См. лог openbox.log"
+fi
 if ! kill -0 "$(cat "$RUNTIME_DIR/websockify.pid")" 2>/dev/null; then
     tail -n 80 "$LOG_DIR/websockify.log" >&2 || true
     die "noVNC web gateway не запустился. См. лог websockify.log"
+fi
+
+# Let the client finish initialization; fail loudly rather than reporting success on a black screen.
+sleep 8
+if ! kill -0 "$(cat "$RUNTIME_DIR/client.pid")" 2>/dev/null; then
+    tail -n 120 "$LOG_DIR/client.log" >&2 || true
+    die "Content.Client завершился при запуске. Проверь client.log."
 fi
 
 log "Стенд запущен."
