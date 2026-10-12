@@ -105,7 +105,7 @@ loadout-group-cargo-technician-jumpsuit = Комбинезон
 loadout-group-cargo-technician-backpack = Рюкзак
 loadout-group-cargo-technician-outerclothing = Верхняя одежда
 loadout-group-cargo-technician-shoes = Обувь
-loadout-group-cargo-technician-id = ID-карта
+loadout-group-cargo-technician-id = КПК
 
 loadout-group-salvage-specialist-backpack = Рюкзак
 loadout-group-salvage-specialist-outerclothing = Верхняя одежда
@@ -125,7 +125,7 @@ loadout-group-station-engineer-jumpsuit = Комбинезон
 loadout-group-station-engineer-backpack = Рюкзак
 loadout-group-station-engineer-outerclothing = Верхняя одежда
 loadout-group-station-engineer-shoes = Обувь
-loadout-group-station-engineer-id = ID-карта
+loadout-group-station-engineer-id = КПК
 
 loadout-group-atmospheric-technician-jumpsuit = Комбинезон
 loadout-group-atmospheric-technician-backpack = Рюкзак
@@ -146,7 +146,7 @@ loadout-group-scientist-backpack = Рюкзак
 loadout-group-scientist-outerclothing = Верхняя одежда
 loadout-group-scientist-gloves = Перчатки
 loadout-group-scientist-shoes = Обувь
-loadout-group-scientist-id = ID-карта
+loadout-group-scientist-id = КПК
 
 loadout-group-research-assistant-jumpsuit = Комбинезон
 
@@ -168,7 +168,7 @@ loadout-group-security-backpack = Рюкзак
 loadout-group-security-belt = Пояс
 loadout-group-security-outerclothing = Верхняя одежда
 loadout-group-security-shoes = Обувь
-loadout-group-security-id = ID-карта
+loadout-group-security-id = КПК
 
 loadout-group-detective-head = Голова
 loadout-group-detective-neck = Шея
@@ -192,7 +192,7 @@ loadout-group-medical-doctor-jumpsuit = Комбинезон
 loadout-group-medical-doctor-outerclothing = Верхняя одежда
 loadout-group-medical-doctor-backpack = Рюкзак
 loadout-group-medical-doctor-shoes = Обувь
-loadout-group-medical-doctor-id = ID-карта
+loadout-group-medical-doctor-id = КПК
 
 loadout-group-medical-intern-jumpsuit = Комбинезон
 
