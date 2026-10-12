@@ -61,3 +61,4 @@ JobERTJanitorCharlie = ERT Janitor (Charlie)
 JobERTLeaderCharlie = ERT Leader (Charlie)
 JobERTMedicalCharlie = ERT Medic (Charlie)
 JobERTSecurityCharlie = ERT Security (Charlie)
+job-name-centcomoff = Central Command Official
