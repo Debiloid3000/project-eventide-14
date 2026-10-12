@@ -51,7 +51,9 @@ public sealed partial class ContainerSpawnPointSystem : EntitySystem
                 continue;
             }
 
-            if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+            if (_gameTicker.RunLevel == GameRunLevel.InRound &&
+                spawnPoint.SpawnType == SpawnPointType.LateJoin &&
+                (spawnPoint.Job == null || spawnPoint.Job == args.Job))
             {
                 possibleContainers.Add((uid, spawnPoint, container, xform));
             }
