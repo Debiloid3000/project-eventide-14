@@ -24,7 +24,6 @@ ent-HoSPDABlue = { ent-HoSPDA }
 ent-JediNTPDA = Jedi NT PDA
     .desc = Smells like power.
     .suffix = { "" }
-ent-MagistratPDA = Magistrate PDA
     .desc = Corporation and profit are best friends.
     .suffix = { "" }
 ent-MinerPDA = Miner PDA
