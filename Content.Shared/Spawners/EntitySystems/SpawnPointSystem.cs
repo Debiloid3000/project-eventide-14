@@ -116,6 +116,8 @@ public sealed partial class SpawnPointSystem : EntitySystem
             args.Job,
             args.HumanoidCharacterProfile,
             args.Station);
+    }
+
     // Genesis-Start
     private bool MatchesJobOrDepartment(SpawnPointComponent point, ProtoId<JobPrototype>? job)
     {
@@ -144,5 +146,4 @@ public sealed partial class SpawnPointSystem : EntitySystem
         return point.Job != null || point.Departments.Count > 0;
     }
     // Genesis-End
-    }
 }
