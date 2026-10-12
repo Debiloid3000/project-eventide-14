@@ -8,7 +8,6 @@ criminal-records-ui-no-status = No status
 criminal-records-ui-unknown = Unknown
 criminal-records-ui-unknown-job = Unknown job
 criminal-records-ui-window-search-placeholder = Search...
-
 criminal-status-cooldown-popup = You are trying to add records too frequently.
 criminal-status-execute = Execute
 criminal-status-execute-report = {$target} has been sentenced to execution! Reason: {$reason}
