@@ -32,6 +32,12 @@ public sealed partial class SpawnPointSystem : EntitySystem
         var useJobPointsForLateJoin = args.Station != null
             && TryComp<StationSpawningComponent>(args.Station.Value, out var stationSpawning)
             && stationSpawning.UseJobSpawnPointsForLateJoin;
+
+        // Explicit alwaysUseSpawner jobs must use their own restricted job spawners,
+        // even when their station also has generic LateJoin/Arrivals points.
+        var alwaysUseSpawner = args.Job != null
+            && ProtoMan.TryIndex(args.Job.Value, out JobPrototype? jobPrototype)
+            && jobPrototype?.AlwaysUseSpawner == true;
         // Genesis-End
 
         // TODO: Cache all this if it ends up important.
@@ -54,7 +60,7 @@ public sealed partial class SpawnPointSystem : EntitySystem
                     else
                         genericLateJoinPositions.Add(xform.Coordinates);
                 }
-                else if (useJobPointsForLateJoin &&
+                else if ((useJobPointsForLateJoin || alwaysUseSpawner) &&
                          spawnPoint.SpawnType == SpawnPointType.Job &&
                          MatchesJobOrDepartment(spawnPoint, args.Job))
                 {
@@ -74,7 +80,14 @@ public sealed partial class SpawnPointSystem : EntitySystem
         // Genesis-Start
         if (_gameTicker.RunLevel == GameRunLevel.InRound)
         {
-            if (matchingLateJoinPositions.Count > 0)
+            if (alwaysUseSpawner)
+            {
+                // Do not fall back to Arrivals or unscoped spawn points for these jobs.
+                // Their own job/department-restricted spawn point is a hard requirement.
+                if (matchingJobPositions.Count > 0)
+                    possiblePositions.AddRange(matchingJobPositions);
+            }
+            else if (matchingLateJoinPositions.Count > 0)
                 possiblePositions.AddRange(matchingLateJoinPositions);
             else if (matchingJobPositions.Count > 0)
                 possiblePositions.AddRange(matchingJobPositions);
@@ -90,9 +103,9 @@ public sealed partial class SpawnPointSystem : EntitySystem
             // Genesis-Start
             // Never send players to an unrelated map when a station explicitly opts in
             // to late-join-by-job spawn points but has no valid point for the selected role.
-            if (useJobPointsForLateJoin)
+            if (useJobPointsForLateJoin || alwaysUseSpawner)
             {
-                Log.Error($"No valid late-join spawn point found on configured station {ToPrettyString(args.Station)} for job {args.Job}.");
+                Log.Error($"No valid late-join job spawn point found on station {ToPrettyString(args.Station)} for job {args.Job}; refusing to use an unrelated spawn point.");
                 return;
             }
             // Genesis-End
