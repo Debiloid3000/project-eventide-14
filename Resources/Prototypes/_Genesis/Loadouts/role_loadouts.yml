@@ -14,6 +14,7 @@
   - BlueShieldPocket2
   - Trinkets
   - GroupSpeciesBreathTool
+  - SurvivalBlueShield
 
 - type: roleLoadout
   id: JobJediNT
@@ -192,6 +193,21 @@
   - GroupSpeciesBreathTool
 
 # Security
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - BrigmedicHead
+  - BrigmedicJumpsuit
+  - BrigmedicMask
+  - BrigmedicNeck
+  - BrigmedicOuterClothing
+  - SecurityShoes
+  - SurvivalBrigmedic
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+
 - type: roleLoadout
   id: JobPrisoner
   groups:
