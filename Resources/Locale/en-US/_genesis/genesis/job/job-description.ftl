@@ -18,3 +18,4 @@ job-description-senior-service = Train service staff in cleaning, bartending, co
 job-description-senior-officer = Train cadets in searches, arrests, prison procedures, and safe firearm use.
 job-description-prisoner = Serve your sentence and follow the rules of the prison facility.
 job-description-roboticist = Build and maintain robots and cyborgs, and support the station's robotics systems.
+job-description-centcomoff = Represent Central Command, coordinate decisions, and ensure its directives are followed.
