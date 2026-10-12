@@ -15,3 +15,15 @@
   id: BrigmedicOuterClothing
   equipment:
     outerClothing: ClothingOuterCoatAMG
+
+# Genesis-Start
+- type: loadout
+  id: BrigmedicJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: loadout
+  id: BrigmedicNeck
+  equipment:
+    neck: ClothingNeckScarfStripedRed
+# Genesis-End
