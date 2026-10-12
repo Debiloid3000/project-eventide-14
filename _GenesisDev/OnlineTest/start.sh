@@ -160,10 +160,10 @@ start_process openbox openbox
 start_process vnc x11vnc -display "$DISPLAY_NUM" -rfbport "$VNC_PORT" -listen 127.0.0.1 -forever -shared -nopw
 start_process websockify websockify --web="$NOVNC_DIR" "$WEB_PORT" "127.0.0.1:$VNC_PORT"
 
-log "Запускаю локальный тестовый сервер на UDP-порту $SERVER_PORT с tickrate=$TICKRATE..."
+log "Запускаю локальный тестовый сервер на UDP-порту $SERVER_PORT с tickrate=$TICKRATE и подробным сетевым логированием..."
 (
     cd "$ROOT"
-    exec dotnet run --no-build --project Content.Server/Content.Server.csproj -- --cvar "net.bindto=127.0.0.1" --cvar "net.port=$SERVER_PORT" --cvar "net.tickrate=$TICKRATE"
+    exec dotnet run --no-build --project Content.Server/Content.Server.csproj -- --cvar "net.bindto=127.0.0.1" --cvar "net.port=$SERVER_PORT" --cvar "net.tickrate=$TICKRATE" --cvar "net.logging=true" --cvar "net.verbose=true"
 ) >>"$LOG_DIR/server.log" 2>&1 </dev/null &
 echo "$!" > "$RUNTIME_DIR/server.pid"
 
