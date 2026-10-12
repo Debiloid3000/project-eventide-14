@@ -140,7 +140,7 @@
   name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
-  weight: -20 # Displays after all regular crew departments, because they're mechanically distinct and subordinate to all crew by default
+  weight: -20 # Displays after all regular crew departments, including Civilian, both because they're mechanically distinct and because they're subordinate to all crew by default
   roles:
   - Borg
   - StationAi
