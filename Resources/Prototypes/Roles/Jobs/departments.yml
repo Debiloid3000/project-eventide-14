@@ -59,7 +59,6 @@
   - ResearchDirector
   - Quartermaster
   - Magistrate
-  - Magistrat # Genesis Magistrate role also belongs to Command
 
 - type: department
   id: Engineering
