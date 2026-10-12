@@ -31,19 +31,6 @@
   - CentralCommandCargoTechnician
 
 - type: department
-  id: Civilian
-  name: department-Civilian
-  description: department-Civilian-description
-  color: "#7F7F7F"
-  weight: -10 # Lowest weight of all "regular" crew departments
-  ignoreForDepartmentFallback: true
-  roles:
-  - Passenger
-  - Visitor
-  - SeniorService
-  - Prisoner
-
-- type: department
   id: Command
   name: department-Command
   description: department-Command-description
@@ -59,6 +46,7 @@
   - ResearchDirector
   - Quartermaster
   - Magistrate
+  - Magistrat # Genesis Magistrate role also belongs to Command
 
 - type: department
   id: Engineering
@@ -127,20 +115,23 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
   - Reporter
   - ServiceWorker
   - TramDriver
+  - Passenger
+  - Visitor
+  - SeniorService
+  - Prisoner
 
 - type: department
   id: Silicon
   name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
-  weight: -20 # Displays after all regular crew departments, including Civilian, both because they're mechanically distinct and because they're subordinate to all crew by default
+  weight: -20 # Displays after all regular crew departments, because they're mechanically distinct and subordinate to all crew by default
   roles:
   - Borg
   - StationAi
@@ -175,5 +166,4 @@
   - Psychologist
   - TramDriver
   - Pilot # Corvax-Pilot
-  - Prisoner
   primary: false
