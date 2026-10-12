@@ -42,3 +42,6 @@ ent-LockerCentcomConsultant = locker consultant CentCom
     .desc = An expensive version of a regular storage locker. On the inside of the door there is a small inscription “Made by Nanotrasen”.
 ent-LockerCentcom = locker CentCom
     .desc = An expensive version of a regular storage locker. On the inside of the door there is a small inscription “Made by Nanotrasen”.
+ent-GarmentBagCentcomConsultant = CentCom consultant garment bag
+    .desc = A convenient bag for storing clothes.
+    .suffix = { "" }
