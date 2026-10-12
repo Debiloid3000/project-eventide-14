@@ -178,23 +178,6 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
-# Law
-- type: roleLoadout
-  id: JobMagistrat
-  groups:
-  - Inventory # Corvax-Loadouts
-  - GroupTankHarness
-  - MagistrateHead
-  - MagistrateJumpsuit
-  - MagistrateOuterClothing
-  - LawyerNeck
-  - CommonBackpack
-  - Glasses
-  - AssistiveItems
-  - Survival
-  - Trinkets
-  - GroupSpeciesBreathTool
-
 # Security
 - type: roleLoadout
   id: JobPrisoner
