@@ -74,10 +74,10 @@ public sealed partial class SpawnPointSystem : EntitySystem
         {
             if (matchingLateJoinPositions.Count > 0)
                 possiblePositions.AddRange(matchingLateJoinPositions);
-            else if (genericLateJoinPositions.Count > 0)
-                possiblePositions.AddRange(genericLateJoinPositions);
             else if (matchingJobPositions.Count > 0)
                 possiblePositions.AddRange(matchingJobPositions);
+            else if (genericLateJoinPositions.Count > 0)
+                possiblePositions.AddRange(genericLateJoinPositions);
             else if (genericJobPositions.Count > 0)
                 possiblePositions.AddRange(genericJobPositions);
         }
@@ -119,14 +119,15 @@ public sealed partial class SpawnPointSystem : EntitySystem
     // Genesis-Start
     private bool MatchesJobOrDepartment(SpawnPointComponent point, ProtoId<JobPrototype>? job)
     {
-        // Unrestricted points are the fallback for any role.
-        if (point.Job == null && point.Departments.Count == 0)
-            return true;
-
         if (job == null)
+            return point.Job == null && point.Departments.Count == 0;
+
+        // An explicit job_id is an exact restriction. Department-only points are useful
+        // when every member of a department may use the same late-join location.
+        if (point.Job != null && point.Job != job)
             return false;
 
-        if (point.Job == job)
+        if (point.Departments.Count == 0)
             return true;
 
         foreach (var departmentId in point.Departments)
