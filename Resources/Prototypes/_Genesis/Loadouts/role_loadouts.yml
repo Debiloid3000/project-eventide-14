@@ -182,12 +182,15 @@
 - type: roleLoadout
   id: JobMagistrat
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - MagistratHead
+  - MagistrateHead
+  - MagistrateJumpsuit
+  - MagistrateOuterClothing
   - LawyerNeck
-  - LawyerJumpsuit
   - CommonBackpack
-  - MagistratOuterClothing
+  - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
