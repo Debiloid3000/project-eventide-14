@@ -128,9 +128,11 @@ public sealed partial class SpawnPointSystem : EntitySystem
         if (job == null)
             return point.Job == null && point.Departments.Count == 0;
 
-        if (point.Job != null && point.Job != job)
-            return false;
+        // An explicit job_id takes precedence and is an exact restriction.
+        if (point.Job != null)
+            return point.Job == job;
 
+        // An unscoped point is a general-purpose point for any job.
         if (point.Departments.Count == 0)
             return true;
 
