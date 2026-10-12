@@ -24,6 +24,11 @@ loadout-group-nukeops-id = ID card Nuclear Operative
 loadout-group-nukeops-jumpsuit = Jumpsuit Nuclear Operative
 loadout-group-nukeops-outerclothing = Hardsuit Nuclear Operative
 
+# Law
+loadout-group-magistrate-head = Magistrate headwear
+loadout-group-magistrate-jumpsuit = Magistrate uniform
+loadout-group-magistrate-outerclothing = Magistrate outer clothing
+
 # Security
 loadout-group-brigmedic-head = Head Brigmedic
 loadout-group-brigmedic-neck = Neck Brigmedic
