@@ -5,6 +5,5 @@
   color: "#0c344d"
   roles:
   - Magistrate
-  - Magistrat # Genesis role
   - IAA
   - Lawyer
