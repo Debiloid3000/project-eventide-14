@@ -2,7 +2,7 @@ job-description-blueshield = Don't let the command members die. You should not f
 
 job-description-centcom-assistant = Handle requests from senior Central Command staff and help with their day-to-day duties.
 job-description-centcom-cargotech = Fulfill Central Command supply requests, provide emergency supplies to stations, and handle special orders.
-job-description-consultant = Advise Central Command staff and help coordinate their work with station command.
+job-description-consultant = Represent Central Command at the station, advise its staff, and coordinate their work with station command. Maintain order among department heads, resolve conflicts, and submit reports to Central Command.
 job-description-centcomop = Do not approve evacuations. Do not approve ERT deployments. Divide the station crew's salaries by zero.
 job-description-hos-centcom = Lead security at Central Command facilities and supervise officers responsible for maintaining order.
 job-description-centcom-admiral = Serve as a NanoTrasen admiral, balancing Central Command responsibilities with matters at the stations.
