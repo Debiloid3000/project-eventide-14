@@ -226,6 +226,7 @@ public sealed partial class ServerGameTicker
 
     private void IncrementRoundNumber()
     {
+        Log.Info("[OnlineTestDiag] IncrementRoundNumber: begin");
         var playerIds = _playerGameStatuses.Keys.Select(player => player.UserId).ToArray();
 
         // TODO FIXME AAAAAAAAAAAAAAAAAAAH THIS IS BROKEN
@@ -233,11 +234,19 @@ public sealed partial class ServerGameTicker
         // This whole setup logic should be made asynchronous so we can properly wait on the DB AAAAAAAAAAAAAH
         var task = Task.Run(async () =>
         {
+            Log.Info("[OnlineTestDiag] IncrementRoundNumber task: before ServerEntity");
             var server = await _dbEntryManager.ServerEntity;
-            return await _db.AddNewRound(server, playerIds);
+            Log.Info($"[OnlineTestDiag] IncrementRoundNumber task: after ServerEntity (id={server.Id})");
+            Log.Info("[OnlineTestDiag] IncrementRoundNumber task: before AddNewRound");
+            var roundId = await _db.AddNewRound(server, playerIds);
+            Log.Info($"[OnlineTestDiag] IncrementRoundNumber task: after AddNewRound (roundId={roundId})");
+            return roundId;
         });
 
+        Log.Info("[OnlineTestDiag] IncrementRoundNumber: before BlockWaitOnTask");
         _taskManager.BlockWaitOnTask(task);
+        Log.Info("[OnlineTestDiag] IncrementRoundNumber: after BlockWaitOnTask");
         RoundId = task.GetAwaiter().GetResult();
+        Log.Info($"[OnlineTestDiag] IncrementRoundNumber: completed (RoundId={RoundId})");
     }
 }
