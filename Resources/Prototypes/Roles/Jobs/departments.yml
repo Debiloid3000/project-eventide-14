@@ -30,18 +30,6 @@
   - CentralCommandAssistant
   - CentralCommandCargoTechnician
 
-- type: department
-  id: Civilian
-  name: department-Civilian
-  description: department-Civilian-description
-  color: "#7F7F7F"
-  weight: -10 # Lowest weight of all "regular" crew departments
-  ignoreForDepartmentFallback: true
-  roles:
-  - Passenger
-  - Visitor
-  - SeniorService
-  - Prisoner
 
 - type: department
   id: Command
@@ -58,7 +46,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - Magistrate
+  - Magistrat
 
 - type: department
   id: Engineering
@@ -133,6 +121,9 @@
   - Musician
   - Reporter
   - ServiceWorker
+  - Passenger
+  - SeniorService
+  - Prisoner
   - TramDriver
 
 - type: department
@@ -176,4 +167,5 @@
   - TramDriver
   - Pilot # Corvax-Pilot
   - Prisoner
+  - Visitor
   primary: false
