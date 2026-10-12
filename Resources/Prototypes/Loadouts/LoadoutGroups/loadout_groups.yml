@@ -863,14 +863,6 @@
   - ChiefEngineerTurtleneckSkirt
 
 - type: loadoutGroup
-  id: ChiefEngineerBackpack
-  name: loadout-group-backpack
-  loadouts:
-  - StationEngineerBackpack
-  - StationEngineerSatchel
-  - StationEngineerDuffel
-
-- type: loadoutGroup
   id: ChiefEngineerNeck
   name: loadout-group-chief-engineer-neck
   minLimit: 0
