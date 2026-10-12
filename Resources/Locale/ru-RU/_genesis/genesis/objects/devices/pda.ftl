@@ -24,7 +24,6 @@ ent-HoSPDABlue = { ent-HoSPDA }
 ent-JediNTPDA = КПК стража клинка
     .desc = Пахнет силой.
     .suffix = { "" }
-ent-MagistratPDA = КПК магистрата
     .desc = Корпорация и прибыль - лучшие друзья.
     .suffix = { "" }
 ent-MinerPDA = КПК шахтёра
