@@ -1,2 +1,2 @@
-ent-ClothingOuterArmorBlueshield = vest blueshield
+ent-ClothingOuterArmorBlueShield = vest blueshield
     .desc = Vest for fucking!
