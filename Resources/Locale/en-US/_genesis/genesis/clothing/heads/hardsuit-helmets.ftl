@@ -1,6 +1,6 @@
 # Genesis localization
 
-ent-ClothingHeadHelmetHardsuitBlueShield = helmet hardsuit blueshield officer
+ent-ClothingHeadHelmetHardsuitBlueShield = BlueShield officer's hardsuit helmet
     .desc = A special protective helmet worn by members of BlueShield units.
     .suffix = { "" }
 ent-ClothingHeadHelmetHardsuitCentcomCarporate = Central Command corporate hardsuit helmet
@@ -83,7 +83,7 @@ ent-ClothingHeadHelmetHardsuitStormtrooper = Imperial stormtrooper hardsuit helm
 ent-ClothingHeadHelmetHardsuitSyndieBackmen = Blood-red hardsuit helmet
     .desc = A heavily armored helmet for special operations. It belongs to the Gorlex Marauders.
 ent-ClothingHeadHelmetHardsuitSyndieCommanderBackmen = Syndicate commander hardsuit helmet
-    .desc = An reinforced blood-red hardsuit helmet designed for a Syndicate operative squad commander. Its improved armor is made for frontline firefights.
+    .desc = A reinforced blood-red hardsuit helmet designed for a Syndicate operative squad commander. Its improved armor is made for frontline firefights.
 ent-ClothingHeadHelmetHardsuitSyndieCommanderCorvax = Syndicate commander hardsuit helmet
     .desc = An reinforced blood-red hardsuit helmet designed for a Syndicate operative squad commander. Its improved armor is made for frontline firefights.
 ent-ClothingHeadHelmetHardsuitSyndieCommanderSunRise = Syndicate commander hardsuit helmet
