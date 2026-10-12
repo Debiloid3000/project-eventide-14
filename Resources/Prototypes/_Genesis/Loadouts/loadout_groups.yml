@@ -561,3 +561,38 @@
   loadouts:
   - EmergencyNitrogenBlueShield
   - EmergencyOxygenBlueShield
+
+# Genesis: Brigmedic loadout groups use the same neutral slot labels as standard jobs.
+- type: loadoutGroup
+  id: BrigmedicHead
+  name: loadout-group-brigmedic-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicHead
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuit
+
+- type: loadoutGroup
+  id: BrigmedicMask
+  name: loadout-group-mask
+  minLimit: 0
+  loadouts:
+  - MaskMedicalSecurity
+
+- type: loadoutGroup
+  id: BrigmedicNeck
+  name: loadout-group-brigmedic-neck
+  minLimit: 0
+  loadouts:
+  - BrigmedicNeck
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-outerclothing
+  minLimit: 0
+  loadouts:
+  - BrigmedicOuterClothing
