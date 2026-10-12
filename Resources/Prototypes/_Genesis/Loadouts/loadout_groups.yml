@@ -551,6 +551,7 @@
   loadouts:
   - EmergencyNitrogenBrigmedic
   - EmergencyOxygenBrigmedic
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: SurvivalBlueShield
@@ -563,6 +564,8 @@
   - EmergencyOxygenBlueShield
 
 # Genesis: Brigmedic loadout groups use the same neutral slot labels as standard jobs.
+  - LoadoutSpeciesVoxNitrogen
+
 - type: loadoutGroup
   id: BrigmedicHead
   name: loadout-group-brigmedic-head
