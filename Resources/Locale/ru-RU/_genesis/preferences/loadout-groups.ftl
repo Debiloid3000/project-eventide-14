@@ -10,3 +10,7 @@ loadout-group-outerclothing = Верхняя одежда
 loadout-group-shoes = Обувь
 loadout-group-belt = Пояс
 loadout-group-pda = КПК
+
+# BlueShield equipment groups.
+loadout-group-blueshield-pocket = Табельное оружие
+loadout-group-blueshield-pocket2 = Вторичный магазин
