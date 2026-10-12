@@ -16,7 +16,6 @@
   description: department-CentralCommand-description
   color: "#0c344d"
   weight: 120 # Highest weight of all NT departments; Central Command's authority is absolute
-  editorHidden: true
   primary: false
   roles:
   - CentralCommandOfficial
