@@ -16,8 +16,8 @@
   description: department-CentralCommand-description
   color: "#0c344d"
   weight: 120 # Highest weight of all NT departments; Central Command's authority is absolute
-  editorHidden: true
   primary: false
+  lateJoinUsesJobSpawnPoint: true
   roles:
   - CentralCommandOfficial
   - HeadOfStaffCentCom
@@ -29,19 +29,6 @@
   - CentralCommandEngineer
   - CentralCommandAssistant
   - CentralCommandCargoTechnician
-
-- type: department
-  id: Civilian
-  name: department-Civilian
-  description: department-Civilian-description
-  color: "#7F7F7F"
-  weight: -10 # Lowest weight of all "regular" crew departments
-  ignoreForDepartmentFallback: true
-  roles:
-  - Passenger
-  - Visitor
-  - SeniorService
-  - Prisoner
 
 - type: department
   id: Command
@@ -59,6 +46,7 @@
   - ResearchDirector
   - Quartermaster
   - Magistrate
+  - Magistrat
 
 - type: department
   id: Engineering
@@ -127,13 +115,15 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
   - Reporter
   - ServiceWorker
   - TramDriver
+  - Passenger
+  - Prisoner
+  - SeniorService
 
 - type: department
   id: Silicon
@@ -175,5 +165,4 @@
   - Psychologist
   - TramDriver
   - Pilot # Corvax-Pilot
-  - Prisoner
   primary: false

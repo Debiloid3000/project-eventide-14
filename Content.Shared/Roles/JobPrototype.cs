@@ -141,6 +141,14 @@ public sealed partial class JobPrototype : IPrototype
 
     [DataField("alwaysUseSpawner")]
     public bool AlwaysUseSpawner { get; private set; }
+
+    // Genesis-Start
+    /// <summary>
+    /// Prefer a matching job spawn point for late joins when one is available.
+    /// </summary>
+    [DataField]
+    public bool LateJoinUsesJobSpawnPoint;
+    // Genesis-End
 }
 
 /// <summary>

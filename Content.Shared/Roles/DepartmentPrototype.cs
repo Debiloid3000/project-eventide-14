@@ -55,6 +55,15 @@ public sealed partial class DepartmentPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool EditorHidden;
+
+    // Genesis-Start
+    /// <summary>
+    /// Prefer job-specific spawn points for late joins when this department has one available.
+    /// Jobs without a matching point continue to use regular late-join spawn points.
+    /// </summary>
+    [DataField]
+    public bool LateJoinUsesJobSpawnPoint;
+    // Genesis-End
 }
 
 /// <summary>

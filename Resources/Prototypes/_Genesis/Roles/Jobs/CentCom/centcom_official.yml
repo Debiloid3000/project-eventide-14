@@ -1,6 +1,6 @@
 - type: job
   id: CentComOfficial
-  name: job-name-centcomoff
+  name: job-name-centcommoff
   description: job-description-centcomoff
   playTimeTracker: JobCentComOfficial
   requirements:

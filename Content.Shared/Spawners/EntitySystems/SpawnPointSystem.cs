@@ -1,7 +1,9 @@
 using Content.Shared.GameTicking;
+using Content.Shared.Roles;
 using Content.Shared.Spawners.Components;
 using Content.Shared.Station.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Spawners.EntitySystems;
@@ -22,24 +24,44 @@ public sealed partial class SpawnPointSystem : EntitySystem
         // TODO: Cache all this if it ends up important.
         var points = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
         var possiblePositions = new List<EntityCoordinates>();
+        // Genesis-Start
+        var jobSpecificPositions = new List<EntityCoordinates>();
+        var useJobSpecificLateJoinPoint = _gameTicker.RunLevel == GameRunLevel.InRound
+            && UsesJobSpecificLateJoinSpawnPoint(args.Job);
+        // Genesis-End
 
         while (points.MoveNext(out var uid, out var spawnPoint, out var xform))
         {
             if (args.Station != null && _stationSystem.GetOwningStation(uid, xform) != args.Station)
                 continue;
 
-            if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+            if (_gameTicker.RunLevel == GameRunLevel.InRound)
             {
-                possiblePositions.Add(xform.Coordinates);
+                // Genesis-Edit: configured jobs/departments may prefer their own spawn point on late join.
+                if (useJobSpecificLateJoinPoint &&
+                    spawnPoint.SpawnType == SpawnPointType.Job &&
+                    args.Job != null &&
+                    spawnPoint.Job == args.Job)
+                {
+                    jobSpecificPositions.Add(xform.Coordinates);
+                }
+                else if (spawnPoint.SpawnType == SpawnPointType.LateJoin)
+                {
+                    possiblePositions.Add(xform.Coordinates);
+                }
             }
-
-            if (_gameTicker.RunLevel != GameRunLevel.InRound &&
-                spawnPoint.SpawnType == SpawnPointType.Job &&
-                (args.Job == null || spawnPoint.Job == null || spawnPoint.Job == args.Job))
+            else if (spawnPoint.SpawnType == SpawnPointType.Job &&
+                     (args.Job == null || spawnPoint.Job == null || spawnPoint.Job == args.Job))
             {
                 possiblePositions.Add(xform.Coordinates);
             }
         }
+
+        // Genesis-Start
+        // A special point is an opt-in preference, not a hard requirement: if absent, keep the normal late-join flow.
+        if (jobSpecificPositions.Count > 0)
+            possiblePositions = jobSpecificPositions;
+        // Genesis-End
 
         if (possiblePositions.Count == 0)
         {
@@ -67,4 +89,23 @@ public sealed partial class SpawnPointSystem : EntitySystem
             args.HumanoidCharacterProfile,
             args.Station);
     }
+
+    // Genesis-Start
+    private bool UsesJobSpecificLateJoinSpawnPoint(ProtoId<JobPrototype>? job)
+    {
+        if (job == null || !ProtoMan.TryIndex(job.Value, out var jobPrototype))
+            return false;
+
+        if (jobPrototype.LateJoinUsesJobSpawnPoint)
+            return true;
+
+        foreach (var department in ProtoMan.EnumeratePrototypes<DepartmentPrototype>())
+        {
+            if (department.LateJoinUsesJobSpawnPoint && department.Roles.Contains(job.Value))
+                return true;
+        }
+
+        return false;
+    }
+    // Genesis-End
 }
