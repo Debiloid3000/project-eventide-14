@@ -105,7 +105,7 @@ public sealed partial class SpawnPointSystem : EntitySystem
             // Genesis-Start
             // Never send players to an unrelated map when a station explicitly opts in
             // to late-join-by-job spawn points but has no valid point for the selected role.
-            if (useJobPointsForLateJoin || alwaysUseSpawner)
+            if ((_gameTicker.RunLevel == GameRunLevel.InRound && useJobPointsForLateJoin) || alwaysUseSpawner)
             {
                 Log.Error($"No valid late-join job spawn point found on station {ToPrettyString(args.Station)} for job {args.Job}; refusing to use an unrelated spawn point.");
                 return;
