@@ -4,6 +4,7 @@ using Content.Shared.Spawners.Components;
 using Content.Shared.Station.Components;
 using Content.Shared.Station.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Spawners.EntitySystems;
