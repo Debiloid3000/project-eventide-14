@@ -12,7 +12,7 @@
       time: 108000 #30 hrs
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
-  supervisors: job-supervisors-service
+  supervisors: job-supervisors-centcom
   setPreference: true
   access:
   - Bar
@@ -42,10 +42,12 @@
   id: MagistratGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesCommand
     gloves: ClothingHandsGlovesColorWhite
     id: MagistratPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetMagistrate
+    neck: ClothingNeckLawyerbadge
+    pocket1: Pen
     pocket2: BookSpaceLaw
   inhand:
     - BriefcaseIAAFilled
