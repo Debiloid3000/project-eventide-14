@@ -12,7 +12,6 @@ job-description-head-of-prison = Manage the planet's finest facility.
 job-description-hos-centcom = Lead security at Central Command facilities and supervise officers responsible for maintaining order.
 job-description-janitor-borg = Follow your laws, serve the crew, and pester scientists for upgrades.
 job-description-jedi-nt = Defend the station with your energy sword.
-job-description-magistrat = Uphold justice on the station and judge major violations of station law.
 job-description-medical-borg = Follow your laws, serve the crew, and pester scientists for upgrades.
 job-description-miner = Mine resources and help salvage teams extract ore from asteroids.
 job-description-miner-borg = Follow your laws, serve the crew, and pester scientists for upgrades.
