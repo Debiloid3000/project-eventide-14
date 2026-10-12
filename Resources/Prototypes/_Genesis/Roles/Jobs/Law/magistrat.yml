@@ -8,7 +8,7 @@
       department: Command
       time: 108000 #30 hrs
     - !type:DepartmentTimeRequirement
-      department: Law
+      department: Legal
       time: 108000 #30 hrs
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
