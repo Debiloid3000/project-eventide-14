@@ -85,3 +85,4 @@ JobERTJanitorCharlie = уборщик ОБР «Чарли»
 JobERTLeaderCharlie = лидер ОБР «Чарли»
 JobERTMedicalCharlie = медик ОБР «Чарли»
 JobERTSecurityCharlie = офицер безопасности ОБР «Чарли»
+job-name-centcomoff = представитель ЦК
