@@ -24,6 +24,5 @@ loadout-group-nukeops-outerclothing = Скафандр
 loadout-group-nukeops-id = ID-карта ядерного оперативника
 
 # Security
-loadout-group-brigmedic-head = Голова
 loadout-group-brigmedic-neck = Шея
 loadout-group-brigmedic-outerclothing = Верхняя одежда
