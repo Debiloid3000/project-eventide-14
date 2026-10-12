@@ -29,6 +29,7 @@ namespace Content.Server.Database
         private readonly ConcurrencySemaphore _prefsSemaphore;
 
         private readonly Task _dbReadyTask;
+        private readonly ISawmill _onlineTestDiagLog;
 
         private int _msDelay;
 
@@ -43,6 +44,7 @@ namespace Content.Server.Database
             : base(opsLog, serialization)
         {
             _options = options;
+            _onlineTestDiagLog = opsLog;
 
             var prefsCtx = new SqliteServerDbContext(options());
 
@@ -53,20 +55,42 @@ namespace Content.Server.Database
             if (synchronous)
             {
                 // EnsureCreated means you can't apply migrations later, fine for tests
-                if (snapshot)
-                    prefsCtx.Database.EnsureCreated();
-                else
-                    prefsCtx.Database.Migrate();
+                _onlineTestDiagLog.Info("[OnlineTestDiag] SQLite schema initialization: starting synchronously");
+                try
+                {
+                    if (snapshot)
+                        prefsCtx.Database.EnsureCreated();
+                    else
+                        prefsCtx.Database.Migrate();
+
+                    _onlineTestDiagLog.Info("[OnlineTestDiag] SQLite schema initialization: completed synchronously");
+                }
+                finally
+                {
+                    prefsCtx.Dispose();
+                }
 
                 _dbReadyTask = Task.CompletedTask;
-                prefsCtx.Dispose();
             }
             else
             {
                 _dbReadyTask = Task.Run(() =>
                 {
-                    prefsCtx.Database.Migrate();
-                    prefsCtx.Dispose();
+                    _onlineTestDiagLog.Info("[OnlineTestDiag] SQLite migration task: started");
+                    try
+                    {
+                        prefsCtx.Database.Migrate();
+                        _onlineTestDiagLog.Info("[OnlineTestDiag] SQLite migration task: completed");
+                    }
+                    catch (Exception e)
+                    {
+                        _onlineTestDiagLog.Error($"[OnlineTestDiag] SQLite migration task failed: {e}");
+                        throw;
+                    }
+                    finally
+                    {
+                        prefsCtx.Dispose();
+                    }
                 });
             }
 
@@ -396,11 +420,16 @@ namespace Content.Server.Database
             [CallerMemberName] string? name = null)
         {
             LogDbOp(name);
+            if (!_dbReadyTask.IsCompleted)
+                _onlineTestDiagLog.Info($"[OnlineTestDiag] SQLite operation {name}: waiting for schema migration");
             await _dbReadyTask;
+            _onlineTestDiagLog.Info($"[OnlineTestDiag] SQLite operation {name}: schema ready");
+
             if (_msDelay > 0)
                 await Task.Delay(_msDelay, cancel);
 
             await _prefsSemaphore.WaitAsync(cancel);
+            _onlineTestDiagLog.Info($"[OnlineTestDiag] SQLite operation {name}: database semaphore acquired");
 
             var dbContext = new SqliteServerDbContext(_options());
 
