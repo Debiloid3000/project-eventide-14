@@ -1,2 +1,2 @@
 department-CentComSpecialists = Central Command Specialists
-department-Law = Law Department
+department-Legal = Legal Department
