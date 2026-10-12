@@ -631,13 +631,18 @@ public sealed partial class ServerGameTicker
 
         RunLevel = GameRunLevel.PreRoundLobby;
         RandomizeLobbyBackground();
+        Log.Info("[OnlineTestDiag] RestartRound: before ResettingCleanup");
         ResettingCleanup();
+        Log.Info("[OnlineTestDiag] RestartRound: after ResettingCleanup");
         IncrementRoundNumber();
+        Log.Info("[OnlineTestDiag] RestartRound: after IncrementRoundNumber");
         SendRoundStartingDiscordMessage();
 
         if (!LobbyEnabled)
         {
+            Log.Info("[OnlineTestDiag] RestartRound: before StartRound (lobby disabled)");
             StartRound();
+            Log.Info("[OnlineTestDiag] RestartRound: after StartRound");
         }
         else
         {
@@ -686,16 +691,26 @@ public sealed partial class ServerGameTicker
 
         // Round restart cleanup event, so entity systems can reset.
         var ev = new RoundRestartCleanupEvent();
+        Log.Info("[OnlineTestDiag] ResettingCleanup: before RaiseLocalEvent");
         RaiseLocalEvent(ev);
+        Log.Info("[OnlineTestDiag] ResettingCleanup: after RaiseLocalEvent");
 
         // So clients' entity systems can clean up too...
+        Log.Info("[OnlineTestDiag] ResettingCleanup: before RaiseNetworkEvent");
         RaiseNetworkEvent(ev);
+        Log.Info("[OnlineTestDiag] ResettingCleanup: after RaiseNetworkEvent");
 
+        Log.Info("[OnlineTestDiag] ResettingCleanup: before EntityManager.FlushEntities");
         EntityManager.FlushEntities();
+        Log.Info("[OnlineTestDiag] ResettingCleanup: after EntityManager.FlushEntities");
 
+        Log.Info("[OnlineTestDiag] ResettingCleanup: before _banManager.Restart");
         _banManager.Restart();
+        Log.Info("[OnlineTestDiag] ResettingCleanup: after _banManager.Restart");
 
+        Log.Info("[OnlineTestDiag] ResettingCleanup: before _gameMapManager.ClearSelectedMap");
         _gameMapManager.ClearSelectedMap();
+        Log.Info("[OnlineTestDiag] ResettingCleanup: after _gameMapManager.ClearSelectedMap");
 
         // Clear up any game rules.
         CurrentPreset = null;
