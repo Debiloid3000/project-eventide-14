@@ -71,7 +71,9 @@ public sealed partial class SpawnPointSystem : EntitySystem
                 }
             }
             else if (spawnPoint.SpawnType == SpawnPointType.Job &&
-                     (args.Job == null || MatchesJobOrDepartment(spawnPoint, args.Job)))
+                     (args.Job == null ||
+                      MatchesJobOrDepartment(spawnPoint, args.Job) &&
+                      (!alwaysUseSpawner || HasRoleRestriction(spawnPoint))))
             {
                 possiblePositions.Add(xform.Coordinates);
             }
