@@ -163,7 +163,7 @@ start_process websockify websockify --web="$NOVNC_DIR" "$WEB_PORT" "127.0.0.1:$V
 log "Запускаю локальный тестовый сервер на UDP-порту $SERVER_PORT с tickrate=$TICKRATE..."
 (
     cd "$ROOT"
-    exec dotnet run --no-build --project Content.Server/Content.Server.csproj -- --cvar "net.bindto=127.0.0.1" --cvar "net.port=$SERVER_PORT" --cvar "net.tickrate=$TICKRATE"
+    exec dotnet run --no-build --project Content.Server/Content.Server.csproj -- --cvar "net.bindto=127.0.0.1" --cvar "net.port=$SERVER_PORT" --cvar "net.tickrate=$TICKRATE" --cvar "database.sqlite_dbpath=onlinetest.db"
 ) >>"$LOG_DIR/server.log" 2>&1 </dev/null &
 echo "$!" > "$RUNTIME_DIR/server.pid"
 
