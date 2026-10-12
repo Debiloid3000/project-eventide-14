@@ -3,6 +3,7 @@
   id: JobBlueShield
   groups:
   - GroupTankHarness
+  - SurvivalBlueShield
   - BlueShieldHead
   - BlueShieldNeck
   - BlueShieldJumpsuit
