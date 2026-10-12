@@ -13,6 +13,15 @@ public sealed partial class SpawnPointComponent : Component, ISpawnPoint
     [DataField("job_id")]
     public ProtoId<JobPrototype>? Job;
 
+    // Genesis-Start
+    /// <summary>
+    /// Departments allowed to use this spawn point. When configured, the job may match
+    /// either the explicit Job field or one of these departments.
+    /// </summary>
+    [DataField("departments")]
+    public List<ProtoId<DepartmentPrototype>> Departments = new();
+    // Genesis-End
+
     /// <summary>
     /// The type of spawn point.
     /// </summary>
