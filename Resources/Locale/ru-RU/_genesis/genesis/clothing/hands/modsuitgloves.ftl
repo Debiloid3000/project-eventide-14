@@ -1,0 +1,27 @@
+# Genesis MODsuit gauntlet localization
+ent-ClothingHandsModsuitBase = базовые перчатки MOD-скафандра
+    .desc = Пара перчаток для модульного скафандра.
+ent-ClothingHandsModsuitSecurity = перчатки MOD-скафандра службы безопасности
+    .desc = Скафандр Apadyne Technologies, повышающий скорость ценой вместимости.
+ent-ClothingHandsModsuitAtmospheric = атмосферные перчатки MOD-скафандра
+    .desc = Термостойкий скафандр Nakamura Engineering с повышенной защитой от жара.
+ent-ClothingHandsModsuitEngineering = инженерные перчатки MOD-скафандра
+    .desc = Классический инженерный скафандр Nakamura Engineering с защитой от жара и электрических разрядов.
+ent-ClothingHandsModsuitRescue = спасательные перчатки MOD-скафандра
+    .desc = Гражданский скафандр Nakamura Engineering, обеспечивающий немного большую скорость передвижения.
+ent-ClothingHandsModsuitMedical = медицинские перчатки MOD-скафандра
+    .desc = Лёгкий скафандр DeForest Medical Corporation, обеспечивающий большую свободу движений.
+ent-ClothingHandsModsuitMining = шахтёрские перчатки MOD-скафандра
+    .desc = Шахтёрский скафандр NanoTrasen для работы на месте добычи, с бронёй из нарастающего пепла и сферической формой.
+ent-ClothingHandsModsuitStandard = стандартные перчатки MOD-скафандра
+    .desc = Гражданский скафандр Nakamura Engineering, дающий лишь небольшую прибавку к скорости.
+ent-ClothingHandsModsuitClown = перчатки MOD-скафандра «Космохонк»
+    .desc = Скафандр Honk Ltd., защищающий в условиях дефицита юмора. Технологии оптимизированы для снижения энергопотребления.
+ent-ClothingHandsModsuitAdmin = административные перчатки MOD-скафандра
+    .desc = MOD-скафандр из адмениума. Кто вообще придумывает такие нелепые названия минералов?
+ent-ClothingHandsModsuitChrono = хронологические перчатки MOD-скафандра
+    .desc = Скафандр для перемещения по временным линиям и «исправления их хода».
+ent-ClothingHandsModsuitCorp = корпоративные перчатки MOD-скафандра
+    .desc = Высокотехнологичный скафандр для высокопоставленных сотрудников NanoTrasen.
+ent-ClothingHandsModsuitInquisitor = перчатки MOD-скафандра инквизитора
+    .desc = Скафандр Apadyne Technologies, повышающий скорость ценой вместимости.
