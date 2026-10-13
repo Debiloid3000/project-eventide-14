@@ -4,3 +4,7 @@ ent-ClothingBackpackBlueShield = backpack blueshield officer
 ent-ClothingBackpackSecurityBlue = { ent-ClothingBackpackSecurity }
     .desc = { ent-ClothingBackpackSecurity.desc }
     .suffix = Blue
+
+# Additional Genesis localization
+ent-ClothingBackpackJediNT = NanoTrasen Blade Guard backpack
+    .desc = A special backpack made exclusively for NanoTrasen Blade Guards.

@@ -19,3 +19,7 @@ ent-ClothingUniformJumpskirtSeniorOfficerBlue = { ent-ClothingUniformJumpskirtSe
 ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey }
     .desc = { ent-ClothingUniformJumpskirtSecGrey.desc }
     .suffix = Blue
+
+# Additional Genesis uniform localization
+ent-ClothingUniformJumpskirttCentComVeryOfficial = Central Command official's jumpskirt
+    .desc = That's the beauty of corporate life: stylish suits with a skirt to match!

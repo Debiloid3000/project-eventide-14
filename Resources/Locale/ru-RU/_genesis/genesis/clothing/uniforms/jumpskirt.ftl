@@ -19,3 +19,7 @@ ent-ClothingUniformJumpskirtSeniorOfficerBlue = { ent-ClothingUniformJumpskirtSe
 ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey }
     .desc = { ent-ClothingUniformJumpskirtSecGrey.desc }
     .suffix = Синий
+
+# Additional Genesis uniform localization
+ent-ClothingUniformJumpskirttCentComVeryOfficial = официальная юбка-комбинезон сотрудника ЦК
+    .desc = Такова красота корпоративной жизни: стильные костюмы с юбкой на любой случай!

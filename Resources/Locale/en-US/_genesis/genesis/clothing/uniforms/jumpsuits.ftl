@@ -40,3 +40,21 @@ ent-ClothingUniformJumpsuitSeniorSalvage = Senior Salvage Specialist jumpsuit
 ent-ClothingUniformJumpsuitWardenBlue = { ent-ClothingUniformJumpsuitWarden }
     .desc = { ent-ClothingUniformJumpsuitWarden.desc }
     .suffix = Blue
+
+# Additional Genesis uniform localization
+ent-ClothingUniformJumpsuitJediNT = NanoTrasen Blade Guard jumpsuit
+    .desc = A white-and-gray jumpsuit for NanoTrasen Blade Guards.
+ent-ClothingUniformJumpsuitJediNTTurtleneck = NanoTrasen Blade Guard turtleneck jumpsuit
+    .desc = A white-and-gray jumpsuit for NanoTrasen Blade Guards.
+ent-ClothingUniformJumpsuitCentComVeryOfficial = Central Command official's shirt
+    .desc = That's the beauty of corporate life: stylish suits for every occasion!
+ent-ClothingUniformJumpsuitCentComIntern = Central Command intern uniform
+    .desc = The wearer of this uniform is required to bring a cup of coffee.
+ent-ClothingUniformJumpsuitCentComMilitary = Central Command head of security military uniform
+    .desc = A loose and sturdy uniform for Central Command special forces.
+ent-ClothingUniformJumpsuitBlueShieldSpecial = BlueShield officer's special jumpsuit
+    .desc = A special black-and-blue jumpsuit for the best BlueShield officers.
+ent-ClothingUniformJumpsuitBlueShieldPants = BlueShield officer's trousers
+    .desc = Black-and-blue trousers made specifically for BlueShield officers.
+ent-ClothingUniformJumpsuitSecuritySpecial = security's special jumpsuit
+    .desc = A special black-and-red jumpsuit for the best security officers.
