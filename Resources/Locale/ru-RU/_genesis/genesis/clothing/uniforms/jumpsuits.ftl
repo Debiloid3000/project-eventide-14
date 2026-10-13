@@ -46,12 +46,6 @@ ent-ClothingUniformJumpsuitWardenBlue = { ent-ClothingUniformJumpsuitWarden }
     .suffix = Синий
 
 # Additional Genesis uniform localization
-ent-ClothingUniformJumpsuitBlueShieldTurtleneck = водолазка-комбинезон офицера «Синий Щит»
-    .desc = Синий комбинезон с золотыми знаками различия, обозначающими звание капитана.
-ent-ClothingUniformJumpsuitCentcomConsultant = комбинезон консультанта ЦК
-    .desc = Зелёный комбинезон с золотыми вставками и широкими наплечниками для тех, кто любит демонстрировать свою власть.
-ent-ClothingUniformJumpsuitCentcomConsultantFormal = официальный комбинезон консультанта ЦК
-    .desc = Официальный комбинезон самого важного представителя Центрального командования на станции. Он явно вам к лицу.
 ent-ClothingUniformJumpsuitJediNT = комбинезон клинкового стража NanoTrasen
     .desc = Бело-серый комбинезон для клинковых стражей NanoTrasen.
 ent-ClothingUniformJumpsuitJediNTTurtleneck = водолазка-комбинезон клинкового стража NanoTrasen
