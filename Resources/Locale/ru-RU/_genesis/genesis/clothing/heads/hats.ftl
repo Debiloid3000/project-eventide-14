@@ -12,8 +12,6 @@ ent-ClothingHeadHatBeretAmilitary = берет начальника безопа
     .suffix = { "" }
 
 # Genesis headwear localization
-ent-ClothingHeadHatBlueShieldBeret = берет офицера «Синий Щит»
-    .desc = Берет для офицера «Синий Щит».
 ent-ClothingHeadHatBeretRNDAlt = научный берет
     .desc = Берет для настоящих учёных.
 ent-ClothingHeadHatBeretEngineeringAlt = инженерный берет
