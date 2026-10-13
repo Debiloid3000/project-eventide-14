@@ -11,10 +11,6 @@ ent-ClothingHeadHatBeretAmilitary = beret head of security academy
     .desc = { ent-ClothingHeadHatBeretHoS.desc }
     .suffix = { "" }
 
-ent-ClothingHeadHatBlueShieldBeret = BlueShield officer's beret
-    .desc = A beret for a BlueShield officer.
-ent-ClothingHeadHatCentcomConsultantCap = Central Command consultant cap
-    .desc = An expensive cap with a bright gold emblem on the forehead, marking its wearer as an inspector responsible for order on the station.
 ent-ClothingHeadHatBeretRNDAlt = scientific beret
     .desc = A beret for real scientists.
 ent-ClothingHeadHatBeretEngineeringAlt = engineering beret
