@@ -19,3 +19,15 @@ ent-ClothingUniformJumpskirtSeniorOfficerBlue = { ent-ClothingUniformJumpskirtSe
 ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey }
     .desc = { ent-ClothingUniformJumpskirtSecGrey.desc }
     .suffix = Blue
+
+# Additional Genesis uniform localization
+ent-ClothingUniformJumpskirtBlueShield = BlueShield officer's jumpskirt
+    .desc = A blue jumpskirt with gold markings denoting the rank of captain.
+ent-ClothingUniformJumpskirtBlueShieldTurtleneck = BlueShield officer's turtleneck jumpskirt
+    .desc = A blue jumpskirt with gold markings denoting the rank of captain.
+ent-ClothingUniformJumpskirtCentcomConsultant = Central Command consultant jumpskirt
+    .desc = A green jumpskirt with gold accents and broad shoulder pads, for those who like to show off their authority.
+ent-ClothingUniformJumpskirtCentcomConsultantFormal = Central Command consultant's formal jumpskirt
+    .desc = The formal jumpskirt of the station's most important Central Command representative. It clearly suits you, sir.
+ent-ClothingUniformJumpskirttCentComVeryOfficial = Central Command official's jumpskirt
+    .desc = That's the beauty of corporate life: stylish suits with a skirt to match!
