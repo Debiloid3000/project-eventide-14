@@ -42,12 +42,6 @@ ent-ClothingUniformJumpsuitWardenBlue = { ent-ClothingUniformJumpsuitWarden }
     .suffix = Blue
 
 # Additional Genesis uniform localization
-ent-ClothingUniformJumpsuitBlueShieldTurtleneck = BlueShield officer's turtleneck jumpsuit
-    .desc = A blue jumpsuit with gold markings denoting the rank of captain.
-ent-ClothingUniformJumpsuitCentcomConsultant = Central Command consultant jumpsuit
-    .desc = A green jumpsuit with gold accents and broad shoulder pads, for those who like to show off their authority.
-ent-ClothingUniformJumpsuitCentcomConsultantFormal = Central Command consultant's formal jumpsuit
-    .desc = The formal jumpsuit of the station's most important Central Command representative. It clearly suits you, sir.
 ent-ClothingUniformJumpsuitJediNT = NanoTrasen Blade Guard jumpsuit
     .desc = A white-and-gray jumpsuit for NanoTrasen Blade Guards.
 ent-ClothingUniformJumpsuitJediNTTurtleneck = NanoTrasen Blade Guard turtleneck jumpsuit
