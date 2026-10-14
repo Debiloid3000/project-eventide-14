@@ -57,6 +57,7 @@ jobs:
       shell: pwsh
       run: |
         $env:DOTNET_gcServer=1
+        New-Item -ItemType Directory -Force test_results | Out-Null
         dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --blame-hang-timeout 20m --blame-hang-dump-type mini --diag test_results/testhost.log --logger "console;verbosity=detailed" --results-directory test_results -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed NUnit.TestOutputXml="logs" NUnit.WorkDirectory="$(pwd)/test_results"
 
     - name: Archive NUnit3 test results and diagnostics
