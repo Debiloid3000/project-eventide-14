@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Numerics;
-using Content.Shared.Antag;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
+using Content.Shared.Antag;
 using Content.Shared.Clothing;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
