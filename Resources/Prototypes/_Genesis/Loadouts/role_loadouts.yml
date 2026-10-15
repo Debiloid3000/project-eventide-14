@@ -255,7 +255,9 @@
   id: Nukeops
   groups:
   - NukeOpsJumpsuit
+  - NukeOpsBackpack
   - NukeOpsOuterClothing
+  - NukeOpsBelt
   - NukeOpsPDA
   - Trinkets
   - SurvivalSyndicate # Genesis-Edit
@@ -266,7 +268,10 @@
   id: NukeopsMedic
   groups:
   - NukeOpsJumpsuit
+  - NukeOpsBackpack
   - NukeOpsMedicOuterClothing
+  - NukeOpsMedicBelt
+  - NukeOpsPDA
   - Trinkets
   - SurvivalSyndicate # Genesis-Edit
   - GroupSpeciesBreathTool # Genesis-Edit
@@ -276,7 +281,10 @@
   id: NukeopsCommander
   groups:
   - NukeOpsJumpsuit
+  - NukeOpsBackpack
   - NukeOpsCommanderOuterClothing
+  - NukeOpsBelt
+  - NukeOpsPDA
   - Trinkets
   - SurvivalSyndicate # Genesis-Edit
   - GroupSpeciesBreathTool # Genesis-Edit
