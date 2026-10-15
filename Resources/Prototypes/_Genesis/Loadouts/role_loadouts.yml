@@ -249,9 +249,11 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+# Genesis-Start: Keep the antag kit and survival essentials in one selectable roleLoadout.
 # NukeOps
 - type: roleLoadout
   id: Nukeops
+  canCustomizeName: true # Empty name keeps the antagonist's RandomMetadata-generated name.
   groups:
   - NukeOpsJumpsuit
   - NukeOpsBackpack
@@ -259,19 +261,26 @@
   - NukeOpsBelt
   - NukeOpsPDA
   - Trinkets
+  - SurvivalSyndicate # Genesis-Edit
+  - GroupSpeciesBreathTool # Genesis-Edit
+  - GroupPocketTankDouble # Genesis-Edit
 
 - type: roleLoadout
   id: NukeopsMedic
+  canCustomizeName: true # Empty name keeps the antagonist's RandomMetadata-generated name.
   groups:
   - NukeOpsJumpsuit
   - NukeOpsBackpack
   - NukeOpsMedicOuterClothing
   - NukeOpsMedicBelt
-  - NukeOpsPDA
   - Trinkets
+  - SurvivalSyndicate # Genesis-Edit
+  - GroupSpeciesBreathTool # Genesis-Edit
+  - GroupPocketTankDouble # Genesis-Edit
 
 - type: roleLoadout
   id: NukeopsCommander
+  canCustomizeName: true # Empty name keeps the antagonist's RandomMetadata-generated name.
   groups:
   - NukeOpsJumpsuit
   - NukeOpsBackpack
@@ -279,3 +288,7 @@
   - NukeOpsBelt
   - NukeOpsPDA
   - Trinkets
+  - SurvivalSyndicate # Genesis-Edit
+  - GroupSpeciesBreathTool # Genesis-Edit
+  - GroupPocketTankDouble # Genesis-Edit
+# Genesis-End

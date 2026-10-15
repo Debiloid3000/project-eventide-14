@@ -12,6 +12,9 @@ using Content.Server.Preferences.Managers;
 using Content.Shared.Antag;
 using Content.Shared.Antag.Components;
 using Content.Shared.Chat;
+// Genesis-Start: Access saved character preferences when applying antag loadouts.
+using Content.Shared.Preferences;
+// Genesis-End
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -27,6 +30,13 @@ public sealed partial class ServerAntagSelectionSystem : AntagSelectionSystem
     [Dependency] private IServerPreferencesManager _pref = default!;
     [Dependency] private GhostRoleSystem _ghostRole = default!;
     [Dependency] private PlayTimeTrackingSystem _playTime = default!;
+
+    // Genesis-Start: Return the selected character so antagonist roleLoadouts can reuse the player's saved choices.
+    protected override HumanoidCharacterProfile? GetAntagProfile(ICommonSession player)
+    {
+        return _pref.GetPreferences(player.UserId).SelectedCharacter as HumanoidCharacterProfile;
+    }
+    // Genesis-End
 
     [SubscribeLocalEvent]
     private void OnTakeGhostRole(Entity<GhostRoleAntagSpawnerComponent> ent, ref TakeGhostRoleEvent args)
