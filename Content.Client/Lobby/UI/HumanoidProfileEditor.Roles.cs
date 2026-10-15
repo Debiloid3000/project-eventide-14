@@ -362,7 +362,7 @@ public sealed partial class HumanoidProfileEditor
 
             antagContainer.AddChild(selector);
 
-            // Genesis-Start: Show loadout editing only for antagonist roles with a referenced, non-empty roleLoadout.
+            // Genesis-Start: Show loadout editing only for referenced antagonist roleLoadouts that offer gear or name customization.
             if (supportedAntagLoadouts.Contains(antag.ID)
                 && _prototypeManager.TryIndex<RoleLoadoutPrototype>(antag.ID, out var antagRoleLoadoutProto)
                 && (antagRoleLoadoutProto.Groups.Count > 0 || antagRoleLoadoutProto.CanCustomizeName))
