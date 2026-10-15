@@ -9,6 +9,10 @@ using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.GameTicking.Rules;
 using Content.Shared.Mind;
+// Genesis-Start: Resolve player-selected antagonist loadouts from character preferences.
+using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
+// Genesis-End
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
@@ -52,6 +56,10 @@ public abstract partial class AntagSelectionSystem : GameRuleSystem<AntagSelecti
     [Dependency] protected SharedMindSystem Mind = default!;
     [Dependency] protected SharedRoleSystem Role = default!;
     [Dependency] protected SharedTransformSystem XForm = default!;
+
+    // Genesis-Start: Server implementations can supply the selected character profile for antag loadouts.
+    protected virtual HumanoidCharacterProfile? GetAntagProfile(ICommonSession player) => null;
+    // Genesis-End
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -704,7 +712,22 @@ public abstract partial class AntagSelectionSystem : GameRuleSystem<AntagSelecti
         if (prototype.StartingGear is not null)
             gear.Add(prototype.StartingGear.Value);
 
-        Loadout.Equip(antag, gear, prototype.RoleLoadout);
+        // Genesis-Start: Use the selected character's saved loadout when this antag allows that roleLoadout.
+        var antagProfile = GetAntagProfile(player);
+        RoleLoadout? selectedLoadout = null;
+        if (antagProfile != null && prototype.RoleLoadout != null)
+        {
+            foreach (var roleLoadoutId in prototype.RoleLoadout)
+            {
+                if (!antagProfile.Loadouts.TryGetValue(roleLoadoutId.Id, out selectedLoadout))
+                    continue;
+
+                break;
+            }
+        }
+
+        Loadout.Equip(antag, gear, prototype.RoleLoadout, selectedLoadout, antagProfile);
+        // Genesis-End
 
         // Ensure that we have the right mind for our entity.
         if (!Mind.TryGetMind(player, out var mind, out var mindComp) || mindComp.OwnedEntity != antag)
