@@ -48,7 +48,9 @@ public sealed partial class HumanoidProfileEditor
         _loadoutWindow?.Dispose();
     }
 
-    private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
+    // Genesis-Start: Allow the same loadout editor to serve job and antagonist preferences.
+    private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto, string? roleName = null)
+    // Genesis-End
     {
         _loadoutWindow?.Dispose();
         _loadoutWindow = null;
@@ -62,7 +64,7 @@ public sealed partial class HumanoidProfileEditor
 
         _loadoutWindow = new LoadoutWindow(Profile, roleLoadout, roleLoadoutProto, _playerManager.LocalSession, collection)
         {
-            Title = Loc.GetString("loadout-window-title-loadout", ("job", $"{jobProto?.LocalizedName}")),
+            Title = Loc.GetString("loadout-window-title-loadout", ("job", roleName ?? jobProto?.LocalizedName ?? string.Empty)),
         };
 
         // Refresh the buttons etc.
@@ -81,6 +83,8 @@ public sealed partial class HumanoidProfileEditor
             roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
             _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
             Profile = Profile?.WithLoadout(roleLoadout);
+            // Genesis-Edit: Persist changed job/antagonist loadouts through the character editor's save flow.
+            SetDirty();
             ReloadPreview();
         };
 
@@ -89,6 +93,8 @@ public sealed partial class HumanoidProfileEditor
             roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
             _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
             Profile = Profile?.WithLoadout(roleLoadout);
+            // Genesis-Edit: Persist changed job/antagonist loadouts through the character editor's save flow.
+            SetDirty();
             ReloadPreview();
         };
 
@@ -347,13 +353,38 @@ public sealed partial class HumanoidProfileEditor
 
             antagContainer.AddChild(selector);
 
-            antagContainer.AddChild(new Button()
+            // Genesis-Start: Enable antagonist loadout editing only when a matching roleLoadout prototype exists.
+            var antagLoadoutButton = new Button()
             {
                 Disabled = true,
                 Text = Loc.GetString("loadout-window"),
                 HorizontalAlignment = HAlignment.Right,
                 Margin = new Thickness(3f, 0f, 0f, 0f),
-            });
+            };
+
+            if (_prototypeManager.TryIndex<RoleLoadoutPrototype>(antag.ID, out var antagRoleLoadoutProto))
+            {
+                antagLoadoutButton.Disabled = false;
+                antagLoadoutButton.OnPressed += _ =>
+                {
+                    if (Profile is null || _playerManager.LocalSession is not { } session)
+                        return;
+
+                    Profile.Loadouts.TryGetValue(antagRoleLoadoutProto.ID, out var loadout);
+                    loadout = loadout?.Clone();
+
+                    if (loadout is null)
+                    {
+                        loadout = new RoleLoadout(antagRoleLoadoutProto.ID);
+                        loadout.SetDefault(Profile, session, _prototypeManager);
+                    }
+
+                    OpenLoadout(null, loadout, antagRoleLoadoutProto, Loc.GetString(antag.Name));
+                };
+            }
+
+            antagContainer.AddChild(antagLoadoutButton);
+            // Genesis-End
 
             AntagList.AddChild(antagContainer);
         }
