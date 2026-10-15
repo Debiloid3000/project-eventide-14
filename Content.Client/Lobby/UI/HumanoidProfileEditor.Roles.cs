@@ -365,7 +365,7 @@ public sealed partial class HumanoidProfileEditor
             // Genesis-Start: Show loadout editing only for antagonist roles with a referenced, non-empty roleLoadout.
             if (supportedAntagLoadouts.Contains(antag.ID)
                 && _prototypeManager.TryIndex<RoleLoadoutPrototype>(antag.ID, out var antagRoleLoadoutProto)
-                && antagRoleLoadoutProto.Groups.Count > 0)
+                && (antagRoleLoadoutProto.Groups.Count > 0 || antagRoleLoadoutProto.CanCustomizeName))
             {
                 var antagLoadoutButton = new Button()
                 {
