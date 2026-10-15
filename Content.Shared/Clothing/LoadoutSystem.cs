@@ -144,29 +144,36 @@ public sealed partial class LoadoutSystem : EntitySystem
         Equip(uid, component.StartingGear, component.RoleLoadout);
     }
 
+    // Genesis-Start: Apply a saved selection when the roleLoadout is explicitly allowed for this antagonist.
     public void Equip(EntityUid uid, List<ProtoId<StartingGearPrototype>>? startingGear,
-        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups)
+        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups,
+        RoleLoadout? selectedLoadout = null,
+        HumanoidCharacterProfile? selectedProfile = null)
     {
         // First, randomly pick a startingGear profile from those specified, and equip it.
         if (startingGear != null && startingGear.Count > 0)
             _station.EquipStartingGear(uid, _random.Pick(startingGear), false);
 
-        if (loadoutGroups == null)
+        if (loadoutGroups == null || loadoutGroups.Count == 0)
         {
             GearEquipped(uid);
             return;
         }
 
-        // Then, randomly pick a RoleLoadout profile from those specified, and process/equip all LoadoutGroups from it.
-        // For non-roundstart mobs there is no SelectedLoadout data, so minValue must be set in each LoadoutGroup to force selection.
-        var id = _random.Pick(loadoutGroups);
+        // For antagonist preferences, only use the saved loadout if the antag specifier allows that exact role.
+        var useSelectedLoadout = selectedLoadout != null && loadoutGroups.Contains(selectedLoadout.Role);
+        var id = useSelectedLoadout ? selectedLoadout!.Role : _random.Pick(loadoutGroups);
         var proto = ProtoMan.Index(id);
-        var loadout = new RoleLoadout(id);
-        loadout.SetDefault(GetProfile(uid), _actors.GetSession(uid), ProtoMan, true);
+        var profile = selectedProfile ?? GetProfile(uid);
+        var loadout = useSelectedLoadout ? selectedLoadout!.Clone() : new RoleLoadout(id);
+
+        // Preserve saved choices and fill any newly added groups; non-player/default loadouts still start clean.
+        loadout.SetDefault(profile, _actors.GetSession(uid), ProtoMan, force: !useSelectedLoadout);
         _station.EquipRoleLoadout(uid, loadout, proto);
 
         GearEquipped(uid);
     }
+    // Genesis-End
 
     public void GearEquipped(EntityUid uid)
     {
