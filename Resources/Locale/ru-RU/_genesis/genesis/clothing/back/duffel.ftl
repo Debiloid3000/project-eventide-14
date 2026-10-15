@@ -4,3 +4,7 @@ ent-ClothingBackpackDuffelBlueShield = вещмешок офицера сине�
 ent-ClothingBackpackDuffelSecurityBlue = { ent-ClothingBackpackDuffelSecurity }
     .desc = { ent-ClothingBackpackDuffelSecurity.desc }
     .suffix = Синий
+
+# Additional Genesis localization
+ent-ClothingBackpackDuffelJediNT = вещмешок клинкового стража NanoTrasen
+    .desc = Вещмешок для хранения снаряжения клинкового стража NanoTrasen.

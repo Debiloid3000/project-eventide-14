@@ -108,3 +108,8 @@ ent-ClothingHeadHelmetHardsuitSyndieSunRise = Blood-red hardsuit helmet
     .desc = A heavily armored helmet for special operations. It belongs to the Gorlex Marauders.
 ent-ClothingHeadHelmetHardsuitSyndieXeno = Blood-red hardsuit helmet
     .desc = A heavily armored helmet for special operations. It belongs to the Gorlex Marauders.
+
+ent-ClothingHeadHelmetHardsuitERTOperativeAlpha1 = ERT hardsuit helmet
+    .desc = A special hardsuit helmet worn by emergency response team members.
+ent-ClothingHeadHelmetHardsuitERTLeaderTay39 = ERT leader hardsuit helmet
+    .desc = A special hardsuit helmet worn by emergency response team members.

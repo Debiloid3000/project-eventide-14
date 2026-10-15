@@ -1,0 +1,27 @@
+# Genesis MODsuit gauntlet localization
+ent-ClothingHandsModsuitBase = base MOD gauntlets
+    .desc = A pair of gauntlets for a MODsuit.
+ent-ClothingHandsModsuitSecurity = security MOD gauntlets
+    .desc = An Apadyne Technologies security suit that offers greater speed at the cost of carrying capacity.
+ent-ClothingHandsModsuitAtmospheric = atmospheric MOD gauntlets
+    .desc = An atmospheric-resistant suit by Nakamura Engineering, offering extreme heat resistance compared to the engineer suit.
+ent-ClothingHandsModsuitEngineering = engineering MOD gauntlets
+    .desc = Nakamura Engineering's classic engineer-fit suit, with heat and shock resistance.
+ent-ClothingHandsModsuitRescue = rescue MOD gauntlets
+    .desc = A civilian-class suit by Nakamura Engineering that offers little beyond slightly faster movement.
+ent-ClothingHandsModsuitMedical = medical MOD gauntlets
+    .desc = A lightweight suit by DeForest Medical Corporation that allows for easier movement.
+ent-ClothingHandsModsuitMining = mining MOD gauntlets
+    .desc = A NanoTrasen mining suit for on-site operations, fitted with accreting ash armor and a spherical form.
+ent-ClothingHandsModsuitStandard = standard MOD gauntlets
+    .desc = A civilian-class suit by Nakamura Engineering that offers little beyond slightly faster movement.
+ent-ClothingHandsModsuitClown = cosmohonk MOD gauntlets
+    .desc = A suit by Honk Ltd. that protects against low-humor environments. Most of the technology went toward lowering power consumption.
+ent-ClothingHandsModsuitAdmin = administrative MOD gauntlets
+    .desc = A MODsuit made of adminium. Who comes up with these stupid mineral names?
+ent-ClothingHandsModsuitChrono = chrono MOD gauntlets
+    .desc = A suit used to traverse timelines and “correct their course”.
+ent-ClothingHandsModsuitCorp = corporate MOD gauntlets
+    .desc = A fancy, high-tech suit for NanoTrasen's high-ranking officers.
+ent-ClothingHandsModsuitInquisitor = inquisitor MOD gauntlets
+    .desc = An Apadyne Technologies security suit that offers greater speed at the cost of carrying capacity.

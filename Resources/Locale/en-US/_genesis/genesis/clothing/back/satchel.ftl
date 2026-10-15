@@ -4,3 +4,7 @@ ent-ClothingBackpackSatchelBlueShield = satchel blueshield officer
 ent-ClothingBackpackSatchelSecurityBlue = { ent-ClothingBackpackSatchelSecurity }
     .desc = { ent-ClothingBackpackSatchelSecurity.desc }
     .suffix = Blue
+
+# Additional Genesis localization
+ent-ClothingBackpackSatchelJediNT = NanoTrasen Blade Guard satchel
+    .desc = An exclusive satchel for NanoTrasen Blade Guards.

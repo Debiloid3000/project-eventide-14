@@ -5,3 +5,6 @@ ent-ClothingBackpackSatchelSecurityBlue = { ent-ClothingBackpackSatchelSecurity 
     .desc = { ent-ClothingBackpackSatchelSecurity.desc }
     .suffix = Синий
 
+# Additional Genesis localization
+ent-ClothingBackpackSatchelJediNT = сумка клинкового стража NanoTrasen
+    .desc = Особая сумка, предназначенная для клинковых стражей NanoTrasen.
