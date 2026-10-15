@@ -249,6 +249,7 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+# Genesis-Start: Keep the antag kit and survival essentials in one selectable roleLoadout.
 # NukeOps
 - type: roleLoadout
   id: Nukeops
@@ -259,6 +260,9 @@
   - NukeOpsBelt
   - NukeOpsPDA
   - Trinkets
+  - SurvivalSyndicate # Genesis-Edit
+  - GroupSpeciesBreathTool # Genesis-Edit
+  - GroupPocketTankDouble # Genesis-Edit
 
 - type: roleLoadout
   id: NukeopsMedic
@@ -269,6 +273,9 @@
   - NukeOpsMedicBelt
   - NukeOpsPDA
   - Trinkets
+  - SurvivalSyndicate # Genesis-Edit
+  - GroupSpeciesBreathTool # Genesis-Edit
+  - GroupPocketTankDouble # Genesis-Edit
 
 - type: roleLoadout
   id: NukeopsCommander
@@ -279,3 +286,7 @@
   - NukeOpsBelt
   - NukeOpsPDA
   - Trinkets
+  - SurvivalSyndicate # Genesis-Edit
+  - GroupSpeciesBreathTool # Genesis-Edit
+  - GroupPocketTankDouble # Genesis-Edit
+# Genesis-End
