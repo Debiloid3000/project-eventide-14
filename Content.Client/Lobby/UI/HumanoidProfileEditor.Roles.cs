@@ -64,6 +64,7 @@ public sealed partial class HumanoidProfileEditor
 
         _loadoutWindow = new LoadoutWindow(Profile, roleLoadout, roleLoadoutProto, _playerManager.LocalSession, collection)
         {
+            // Genesis-Edit: Use the antag's localized name when the window is opened outside a job row.
             Title = Loc.GetString("loadout-window-title-loadout", ("job", roleName ?? jobProto?.LocalizedName ?? string.Empty)),
         };
 
