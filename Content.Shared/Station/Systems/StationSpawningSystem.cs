@@ -131,6 +131,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
     /// <param name="entity">Entity to load out.</param>
     /// <param name="startingGear">Starting gear to use.</param>
     /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually</param>
+    /// <param name="equipStorage">Whether to insert storage contents immediately or defer them until after role loadout selection.</param>
     [PublicAPI]
     public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true, bool equipStorage = true)
     {
