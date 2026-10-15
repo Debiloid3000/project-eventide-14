@@ -7,7 +7,6 @@
     - !type:OverallPlaytimeRequirement
       time: 2.5h
   startingGear: LawyerGear
-  setPreference: false # Corvax-IAA
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
   guides: [ SpaceLaw ] # TODO: should have a more specific guidebook page instead of just linking to Space Law
