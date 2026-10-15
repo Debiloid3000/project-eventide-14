@@ -73,9 +73,10 @@
   prefRoles:
   - NukeopsCommander
   spawnerPrototype: SpawnPointNukeopsCommander
+  # Genesis-Start: The selected kit includes the required survival groups itself.
   roleLoadout:
-  - RoleSurvivalNukie
   - NukeopsCommander
+  # Genesis-End
   startingGear: SyndicateCommanderGearFull
   components:
   - type: RandomMetadata
@@ -91,9 +92,10 @@
   prefRoles:
   - NukeopsMedic
   spawnerPrototype: SpawnPointNukeopsMedic
+  # Genesis-Start: The selected kit includes the required survival groups itself.
   roleLoadout:
-  - RoleSurvivalNukie
   - NukeopsMedic
+  # Genesis-End
   startingGear: SyndicateOperativeMedicFull
   components:
   - type: RandomMetadata
@@ -109,9 +111,10 @@
   prefRoles:
   - Nukeops
   spawnerPrototype: SpawnPointNukeopsOperative
+  # Genesis-Start: The selected kit includes the required survival groups itself.
   roleLoadout:
-  - RoleSurvivalNukie
   - Nukeops
+  # Genesis-End
   startingGear: SyndicateOperativeGearFull
   components:
   - type: RandomMetadata
