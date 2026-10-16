@@ -4,7 +4,7 @@
   description: job-description-magistrate
   playTimeTracker: JobMagistrate
   whitelisted: true # No-Ki сказал, что договорился!
-  setPreference: false # Увы
+  setPreference: true
   requirements:
   - !type:TraitsRequirement
     inverted: true

@@ -144,29 +144,48 @@ public sealed partial class LoadoutSystem : EntitySystem
         Equip(uid, component.StartingGear, component.RoleLoadout);
     }
 
+    // Genesis-Start: Apply saved role loadouts while keeping starting-gear contents in the selected backpack.
     public void Equip(EntityUid uid, List<ProtoId<StartingGearPrototype>>? startingGear,
-        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups)
+        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups,
+        RoleLoadout? selectedLoadout = null,
+        HumanoidCharacterProfile? selectedProfile = null)
     {
-        // First, randomly pick a startingGear profile from those specified, and equip it.
-        if (startingGear != null && startingGear.Count > 0)
-            _station.EquipStartingGear(uid, _random.Pick(startingGear), false);
-
-        if (loadoutGroups == null)
+        // Select starting gear once. Equip its worn/in-hand items now, but defer storage insertion
+        // until the role loadout has supplied the player's chosen backpack.
+        StartingGearPrototype? selectedStartingGear = null;
+        if (startingGear is { Count: > 0 })
         {
+            selectedStartingGear = ProtoMan.Index<StartingGearPrototype>(_random.Pick(startingGear));
+            _station.EquipStartingGear(uid, selectedStartingGear, raiseEvent: false, equipStorage: false);
+        }
+
+        if (loadoutGroups == null || loadoutGroups.Count == 0)
+        {
+            if (selectedStartingGear != null)
+                _station.EquipStartingGearStorage(uid, selectedStartingGear);
+
             GearEquipped(uid);
             return;
         }
 
-        // Then, randomly pick a RoleLoadout profile from those specified, and process/equip all LoadoutGroups from it.
-        // For non-roundstart mobs there is no SelectedLoadout data, so minValue must be set in each LoadoutGroup to force selection.
-        var id = _random.Pick(loadoutGroups);
+        // Only use a saved selection if this antag explicitly allows that role loadout.
+        var useSelectedLoadout = selectedLoadout != null && loadoutGroups.Contains(selectedLoadout.Role);
+        var id = useSelectedLoadout ? selectedLoadout!.Role : _random.Pick(loadoutGroups);
         var proto = ProtoMan.Index(id);
-        var loadout = new RoleLoadout(id);
-        loadout.SetDefault(GetProfile(uid), _actors.GetSession(uid), ProtoMan, true);
+        var profile = selectedProfile ?? GetProfile(uid);
+        var loadout = useSelectedLoadout ? selectedLoadout!.Clone() : new RoleLoadout(id);
+
+        // Preserve saved choices and fill any newly added groups; non-player/default loadouts start clean.
+        loadout.SetDefault(profile, _actors.GetSession(uid), ProtoMan, force: !useSelectedLoadout);
         _station.EquipRoleLoadout(uid, loadout, proto);
+
+        // The backpack from the role loadout now exists, so starting-gear storage can be filled safely.
+        if (selectedStartingGear != null)
+            _station.EquipStartingGearStorage(uid, selectedStartingGear);
 
         GearEquipped(uid);
     }
+    // Genesis-End
 
     public void GearEquipped(EntityUid uid)
     {
