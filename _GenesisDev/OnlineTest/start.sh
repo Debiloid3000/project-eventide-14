@@ -52,13 +52,14 @@ if ! command -v Xvfb >/dev/null 2>&1 || \
 fi
 [[ -n "$NOVNC_DIR" ]] || die "Не найден /usr/share/novnc/vnc.html после установки пакета novnc."
 
-# RUN_THIS.py initializes the RobustToolbox submodule through BuildChecker.
-if [[ ! -f "$ROOT/RobustToolbox/Robust.Shared/Robust.Shared.csproj" ]]; then
-    log "Инициализирую подмодули/движок через RUN_THIS.py..."
-    (cd "$ROOT" && python3 RUN_THIS.py)
-fi
+# Always reconcile the engine and nested submodules with the commits pinned by this
+# checkout. Checking only for an existing csproj misses stale submodules after branch updates.
+command -v git >/dev/null 2>&1 || die "Не найдена команда 'git'."
+log "Синхронизирую RobustToolbox и вложенные подмодули с текущим коммитом..."
+(cd "$ROOT" && git submodule sync --recursive && git submodule update --init --recursive) || \
+    die "Не удалось обновить подмодули. Проверь сетевое подключение и доступ к репозиторию."
 [[ -f "$ROOT/RobustToolbox/Robust.Shared/Robust.Shared.csproj" ]] || \
-    die "RobustToolbox не инициализирован. Проверь вывод RUN_THIS.py и BuildChecker/git_helper.py."
+    die "RobustToolbox не инициализирован после обновления подмодулей."
 
 # Choose a conservative server tickrate based on the CPU and memory limits visible to this container.
 # The value is applied at server startup; it is not dynamically changed while the server is running.
