@@ -173,7 +173,7 @@ public sealed partial class LoadoutSystem : EntitySystem
         {
             foreach (var roleLoadoutId in loadoutGroups)
             {
-                if (!profile.Loadouts.TryGetValue(roleLoadoutId, out var savedLoadout))
+                if (!profile.Loadouts.TryGetValue(roleLoadoutId.Id, out var savedLoadout))
                     continue;
 
                 selectedLoadout = savedLoadout;
