@@ -120,9 +120,9 @@ public sealed partial class StationSpawningSystem : EntitySystem
     /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>
     /// </summary>
     [PublicAPI]
-    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true, bool equipStorage = true)
+    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true, bool equipStorage = true, RoleLoadout? selectedRoleLoadout = null)
     {
-        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent, equipStorage);
+        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent, equipStorage, selectedRoleLoadout);
     }
 
     /// <summary>
@@ -133,7 +133,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
     /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually</param>
     /// <param name="equipStorage">Whether to insert storage contents immediately or defer them until after role loadout selection.</param>
     [PublicAPI]
-    public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true, bool equipStorage = true)
+    public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true, bool equipStorage = true, RoleLoadout? selectedRoleLoadout = null)
     {
         if (startingGear == null)
             return;
@@ -144,6 +144,14 @@ public sealed partial class StationSpawningSystem : EntitySystem
         {
             foreach (var slot in slotDefinitions)
             {
+                // Don't spawn base-gear items into slots that the role loadout will fill:
+                // TryEquip(force: true) would otherwise drop the replaced item at the player's feet.
+                if (selectedRoleLoadout != null
+                    && !string.IsNullOrEmpty(GetGearForSlot(selectedRoleLoadout, slot.Name)))
+                {
+                    continue;
+                }
+
                 var equipmentStr = startingGear.GetGear(slot.Name);
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
@@ -231,7 +239,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
                     return null;
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);
-                if (gear != string.Empty)
+                if (!string.IsNullOrEmpty(gear))
                     return gear;
             }
         }

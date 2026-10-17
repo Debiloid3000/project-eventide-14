@@ -362,18 +362,21 @@ public sealed partial class HumanoidProfileEditor
 
             antagContainer.AddChild(selector);
 
-            // Genesis-Start: Show loadout editing only for referenced antagonist roleLoadouts that offer gear or name customization.
+            // Keep the loadout control visible for every antagonist preference.
+            // Roles without a matching configurable RoleLoadoutPrototype stay disabled.
+            var antagLoadoutButton = new Button()
+            {
+                Text = Loc.GetString("loadout-window"),
+                HorizontalAlignment = HAlignment.Right,
+                Margin = new Thickness(3f, 0f, 0f, 0f),
+                Disabled = true,
+            };
+
             if (supportedAntagLoadouts.Contains(antag.ID)
                 && _prototypeManager.TryIndex<RoleLoadoutPrototype>(antag.ID, out var antagRoleLoadoutProto)
                 && (antagRoleLoadoutProto.Groups.Count > 0 || antagRoleLoadoutProto.CanCustomizeName))
             {
-                var antagLoadoutButton = new Button()
-                {
-                    Text = Loc.GetString("loadout-window"),
-                    HorizontalAlignment = HAlignment.Right,
-                    Margin = new Thickness(3f, 0f, 0f, 0f),
-                };
-
+                antagLoadoutButton.Disabled = false;
                 antagLoadoutButton.OnPressed += _ =>
                 {
                     if (Profile is null || _playerManager.LocalSession is not { } session)
@@ -390,9 +393,9 @@ public sealed partial class HumanoidProfileEditor
 
                     OpenLoadout(null, loadout, antagRoleLoadoutProto, Loc.GetString(antag.Name));
                 };
-
-                antagContainer.AddChild(antagLoadoutButton);
             }
+
+            antagContainer.AddChild(antagLoadoutButton);
             // Genesis-End
 
             AntagList.AddChild(antagContainer);

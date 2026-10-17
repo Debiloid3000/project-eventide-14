@@ -59,10 +59,23 @@ public sealed partial class WhitelistManager : IPostInjectInit
     /// </summary>
     public async void AddWhitelist(NetUserId player)
     {
+        // Preserve the immediate cache update for existing command callers.
         if (_whitelistStatus.ContainsKey(player))
             _whitelistStatus[player] = true;
 
+        await AddWhitelistAsync(player);
+    }
+
+    /// <summary>
+    /// Adds a player to the persisted whitelist and updates the cache after the database write completes.
+    /// Await this from connection checks so the allow decision cannot race the whitelist write.
+    /// </summary>
+    public async Task AddWhitelistAsync(NetUserId player)
+    {
         await _db.AddToWhitelistAsync(player);
+
+        if (_whitelistStatus.ContainsKey(player))
+            _whitelistStatus[player] = true;
     }
 
     /// <summary>
