@@ -190,13 +190,16 @@ public sealed partial class LoadoutSystem : EntitySystem
         // Preserve saved choices and fill any newly added groups; non-player/default loadouts start clean.
         loadout.SetDefault(profile, _actors.GetSession(uid), ProtoMan, force: !useSelectedLoadout);
 
-        // Equip only the base-gear slots not provided by the selected role loadout.
+        // Apply the player's selected role loadout first so it has priority over the
+        // antagonist's fallback starting gear (for example, belt and ID card).
+        _station.EquipRoleLoadout(uid, loadout, proto);
+
+        // Fill only slots not claimed by the selected role loadout. StationSpawningSystem
+        // also checks actual slot occupancy, so fallback gear cannot replace a selected item.
         if (selectedStartingGear != null)
             _station.EquipStartingGear(uid, selectedStartingGear, raiseEvent: false, equipStorage: false, selectedRoleLoadout: loadout);
 
-        _station.EquipRoleLoadout(uid, loadout, proto);
-
-        // The backpack from the role loadout now exists, so starting-gear storage can be filled safely.
+        // The selected backpack now exists, so starting-gear storage can be filled safely.
         if (selectedStartingGear != null)
             _station.EquipStartingGearStorage(uid, selectedStartingGear);
 

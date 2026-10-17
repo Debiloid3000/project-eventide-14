@@ -144,12 +144,17 @@ public sealed partial class StationSpawningSystem : EntitySystem
         {
             foreach (var slot in slotDefinitions)
             {
-                // Don't spawn base-gear items into slots that the role loadout will fill:
-                // TryEquip(force: true) would otherwise drop the replaced item at the player's feet.
-                if (selectedRoleLoadout != null
-                    && !string.IsNullOrEmpty(GetGearForSlot(selectedRoleLoadout, slot.Name)))
+                if (selectedRoleLoadout != null)
                 {
-                    continue;
+                    // Don't spawn base-gear items into slots reserved by the selected loadout.
+                    if (!string.IsNullOrEmpty(GetGearForSlot(selectedRoleLoadout, slot.Name)))
+                        continue;
+
+                    // The selected loadout is applied before fallback gear. Never force-equip a
+                    // fallback item over an already occupied slot, because force would drop the
+                    // selected item at the player's feet.
+                    if (_inventory.TryGetSlotEntity(entity, slot.Name, out _))
+                        continue;
                 }
 
                 var equipmentStr = startingGear.GetGear(slot.Name);
