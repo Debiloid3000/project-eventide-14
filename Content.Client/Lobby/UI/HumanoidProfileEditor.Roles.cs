@@ -115,14 +115,14 @@ public sealed partial class HumanoidProfileEditor
         UpdateJobPriorities();
     }
 
-    /// <summary>
-    /// Refreshes all job selectors.
-    /// </summary>
     private static bool HasConfigurableLoadout(RoleLoadoutPrototype roleLoadoutProto)
     {
         return roleLoadoutProto.Groups.Count > 0 || roleLoadoutProto.CanCustomizeName;
     }
 
+    /// <summary>
+    /// Refreshes all job selectors.
+    /// </summary>
     public void RefreshJobs()
     {
         JobList.RemoveAllChildren();
