@@ -52,15 +52,6 @@ public sealed partial class ConnectionManager
 
     public async Task<(bool isWhitelisted, string? denyMessage)> IsWhitelisted(PlayerConnectionWhitelistPrototype whitelist, NetUserData data, ISawmill sawmill)
     {
-        // Keep host-login semantics aligned with AdminManager.LoadAdminDataCore.
-        // Do this before ordinary whitelist conditions so the configured host can connect initially.
-        var hostUser = _cfg.GetCVar(CCVars.ConsoleLoginHostUser);
-        if (!string.IsNullOrWhiteSpace(hostUser) && data.UserName == hostUser)
-        {
-            await _whitelistManager.AddWhitelistAsync(data.UserId);
-            return (true, null);
-        }
-
         var cacheRemarks = await _db.GetAllAdminRemarks(data.UserId);
         var cachePlaytime = await _db.GetPlayTimes(data.UserId);
 
