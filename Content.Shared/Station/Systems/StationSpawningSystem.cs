@@ -236,7 +236,17 @@ public sealed partial class StationSpawningSystem : EntitySystem
             foreach (var items in group.Value)
             {
                 if (!ProtoMan.Resolve(items.Prototype, out var loadoutPrototype))
-                    return null;
+                    continue;
+
+                // A loadout can provide equipment indirectly through its StartingGear prototype.
+                // Reserve those slots too, otherwise base antagonist gear can be force-equipped first
+                // and then dropped on the floor when this selected loadout is applied.
+                if (ProtoMan.Resolve(loadoutPrototype.StartingGear, out var startingGear))
+                {
+                    var startingGearItem = startingGear.GetGear(slot);
+                    if (!string.IsNullOrEmpty(startingGearItem))
+                        return startingGearItem;
+                }
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);
                 if (!string.IsNullOrEmpty(gear))

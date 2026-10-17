@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -17,18 +18,29 @@ public sealed partial class WhitelistManager : IPostInjectInit
     [Dependency] private UserDbDataManager _userDb = default!;
     [Dependency] private ILogManager _logManager = default!;
 
-    private readonly Dictionary<NetUserId, bool> _whitelistStatus = new();
+    private readonly ConcurrentDictionary<NetUserId, bool> _whitelistStatus = new();
+    // Host promotion and connection admission may request the same whitelist write concurrently.
+    // Serialize status reads and mutations so check-then-insert cannot race inside this server.
+    private readonly SemaphoreSlim _whitelistStatusLock = new(1, 1);
     private ISawmill _sawmill = default!;
 
     private async Task LoadData(ICommonSession session, CancellationToken cancel)
     {
-        var whitelistStatus = await _db.GetWhitelistStatusAsync(session.UserId);
-        _whitelistStatus[session.UserId] = whitelistStatus;
+        await _whitelistStatusLock.WaitAsync(cancel);
+        try
+        {
+            var whitelistStatus = await _db.GetWhitelistStatusAsync(session.UserId);
+            _whitelistStatus[session.UserId] = whitelistStatus;
+        }
+        finally
+        {
+            _whitelistStatusLock.Release();
+        }
     }
 
     private void ClientDisconnected(ICommonSession session)
     {
-        _whitelistStatus.Remove(session.UserId);
+        _whitelistStatus.TryRemove(session.UserId, out _);
     }
 
     /// <inheritdoc cref="IsConnectedWhitelisted(Robust.Shared.Network.NetUserId)"/>
@@ -59,10 +71,6 @@ public sealed partial class WhitelistManager : IPostInjectInit
     /// </summary>
     public async void AddWhitelist(NetUserId player)
     {
-        // Preserve the immediate cache update for existing command callers.
-        if (_whitelistStatus.ContainsKey(player))
-            _whitelistStatus[player] = true;
-
         await AddWhitelistAsync(player);
     }
 
@@ -72,13 +80,21 @@ public sealed partial class WhitelistManager : IPostInjectInit
     /// </summary>
     public async Task AddWhitelistAsync(NetUserId player)
     {
-        // Host promotion and the initial connection check can both request this operation.
-        // Avoid inserting the same primary key more than once.
-        if (!await _db.GetWhitelistStatusAsync(player))
-            await _db.AddToWhitelistAsync(player);
+        await _whitelistStatusLock.WaitAsync();
+        try
+        {
+            // Host promotion and connection admission can request this concurrently.
+            // The lock covers both the database existence check and insert.
+            if (!await _db.GetWhitelistStatusAsync(player))
+                await _db.AddToWhitelistAsync(player);
 
-        if (_whitelistStatus.ContainsKey(player))
-            _whitelistStatus[player] = true;
+            if (_whitelistStatus.ContainsKey(player))
+                _whitelistStatus[player] = true;
+        }
+        finally
+        {
+            _whitelistStatusLock.Release();
+        }
     }
 
     /// <summary>
@@ -86,10 +102,18 @@ public sealed partial class WhitelistManager : IPostInjectInit
     /// </summary>
     public async void RemoveWhitelist(NetUserId player)
     {
-        if (_whitelistStatus.ContainsKey(player))
-            _whitelistStatus[player] = false;
+        await _whitelistStatusLock.WaitAsync();
+        try
+        {
+            await _db.RemoveFromWhitelistAsync(player);
 
-        await _db.RemoveFromWhitelistAsync(player);
+            if (_whitelistStatus.ContainsKey(player))
+                _whitelistStatus[player] = false;
+        }
+        finally
+        {
+            _whitelistStatusLock.Release();
+        }
     }
 
     void IPostInjectInit.PostInject()

@@ -118,6 +118,11 @@ public sealed partial class HumanoidProfileEditor
     /// <summary>
     /// Refreshes all job selectors.
     /// </summary>
+    private static bool HasConfigurableLoadout(RoleLoadoutPrototype roleLoadoutProto)
+    {
+        return roleLoadoutProto.Groups.Count > 0 || roleLoadoutProto.CanCustomizeName;
+    }
+
     public void RefreshJobs()
     {
         JobList.RemoveAllChildren();
@@ -262,20 +267,19 @@ public sealed partial class HumanoidProfileEditor
                     HorizontalAlignment = HAlignment.Right,
                     VerticalAlignment = VAlignment.Center,
                     Margin = new Thickness(3f, 3f, 0f, 0f),
+                    Disabled = true,
                 };
 
                 var collection = IoCManager.Instance!;
                 var protoManager = collection.Resolve<IPrototypeManager>();
 
-                // If no loadout found then disabled button
-                if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
+                // Keep the button in every profession row, but only enable a real editor.
+                if (protoManager.TryIndex<RoleLoadoutPrototype>(
+                        LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto)
+                    && HasConfigurableLoadout(roleLoadoutProto))
                 {
-                    loadoutWindowBtn.Disabled = true;
-                }
-                // else
-                else
-                {
-                    loadoutWindowBtn.OnPressed += args =>
+                    loadoutWindowBtn.Disabled = false;
+                    loadoutWindowBtn.OnPressed += _ =>
                     {
                         RoleLoadout? loadout = null;
 
@@ -374,7 +378,7 @@ public sealed partial class HumanoidProfileEditor
 
             if (supportedAntagLoadouts.Contains(antag.ID)
                 && _prototypeManager.TryIndex<RoleLoadoutPrototype>(antag.ID, out var antagRoleLoadoutProto)
-                && (antagRoleLoadoutProto.Groups.Count > 0 || antagRoleLoadoutProto.CanCustomizeName))
+                && HasConfigurableLoadout(antagRoleLoadoutProto))
             {
                 antagLoadoutButton.Disabled = false;
                 antagLoadoutButton.OnPressed += _ =>
