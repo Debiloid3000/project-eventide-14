@@ -248,7 +248,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
                 // and then dropped on the floor when this selected loadout is applied.
                 if (ProtoMan.Resolve(loadoutPrototype.StartingGear, out var startingGear))
                 {
-                    var startingGearItem = startingGear.GetGear(slot);
+                    var startingGearItem = ((IEquipmentLoadout) startingGear).GetGear(slot);
                     if (!string.IsNullOrEmpty(startingGearItem))
                         return startingGearItem;
                 }
