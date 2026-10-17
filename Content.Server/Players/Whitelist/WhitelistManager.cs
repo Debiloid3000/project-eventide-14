@@ -72,7 +72,10 @@ public sealed partial class WhitelistManager : IPostInjectInit
     /// </summary>
     public async Task AddWhitelistAsync(NetUserId player)
     {
-        await _db.AddToWhitelistAsync(player);
+        // Host promotion and the initial connection check can both request this operation.
+        // Avoid inserting the same primary key more than once.
+        if (!await _db.GetWhitelistStatusAsync(player))
+            await _db.AddToWhitelistAsync(player);
 
         if (_whitelistStatus.ContainsKey(player))
             _whitelistStatus[player] = true;
