@@ -151,9 +151,9 @@
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsMagSyndie
-    id: SyndiOperativePDA
+    #id: SyndiOperativePDA
     pocket2: PlushieCarp
-    belt: ClothingBeltMilitaryWebbing
+    #belt: ClothingBeltMilitaryWebbing
   # No inhand key here: a comment-only inhand block becomes YAML null and breaks inheritance.
   storage:
     back:
@@ -204,7 +204,7 @@
   equipment:
     eyes: ClothingEyesHudSyndicateAgent
     id: SyndiCorpsmanPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    #belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
     - SyndiHypo
