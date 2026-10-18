@@ -13,3 +13,7 @@ ent-BorgModuleMiningCombat = combat mining cyborg module
 ent-BorgModuleJetpack = cyborg jetpack module
 ent-BorgModuleStandard = cyborg fire extinguisher module
 ent-BorgChassisSecurity = security cyborg
+
+# Genesis-Edit
+ent-PlayerBorgChassisSecurity = { ent-BorgChassisSecurity }
+    .suffix = Battery, tools
