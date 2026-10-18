@@ -13,3 +13,7 @@ ent-BorgModuleMiningCombat = боевой шахтёрский модуль ки
 ent-BorgModuleJetpack = реактивный ранец для киборга
 ent-BorgModuleStandard = модуль киборга с огнетушителем
 ent-BorgChassisSecurity = киборг службы безопасности
+
+# Genesis-Edit
+ent-PlayerBorgChassisSecurity = { ent-BorgChassisSecurity }
+    .suffix = Батарея, инструменты
