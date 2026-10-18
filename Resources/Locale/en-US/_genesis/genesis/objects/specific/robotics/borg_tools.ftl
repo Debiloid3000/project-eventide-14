@@ -5,3 +5,11 @@ ent-WeaponProtoKineticAcceleratorBorg = cyborg proto-kinetic accelerator
 ent-CrowbarBorg = cyborg crowbar
 ent-FireExtinguisherBorg = cyborg fire extinguisher
     .desc = A fire extinguisher designed for cyborgs.
+
+# Genesis-Edit: localize additional cyborg modules and chassis.
+ent-ModuleSec = security cyborg module
+    .desc = Everything for you and your safety.
+ent-BorgModuleMiningCombat = combat mining cyborg module
+ent-BorgModuleJetpack = cyborg jetpack module
+ent-BorgModuleStandard = cyborg fire extinguisher module
+ent-BorgChassisSecurity = security cyborg
