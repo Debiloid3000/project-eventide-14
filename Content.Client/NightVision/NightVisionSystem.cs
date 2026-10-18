@@ -14,8 +14,12 @@ public sealed partial class NightVisionSystem : SharedNightVisionSystem
 {
     [Dependency] private IOverlayManager _overlayMan = default!;
     [Dependency] private IPlayerManager _player = default!;
+    // Genesis-Edit: remember the pre-PNV value so disabling the effect does not force lighting on globally.
+    [Dependency] private ILightManager _lightManager = default!;
 
     private NightVisionOverlay _overlay = default!;
+    private bool _lightingOverrideActive;
+    private bool _previousDrawLighting;
 
     public override void Initialize()
     {
@@ -105,7 +109,24 @@ public sealed partial class NightVisionSystem : SharedNightVisionSystem
             return;
         }
 
-        _overlay.SetParameters(nvision.OverlayColor, nvision.LightingColor, nvision.NoiseAmount, nvision.NoiseMultiplier);
+        // Genesis-Edit: only disable engine lighting when a real color tint is configured.
+        var disableLighting = nvision.DisableLighting && nvision.OverlayColor.A > 0f;
+        if (disableLighting)
+        {
+            if (!_lightingOverrideActive)
+            {
+                _previousDrawLighting = _lightManager.DrawLighting;
+                _lightingOverrideActive = true;
+            }
+
+            _lightManager.DrawLighting = false;
+        }
+        else
+        {
+            RestoreLighting();
+        }
+
+        _overlay.SetParameters(nvision.OverlayColor, nvision.LightingColor, nvision.NoiseAmount, nvision.NoiseMultiplier, disableLighting);
 
         if (!_overlayMan.HasOverlay<NightVisionOverlay>())
             _overlayMan.AddOverlay(_overlay);
@@ -117,6 +138,17 @@ public sealed partial class NightVisionSystem : SharedNightVisionSystem
             return;
 
         _overlayMan.RemoveOverlay(_overlay);
+        RestoreLighting();
+    }
+
+    // Genesis-Edit: restore the state that existed before PNV was activated.
+    private void RestoreLighting()
+    {
+        if (!_lightingOverrideActive)
+            return;
+
+        _lightManager.DrawLighting = _previousDrawLighting;
+        _lightingOverrideActive = false;
     }
 
     protected override void RefreshOverlay(EntityUid target)
