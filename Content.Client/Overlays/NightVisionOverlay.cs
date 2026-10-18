@@ -21,10 +21,14 @@ public sealed partial class NightVisionOverlay : Overlay
     public Color LightingColor { get; private set; } = Color.White;
     public float NoiseAmount { get; private set; }
     public float NoiseMultiplier { get; private set; }
+    // Genesis-Edit: colored PNV draws only the world-space tint, not the normal light boost pass.
+    public bool DisableLighting { get; private set; }
 
     public bool DisableNoise = false;
 
-    public override OverlaySpace Space => OverlaySpace.BeforeLighting | OverlaySpace.WorldSpace;
+    public override OverlaySpace Space => DisableLighting
+        ? OverlaySpace.WorldSpace
+        : OverlaySpace.BeforeLighting | OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
 
     public NightVisionOverlay()
@@ -39,12 +43,13 @@ public sealed partial class NightVisionOverlay : Overlay
         DisableNoise = toggle;
     }
 
-    public void SetParameters(Color overlayColor, Color lightingColor, float noiseAmount, float noiseMultiplier)
+    public void SetParameters(Color overlayColor, Color lightingColor, float noiseAmount, float noiseMultiplier, bool disableLighting)
     {
         OverlayColor = overlayColor;
         LightingColor = lightingColor;
         NoiseAmount = noiseAmount;
         NoiseMultiplier = noiseMultiplier;
+        DisableLighting = disableLighting;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
