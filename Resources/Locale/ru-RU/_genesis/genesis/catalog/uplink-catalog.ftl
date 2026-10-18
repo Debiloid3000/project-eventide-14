@@ -36,3 +36,7 @@ uplink-syndie-miner-armor-name = броня шахтёра Синдиката
 uplink-syndie-miner-armor-desc = Защитный комплект брони для шахтёров.
 uplink-special-delivery-name = особая посылка
 uplink-special-delivery-desc = Посылка со случайной маской психа из Майами.
+
+# Genesis-Edit: отдельная запись зелёного ПНВ в аплинке.
+uplink-clothing-pnv-green-name = Зелёный ПНВ
+uplink-clothing-pnv-green-desc = Прибор ночного видения с зелёным изображением.
