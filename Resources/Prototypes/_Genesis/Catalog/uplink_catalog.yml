@@ -87,17 +87,6 @@
   categories:
     - UplinkWearables
 
-# Genesis-Edit: offer the green-tinted variant separately from the original NVD.
-- type: listing
-  id: UplinkClothingEyesVisionGreen
-  name: uplink-clothing-pnv-green-name
-  description: uplink-clothing-pnv-green-desc
-  productEntity: ClothingEyesVisionGreen
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
-
 - type: listing
   id: UplinkMiniatureEnergyCrossbow
   name: uplink-miniature-energy-crossbow-syndie-green-name

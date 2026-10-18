@@ -15,10 +15,5 @@ ent-ClothingEyesGlassesSunglassesModified = modified sunglasses
     .desc = Sunglasses with modified HUD displays.
     .suffix = { "" }
 ent-ClothingEyesVision = night vision device
-    .desc = A night vision device that provides an image of the terrain in low-light conditions.
-    .suffix = { "" }
-
-# Genesis-Edit
-ent-ClothingEyesVisionGreen = green night vision device
-    .desc = A night vision device that renders its view with a green tint.
+    .desc = A night vision device with a green-tinted view.
     .suffix = { "" }

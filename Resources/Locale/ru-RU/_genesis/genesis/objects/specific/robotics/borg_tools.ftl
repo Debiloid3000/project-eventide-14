@@ -16,4 +16,5 @@ ent-BorgChassisSecurity = киборг службы безопасности
 
 # Genesis-Edit
 ent-PlayerBorgChassisSecurity = { ent-BorgChassisSecurity }
+    .desc = Корпус киборга службы безопасности с батареей и набором инструментов.
     .suffix = Батарея, инструменты

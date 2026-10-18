@@ -16,4 +16,5 @@ ent-BorgChassisSecurity = security cyborg
 
 # Genesis-Edit
 ent-PlayerBorgChassisSecurity = { ent-BorgChassisSecurity }
+    .desc = A security cyborg chassis equipped with a battery and tools.
     .suffix = Battery, tools
