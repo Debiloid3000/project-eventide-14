@@ -4,7 +4,7 @@ uplink-bow-compound-red-desc = Stained with the blood of greytiders. A lightweig
 uplink-bow-compound-red-name = Blood-red compound bow
 uplink-bundle-kr51-desc = The Phantom Menace: Classic KR51 rifle, comes with 3 magazines.
 uplink-bundle-kr51-name = KR51 bundle
-uplink-clothing-pnv-desc = A night vision device.
+uplink-clothing-pnv-desc = A night vision device with a green-tinted view.
 uplink-clothing-pnv-name = Night vision goggles
 uplink-eswords-desc = Two energy swords with properties similar to a double-bladed energy sword.
 uplink-eswords-name = energy swords
@@ -28,3 +28,11 @@ uplink-pistol-desert-egale-desc = A firearm used by nuclear operatives and some 
 uplink-pistol-desert-egale-name = Desert Eagle
 uplink-syringe-cartridge-desc = A box of syringe cartridges for the syringe gun.
 uplink-syringe-cartridge-name = syringe cartridge box
+
+# Genesis-Edit: complete currently referenced uplink strings.
+uplink-esword-double-name = double-bladed energy sword
+uplink-esword-double-desc = A double-bladed energy sword with an energy blade at each end.
+uplink-syndie-miner-armor-name = Syndicate miner armor
+uplink-syndie-miner-armor-desc = Protective armor offered to miners.
+uplink-special-delivery-name = Special delivery
+uplink-special-delivery-desc = A package containing a random Miami Psycho mask.

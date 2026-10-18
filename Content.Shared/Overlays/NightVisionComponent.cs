@@ -61,6 +61,14 @@ public sealed partial class NightVisionComponent : Component
     [DataField, AutoNetworkedField]
     public Color LightingColor = new(1f, 1f, 1f, 0.15f);
 
+    // Genesis-Edit: allow a colored PNV mode to suppress the regular lighting buffer.
+    /// <summary>
+    /// Disables regular lighting while the night-vision overlay uses a non-transparent overlay color.
+    /// Ignored when OverlayColor is transparent so the original lighting remains unchanged.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DisableLighting;
+
     /// <summary>
     /// How much animated noise to add to the image (0..1).
     /// </summary>
