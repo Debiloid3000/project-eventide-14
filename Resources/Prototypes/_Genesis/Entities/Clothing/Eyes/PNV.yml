@@ -2,7 +2,7 @@
   name: NVD
   id: ClothingEyesVision
   parent: BaseItem
-  description: Night vision device. Provides an image of the terrain in low-light conditions.
+  description: Night vision device with a green-tinted view.
   components:
   - type: Item
   - type: Sprite
@@ -16,3 +16,5 @@
     enabled: false
     relayOverlay: true
     action: NVToggleAction
+    overlayColor: "#00FF0030"
+    disableLighting: true

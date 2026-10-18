@@ -25,6 +25,10 @@ public sealed partial class HumanoidProfileEditor
     // One at a time.
     private LoadoutWindow? _loadoutWindow;
 
+    // Genesis-Edit: track only the antagonist loadout currently open in the editor preview.
+    private RoleLoadout? _previewRoleLoadout;
+    private RoleLoadoutPrototype? _previewRoleLoadoutPrototype;
+
     private List<(string, RequirementsSelector)> _jobPriorities = new();
 
     private readonly Dictionary<string, BoxContainer> _jobCategories;
@@ -101,11 +105,15 @@ public sealed partial class HumanoidProfileEditor
         };
 
         JobOverride = jobProto;
+        _previewRoleLoadout = jobProto == null ? roleLoadout : null;
+        _previewRoleLoadoutPrototype = jobProto == null ? roleLoadoutProto : null;
         ReloadPreview();
 
         _loadoutWindow.OnClose += () =>
         {
             JobOverride = null;
+            _previewRoleLoadout = null;
+            _previewRoleLoadoutPrototype = null;
             ReloadPreview();
         };
 
