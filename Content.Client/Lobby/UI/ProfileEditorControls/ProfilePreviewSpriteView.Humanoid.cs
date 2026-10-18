@@ -30,7 +30,13 @@ public sealed partial class ProfilePreviewSpriteView
     /// <summary>
     /// Loads the profile onto a dummy entity.
     /// </summary>
-    private void LoadHumanoidEntity(HumanoidCharacterProfile? humanoid, JobPrototype? job, bool jobClothes)
+    // Genesis-Edit: optionally preview the role loadout currently edited, including antagonist equipment.
+    private void LoadHumanoidEntity(
+        HumanoidCharacterProfile? humanoid,
+        JobPrototype? job,
+        bool jobClothes,
+        RoleLoadout? roleLoadoutOverride = null,
+        RoleLoadoutPrototype? roleLoadoutPrototypeOverride = null)
     {
         EntProtoId? previewEntity = null;
         if (humanoid != null && jobClothes)
@@ -66,6 +72,26 @@ public sealed partial class ProfilePreviewSpriteView
             {
                 var loadout = humanoid.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), _playerManager.LocalSession, humanoid.Species, EntMan, _prototypeManager);
                 GiveDummyLoadout(loadout);
+            }
+
+            // Genesis-Edit: apply only the role loadout currently being edited, over the base job outfit.
+            if (roleLoadoutPrototypeOverride != null)
+            {
+                var selectedRoleLoadout = roleLoadoutOverride;
+                if (selectedRoleLoadout == null &&
+                    humanoid.Loadouts.TryGetValue(roleLoadoutPrototypeOverride.ID, out var savedLoadout))
+                {
+                    selectedRoleLoadout = savedLoadout;
+                }
+
+                if (selectedRoleLoadout == null)
+                {
+                    selectedRoleLoadout = new RoleLoadout(roleLoadoutPrototypeOverride.ID);
+                    selectedRoleLoadout.SetDefault(humanoid, _playerManager.LocalSession, _prototypeManager);
+                }
+
+                EntMan.System<StationSpawningSystem>().EquipRoleLoadout(
+                    PreviewDummy, selectedRoleLoadout, roleLoadoutPrototypeOverride);
             }
         }
     }
