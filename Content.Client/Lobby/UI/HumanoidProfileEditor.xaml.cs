@@ -353,7 +353,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            SpriteView.LoadPreview(Profile, JobOverride, ShowClothes.Pressed);
+            SpriteView.LoadPreview(Profile, JobOverride, ShowClothes.Pressed, _previewRoleLoadout, _previewRoleLoadoutPrototype);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
