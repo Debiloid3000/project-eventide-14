@@ -28,3 +28,11 @@ uplink-pistol-desert-egale-desc = Боевое оружие, используе�
 uplink-pistol-desert-egale-name = Пустынный орёл
 uplink-syringe-cartridge-desc = Коробка шприцевых картриджей для шприцевого пистолета
 uplink-syringe-cartridge-name = коробка шприцевых картриджей
+
+# Genesis-Edit: дополнительные строки каталога аплинка.
+uplink-esword-double-name = двухклинковый энергетический меч
+uplink-esword-double-desc = Двухклинковый энергетический меч с энергетическими лезвиями с обеих сторон.
+uplink-syndie-miner-armor-name = броня шахтёра Синдиката
+uplink-syndie-miner-armor-desc = Защитный комплект брони для шахтёров.
+uplink-special-delivery-name = особая посылка
+uplink-special-delivery-desc = Посылка со случайной маской психа из Майами.
