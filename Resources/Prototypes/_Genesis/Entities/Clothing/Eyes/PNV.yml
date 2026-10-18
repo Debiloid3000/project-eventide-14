@@ -16,3 +16,14 @@
     enabled: false
     relayOverlay: true
     action: NVToggleAction
+
+# Genesis-Edit: the original NVD above keeps the default lighting behavior.
+- type: entity
+  parent: ClothingEyesVision
+  id: ClothingEyesVisionGreen
+  name: green night vision device
+  description: Night vision device that renders its view with a green tint.
+  components:
+  - type: NightVision
+    overlayColor: "#00FF0030"
+    disableLighting: true
