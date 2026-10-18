@@ -17,3 +17,8 @@ ent-ClothingEyesGlassesSunglassesModified = модифицированные с�
 ent-ClothingEyesVision = прибор ночного видения
     .desc = Прибор ночного видения, позволяющий видеть окружающую местность при слабом освещении.
     .suffix = { "" }
+
+# Genesis-Edit
+ent-ClothingEyesVisionGreen = прибор ночного видения с зелёным изображением
+    .desc = Прибор ночного видения, отображающий изображение с зелёным оттенком.
+    .suffix = { "" }
