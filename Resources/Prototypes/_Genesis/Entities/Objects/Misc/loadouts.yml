@@ -590,8 +590,8 @@
 # Elite
 - type: thiefBackpackSet
   id: SyndieEliteHardsuitSet1
-  name: hardsuit-loadout-category-syndiemedic1-name
-  description: hardsuit-loadout-category-syndiemedic1-description
+  name: hardsuit-loadout-category-syndieelite1-name
+  description: hardsuit-loadout-category-syndieelite1-description
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
     state: icon
@@ -600,8 +600,8 @@
 
 - type: thiefBackpackSet
   id: SyndieEliteHardsuitSet2
-  name: hardsuit-loadout-category-syndiemedic2-name
-  description: hardsuit-loadout-category-syndiemedic2-description
+  name: hardsuit-loadout-category-syndieelite2-name
+  description: hardsuit-loadout-category-syndieelite2-description
   sprite:
     sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/syndieelite.rsi
     state: icon
@@ -610,8 +610,8 @@
 
 - type: thiefBackpackSet
   id: SyndieEliteHardsuitSet3
-  name: hardsuit-loadout-category-syndiemedic3-name
-  description: hardsuit-loadout-category-syndiemedic3-description
+  name: hardsuit-loadout-category-syndieelite3-name
+  description: hardsuit-loadout-category-syndieelite3-description
   sprite:
     sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/syndieelite.rsi
     state: icon
@@ -620,8 +620,8 @@
 
 - type: thiefBackpackSet
   id: SyndieEliteHardsuitSet4
-  name: hardsuit-loadout-category-syndiemedic4-name
-  description: hardsuit-loadout-category-syndiemedic4-description
+  name: hardsuit-loadout-category-syndieelite4-name
+  description: hardsuit-loadout-category-syndieelite4-description
   sprite:
     sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/SunRise/syndieelite.rsi
     state: icon
@@ -631,8 +631,8 @@
 # Cybersun Juggernaut
 - type: thiefBackpackSet
   id: SyndieJuggernautHardsuitSet1
-  name: hardsuit-loadout-category-syndiemedic1-name
-  description: hardsuit-loadout-category-syndiemedic1-description
+  name: hardsuit-loadout-category-syndiejuggernaut1-name
+  description: hardsuit-loadout-category-syndiejuggernaut1-description
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
     state: icon
@@ -641,8 +641,8 @@
 
 - type: thiefBackpackSet
   id: SyndieJuggernautHardsuitSet2
-  name: hardsuit-loadout-category-syndiemedic2-name
-  description: hardsuit-loadout-category-syndiemedic2-description
+  name: hardsuit-loadout-category-syndiejuggernaut2-name
+  description: hardsuit-loadout-category-syndiejuggernaut2-description
   sprite:
     sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Backmen/cybersun.rsi
     state: icon
@@ -651,8 +651,8 @@
 
 - type: thiefBackpackSet
   id: SyndieJuggernautHardsuitSet3
-  name: hardsuit-loadout-category-syndiemedic3-name
-  description: hardsuit-loadout-category-syndiemedic3-description
+  name: hardsuit-loadout-category-syndiejuggernaut3-name
+  description: hardsuit-loadout-category-syndiejuggernaut3-description
   sprite:
     sprite: _Genesis/Clothing/OuterClothing/Hardsuits/NukeOps/Corvax/cybersun.rsi
     state: icon
