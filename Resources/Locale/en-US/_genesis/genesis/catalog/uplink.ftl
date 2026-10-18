@@ -36,3 +36,7 @@ uplink-syndie-miner-armor-name = Syndicate miner armor
 uplink-syndie-miner-armor-desc = Protective armor offered to miners.
 uplink-special-delivery-name = Special delivery
 uplink-special-delivery-desc = A package containing a random Miami Psycho mask.
+
+# Genesis-Edit: separate green-tinted night vision listing.
+uplink-clothing-pnv-green-name = Green night vision goggles
+uplink-clothing-pnv-green-desc = A night vision device with a green-tinted view.
