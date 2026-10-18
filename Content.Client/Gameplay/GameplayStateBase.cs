@@ -228,20 +228,30 @@ namespace Content.Client.Gameplay
             {
                 var mousePosWorld = vp.PixelToMap(kArgs.PointerLocation.Position);
 
-                if (vp is ScalingViewport svp)
+                var mapSystem = _entitySystemManager.GetEntitySystem<MapSystem>();
+
+                // Viewport input can arrive before a valid map is attached (for example, during respawn).
+                // Avoid processing clicks or resolving coordinates for an unknown map id.
+                if (!mapSystem.TryGetMap(mousePosWorld.MapId, out _))
                 {
-                    entityToClick = GetClickedEntity(mousePosWorld, svp.Eye);
+                    coordinates = EntityCoordinates.Invalid;
                 }
                 else
                 {
-                    entityToClick = GetClickedEntity(mousePosWorld);
-                }
-                var transformSystem = _entitySystemManager.GetEntitySystem<SharedTransformSystem>();
-                var mapSystem = _entitySystemManager.GetEntitySystem<MapSystem>();
+                    if (vp is ScalingViewport svp)
+                    {
+                        entityToClick = GetClickedEntity(mousePosWorld, svp.Eye);
+                    }
+                    else
+                    {
+                        entityToClick = GetClickedEntity(mousePosWorld);
+                    }
 
-                coordinates = mapSystem.TryFindGridAt(mousePosWorld, out var uid, out _) ?
-                    mapSystem.MapToGrid(uid, mousePosWorld) :
-                    transformSystem.ToCoordinates(mousePosWorld);
+                    var transformSystem = _entitySystemManager.GetEntitySystem<SharedTransformSystem>();
+                    coordinates = mapSystem.TryFindGridAt(mousePosWorld, out var uid, out _) ?
+                        mapSystem.MapToGrid(uid, mousePosWorld) :
+                        transformSystem.ToCoordinates(mousePosWorld);
+                }
             }
             else
             {
