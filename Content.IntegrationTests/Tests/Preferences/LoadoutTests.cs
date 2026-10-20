@@ -43,6 +43,10 @@ public sealed class LoadoutTests : GameTest
   id: LoadoutTester
   playTimeTracker: PlayTimeLoadoutTester
   startingGear: LoadoutTesterStartingGear
+
+- type: chameleonOutfit
+  id: LoadoutTesterChameleonOutfit
+  job: LoadoutTester
 ";
 
     private readonly Dictionary<string, EntProtoId> _expectedEquipment = new()
