@@ -36,7 +36,6 @@ public abstract partial class BaseTextureTag : IMarkupTagHandler
         {
             Texture = _spriteSystem.Frame0(new SpriteSpecifier.Rsi(new ResPath(rsiPath), state)),
             TextureScale = new Vector2(scaleValue, scaleValue),
-            VerticalAlignment = Control.VAlignment.Center,
         };
 
         control = texture;
