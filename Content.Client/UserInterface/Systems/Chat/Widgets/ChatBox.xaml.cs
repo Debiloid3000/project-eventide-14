@@ -35,8 +35,6 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
         typeof(ColorTag),
         typeof(HeadingTag),
         typeof(ItalicTag),
-        typeof(TextureTag),
-        typeof(EntityTextureTag),
         typeof(RadioIconTag),
     ];
 
