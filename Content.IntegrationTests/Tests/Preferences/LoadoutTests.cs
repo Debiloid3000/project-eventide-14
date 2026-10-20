@@ -6,6 +6,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Station.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Preferences;
@@ -59,6 +60,33 @@ public sealed class LoadoutTests : GameTest
     {
         Dirty = true,
     };
+
+
+    /// <summary>
+    /// The loadout picker should show localized entity names, not the raw English prototype names.
+    /// </summary>
+    [Test]
+    public async Task TestLoadoutNamesUseLocalizedEntityNames()
+    {
+        var server = Pair.Server;
+        var entManager = server.ResolveDependency<IEntityManager>();
+        var loadoutSystem = entManager.System<Content.Shared.Clothing.LoadoutSystem>();
+
+        await server.WaitAssertion(() =>
+        {
+            var expected = Loc.GetString("ent-ClothingOuterHardsuitBlueShield");
+
+            var dummyEntityLoadout = new LoadoutPrototype
+            {
+                DummyEntity = "ClothingOuterHardsuitBlueShield",
+            };
+            Assert.That(loadoutSystem.GetName(dummyEntityLoadout), Is.EqualTo(expected));
+
+            var singleItemLoadout = new LoadoutPrototype();
+            singleItemLoadout.Equipment.Add("outerClothing", "ClothingOuterHardsuitBlueShield");
+            Assert.That(loadoutSystem.GetName(singleItemLoadout), Is.EqualTo(expected));
+        });
+    }
 
     /// <summary>
     /// Checks that job starting gear and the selected role loadout are both applied.
