@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
