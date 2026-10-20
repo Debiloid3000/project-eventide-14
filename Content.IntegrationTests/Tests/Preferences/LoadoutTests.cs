@@ -34,14 +34,21 @@ public sealed class LoadoutTests : GameTest
   groups:
   - LoadoutTesterJumpsuit
 
+- type: startingGear
+  id: LoadoutTesterStartingGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
 - type: job
   id: LoadoutTester
   playTimeTracker: PlayTimeLoadoutTester
+  startingGear: LoadoutTesterStartingGear
 ";
 
     private readonly Dictionary<string, EntProtoId> _expectedEquipment = new()
     {
-        ["jumpsuit"] = "ClothingUniformJumpsuitColorGrey"
+        ["jumpsuit"] = "ClothingUniformJumpsuitColorGrey",
+        ["shoes"] = "ClothingShoesBootsLaceup",
     };
 
     public override PoolSettings PoolSettings => new()
