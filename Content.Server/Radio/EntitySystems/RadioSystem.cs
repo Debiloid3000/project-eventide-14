@@ -4,6 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
@@ -33,6 +34,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
 
@@ -101,28 +103,20 @@ public sealed partial class RadioSystem : SharedRadioSystem
 
         var headsetColor = TryComp(radioSource, out HeadsetComponent? headset) ? headset.Color : channel.Color;
         var job = string.Empty;
-        if (_inventory.HasSlot(messageSource, "id"))
-        {
-            job = Loc.GetString("chat-radio-source-unknown");
-            IdCardComponent? radioIdCard = null;
+        var idCard = GetIdCard(messageSource);
+        var jobTitle = idCard != null && !string.IsNullOrEmpty(idCard.LocalizedJobTitle)
+            ? _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle)
+            : Loc.GetString("chat-radio-source-unknown");
+        var jobLabel = $"[{jobTitle}]";
+        var jobColor = GetIdCardColor(idCard);
+        var radioIcon = Loc.GetString("radio-icon-tag",
+            ("path", GetIdSprite(idCard)),
+            ("scale", "3"),
+            ("text", jobLabel),
+            ("color", jobColor));
 
-            if (_inventory.TryGetSlotEntity(messageSource, "id", out var idSlotEntity))
-            {
-                if (TryComp(idSlotEntity, out PdaComponent? pda))
-                    idSlotEntity = pda.ContainedId;
-
-                if (TryComp(idSlotEntity, out IdCardComponent? idCard))
-                {
-                    radioIdCard = idCard;
-                    if (!string.IsNullOrEmpty(idCard.LocalizedJobTitle))
-                        job = _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle);
-                }
-            }
-
-            job = radioIdCard is not null
-                ? FormatRadioJobLabel(radioIdCard, job)
-                : $"\\[{job}\\] ";
-        }
+        // Sunrise-style radio identity: render the profession icon and a department-colored title before the speaker.
+        name = $"{radioIcon} [color={jobColor}]{FormattedMessage.EscapeText(jobLabel)}[/color] {name}";
 
         content = Highlight(content);
 
@@ -211,49 +205,83 @@ public sealed partial class RadioSystem : SharedRadioSystem
     }
 
 
-    private string FormatRadioJobLabel(IdCardComponent idCard, string jobTitle)
+    private const string NoIdIconPath = "/Textures/Interface/Misc/job_icons.rsi/NoId.png";
+    private const string DefaultJobColor = "#9FED58";
+
+    private IdCardComponent? GetIdCard(EntityUid senderUid)
     {
-        var iconPath = GetJobIconPath(idCard.JobIcon);
-        var jobColor = GetJobColor(idCard);
-        var escapedTitle = FormattedMessage.EscapeText(jobTitle);
-        return $"[texture path=\"{iconPath}\" scale=3][color={jobColor}]\\[{escapedTitle}\\][/color] ";
+        if (!_accessReader.FindAccessItemsInventory(senderUid, out var accessItems))
+            return null;
+
+        foreach (var item in accessItems)
+        {
+            if (TryComp(item, out PdaComponent? pda) &&
+                pda.ContainedId is { } containedId &&
+                TryComp(containedId, out IdCardComponent? containedIdCard))
+            {
+                return containedIdCard;
+            }
+
+            if (TryComp(item, out IdCardComponent? idCard))
+                return idCard;
+        }
+
+        return null;
     }
 
-    private string GetJobIconPath(ProtoId<JobIconPrototype> iconId)
+    private string GetIdSprite(IdCardComponent? idCard)
     {
-        const string fallback = "/Textures/Interface/Misc/job_icons.rsi/Unknown.png";
+        if (idCard is null || !_prototypeManager.TryIndex(idCard.JobIcon, out var iconPrototype))
+            return NoIdIconPath;
 
-        if (!_prototypeManager.TryIndex(iconId, out var icon))
-            return fallback;
-
-        return icon.Icon switch
+        return iconPrototype.Icon switch
         {
             SpriteSpecifier.Texture texture => texture.TexturePath.CanonPath,
             SpriteSpecifier.Rsi rsi => $"{rsi.RsiPath.CanonPath}/{rsi.RsiState}.png",
-            _ => fallback,
+            _ => NoIdIconPath,
         };
     }
 
-    private string GetJobColor(IdCardComponent idCard)
+    private string GetIdCardColor(IdCardComponent? idCard)
     {
-        JobPrototype? jobPrototype = null;
+        if (idCard is null)
+            return DefaultJobColor;
 
-        if (idCard.JobPrototype is { } jobId && _prototypeManager.TryIndex(jobId, out var indexedJob))
-            jobPrototype = indexedJob;
+        DepartmentPrototype? selected = null;
 
-        jobPrototype ??= _prototypeManager.EnumeratePrototypes<JobPrototype>()
-            .FirstOrDefault(job => job.Icon == idCard.JobIcon);
+        foreach (var departmentId in idCard.JobDepartments)
+        {
+            if (!_prototypeManager.TryIndex(departmentId, out var department))
+                continue;
 
-        if (jobPrototype is null)
-            return "#9FED58";
+            if (selected is null || IsPreferredDepartment(department, selected))
+                selected = department;
+        }
 
-        var department = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>()
-            .Where(department => department.Roles.Contains(jobPrototype.ID))
-            .OrderByDescending(department => department.Primary)
-            .ThenByDescending(department => department.Weight)
-            .FirstOrDefault();
+        // Fallback for ID cards which have a job prototype but no stored department list.
+        if (selected is null &&
+            idCard.JobPrototype is { } jobId &&
+            _prototypeManager.TryIndex(jobId, out var job))
+        {
+            foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+            {
+                if (!department.Roles.Contains(job.ID))
+                    continue;
 
-        return department?.Color.ToHex() ?? "#9FED58";
+                if (selected is null || IsPreferredDepartment(department, selected))
+                    selected = department;
+            }
+        }
+
+        return selected?.Color.ToHex() ?? DefaultJobColor;
+    }
+
+    private static bool IsPreferredDepartment(DepartmentPrototype candidate, DepartmentPrototype current)
+    {
+        if (candidate.Primary != current.Primary)
+            return candidate.Primary;
+
+        return candidate.Weight > current.Weight;
     }
 
     private string Highlight(string message)
