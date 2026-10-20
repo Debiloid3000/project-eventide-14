@@ -10,10 +10,13 @@ using Content.Shared.PDA;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
+using Content.Shared.Roles;
+using Content.Shared.StatusIcon;
 using Content.Shared.Speech;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
@@ -29,6 +32,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
 
     private readonly Dictionary<string, string[]> _departments = new()
@@ -99,18 +103,24 @@ public sealed partial class RadioSystem : SharedRadioSystem
         if (_inventory.HasSlot(messageSource, "id"))
         {
             job = Loc.GetString("chat-radio-source-unknown");
+            IdCardComponent? radioIdCard = null;
 
             if (_inventory.TryGetSlotEntity(messageSource, "id", out var idSlotEntity))
             {
                 if (TryComp(idSlotEntity, out PdaComponent? pda))
                     idSlotEntity = pda.ContainedId;
 
-                job = TryComp(idSlotEntity, out IdCardComponent? idCard) && !string.IsNullOrEmpty(idCard.LocalizedJobTitle)
-                    ? _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle)
-                    : Loc.GetString("chat-radio-source-unknown");
+                if (TryComp(idSlotEntity, out IdCardComponent? idCard))
+                {
+                    radioIdCard = idCard;
+                    if (!string.IsNullOrEmpty(idCard.LocalizedJobTitle))
+                        job = _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle);
+                }
             }
 
-            job = $"\\[{job}\\] ";
+            job = radioIdCard is not null
+                ? FormatRadioJobLabel(radioIdCard, job)
+                : $"\\[{job}\\] ";
         }
 
         content = Highlight(content);
@@ -197,6 +207,52 @@ public sealed partial class RadioSystem : SharedRadioSystem
             }
         }
         return false;
+    }
+
+
+    private string FormatRadioJobLabel(IdCardComponent idCard, string jobTitle)
+    {
+        var iconPath = GetJobIconPath(idCard.JobIcon);
+        var jobColor = GetJobColor(idCard);
+        var escapedTitle = FormattedMessage.EscapeText(jobTitle);
+        return $"[texture path=\"{iconPath}\" scale=3][color={jobColor}]\\[{escapedTitle}\\][/color] ";
+    }
+
+    private string GetJobIconPath(ProtoId<JobIconPrototype> iconId)
+    {
+        const string fallback = "/Textures/Interface/Misc/job_icons.rsi/Unknown.png";
+
+        if (!_prototypeManager.TryIndex(iconId, out var icon))
+            return fallback;
+
+        return icon.Icon switch
+        {
+            SpriteSpecifier.Texture texture => texture.TexturePath.CanonPath,
+            SpriteSpecifier.Rsi rsi => $"{rsi.RsiPath.CanonPath}/{rsi.RsiState}.png",
+            _ => fallback,
+        };
+    }
+
+    private string GetJobColor(IdCardComponent idCard)
+    {
+        JobPrototype? jobPrototype = null;
+
+        if (idCard.JobPrototype is { } jobId && _prototypeManager.TryIndex(jobId, out var indexedJob))
+            jobPrototype = indexedJob;
+
+        jobPrototype ??= _prototypeManager.EnumeratePrototypes<JobPrototype>()
+            .FirstOrDefault(job => job.Icon == idCard.JobIcon);
+
+        if (jobPrototype is null)
+            return "#9FED58";
+
+        var department = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>()
+            .Where(department => department.Roles.Contains(jobPrototype.ID))
+            .OrderByDescending(department => department.Primary)
+            .ThenByDescending(department => department.Weight)
+            .FirstOrDefault();
+
+        return department?.Color.ToHex() ?? "#9FED58";
     }
 
     private string Highlight(string message)
