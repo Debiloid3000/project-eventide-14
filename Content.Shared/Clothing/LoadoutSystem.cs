@@ -6,6 +6,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Station.Systems;
+using Robust.Shared.Localization;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -22,6 +23,7 @@ public sealed partial class LoadoutSystem : EntitySystem
     [Dependency] private ActorSystem _actors = default!;
     [Dependency] private StationSpawningSystem _station = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ILocalizationManager _localization = default!;
 
     public override void Initialize()
     {
@@ -90,7 +92,7 @@ public sealed partial class LoadoutSystem : EntitySystem
     public string GetName(LoadoutPrototype loadout)
     {
         if (loadout.DummyEntity is not null && ProtoMan.Resolve(loadout.DummyEntity, out var proto))
-            return proto.Name;
+            return GetLocalizedEntityName(proto);
 
         if (ProtoMan.Resolve(loadout.StartingGear, out var gear))
         {
@@ -114,12 +116,12 @@ public sealed partial class LoadoutSystem : EntitySystem
         {
             if (gear.Equipment.Count == 1 && ProtoMan.TryIndex<EntityPrototype>(gear.Equipment.Values.First(), out var proto))
             {
-                return proto.Name;
+                return GetLocalizedEntityName(proto);
             }
 
             if (gear.Inhand.Count == 1 && ProtoMan.TryIndex<EntityPrototype>(gear.Inhand[0], out proto))
             {
-                return proto.Name;
+                return GetLocalizedEntityName(proto);
             }
 
             foreach (var values in gear.Storage.Values)
@@ -129,7 +131,7 @@ public sealed partial class LoadoutSystem : EntitySystem
 
                 if (ProtoMan.TryIndex<EntityPrototype>(values[0], out proto))
                 {
-                    return proto.Name;
+                    return GetLocalizedEntityName(proto);
                 }
 
                 break;
@@ -137,6 +139,14 @@ public sealed partial class LoadoutSystem : EntitySystem
         }
 
         return Loc.GetString($"unknown");
+    }
+
+
+    private string GetLocalizedEntityName(EntityPrototype proto)
+    {
+        return _localization.TryGetString($"ent-{proto.ID}", out var localizedName)
+            ? localizedName
+            : proto.Name;
     }
 
     private void OnMapInit(EntityUid uid, LoadoutComponent component, MapInitEvent args)
