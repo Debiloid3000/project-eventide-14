@@ -108,3 +108,8 @@ ent-ClothingHeadHelmetHardsuitSyndieSunRise = шлем кроваво-красн
     .desc = Тяжёлобронированный шлем для специальных операций. Принадлежит мародёрам Горлекса.
 ent-ClothingHeadHelmetHardsuitSyndieXeno = шлем кроваво-красного скафандра
     .desc = Тяжёлобронированный шлем для специальных операций. Принадлежит мародёрам Горлекса.
+
+ent-ClothingHeadHelmetHardsuitERTOperativeAlpha1 = шлем скафандра ОБР «Альфа»
+    .desc = Специальный защитный шлем, который носят члены отряда быстрого реагирования.
+ent-ClothingHeadHelmetHardsuitERTLeaderTay39 = шлем скафандра лидера ОБР «Тай-39»
+    .desc = Специальный защитный шлем, который носят члены отряда быстрого реагирования.
