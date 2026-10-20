@@ -57,10 +57,10 @@ public sealed class LoadoutTests : GameTest
     };
 
     /// <summary>
-    /// Checks that an empty loadout still spawns with default gear and not naked.
+    /// Checks that job starting gear and the selected role loadout are both applied.
     /// </summary>
     [Test]
-    public async Task TestEmptyLoadout()
+    public async Task TestStartingGearAndRoleLoadout()
     {
         var pair = Pair;
         var server = pair.Server;
