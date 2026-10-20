@@ -14,6 +14,8 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -110,7 +112,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
         var jobLabel = $"[{jobTitle}]";
         var jobColor = GetIdCardColor(idCard);
         var radioIcon = Loc.GetString("radio-icon-tag",
-            ("path", GetIdSprite(idCard)),
+            ("path", GetIdSprite(messageSource, idCard)),
             ("scale", "3"),
             ("text", jobLabel),
             ("color", jobColor));
@@ -206,6 +208,8 @@ public sealed partial class RadioSystem : SharedRadioSystem
 
 
     private const string NoIdIconPath = "/Textures/Interface/Misc/job_icons.rsi/NoId.png";
+    private const string BorgIconPath = "/Textures/Interface/Misc/job_icons.rsi/Borg.png";
+    private const string StationAiIconPath = "/Textures/Interface/Misc/job_icons.rsi/StationAi.png";
     private const string DefaultJobColor = "#9FED58";
 
     private IdCardComponent? GetIdCard(EntityUid senderUid)
@@ -229,8 +233,15 @@ public sealed partial class RadioSystem : SharedRadioSystem
         return null;
     }
 
-    private string GetIdSprite(IdCardComponent? idCard)
+    private string GetIdSprite(EntityUid senderUid, IdCardComponent? idCard)
     {
+        // Match Sunrise: silicons use dedicated job icons even when they do not carry an ID card.
+        if (HasComp<BorgChassisComponent>(senderUid))
+            return BorgIconPath;
+
+        if (HasComp<StationAiHeldComponent>(senderUid))
+            return StationAiIconPath;
+
         if (idCard is null || !_prototypeManager.TryIndex(idCard.JobIcon, out var iconPrototype))
             return NoIdIconPath;
 
