@@ -116,9 +116,8 @@ public sealed partial class RadioSystem : SharedRadioSystem
                 jobTitle = _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle);
         }
 
-        var jobIcon = Loc.GetString("texture-tag",
-            ("path", GetIdSprite(messageSource, idCard)),
-            ("scale", "3"));
+        var iconPath = GetIdSprite(messageSource, idCard);
+        var jobIcon = $"[texture path=\"{FormattedMessage.EscapeStringParameter(iconPath)}\" scale=\"3\"]";
         var formattedJob = $"[color={GetIdCardColor(idCard)}]\\[{FormattedMessage.EscapeText(jobTitle)}\\][/color]";
         var formattedName = $"{jobIcon} {formattedJob} {name}";
         var job = string.Empty;
