@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
 using JetBrains.Annotations;
+using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -14,11 +15,15 @@ namespace Content.Client.UserInterface.RichText;
 
 /// <summary>
 /// Renders the inline texture tag used by formatted radio headers.
+/// RSI states are resolved through SpriteSystem, like Sunrise's BaseTextureTag.
 /// </summary>
 [UsedImplicitly]
 public sealed class TextureTag : IMarkupTagHandler
 {
     [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+
+    private SpriteSystem? _spriteSystem;
 
     public string Name => "texture";
 
@@ -33,10 +38,31 @@ public sealed class TextureTag : IMarkupTagHandler
             return false;
         }
 
-        if (!_resourceCache.TryGetResource<TextureResource>(new ResPath(path), out var textureResource) ||
-            textureResource == null)
+        var textureRect = new TextureRect();
+
+        // Sunrise job icons are RSI states, represented as path.rsi/state.png.
+        // They must be resolved by SpriteSystem rather than loaded as standalone PNG resources.
+        if (path.Contains(".rsi/", StringComparison.OrdinalIgnoreCase))
         {
-            return false;
+            var lastSlash = path.LastIndexOf('/');
+            var lastDot = path.LastIndexOf('.');
+            if (lastSlash < 0 || lastDot <= lastSlash)
+                return false;
+
+            var rsiPath = path[..lastSlash];
+            var state = path[(lastSlash + 1)..lastDot];
+            _spriteSystem ??= _entitySystemManager.GetEntitySystem<SpriteSystem>();
+            textureRect.Texture = _spriteSystem.Frame0(new SpriteSpecifier.Rsi(new ResPath(rsiPath), state));
+        }
+        else
+        {
+            if (!_resourceCache.TryGetResource<TextureResource>(new ResPath(path), out var textureResource) ||
+                textureResource == null)
+            {
+                return false;
+            }
+
+            textureRect.Texture = textureResource.Texture;
         }
 
         var scale = 1f;
@@ -47,12 +73,9 @@ public sealed class TextureTag : IMarkupTagHandler
             scale = Math.Clamp(parsedScale, 1f, 4f);
         }
 
-        control = new TextureRect
-        {
-            Texture = textureResource.Texture,
-            TextureScale = new Vector2(scale, scale),
-            VerticalAlignment = VAlignment.Center,
-        };
+        textureRect.TextureScale = new Vector2(scale, scale);
+        textureRect.VerticalAlignment = VAlignment.Center;
+        control = textureRect;
         return true;
     }
 }
