@@ -27,3 +27,11 @@ ent-WeaponCaseShotgun = shotgun case
 ent-WeaponCaseVector = Vector gun case
     .desc = A case containing a Vector firearm, made especially for a BlueShield officer.
     .suffix = { "BlueShield Officer" }
+
+ent-WeaponCaseSMG = Drozd SMG case
+    .desc = A case containing a .35 Auto Drozd submachine gun, made especially for a BlueShield officer.
+    .suffix = { "BlueShield Officer" }
+
+ent-WeaponCaseLecter = Lecter rifle case
+    .desc = A case containing a Lecter rifle, made especially for a BlueShield officer.
+    .suffix = { "BlueShield Officer" }
