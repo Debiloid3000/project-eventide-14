@@ -24,10 +24,8 @@ ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey 
 ent-ClothingUniformJumpskirttCentComVeryOfficial = Central Command official's jumpskirt
     .desc = That's the beauty of corporate life: stylish suits with a skirt to match!
 
-ent-ClothingUniformJumpskirtBlueShield = BlueShield officer's uniform skirt
-    .desc = A formal white uniform. Soon it will be drenched in blood.
-    .suffix = { "" }
+ent-ClothingUniformJumpskirtCentcomConsultant = CentCom consultant jumpskirt
+    .desc = A green jumpskirt with gold accents and wide shoulder pads for those who like to show off their authority.
 
-ent-ClothingUniformJumpskirtBlueShieldTurtleneck = BlueShield officer's turtleneck
-    .desc = A soft white turtleneck suited for serious work—or the serious relaxation you will never have.
-    .suffix = { "" }
+ent-ClothingUniformJumpskirtCentcomConsultantFormal = Formal CentCom consultant jumpskirt
+    .desc = Formal attire for the most important Central Command representative at the station.

@@ -63,6 +63,8 @@ ent-ClothingUniformJumpsuitBlueShieldPants = брюки офицера «Син�
 ent-ClothingUniformJumpsuitSecuritySpecial = специальный комбинезон службы безопасности
     .desc = Чёрно-красный специальный комбинезон для лучших сотрудников службы безопасности.
 
-ent-ClothingUniformJumpsuitBlueShieldTurtleneck = водолазка офицера синего щита
-    .desc = Белая и приятная водолазка. Отлично подходит для серьёзной работы, или серьёзного отдыха, которого у вас никогда не будет.
-    .suffix = { "" }
+ent-ClothingUniformJumpsuitCentcomConsultant = комбинезон консультанта ЦК
+    .desc = Зелёный комбинезон с золотыми вставками и широкими наплечниками для тех, кто любит демонстрировать свою власть.
+
+ent-ClothingUniformJumpsuitCentcomConsultantFormal = официальный комбинезон консультанта ЦК
+    .desc = Официальный комбинезон для самого важного представителя Центрального командования на станции.

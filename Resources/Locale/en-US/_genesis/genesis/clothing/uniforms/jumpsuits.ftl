@@ -59,6 +59,8 @@ ent-ClothingUniformJumpsuitBlueShieldPants = BlueShield officer's trousers
 ent-ClothingUniformJumpsuitSecuritySpecial = security's special jumpsuit
     .desc = A special black-and-red jumpsuit for the best security officers.
 
-ent-ClothingUniformJumpsuitBlueShieldTurtleneck = BlueShield officer's turtleneck
-    .desc = A soft white turtleneck suited for serious work—or the serious relaxation you will never have.
-    .suffix = { "" }
+ent-ClothingUniformJumpsuitCentcomConsultant = CentCom consultant jumpsuit
+    .desc = A green jumpsuit with gold accents and wide shoulder pads for those who like to show off their authority.
+
+ent-ClothingUniformJumpsuitCentcomConsultantFormal = Formal CentCom consultant jumpsuit
+    .desc = Formal attire for the most important Central Command representative at the station.

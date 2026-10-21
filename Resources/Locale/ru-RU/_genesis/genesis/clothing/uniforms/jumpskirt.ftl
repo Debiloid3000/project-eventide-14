@@ -24,10 +24,8 @@ ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey 
 ent-ClothingUniformJumpskirttCentComVeryOfficial = официальная юбка-комбинезон сотрудника ЦК
     .desc = Такова красота корпоративной жизни: стильные костюмы с юбкой на любой случай!
 
-ent-ClothingUniformJumpskirtBlueShield = юбка-комбинезон офицера синего щита
-    .desc = Белый официальный костюм. Уже скоро он будет залит кровью.
-    .suffix = { "" }
+ent-ClothingUniformJumpskirtCentcomConsultant = юбка-комбинезон консультанта ЦК
+    .desc = Зелёная юбка-комбинезон с золотыми вставками и широкими наплечниками для тех, кто любит демонстрировать свою власть.
 
-ent-ClothingUniformJumpskirtBlueShieldTurtleneck = водолазка офицера синего щита
-    .desc = Белая и приятная водолазка. Отлично подходит для серьёзной работы, или серьёзного отдыха, которого у вас никогда не будет.
-    .suffix = { "" }
+ent-ClothingUniformJumpskirtCentcomConsultantFormal = официальная юбка-комбинезон консультанта ЦК
+    .desc = Официальная форма для самого важного представителя Центрального командования на станции.

@@ -33,6 +33,5 @@ ent-ClothingHeadHatWitchHunter = шляпа охотника на ведьм
 ent-ClothingHeadHatHeadOfSecurityCentComBeret = берет начальника службы безопасности ЦК
     .desc = Берет для начальника службы безопасности Центрального командования.
 
-ent-ClothingHeadHatBlueShieldBeret = берет синего щита
-    .desc = Берет, изготовленный специально для офицеров Nanotrasen.
-    .suffix = { "" }
+ent-ClothingHeadHatCentcomConsultantCap = фуражка консультанта ЦК
+    .desc = Дорогая фуражка с ярко-золотой эмблемой на лбу, обозначающей, что её владелец отвечает за поддержание порядка.
