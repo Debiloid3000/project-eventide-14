@@ -18,7 +18,7 @@ namespace Content.Client.UserInterface.RichText;
 /// RSI states are resolved through SpriteSystem, like Sunrise's BaseTextureTag.
 /// </summary>
 [UsedImplicitly]
-public sealed class TextureTag : IMarkupTagHandler
+public sealed partial class TextureTag : IMarkupTagHandler
 {
     [Dependency] private IResourceCache _resourceCache = default!;
     [Dependency] private IEntitySystemManager _entitySystemManager = default!;
@@ -74,7 +74,7 @@ public sealed class TextureTag : IMarkupTagHandler
         }
 
         textureRect.TextureScale = new Vector2(scale, scale);
-        textureRect.VerticalAlignment = VAlignment.Center;
+        textureRect.VerticalAlignment = Control.VAlignment.Center;
         control = textureRect;
         return true;
     }
