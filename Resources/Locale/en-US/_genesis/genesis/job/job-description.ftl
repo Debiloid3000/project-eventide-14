@@ -34,3 +34,5 @@ job-description-senior-researcher = Train junior scientists in item printing, ar
 job-description-senior-salvage = Train new salvage specialists, coordinate salvage teams, and lead expeditions.
 job-description-senior-service = Train service staff in cleaning, bartending, cooking, and hydroponics.
 job-description-service-borg = Follow your laws, serve the crew, and pester scientists for upgrades.
+
+job-supervisors-consultant = Central Command leadership

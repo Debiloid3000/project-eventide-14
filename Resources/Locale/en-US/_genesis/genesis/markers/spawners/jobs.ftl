@@ -50,3 +50,6 @@ ent-SpawnPointCentComMedicalDoctor = Central Command medical officer
 ent-SpawnPointEngineerCentCom = Central Command engineer
     .desc = { ent-SpawnPointJobBase.desc }
     .suffix = { "" }
+
+ent-SpawnPointCentcomConsultant = CentCom consultant spawn point
+    .desc = { ent-SpawnPointJobBase.desc } A light green sign of walking bureaucracy.

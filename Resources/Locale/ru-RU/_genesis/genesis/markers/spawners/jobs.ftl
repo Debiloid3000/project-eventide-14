@@ -50,3 +50,6 @@ ent-SpawnPointCentComMedicalDoctor = медицинский офицер Цен�
 ent-SpawnPointEngineerCentCom = инженер Центрального командования
     .desc = { ent-SpawnPointJobBase.desc }
     .suffix = { "" }
+
+ent-SpawnPointCentcomConsultant = точка появления консультанта ЦК
+    .desc = { ent-SpawnPointJobBase.desc } Светло-зелёный знак ходячей бюрократии.
