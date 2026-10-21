@@ -128,7 +128,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
             ("fontSize", speech.FontSize),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
+            ("name", formattedName),
             ("message", content),
             ("job", job));
 
