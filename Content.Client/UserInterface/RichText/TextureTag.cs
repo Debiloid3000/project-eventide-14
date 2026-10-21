@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Numerics;
 using JetBrains.Annotations;
 using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.ContentPack;
