@@ -29,3 +29,9 @@ ent-ClothingUniformJumpskirtCentcomConsultant = CentCom consultant jumpskirt
 
 ent-ClothingUniformJumpskirtCentcomConsultantFormal = Formal CentCom consultant jumpskirt
     .desc = Formal attire for the most important Central Command representative at the station.
+
+ent-ClothingUniformJumpskirtBlueShield = BlueShield officer's jumpskirt
+    .desc = A blue jumpskirt with gold markings denoting the rank of Captain.
+
+ent-ClothingUniformJumpskirtBlueShieldTurtleneck = BlueShield officer's turtleneck jumpskirt
+    .desc = A blue jumpskirt with gold markings denoting the rank of Captain.

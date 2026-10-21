@@ -68,3 +68,6 @@ ent-ClothingUniformJumpsuitCentcomConsultant = комбинезон консул
 
 ent-ClothingUniformJumpsuitCentcomConsultantFormal = официальный комбинезон консультанта ЦК
     .desc = Официальный комбинезон для самого важного представителя Центрального командования на станции.
+
+ent-ClothingUniformJumpsuitBlueShieldTurtleneck = комбинезон офицера «Синий Щит» с водолазкой
+    .desc = Синий комбинезон с золотыми знаками отличия, обозначающими ранг капитана.

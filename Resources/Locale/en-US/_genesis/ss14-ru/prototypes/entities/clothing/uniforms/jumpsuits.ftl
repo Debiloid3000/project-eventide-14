@@ -27,6 +27,8 @@ ent-ClothingUniformJumpsuitHoSParadeMaleBlue = { ent-ClothingUniformJumpsuitHoSP
     .desc = { ent-ClothingUniformJumpsuitHoSParadeMale.desc }
     .suffix = Blue
 ent-ClothingUniformJumpsuitMiner = Miner jumpsuit
+    .desc = A miner's jumpsuit for ore mining.
+
 ent-ClothingUniformJumpsuitSec2Blue = { ent-ClothingUniformJumpsuitSec }
     .desc = { ent-ClothingUniformJumpsuitSec.desc }
     .suffix = Blue
@@ -37,6 +39,8 @@ ent-ClothingUniformJumpsuitSeniorOfficerBlue = { ent-ClothingUniformJumpsuitSeni
     .desc = { ent-ClothingUniformJumpsuitSeniorOfficer.desc }
     .suffix = Blue
 ent-ClothingUniformJumpsuitSeniorSalvage = Senior Salvage Specialist jumpsuit
+    .desc = Looks like a jumpsuit for a senior officer...
+
 ent-ClothingUniformJumpsuitWardenBlue = { ent-ClothingUniformJumpsuitWarden }
     .desc = { ent-ClothingUniformJumpsuitWarden.desc }
     .suffix = Blue
@@ -64,3 +68,6 @@ ent-ClothingUniformJumpsuitCentcomConsultant = CentCom consultant jumpsuit
 
 ent-ClothingUniformJumpsuitCentcomConsultantFormal = Formal CentCom consultant jumpsuit
     .desc = Formal attire for the most important Central Command representative at the station.
+
+ent-ClothingUniformJumpsuitBlueShieldTurtleneck = BlueShield officer's turtleneck jumpsuit
+    .desc = A blue jumpsuit with gold markings denoting the rank of Captain.

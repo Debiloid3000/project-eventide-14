@@ -29,3 +29,9 @@ ent-ClothingUniformJumpskirtCentcomConsultant = юбка-комбинезон к
 
 ent-ClothingUniformJumpskirtCentcomConsultantFormal = официальная юбка-комбинезон консультанта ЦК
     .desc = Официальная форма для самого важного представителя Центрального командования на станции.
+
+ent-ClothingUniformJumpskirtBlueShield = юбка-комбинезон офицера «Синий Щит»
+    .desc = Синяя юбка-комбинезон с золотыми знаками отличия, обозначающими ранг капитана.
+
+ent-ClothingUniformJumpskirtBlueShieldTurtleneck = юбка-комбинезон офицера «Синий Щит» с водолазкой
+    .desc = Синяя юбка-комбинезон с золотыми знаками отличия, обозначающими ранг капитана.
