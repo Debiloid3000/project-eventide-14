@@ -1,0 +1,20 @@
+name: Temporary Genesis localization audit
+on:
+  pull_request:
+    paths:
+      - "Resources/Prototypes/_Genesis/**"
+      - "Resources/Locale/**"
+      - "tools/audit_genesis_localization.py"
+      - ".github/workflows/genesis-loc-audit-temp.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Audit Genesis entity localization coverage
+        run: python tools/audit_genesis_localization.py
