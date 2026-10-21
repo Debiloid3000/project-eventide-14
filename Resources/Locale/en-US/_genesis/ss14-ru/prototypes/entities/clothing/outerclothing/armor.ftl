@@ -5,3 +5,6 @@ ent-ClothingOuterArmorBlueShieldSlim = slim BlueShield armored vest
     .desc = A lightweight armored vest designed for BlueShield officers.
 ent-ClothingOuterArmorJediNT = NanoTrasen Blade Guard armored vest
     .desc = An armored vest designed for NanoTrasen Blade Guards.
+
+ent-ClothingOuterArmorJacketBlueShield = Blueshield armored jacket
+    .desc = An armored vest made especially for Blueshield officers.
