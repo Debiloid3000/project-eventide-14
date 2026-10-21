@@ -112,3 +112,9 @@ ent-ClothingHeadHelmetHardsuitSyndieXeno = шлем кроваво-красно�
 ent-ClothingHeadHelmetHardsuitDeathsquadOfficer = шлем скафандра офицера эскадрона
     .desc = { ent-ClothingHeadHelmetHardsuitDeathsquad.desc }
     .suffix = { "" }
+
+ent-ClothingHeadHelmetHardsuitERTOperativeAlpha1 = шлем скафандра оператива ОБР «Альфа-1»
+    .desc = Специальный шлем скафандра для бойцов отряда быстрого реагирования.
+ent-ClothingHeadHelmetHardsuitERTLeaderTay39 = шлем командира ОБР «Тай-39»
+    .desc = Специальный шлем скафандра, который носят бойцы отряда быстрого реагирования.
+
