@@ -13,6 +13,8 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Speech;
 using Content.Shared.StatusIcon;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -113,7 +115,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
         }
 
         var jobIcon = Loc.GetString("texture-tag",
-            ("path", GetIdSprite(idCard)),
+            ("path", GetIdSprite(messageSource, idCard)),
             ("scale", "3"));
         var formattedJob = $"[color={GetIdCardColor(idCard)}]\\[{FormattedMessage.EscapeText(jobTitle)}\\][/color]";
         var formattedName = $"{jobIcon} {formattedJob} {name}";
@@ -190,9 +192,17 @@ public sealed partial class RadioSystem : SharedRadioSystem
     }
 
     private const string NoIdIconPath = "/Textures/Interface/Misc/job_icons.rsi/NoId.png";
+    private const string StationAiIconPath = "/Textures/Interface/Misc/job_icons.rsi/StationAi.png";
+    private const string BorgIconPath = "/Textures/Interface/Misc/job_icons.rsi/Borg.png";
 
-    private string GetIdSprite(IdCardComponent? idCard)
+    private string GetIdSprite(EntityUid senderUid, IdCardComponent? idCard)
     {
+        if (HasComp<BorgChassisComponent>(senderUid))
+            return BorgIconPath;
+
+        if (HasComp<StationAiHeldComponent>(senderUid))
+            return StationAiIconPath;
+
         if (idCard == null || !ProtoMan.TryIndex(idCard.JobIcon, out var prototype))
             return NoIdIconPath;
 
@@ -228,14 +238,17 @@ public sealed partial class RadioSystem : SharedRadioSystem
         JobPrototype? job = null;
         if (!ProtoMan.TryIndex(idCard.JobPrototype, out job))
         {
-            if (idCard.JobIcon != "JobIconUnknown")
+            if (!string.IsNullOrWhiteSpace(idCard.LocalizedJobTitle))
+            {
+                job = ProtoMan.EnumeratePrototypes<JobPrototype>()
+                    .FirstOrDefault(candidate => string.Equals(candidate.LocalizedName, idCard.LocalizedJobTitle, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (job == null && idCard.JobIcon != "JobIconUnknown")
             {
                 job = ProtoMan.EnumeratePrototypes<JobPrototype>()
                     .FirstOrDefault(candidate => candidate.Icon == idCard.JobIcon);
             }
-
-            job ??= ProtoMan.EnumeratePrototypes<JobPrototype>()
-                .FirstOrDefault(candidate => candidate.LocalizedName == idCard.LocalizedJobTitle);
         }
 
         if (job == null)
