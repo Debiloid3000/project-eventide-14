@@ -108,3 +108,7 @@ ent-ClothingHeadHelmetHardsuitSyndieSunRise = шлем кроваво-красн
     .desc = Тяжёлобронированный шлем для специальных операций. Принадлежит мародёрам Горлекса.
 ent-ClothingHeadHelmetHardsuitSyndieXeno = шлем кроваво-красного скафандра
     .desc = Тяжёлобронированный шлем для специальных операций. Принадлежит мародёрам Горлекса.
+
+ent-ClothingHeadHelmetHardsuitDeathsquadOfficer = шлем скафандра офицера эскадрона
+    .desc = { ent-ClothingHeadHelmetHardsuitDeathsquad.desc }
+    .suffix = { "" }

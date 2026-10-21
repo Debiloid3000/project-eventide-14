@@ -113,3 +113,7 @@ ent-ClothingOuterHardsuitRepublicClonePhase2 = Republic clone hardsuit, Phase 2
     .desc = A Phase 2 hardsuit made for Republic clones.
 ent-ClothingOuterHardsuitStormtrooper = stormtrooper hardsuit
     .desc = An Imperial stormtrooper's hardsuit.
+
+ent-ClothingOuterHardsuitDeathsquadOfficer = Death Squad officer hardsuit
+    .desc = { ent-ClothingOuterHardsuitDeathsquad.desc }
+    .suffix = { "" }
