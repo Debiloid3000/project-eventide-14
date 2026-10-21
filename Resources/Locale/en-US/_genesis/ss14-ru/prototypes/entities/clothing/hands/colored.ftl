@@ -7,3 +7,6 @@ ent-ClothingHandsGlovesComSalvage = explorer gloves
 
 ent-ClothingHandsTacticalBlueShield = BlueShield officer's tactical gloves
     .desc = Just like combat gloves, except more worn—and... blue.
+
+ent-ClothingHandsTacticalSecurity = tactical security gloves
+    .desc = Tactical security gloves; every self-respecting security officer should be able to discreetly eliminate their targets.
