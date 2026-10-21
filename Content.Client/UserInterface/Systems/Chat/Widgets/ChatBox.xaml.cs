@@ -136,7 +136,6 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
         typeof(HeadingTag),
         typeof(ItalicTag),
         typeof(TextureTag),
-        typeof(EntityTextureTag),
         typeof(TextLinkTag),
     ];
 
