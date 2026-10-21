@@ -35,3 +35,9 @@ ent-ClothingHeadHatHeadOfSecurityCentComBeret = берет начальника 
 
 ent-ClothingHeadHatCentcomConsultantCap = фуражка консультанта ЦК
     .desc = Дорогая фуражка с ярко-золотой эмблемой на лбу, обозначающей, что её владелец отвечает за поддержание порядка.
+
+ent-ClothingHeadHatBlueShieldBeret = берет офицера «Синий Щит»
+    .desc = Берет для офицера «Синий Щит».
+
+ent-ClothingHeadHatCaptainBeret = берет капитана
+    .desc = Берет для капитана.

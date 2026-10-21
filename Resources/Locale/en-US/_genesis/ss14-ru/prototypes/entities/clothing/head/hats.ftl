@@ -36,3 +36,6 @@ ent-ClothingHeadHatHeadOfSecurityCentComBeret = Central Command head of security
 
 ent-ClothingHeadHatCentcomConsultantCap = CentCom consultant cap
     .desc = An expensive cap with a bright gold emblem on the front, indicating that its wearer is responsible for maintaining order.
+
+ent-ClothingHeadHatBlueShieldBeret = BlueShield officer's beret
+    .desc = A beret for a BlueShield officer.
