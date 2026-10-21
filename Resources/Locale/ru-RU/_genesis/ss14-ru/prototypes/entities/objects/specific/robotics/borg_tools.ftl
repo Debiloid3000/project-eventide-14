@@ -6,7 +6,12 @@ ent-CrowbarBorg = лом киборга
 ent-FireExtinguisherBorg = огнетушитель киборга
     .desc = Огнетушитель, предназначенный для киборгов.
 
-# Genesis-Edit: локализация корпуса киборга службы безопасности.
+# Genesis-Edit: локализация дополнительных модулей и корпуса киборга.
+ent-ModuleSec = модуль киборга службы безопасности
+    .desc = Всё для вашей защиты и безопасности.
+ent-BorgModuleMiningCombat = боевой шахтёрский модуль киборга
+ent-BorgModuleJetpack = реактивный ранец для киборга
+ent-BorgModuleStandard = модуль киборга с огнетушителем
 ent-BorgChassisSecurity = киборг службы безопасности
 
 # Genesis-Edit
