@@ -58,3 +58,7 @@ ent-ClothingUniformJumpsuitBlueShieldPants = BlueShield officer's trousers
     .desc = Black-and-blue trousers made specifically for BlueShield officers.
 ent-ClothingUniformJumpsuitSecuritySpecial = security's special jumpsuit
     .desc = A special black-and-red jumpsuit for the best security officers.
+
+ent-ClothingUniformJumpsuitBlueShieldTurtleneck = BlueShield officer's turtleneck
+    .desc = A soft white turtleneck suited for serious work—or the serious relaxation you will never have.
+    .suffix = { "" }

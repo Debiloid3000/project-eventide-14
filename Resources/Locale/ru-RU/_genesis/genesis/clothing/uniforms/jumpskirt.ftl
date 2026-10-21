@@ -23,3 +23,11 @@ ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey 
 # Additional Genesis uniform localization
 ent-ClothingUniformJumpskirttCentComVeryOfficial = официальная юбка-комбинезон сотрудника ЦК
     .desc = Такова красота корпоративной жизни: стильные костюмы с юбкой на любой случай!
+
+ent-ClothingUniformJumpskirtBlueShield = юбка-комбинезон офицера синего щита
+    .desc = Белый официальный костюм. Уже скоро он будет залит кровью.
+    .suffix = { "" }
+
+ent-ClothingUniformJumpskirtBlueShieldTurtleneck = водолазка офицера синего щита
+    .desc = Белая и приятная водолазка. Отлично подходит для серьёзной работы, или серьёзного отдыха, которого у вас никогда не будет.
+    .suffix = { "" }

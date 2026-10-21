@@ -23,3 +23,11 @@ ent-ClothingUniformJumpskirtSecGreyBlue = { ent-ClothingUniformJumpskirtSecGrey 
 # Additional Genesis uniform localization
 ent-ClothingUniformJumpskirttCentComVeryOfficial = Central Command official's jumpskirt
     .desc = That's the beauty of corporate life: stylish suits with a skirt to match!
+
+ent-ClothingUniformJumpskirtBlueShield = BlueShield officer's uniform skirt
+    .desc = A formal white uniform. Soon it will be drenched in blood.
+    .suffix = { "" }
+
+ent-ClothingUniformJumpskirtBlueShieldTurtleneck = BlueShield officer's turtleneck
+    .desc = A soft white turtleneck suited for serious work—or the serious relaxation you will never have.
+    .suffix = { "" }
