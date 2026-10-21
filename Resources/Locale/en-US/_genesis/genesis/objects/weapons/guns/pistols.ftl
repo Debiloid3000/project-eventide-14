@@ -1,0 +1,9 @@
+ent-WeaponPistolMk68 = MK68
+    .desc = An improved version of the MK58. Its reinforced receiver allows automatic fire at a high rate of fire. Uses .35 ammunition.
+    .suffix = { "" }
+ent-WeaponPistolMk68Nonlethal = { ent-WeaponPistolMk68 }
+    .desc = { ent-WeaponPistolMk68.desc }
+    .suffix = { "Nonlethal" }
+ent-WeaponPistolG22Nonlethal = { ent-WeaponPistolG22 }
+    .desc = { ent-WeaponPistolG22.desc }
+    .suffix = { "Nonlethal" }

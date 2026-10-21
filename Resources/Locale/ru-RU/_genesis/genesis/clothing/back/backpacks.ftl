@@ -8,3 +8,6 @@ ent-ClothingBackpackSecurityBlue = { ent-ClothingBackpackSecurity }
 # Additional Genesis localization
 ent-ClothingBackpackJediNT = рюкзак клинкового стража NanoTrasen
     .desc = Особый рюкзак, изготовленный исключительно для клинковых стражей NanoTrasen.
+
+ent-ClothingBackpackCentCom = рюкзак Центрального командования
+    .desc = Специальный рюкзак, предназначенный исключительно для представителей Центрального командования.

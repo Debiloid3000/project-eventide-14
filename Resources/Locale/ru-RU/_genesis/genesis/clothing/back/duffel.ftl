@@ -8,3 +8,10 @@ ent-ClothingBackpackDuffelSecurityBlue = { ent-ClothingBackpackDuffelSecurity }
 # Additional Genesis localization
 ent-ClothingBackpackDuffelJediNT = вещмешок клинкового стража NanoTrasen
     .desc = Вещмешок для хранения снаряжения клинкового стража NanoTrasen.
+
+ent-ClothingBackpackDuffelCentCom = вещмешок Центрального командования
+    .desc = Большой вещмешок для хранения вещей представителей Центрального командования.
+
+ent-ClothingBackpackDuffelSyndicateBundleKR51 = набор оружия KR51
+    .desc = Набор Синдиката, содержащий оружие KR51.
+    .suffix = { "" }

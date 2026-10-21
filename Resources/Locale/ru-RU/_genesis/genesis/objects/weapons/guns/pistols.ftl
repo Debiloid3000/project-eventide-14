@@ -1,0 +1,9 @@
+ent-WeaponPistolMk68 = МК-68
+    .desc = Усовершенствованная версия МК-58. Усиленная ствольная коробка позволяет вести автоматический огонь с высокой скорострельностью. Использует патроны калибра .35.
+    .suffix = { "" }
+ent-WeaponPistolMk68Nonlethal = { ent-WeaponPistolMk68 }
+    .desc = { ent-WeaponPistolMk68.desc }
+    .suffix = { "Нелетальный" }
+ent-WeaponPistolG22Nonlethal = { ent-WeaponPistolG22 }
+    .desc = { ent-WeaponPistolG22.desc }
+    .suffix = { "Нелетальный" }

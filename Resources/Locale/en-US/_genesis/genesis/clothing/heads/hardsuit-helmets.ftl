@@ -113,3 +113,7 @@ ent-ClothingHeadHelmetHardsuitERTOperativeAlpha1 = ERT hardsuit helmet
     .desc = A special hardsuit helmet worn by emergency response team members.
 ent-ClothingHeadHelmetHardsuitERTLeaderTay39 = ERT leader hardsuit helmet
     .desc = A special hardsuit helmet worn by emergency response team members.
+
+ent-ClothingHeadHelmetHardsuitDeathsquadOfficer = death squad officer's hardsuit helmet
+    .desc = { ent-ClothingHeadHelmetHardsuitDeathsquad.desc }
+    .suffix = { "" }

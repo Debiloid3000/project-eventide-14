@@ -8,3 +8,6 @@ ent-ClothingBackpackSecurityBlue = { ent-ClothingBackpackSecurity }
 # Additional Genesis localization
 ent-ClothingBackpackJediNT = NanoTrasen Blade Guard backpack
     .desc = A special backpack made exclusively for NanoTrasen Blade Guards.
+
+ent-ClothingBackpackCentCom = Central Command backpack
+    .desc = A special backpack intended exclusively for Central Command personnel.

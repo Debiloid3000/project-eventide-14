@@ -5,3 +5,9 @@ ent-ClothingOuterCoatWardenBlue = { ent-ClothingOuterCoatWarden }
 # Genesis BlueShield trenchcoat localization
 ent-ClothingOuterCoatBlueShieldTrench = шинель офицера «Синий Щит»
     .desc = Длинная шинель, усиленная специальным сплавом для дополнительной защиты и стиля, соответствующего высокому положению владельца.
+
+ent-ClothingOuterCoatCentcom = пальто консультанта Центрального командования
+    .desc = Ярко-зелёное пальто с золотыми вставками, подчёркивающее высокий статус владельца.
+
+ent-ClothingOuterCoatCentcomConsultant = пальто консультанта Центрального командования
+    .desc = Тёплое пальто с золотыми вставками, подчёркивающими статус владельца.

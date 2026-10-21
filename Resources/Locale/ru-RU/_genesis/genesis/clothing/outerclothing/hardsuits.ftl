@@ -113,3 +113,7 @@ ent-ClothingOuterHardsuitRepublicClonePhase2 = скафандр клона Ре�
     .desc = Скафандр второй фазы, созданный для клонов Республики.
 ent-ClothingOuterHardsuitStormtrooper = скафандр штурмовика
     .desc = Скафандр имперского штурмовика.
+
+ent-ClothingOuterHardsuitDeathsquadOfficer = скафандр офицера эскадрона
+    .desc = { ent-ClothingOuterHardsuitDeathsquad.desc }
+    .suffix = { "" }
