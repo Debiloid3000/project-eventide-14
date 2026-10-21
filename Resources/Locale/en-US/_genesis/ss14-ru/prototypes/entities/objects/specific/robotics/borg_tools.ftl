@@ -11,7 +11,7 @@ ent-ModuleSec = security cyborg module
     .desc = Everything for you and your safety.
 ent-BorgModuleMiningCombat = combat mining cyborg module
 ent-BorgModuleJetpack = cyborg jetpack module
-ent-BorgModuleStandard = fire extinguisher cyborg module
+ent-BorgModuleStandard = cyborg fire extinguisher module
 ent-BorgChassisSecurity = security cyborg
 
 # Genesis-Edit
