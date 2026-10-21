@@ -412,7 +412,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
         if (prototype?.StartingGear != null)
         {
             var startingGear = ProtoMan.Index<StartingGearPrototype>(prototype.StartingGear);
-            EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
+            EquipStartingGear(entity.Value, startingGear, raiseEvent: false, selectedRoleLoadout: loadout);
         }
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
