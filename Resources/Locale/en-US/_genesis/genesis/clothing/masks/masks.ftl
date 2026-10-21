@@ -8,3 +8,7 @@ ent-ClothingMaskGasPilot = pilot's gas mask
     .desc = A gas mask designed especially for security pilots.
 ent-ClothingMaskGasJediNT = NanoTrasen Blade Guard gas mask
     .desc = An elite-issue gas mask for NanoTrasen Blade Guards.
+
+ent-ClothingMaskGasBlueShield = BlueShield gas mask
+    .desc = Similar to a SWAT gas mask, but blue.
+    .suffix = { "" }

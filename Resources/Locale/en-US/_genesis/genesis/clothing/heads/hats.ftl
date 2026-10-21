@@ -33,3 +33,7 @@ ent-ClothingHeadHatWitchHunter = witch hunter's hat
     .desc = A medieval-style hat worn by hunters of mythical creatures, especially witches.
 ent-ClothingHeadHatHeadOfSecurityCentComBeret = Central Command head of security beret
     .desc = A beret for the head of security.
+
+ent-ClothingHeadHatBlueShieldBeret = BlueShield beret
+    .desc = A beret made especially for NanoTrasen officers.
+    .suffix = { "" }

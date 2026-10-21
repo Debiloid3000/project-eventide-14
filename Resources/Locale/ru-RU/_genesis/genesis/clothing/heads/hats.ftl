@@ -32,3 +32,7 @@ ent-ClothingHeadHatWitchHunter = шляпа охотника на ведьм
     .desc = Шляпа в средневековом стиле, которую носят охотники на мифических существ, в частности на ведьм.
 ent-ClothingHeadHatHeadOfSecurityCentComBeret = берет начальника службы безопасности ЦК
     .desc = Берет для начальника службы безопасности Центрального командования.
+
+ent-ClothingHeadHatBlueShieldBeret = берет синего щита
+    .desc = Берет, изготовленный специально для офицеров Nanotrasen.
+    .suffix = { "" }
