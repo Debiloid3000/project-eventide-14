@@ -1,0 +1,26 @@
+﻿- type: Tag
+  id: MagazineUniversalShort
+
+- type: Tag
+  id: MagazineUniversal
+
+- type: Tag
+  id: MagazineShotgunSaiga
+
+- type: Tag
+  id: CartridgeUniversal
+
+- type: Tag
+  id: SpeedLoaderUniversal
+
+- type: Tag
+  id: MinerArmor
+
+- type: Tag
+  id: SyndieMinerArmor
+
+- type: Tag
+  id: SecModule
+
+- type: Tag
+  id: FelinidFood

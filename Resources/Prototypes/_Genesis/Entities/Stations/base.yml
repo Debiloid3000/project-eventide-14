@@ -1,0 +1,12 @@
+- type: entity
+  id: BaseCentCommShuttles
+  abstract: true
+  components:
+  - type: GridSpawn
+    groups:
+      shuttles: !type:GridSpawnGroup
+        addComponents:
+        - type: CentCommShuttle
+        paths:
+        - /Maps/_Genesis/Shuttles/centcom_shuttle.yml
+        nameGrid: false

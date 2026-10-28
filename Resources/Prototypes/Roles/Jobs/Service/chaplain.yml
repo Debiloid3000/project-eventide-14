@@ -19,6 +19,7 @@
   id: ChaplainGear
   equipment:
     id: ChaplainPDA
+    suitstorage: HolySable
     ears: ClothingHeadsetService
   storage:
     back:
@@ -34,4 +35,3 @@
     neck: ClothingNeckStoleChaplain
     outerClothing: ClothingOuterPlagueSuit
     gloves: ClothingHandsGlovesColorBlack
-

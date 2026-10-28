@@ -21,7 +21,7 @@
   icon:
     sprite: *icon-rsi
     state: ShaftMiner
-  jobName: job-name-salvagespec
+  jobName: job-name-miner
 
 # Civilian
 
@@ -574,6 +574,7 @@
   icon:
     sprite: *icon-rsi
     state: SeniorPhysician
+  jobName: job-name-senior-physician
 
 - type: jobIcon
   parent: JobIcon
@@ -581,6 +582,7 @@
   icon:
     sprite: *icon-rsi
     state: SeniorOfficer
+  jobName: job-name-senior-officer
 
 - type: jobIcon
   parent: JobIcon
@@ -588,6 +590,7 @@
   icon:
     sprite: *icon-rsi
     state: SeniorEngineer
+  jobName: job-name-senior-engineer
 
 - type: jobIcon
   parent: JobIcon
@@ -595,6 +598,7 @@
   icon:
     sprite: *icon-rsi
     state: SeniorResearcher
+  jobName: job-name-senior-researcher
 
 # Other
 

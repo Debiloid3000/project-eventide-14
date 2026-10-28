@@ -26,8 +26,8 @@
           collection: WoodDestroy
   - type: Storage
     grid:
-    - 0,0,7,4
-    maxItemSize: Large
+    - 0,0,20,20
+    maxItemSize: Ginormous
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

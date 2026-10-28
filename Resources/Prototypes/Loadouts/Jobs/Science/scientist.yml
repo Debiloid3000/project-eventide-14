@@ -59,22 +59,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
 
-- type: loadout
-  id: SeniorResearcherJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorResearcher
-
-- type: loadout
-  id: SeniorResearcherJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorResearcher
-
 # Back
 - type: loadout
   id: ScientistBackpack
@@ -117,14 +101,6 @@
   equipment:
     outerClothing: ClothingOuterWinterRobo
 
-- type: loadout
-  id: SeniorResearcherLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    outerClothing: ClothingOuterCoatLabSeniorResearcher
-
 # Gloves
 - type: loadout
   id: LatexGloves
@@ -141,17 +117,3 @@
   id: ScienceWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterSci
-
-# ID
-- type: loadout
-  id: ScientistPDA
-  equipment:
-    id: SciencePDA
-
-- type: loadout
-  id: SeniorResearcherPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
-  equipment:
-    id: SeniorResearcherPDA

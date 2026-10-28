@@ -36,6 +36,11 @@
   parent:
     - BaseStation
     - BaseStationAlertLevels
+    - BaseStationCargo
+    - BaseStationJobsSpawning
+    - BaseStationRecords
+    - BaseStationExpeditions
+    - BaseStationMagnet
     - BaseStationNanotrasen
   categories: [ HideSpawnMenu ]
   components:

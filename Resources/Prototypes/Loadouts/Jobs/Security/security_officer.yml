@@ -70,22 +70,6 @@
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
 
-- type: loadout
-  id: SeniorOfficerJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-
-- type: loadout
-  id: SeniorOfficerJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
-
 # Back
 - type: loadout
   id: SecurityBackpack
@@ -151,17 +135,3 @@
   id: SecurityWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterSecFilled
-
-# PDA
-- type: loadout
-  id: SecurityPDA
-  equipment:
-    id: SecurityPDA
-
-- type: loadout
-  id: SeniorOfficerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-  equipment:
-    id: SeniorOfficerPDA

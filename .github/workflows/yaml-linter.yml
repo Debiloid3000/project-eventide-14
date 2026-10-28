@@ -35,5 +35,10 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors= /m
+      - name: Locate legacy markingPoints prototype entries
+        if: always()
+        run: |
+          grep -RIn --include='*.yml' --include='*.yaml' 'markingPoints' Resources/Prototypes || true
+
       - name: Run Linter
         run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --no-build

@@ -1,5 +1,14 @@
 name: "Labels: Size"
-on: pull_request_target
+
+# This workflow only reads pull-request metadata and applies a size label.
+# pull_request keeps the token scoped to the PR run instead of relying on
+# pull_request_target's base-branch workflow definition.
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+on: pull_request
 jobs:
   size-label:
     runs-on: ubuntu-latest
@@ -9,7 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
-          # Custom size configuration
           sizes: >
             {
               "0": "XS",

@@ -7,6 +7,8 @@
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
+  - SeniorSalvage
+  - Miner
 
 - type: department
   id: CentralCommand
@@ -14,20 +16,19 @@
   description: department-CentralCommand-description
   color: "#0c344d"
   weight: 120 # Highest weight of all NT departments; Central Command's authority is absolute
-  editorHidden: true
+  #editorHidden: true
+  primary: false
   roles:
   - CentralCommandOfficial
-
-- type: department
-  id: Civilian
-  name: department-Civilian
-  description: department-Civilian-description
-  color: "#7F7F7F"
-  weight: -10 # Lowest weight of all "regular" crew departments
-  ignoreForDepartmentFallback: true
-  roles:
-  - Passenger
-  - Visitor
+  - HeadOfStaffCentCom
+  - CentComOfficial
+  - CentComOperator
+  - HeadOfSecurityCentCom
+  - CentralCommandSecurityOfficer
+  - CentralCommandMedicalDoctor
+  - CentralCommandEngineer
+  - CentralCommandAssistant
+  - CentralCommandCargoTechnician
 
 - type: department
   id: Command
@@ -44,6 +45,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  - Magistrate
 
 - type: department
   id: Engineering
@@ -80,6 +82,7 @@
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - Roboticist
   - SeniorResearcher # Corvax-MentorRoles
 
 - type: department
@@ -111,13 +114,16 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
   - Reporter
   - ServiceWorker
   - TramDriver
+  - Passenger
+  - Visitor # idk who is it
+  - SeniorService
+  - Prisoner
 
 - type: department
   id: Silicon
@@ -154,8 +160,10 @@
   weight: -100 # Displays after all other departments, since that makes them obviously distinct in the lobby's jobs list
   ignoreForDepartmentFallback: true
   roles:
+  - Boxer # Restored with the upstream Boxer role and loadouts
   - Reporter
   - Psychologist
   - TramDriver
   - Pilot # Corvax-Pilot
+  - Prisoner
   primary: false

@@ -1,4 +1,5 @@
 using Content.Shared.ActionBlocker;
+using Content.Shared._Genesis.Carrying;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
@@ -298,6 +299,12 @@ public sealed partial class PullingSystem : EntitySystem
                 _clothingMoveSpeed.GetHeldMovementSpeedModifiers(component.Pulling.Value, heldMoveSpeed);
             args.ModifySpeed(walkMod, sprintMod);
             return;
+        }
+
+        if (TryComp<CarriableComponent>(component.Pulling, out var carriable))
+        {
+            args.ModifySpeed(carriable.WalkSpeedModifier, carriable.SprintSpeedModifier);
+            _popup.PopupPredicted(Loc.GetString("can-carry"), uid, uid, PopupType.SmallCaution);
         }
 
         args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);

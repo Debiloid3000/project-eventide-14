@@ -10,6 +10,7 @@
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
+    - id: ClothingOuterHardsuitQM
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
     - id: PlushieLizardJobQuartermaster
@@ -327,6 +328,7 @@
   table: !type:AllSelector
     children:
     - id: WeaponEnergyMagnum
+    - id: WeaponEnergyGunMultiphase
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase

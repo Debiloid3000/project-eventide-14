@@ -4,6 +4,11 @@
   parent: [ BaseMobRat, SimpleMobBase, MobCombat, BaseSlicingRefinableButchering, MobNightVision, BaseMobDestructible, BaseThirstSlowdown ]
   description: He's da rat. He make da roolz.
   components:
+  - type: NightVision
+    enabled: false
+    action: NVToggleAction
+    overlayColor: "#ff6161"
+    lightingColor: "#ff616115"
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00
@@ -90,6 +95,7 @@
     tags:
       - CannotSuicide
       - FootstepSound
+      - FelinidFood
   - type: NoSlip
   - type: Insulated
     coefficient: 0.5 # rat king touches more wires, see?

@@ -134,7 +134,8 @@ namespace Content.Server.GameTicking
             EntityUid station,
             string? jobId = null,
             bool lateJoin = true,
-            bool silent = false)
+            bool silent = false,
+            bool allowUsedCharacter = false)
         {
             var character = GetPlayerProfile(player);
 
@@ -151,7 +152,7 @@ namespace Content.Server.GameTicking
                     return;
             }
 
-            SpawnPlayer(player, character, station, jobId, lateJoin, silent);
+            SpawnPlayer(player, character, station, jobId, lateJoin, silent, allowUsedCharacter);
         }
 
         private void SpawnPlayer(ICommonSession player,
@@ -159,14 +160,16 @@ namespace Content.Server.GameTicking
             EntityUid station,
             string? jobId = null,
             bool lateJoin = true,
-            bool silent = false)
+            bool silent = false,
+            bool allowUsedCharacter = false)
         {
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
                 return;
 
             // Corvax-GoLobby-start
-            if (_ghostGoLobby.IsCharacterUsed(character))
+            // Genesis-Edit: Forced respawn may reuse the current profile; normal spawns still enforce GoLobby uniqueness.
+            if (!allowUsedCharacter && _ghostGoLobby.IsCharacterUsed(character))
             {
                 _chatManager.DispatchServerMessage(player, Loc.GetString("ghost-go-lobby-used"));
                 return;
@@ -274,7 +277,15 @@ namespace Content.Server.GameTicking
 
             _ghostGoLobby.MarkCharacterUsed(originalCharacter); // Corvax-GoLobby
 
-            DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName);
+            // Genesis-Edit: A configured station with no valid spawn point must not crash or spawn the player elsewhere.
+            if (!DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName))
+            {
+                JoinAsObserver(player);
+                return;
+            }
+
+            if (jobPrototype.AlwaysUseSpawner)
+                lateJoin = false;
 
             if (lateJoin && !silent)
             {
@@ -347,7 +358,7 @@ namespace Content.Server.GameTicking
         /// <summary>
         /// Creates a mob on the specified station, creates the new mind, equips job-specific starting gear and loadout
         /// </summary>
-        public void DoSpawn(
+        public bool DoSpawn(
             ICommonSession player,
             HumanoidCharacterProfile character,
             EntityUid station,
@@ -357,17 +368,26 @@ namespace Content.Server.GameTicking
             out JobPrototype jobPrototype,
             out string jobName)
         {
-            PlayerJoinGame(player, silent);
-
             var data = player.ContentData();
 
             DebugTools.AssertNotNull(data);
 
             jobPrototype = ProtoMan.Index<JobPrototype>(jobId);
 
+            // Genesis-Start
+            // Fail safely when the configured station has no applicable spawn point for this role.
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character);
-            DebugTools.AssertNotNull(mobMaybe);
-            mob = mobMaybe!.Value;
+            if (mobMaybe is not { Valid: true })
+            {
+                Log.Error($"Failed to spawn player {player} as {jobId}: station {ToPrettyString(station)} has no valid spawn point.");
+                mob = EntityUid.Invalid;
+                jobName = jobPrototype.LocalizedName;
+                return false;
+            }
+
+            mob = mobMaybe.Value;
+            PlayerJoinGame(player, silent);
+            // Genesis-End
 
             var newMind = Mind.CreateMind(data.UserId, Name(mob));
             Mind.SetUserId(newMind, data.UserId);
@@ -379,6 +399,7 @@ namespace Content.Server.GameTicking
             Role.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
             jobName = _jobs.MindTryGetJobName(newMind);
             _admin.UpdatePlayerList(player);
+            return true;
         }
 
         public void Respawn(ICommonSession player)
@@ -387,9 +408,14 @@ namespace Content.Server.GameTicking
             Admin.Add(LogType.Respawn, LogImpact.Medium, $"Player {player} was respawned.");
 
             if (LobbyEnabled)
+            {
                 PlayerJoinLobby(player);
+            }
             else
-                SpawnPlayer(player, EntityUid.Invalid);
+            {
+                // Genesis-Edit: With the lobby disabled, an admin respawn directly spawns the selected profile.
+                SpawnPlayer(player, EntityUid.Invalid, allowUsedCharacter: true);
+            }
         }
 
         /// <inheritdoc/>

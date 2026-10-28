@@ -1,0 +1,17 @@
+# Head
+- type: loadout
+  id: BrigmedicHead
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+# Mask
+- type: loadout
+  id: MaskMedicalSecurity
+  equipment:
+    mask: ClothingMaskBreathMedicalSecurity
+
+# Jumpsuit
+- type: loadout
+  id: BrigmedicOuterClothing
+  equipment:
+    outerClothing: ClothingOuterCoatAMG

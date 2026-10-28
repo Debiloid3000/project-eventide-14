@@ -9,10 +9,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: HideLayerClothing
-    layers:
-      HeadTop : HEAD
-      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -55,9 +51,6 @@
   - type: FoldableClothing
     foldedEquippedPrefix: visor
     foldedHeldPrefix: visor
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Mercenary Helmet
 - type: entity
@@ -70,9 +63,6 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #SWAT Helmet
 - type: entity
@@ -96,9 +86,6 @@
         Caustic: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.75
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Syndicate SWAT Helmet
 - type: entity
@@ -112,9 +99,6 @@
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Light Riot Helmet
 - type: entity
@@ -151,9 +135,6 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Bombsuit Helmet
 - type: entity
@@ -215,9 +196,6 @@
         Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Space Ninja Helmet
 - type: entity
@@ -255,9 +233,6 @@
     storedRotation: 0
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Thunderdome Helmet
 - type: entity
@@ -270,9 +245,6 @@
     sprite: Clothing/Head/Helmets/thunderdome.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/thunderdome.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Wizard Helmet
 - type: entity
@@ -287,9 +259,6 @@
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Fire Helmet
 - type: entity
@@ -411,9 +380,6 @@
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_leader.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #ERT Security Helmet
 - type: entity
@@ -426,9 +392,6 @@
     sprite: Clothing/Head/Helmets/ert_security.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_security.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #ERT Medic Helmet
 - type: entity
@@ -441,9 +404,6 @@
     sprite: Clothing/Head/Helmets/ert_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_medic.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #ERT Engineer Helmet
 - type: entity
@@ -456,9 +416,6 @@
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #ERT Janitor Helmet
 - type: entity
@@ -471,9 +428,6 @@
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 - type: entity
   parent: [BaseCorvaxContraband432DepartmentsSecurity, BaseSyndicateContraband, ClothingHeadHelmetBase] # Corvax-Contraband
@@ -492,9 +446,6 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Bone Helmet
 #No need to hide the hair on this one

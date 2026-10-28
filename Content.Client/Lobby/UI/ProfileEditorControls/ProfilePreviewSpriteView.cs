@@ -1,4 +1,5 @@
 using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Player;
@@ -27,12 +28,18 @@ public sealed partial class ProfilePreviewSpriteView : SpriteView
     /// <remarks>
     /// This is expensive so not recommended to run if you have a slider.
     /// </remarks>
-    public void LoadPreview(HumanoidCharacterProfile profile, JobPrototype? jobOverride = null, bool showClothes = true)
+    // Genesis-Edit: allow the active antagonist loadout to be previewed without applying every saved antagonist outfit.
+    public void LoadPreview(
+        HumanoidCharacterProfile profile,
+        JobPrototype? jobOverride = null,
+        bool showClothes = true,
+        RoleLoadout? roleLoadoutOverride = null,
+        RoleLoadoutPrototype? roleLoadoutPrototypeOverride = null)
     {
         EntMan.DeleteEntity(PreviewDummy);
         PreviewDummy = EntityUid.Invalid;
 
-        LoadHumanoidEntity(profile, jobOverride, showClothes);
+        LoadHumanoidEntity(profile, jobOverride, showClothes, roleLoadoutOverride, roleLoadoutPrototypeOverride);
 
         SetEntity(PreviewDummy);
         SetName(profile.Name);

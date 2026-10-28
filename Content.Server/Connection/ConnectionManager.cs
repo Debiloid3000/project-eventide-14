@@ -239,7 +239,10 @@ namespace Content.Server.Connection
             if (bans.Count > 0)
             {
                 var firstBan = bans[0];
-                var message = firstBan.FormatBanMessage(_cfg, _loc);
+                var adminName = firstBan.BanningAdmin is { } adminId
+                    ? (await _db.GetPlayerRecordByUserId(adminId))?.LastSeenUserName ?? _loc.GetString("system-user")
+                    : _loc.GetString("system-user");
+                var message = firstBan.FormatBanMessage(_cfg, _loc, adminName);
                 return (ConnectionDenyReason.Ban, message, bans);
             }
 
@@ -251,9 +254,24 @@ namespace Content.Server.Connection
 
             var adminData = await _db.GetAdminDataForAsync(e.UserId);
 
+            // Keep connection-time host detection aligned with AdminManager.LoadAdminDataCore.
+            // The host must be whitelisted before the ordinary connection whitelist is evaluated.
+            var hostUsername = _cfg.GetCVar(CCVars.ConsoleLoginHostUser);
+            var hostAddress = e.IP.Address;
+            if (hostAddress.IsIPv4MappedToIPv6)
+                hostAddress = hostAddress.MapToIPv4();
+
+            var localHost = _cfg.GetCVar(CCVars.ConsoleLoginLocal)
+                            && (Equals(hostAddress, System.Net.IPAddress.Loopback)
+                                || Equals(hostAddress, System.Net.IPAddress.IPv6Loopback));
+            var isHostConnection = (!string.IsNullOrWhiteSpace(hostUsername) && e.UserName == hostUsername)
+                                   || localHost;
+            if (isHostConnection)
+                await _whitelistManager.AddWhitelistAsync(userId);
+
             // Corvax-Start: Allow privileged players bypass bunker
             var isPrivileged = await HavePrivilegedJoin(e.UserId);
-            if (_cfg.GetCVar(CCVars.PanicBunkerEnabled) && adminData == null && !isPrivileged)
+            if (_cfg.GetCVar(CCVars.PanicBunkerEnabled) && adminData == null && !isPrivileged && !isHostConnection)
             // Corvax-End
             {
                 var showReason = _cfg.GetCVar(CCVars.PanicBunkerShowReason);
@@ -322,7 +340,7 @@ namespace Content.Server.Connection
             var wasInGame = _ticker != null &&
                             _ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
                             status == PlayerGameStatus.JoinedGame;
-            var adminBypass = _cfg.GetCVar(CCVars.AdminBypassMaxPlayers) && adminData != null;
+            var adminBypass = _cfg.GetCVar(CCVars.AdminBypassMaxPlayers) && (adminData != null || isHostConnection);
             var softPlayerCount = _plyMgr.PlayerCount;
 
             if (!_cfg.GetCVar(CCVars.AdminsCountForMaxPlayers))
@@ -339,7 +357,7 @@ namespace Content.Server.Connection
             }
 
             // Checks for whitelist IF it's enabled AND the user isn't an admin. Admins are always allowed.
-            if (_cfg.GetCVar(CCVars.WhitelistEnabled) && adminData is null)
+            if (_cfg.GetCVar(CCVars.WhitelistEnabled) && adminData is null && !isHostConnection)
             {
                 if (_whitelists is null)
                 {

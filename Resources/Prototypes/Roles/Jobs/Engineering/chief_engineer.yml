@@ -48,7 +48,7 @@
     belt: ClothingBeltUtilityEngineering
   storage:
     back:
-    - Flash
+    - TelescopicBaton
 
 - type: chameleonOutfit
   id: ChiefEngineerChameleonOutfit

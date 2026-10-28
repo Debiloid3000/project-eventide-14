@@ -73,6 +73,10 @@
   prefRoles:
   - NukeopsCommander
   spawnerPrototype: SpawnPointNukeopsCommander
+  # Genesis-Start: The selected kit includes the required survival groups itself.
+  roleLoadout:
+  - NukeopsCommander
+  # Genesis-End
   startingGear: SyndicateCommanderGearFull
   components:
   - type: RandomMetadata
@@ -88,6 +92,10 @@
   prefRoles:
   - NukeopsMedic
   spawnerPrototype: SpawnPointNukeopsMedic
+  # Genesis-Start: The selected kit includes the required survival groups itself.
+  roleLoadout:
+  - NukeopsMedic
+  # Genesis-End
   startingGear: SyndicateOperativeMedicFull
   components:
   - type: RandomMetadata
@@ -103,6 +111,10 @@
   prefRoles:
   - Nukeops
   spawnerPrototype: SpawnPointNukeopsOperative
+  # Genesis-Start: The selected kit includes the required survival groups itself.
+  roleLoadout:
+  - Nukeops
+  # Genesis-End
   startingGear: SyndicateOperativeGearFull
   components:
   - type: RandomMetadata
@@ -117,6 +129,8 @@
   id: LoneOp
   spawnerPrototype: SpawnPointLoneNukeOperative
   pickPlayer: false
+  roleLoadout:
+  - Nukeops # Reuse the selected operative kit and name.
   startingGear: SyndicateLoneOperativeGearFull
   components:
   - type: RandomMetadata
@@ -130,17 +144,17 @@
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplink
   equipment:
-    jumpsuit: ClothingUniformJumpsuitOperative
-    back: ClothingBackpackDuffelSyndicate
+    #jumpsuit: ClothingUniformJumpsuitOperative
+    #back: ClothingBackpackDuffelSyndicate
     mask: ClothingMaskGasSyndicate
     eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitSyndie
     shoes: ClothingShoesBootsMagSyndie
-    id: SyndiOperativePDA
+    #id: SyndiOperativePDA
     pocket2: PlushieCarp
-    belt: ClothingBeltMilitaryWebbing
+    #belt: ClothingBeltMilitaryWebbing
+  # No inhand key here: a comment-only inhand block becomes YAML null and breaks inheritance.
   storage:
     back:
     - WeaponPistolViper
@@ -168,11 +182,11 @@
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFull
   equipment:
-    id: SyndiCommanderPDA
+    #id: SyndiCommanderPDA
     neck: SyndicateWhistle
-    outerClothing: ClothingOuterHardsuitSyndieCommander
   inhand:
   - NukeOpsDeclarationOfWar
+  #- CommanderHardsuitCaseSyndicate
 
 - type: chameleonOutfit
   id: NukeopsCommanderOutfit
@@ -189,9 +203,8 @@
   parent: SyndicateOperativeGearFull
   equipment:
     eyes: ClothingEyesHudSyndicateAgent
-    outerClothing: ClothingOuterHardsuitSyndieMedic
     id: SyndiCorpsmanPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    #belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
     - SyndiHypo

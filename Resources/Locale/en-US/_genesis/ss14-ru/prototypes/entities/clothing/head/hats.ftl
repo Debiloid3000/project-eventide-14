@@ -1,0 +1,41 @@
+ent-ClothingHeadHatBeretSecurityBlue = { ent-ClothingHeadHatBeretSecurity }
+    .desc = { ent-ClothingHeadHatBeretSecurity.desc }
+    .suffix = Blue
+ent-ClothingHeadHatWardenBlue = { ent-ClothingHeadHatWarden }
+    .desc = { ent-ClothingHeadHatWarden.desc }
+    .suffix = Blue
+ent-ClothingHeadHatSecsoftBlue = { ent-ClothingHeadHatSecsoft }
+    .desc = { ent-ClothingHeadHatSecsoft.desc }
+    .suffix = Blue
+ent-ClothingHeadHatBeretAmilitary = beret head of security academy
+    .desc = { ent-ClothingHeadHatBeretHoS.desc }
+    .suffix = { "" }
+
+ent-ClothingHeadHatBeretRNDAlt = scientific beret
+    .desc = A beret for real scientists.
+ent-ClothingHeadHatBeretEngineeringAlt = engineering beret
+    .desc = A beret bearing the engineering insignia, for engineers who value style over safety.
+ent-ClothingHeadHelmetPilot = pilot helmet
+    .desc = A standard pilot's helmet.
+ent-ClothingHeadHatBeretCargo = cargo beret
+    .desc = A beret bearing the cargo department insignia, for cargo workers who prefer style.
+ent-ClothingHeadHatBeretSalvage = salvage beret
+    .desc = A beret bearing the cargo department insignia, for salvage workers who prefer style.
+ent-ClothingHeadHatCaptainBeret = captain's beret
+    .desc = A beret for a captain.
+ent-ClothingHeadHatJediNTBeret = NanoTrasen Blade Guard beret
+    .desc = A beret for a NanoTrasen Blade Guard.
+ent-ClothingHeadHatBlueShieldHat = BlueShield officer's cap
+    .desc = The sturdy standard-issue BlueShield cap, made to show other officers who's in charge.
+ent-ClothingHeadHatJediNTHat = NanoTrasen Blade Guard cap
+    .desc = The sturdy standard-issue NanoTrasen Blade Guard cap, made to show other officers who's in charge.
+ent-ClothingHeadHatWitchHunter = witch hunter's hat
+    .desc = A medieval-style hat worn by hunters of mythical creatures, especially witches.
+ent-ClothingHeadHatHeadOfSecurityCentComBeret = Central Command head of security beret
+    .desc = A beret for the head of security.
+
+ent-ClothingHeadHatCentcomConsultantCap = CentCom consultant cap
+    .desc = An expensive cap with a bright gold emblem on the front, indicating that its wearer is responsible for maintaining order.
+
+ent-ClothingHeadHatBlueShieldBeret = BlueShield officer's beret
+    .desc = A beret for a BlueShield officer.

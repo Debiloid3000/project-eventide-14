@@ -1,0 +1,7 @@
+# Legacy Genesis Felinid body layout, retained as a migration note.
+#
+# Eventide no longer registers standalone `type: body` prototypes. Bodies are
+# containers of organs, and the current `InitialBody` component on
+# AppearanceFelinid (in ../Entities/Mobs/Species/felinid.yml) now declares the
+# organ layout using OrganCategoryPrototype keys. Do not add a `type: body`
+# prototype here: the YAML linter rejects that retired prototype type.

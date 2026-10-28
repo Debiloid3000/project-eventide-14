@@ -100,7 +100,7 @@ namespace Content.Server.Database
             Roles = roles;
         }
 
-        public string FormatBanMessage(IConfigurationManager cfg, ILocalizationManager loc)
+        public string FormatBanMessage(IConfigurationManager cfg, ILocalizationManager loc, string adminName)
         {
             string expires;
             if (ExpirationTime is { } expireTime)
@@ -119,9 +119,10 @@ namespace Content.Server.Database
 
             return $"""
                    {loc.GetString("ban-banned-1")}
-                   {loc.GetString("ban-banned-2", ("reason", Reason))}
+                   {loc.GetString("ban-banned-2", ("adminName", adminName))}
+                   {loc.GetString("ban-banned-3", ("reason", Reason))}
                    {expires}
-                   {loc.GetString("ban-banned-3")}
+                   {loc.GetString("ban-banned-4")}
                    """;
         }
     }

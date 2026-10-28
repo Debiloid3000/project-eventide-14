@@ -1,0 +1,11 @@
+- type: department
+  id: CentComSpecialists
+  name: department-CentComSpecialists
+  description: department-CentCom-description
+  color: "#35a41e"
+  roles:
+  - CentComConsultant
+  - BlueShield
+  - JediNT # By Space Stories Reworked by _Genesis
+
+

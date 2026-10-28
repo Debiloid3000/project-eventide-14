@@ -1,0 +1,4 @@
+- type: loadout
+  id: ChiefEngineerModSuit
+  equipment:
+    back: ClothingModsuitBackCE

@@ -7,7 +7,9 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 3h
-  icon: "JobIconShaftMiner"
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+  icon: "JobIconSalvage"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
   guides: [ Salvage ]
@@ -37,4 +39,3 @@
     outerClothing: ClothingOuterWinterMiner
     neck: ClothingNeckScarfStripedBrown
     gloves: ClothingHandsGlovesColorBlack
-

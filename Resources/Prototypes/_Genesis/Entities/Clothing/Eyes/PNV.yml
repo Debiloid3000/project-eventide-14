@@ -1,0 +1,20 @@
+- type: entity
+  name: NVD
+  id: ClothingEyesVision
+  parent: BaseItem
+  description: Night vision device with a green-tinted view.
+  components:
+  - type: Item
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    quickEquip: true
+    slots: [ Eyes ]
+  - type: NightVision
+    enabled: false
+    relayOverlay: true
+    action: NVToggleAction
+    overlayColor: "#00FF0030"
+    disableLighting: true

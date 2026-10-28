@@ -1,0 +1,22 @@
+# Head
+- type: loadout
+  id: SeniorPhysicianBeret
+  equipment:
+    head: ClothingHeadHatBeretSeniorPhysician
+
+# Jumpsuit
+- type: loadout
+  id: JumpsuitSeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorPhysician
+
+- type: loadout
+  id: JumpskirtSeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorPhysician
+
+# OuterClothing
+- type: loadout
+  id: SeniorPhysicianLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabSeniorPhysician

@@ -1,13 +1,5 @@
 # Head
 - type: loadout
-  id: SeniorPhysicianBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    head: ClothingHeadHatBeretSeniorPhysician
-
-- type: loadout
   id: MedicalHeadMirror
   effects:
   - !type:GroupLoadoutEffect
@@ -40,6 +32,12 @@
   equipment:
     head: ClothingHeadNurseHat
 
+# Gloves
+- type: loadout
+  id: NitrileGloves
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
 # Jumpsuit
 - type: loadout
   id: MedicalDoctorJumpsuit
@@ -50,22 +48,6 @@
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
-
-- type: loadout
-  id: SeniorPhysicianJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorPhysician
-
-- type: loadout
-  id: SeniorPhysicianJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorPhysician
 
 - type: loadout
   id: MedicalBlueScrubs
@@ -104,33 +86,11 @@
   equipment:
     outerClothing: ClothingOuterWinterMed
 
-- type: loadout
-  id: SeniorPhysicianLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    outerClothing: ClothingOuterCoatLabSeniorPhysician
-
 # Shoes
 - type: loadout
   id: MedicalWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterMed
-
-# ID
-- type: loadout
-  id: MedicalDoctorPDA
-  equipment:
-    id: MedicalPDA
-
-- type: loadout
-  id: SeniorPhysicianPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
-  equipment:
-    id: SeniorPhysicianPDA
 
 #Masks
 - type: loadout

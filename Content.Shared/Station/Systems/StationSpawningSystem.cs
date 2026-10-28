@@ -110,19 +110,19 @@ public sealed partial class StationSpawningSystem : EntitySystem
     /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>
     /// </summary>
     [PublicAPI]
-    public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true)
+    public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true, bool equipStorage = true)
     {
         ProtoMan.Resolve(startingGear, out var gearProto);
-        EquipStartingGear(entity, gearProto, raiseEvent);
+        EquipStartingGear(entity, gearProto, raiseEvent, equipStorage);
     }
 
     /// <summary>
     /// <see cref="EquipStartingGear(Robust.Shared.GameObjects.EntityUid,System.Nullable{Robust.Shared.Prototypes.ProtoId{Content.Shared.Roles.StartingGearPrototype}},bool)"/>
     /// </summary>
     [PublicAPI]
-    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
+    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true, bool equipStorage = true, RoleLoadout? selectedRoleLoadout = null)
     {
-        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent);
+        EquipStartingGear(entity, (IEquipmentLoadout?) startingGear, raiseEvent, equipStorage, selectedRoleLoadout);
     }
 
     /// <summary>
@@ -131,8 +131,9 @@ public sealed partial class StationSpawningSystem : EntitySystem
     /// <param name="entity">Entity to load out.</param>
     /// <param name="startingGear">Starting gear to use.</param>
     /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually</param>
+    /// <param name="equipStorage">Whether to insert storage contents immediately or defer them until after role loadout selection.</param>
     [PublicAPI]
-    public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true)
+    public void EquipStartingGear(EntityUid entity, IEquipmentLoadout? startingGear, bool raiseEvent = true, bool equipStorage = true, RoleLoadout? selectedRoleLoadout = null)
     {
         if (startingGear == null)
             return;
@@ -143,6 +144,19 @@ public sealed partial class StationSpawningSystem : EntitySystem
         {
             foreach (var slot in slotDefinitions)
             {
+                if (selectedRoleLoadout != null)
+                {
+                    // Don't spawn base-gear items into slots reserved by the selected loadout.
+                    if (!string.IsNullOrEmpty(GetGearForSlot(selectedRoleLoadout, slot.Name)))
+                        continue;
+
+                    // The selected loadout is applied before fallback gear. Never force-equip a
+                    // fallback item over an already occupied slot, because force would drop the
+                    // selected item at the player's feet.
+                    if (_inventory.TryGetSlotEntity(entity, slot.Name, out _))
+                        continue;
+                }
+
                 var equipmentStr = startingGear.GetGear(slot.Name);
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
@@ -167,35 +181,43 @@ public sealed partial class StationSpawningSystem : EntitySystem
             }
         }
 
-        if (startingGear.Storage.Count > 0)
-        {
-            var coords = _xformSystem.GetMapCoordinates(entity);
-            _inventoryQuery.TryComp(entity, out var inventoryComp);
-
-            foreach (var (slotName, entProtos) in startingGear.Storage)
-            {
-                if (entProtos.Count == 0)
-                    continue;
-
-                if (inventoryComp != null &&
-                    _inventory.TryGetSlotEntity(entity, slotName, out var slotEnt, inventoryComponent: inventoryComp) &&
-                    _storageQuery.TryComp(slotEnt, out var storage))
-                {
-
-                    foreach (var entProto in entProtos)
-                    {
-                        var spawnedEntity = Spawn(entProto, coords);
-
-                        _storage.Insert(slotEnt.Value, spawnedEntity, out _, storageComp: storage, playSound: false);
-                    }
-                }
-            }
-        }
+        if (equipStorage)
+            EquipStartingGearStorage(entity, startingGear);
 
         if (raiseEvent)
         {
             var ev = new StartingGearEquippedEvent(entity);
             RaiseLocalEvent(entity, ref ev);
+        }
+    }
+
+    /// <summary>
+    /// Inserts starting-gear storage contents after the final backpack/storage slots have been equipped.
+    /// </summary>
+    [PublicAPI]
+    public void EquipStartingGearStorage(EntityUid entity, IEquipmentLoadout? startingGear)
+    {
+        if (startingGear == null || startingGear.Storage.Count == 0)
+            return;
+
+        var coords = _xformSystem.GetMapCoordinates(entity);
+        _inventoryQuery.TryComp(entity, out var inventoryComp);
+
+        foreach (var (slotName, entProtos) in startingGear.Storage)
+        {
+            if (entProtos.Count == 0)
+                continue;
+
+            if (inventoryComp != null &&
+                _inventory.TryGetSlotEntity(entity, slotName, out var slotEnt, inventoryComponent: inventoryComp) &&
+                _storageQuery.TryComp(slotEnt, out var storage))
+            {
+                foreach (var entProto in entProtos)
+                {
+                    var spawnedEntity = Spawn(entProto, coords);
+                    _storage.Insert(slotEnt.Value, spawnedEntity, out _, storageComp: storage, playSound: false);
+                }
+            }
         }
     }
 
@@ -219,10 +241,20 @@ public sealed partial class StationSpawningSystem : EntitySystem
             foreach (var items in group.Value)
             {
                 if (!ProtoMan.Resolve(items.Prototype, out var loadoutPrototype))
-                    return null;
+                    continue;
+
+                // A loadout can provide equipment indirectly through its StartingGear prototype.
+                // Reserve those slots too, otherwise base antagonist gear can be force-equipped first
+                // and then dropped on the floor when this selected loadout is applied.
+                if (ProtoMan.Resolve(loadoutPrototype.StartingGear, out var startingGear))
+                {
+                    var startingGearItem = ((IEquipmentLoadout) startingGear).GetGear(slot);
+                    if (!string.IsNullOrEmpty(startingGearItem))
+                        return startingGearItem;
+                }
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);
-                if (gear != string.Empty)
+                if (!string.IsNullOrEmpty(gear))
                     return gear;
             }
         }
@@ -283,6 +315,8 @@ public sealed partial class StationSpawningSystem : EntitySystem
 
         if (ProtoMan.Resolve(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
+
+        _cardSystem.TryChangeJobDepartment(cardId, jobPrototype, card);
 
         var extendedAccess = false;
         if (station != null)

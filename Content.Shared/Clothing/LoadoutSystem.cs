@@ -144,29 +144,68 @@ public sealed partial class LoadoutSystem : EntitySystem
         Equip(uid, component.StartingGear, component.RoleLoadout);
     }
 
+    // Genesis-Start: Apply saved role loadouts while keeping starting-gear contents in the selected backpack.
     public void Equip(EntityUid uid, List<ProtoId<StartingGearPrototype>>? startingGear,
-        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups)
+        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups,
+        RoleLoadout? selectedLoadout = null,
+        HumanoidCharacterProfile? selectedProfile = null)
     {
-        // First, randomly pick a startingGear profile from those specified, and equip it.
-        if (startingGear != null && startingGear.Count > 0)
-            _station.EquipStartingGear(uid, _random.Pick(startingGear), false);
+        // Resolve the base gear once, but don't equip it until the role loadout is known.
+        // That lets the selected role loadout win for overlapping inventory slots.
+        StartingGearPrototype? selectedStartingGear = null;
+        if (startingGear is { Count: > 0 })
+            selectedStartingGear = ProtoMan.Index<StartingGearPrototype>(_random.Pick(startingGear));
 
-        if (loadoutGroups == null)
+        var profile = selectedProfile ?? GetProfile(uid);
+
+        if (loadoutGroups == null || loadoutGroups.Count == 0)
         {
+            if (selectedStartingGear != null)
+                _station.EquipStartingGear(uid, selectedStartingGear, raiseEvent: false);
+
             GearEquipped(uid);
             return;
         }
 
-        // Then, randomly pick a RoleLoadout profile from those specified, and process/equip all LoadoutGroups from it.
-        // For non-roundstart mobs there is no SelectedLoadout data, so minValue must be set in each LoadoutGroup to force selection.
-        var id = _random.Pick(loadoutGroups);
+        // Antagonist spawners don't pass the selected profile loadout explicitly.
+        // Pick the saved selection matching one of the loadouts this specifier permits.
+        if (selectedLoadout == null && profile != null)
+        {
+            foreach (var roleLoadoutId in loadoutGroups)
+            {
+                if (!profile.Loadouts.TryGetValue(roleLoadoutId.Id, out var savedLoadout))
+                    continue;
+
+                selectedLoadout = savedLoadout;
+                break;
+            }
+        }
+
+        // Only use a saved selection if this antag explicitly allows that role loadout.
+        var useSelectedLoadout = selectedLoadout != null && loadoutGroups.Contains(selectedLoadout.Role);
+        var id = useSelectedLoadout ? selectedLoadout!.Role : _random.Pick(loadoutGroups);
         var proto = ProtoMan.Index(id);
-        var loadout = new RoleLoadout(id);
-        loadout.SetDefault(GetProfile(uid), _actors.GetSession(uid), ProtoMan, true);
+        var loadout = useSelectedLoadout ? selectedLoadout!.Clone() : new RoleLoadout(id);
+
+        // Preserve saved choices and fill any newly added groups; non-player/default loadouts start clean.
+        loadout.SetDefault(profile, _actors.GetSession(uid), ProtoMan, force: !useSelectedLoadout);
+
+        // Apply the player's selected role loadout first so it has priority over the
+        // antagonist's fallback starting gear (for example, belt and ID card).
         _station.EquipRoleLoadout(uid, loadout, proto);
+
+        // Fill only slots not claimed by the selected role loadout. StationSpawningSystem
+        // also checks actual slot occupancy, so fallback gear cannot replace a selected item.
+        if (selectedStartingGear != null)
+            _station.EquipStartingGear(uid, selectedStartingGear, raiseEvent: false, equipStorage: false, selectedRoleLoadout: loadout);
+
+        // The selected backpack now exists, so starting-gear storage can be filled safely.
+        if (selectedStartingGear != null)
+            _station.EquipStartingGearStorage(uid, selectedStartingGear);
 
         GearEquipped(uid);
     }
+    // Genesis-End
 
     public void GearEquipped(EntityUid uid)
     {

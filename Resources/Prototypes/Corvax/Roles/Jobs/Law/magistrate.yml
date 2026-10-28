@@ -4,7 +4,7 @@
   description: job-description-magistrate
   playTimeTracker: JobMagistrate
   whitelisted: true # No-Ki сказал, что договорился!
-  setPreference: false # Увы
+  setPreference: true
   requirements:
   - !type:TraitsRequirement
     inverted: true
@@ -33,10 +33,11 @@
     shoes: ClothingShoesBootsLaceup
     neck: ClothingNeckLawyerbadge
     id: MagistratePDA
-    eyes: ClothingEyesGlassesCommand
+    eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesColorWhite
-    ears: ClothingHeadsetMagistrate
-    pocket1: BoxFolderBlackThreePapers
+    ears: ClothingHeadsetAltCommand
+    pocket1: Pen
+    pocket2: BookSpaceLaw
   storage:
     back:
     - Flash
