@@ -134,6 +134,4 @@
     rules: ghost-role-information-giant-spider-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    raffle:
-      settings: short
   - type: GhostTakeoverAvailable
