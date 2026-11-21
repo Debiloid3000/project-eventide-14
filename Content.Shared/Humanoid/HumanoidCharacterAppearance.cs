@@ -145,9 +145,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         };
 
         var randomizeCfg = charEditorRandomizeConfig ?? RandomizeConfigAll;
-        var randomizeAnyMarkings = (randomizeCfg & (RandomizeCfg.Markings |
-            RandomizeCfg.Hair | RandomizeCfg.FacialHair | RandomizeCfg.HeadTop |
-            RandomizeCfg.Tail | RandomizeCfg.BodyMarkings)) != 0;
+        var randomizeAnyMarkings = baseAppearance is null || (randomizeCfg & RandomizeCfg.Markings) != 0;
 
         Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings;
         if (!randomizeAnyMarkings && baseAppearance != null)
@@ -180,9 +178,17 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                             continue;
 
                         if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
-                            currentLayers[layer] = selected.ToList();
+                        {
+                            var selectedMarkings = selected.ToList();
+                            if (!ShouldRandomizeLayerColor(layer, randomizeCfg))
+                                selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer));
+
+                            currentLayers[layer] = selectedMarkings;
+                        }
                         else
+                        {
                             currentLayers.Remove(layer);
+                        }
                     }
 
                     if (currentLayers.Count > 0)
@@ -205,24 +211,63 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
     private static bool ShouldRandomizeLayer(HumanoidVisualLayers layer, RandomizeCfg config)
     {
-        if ((config & RandomizeCfg.Markings) != 0)
-            return true;
-
-        if ((config & RandomizeCfg.BodyMarkings) == 0)
+        if ((config & RandomizeCfg.Markings) == 0)
             return false;
 
-        return layer is HumanoidVisualLayers.Chest
-            or HumanoidVisualLayers.Head
-            or HumanoidVisualLayers.Snout
-            or HumanoidVisualLayers.SnoutCover
-            or HumanoidVisualLayers.LArm
-            or HumanoidVisualLayers.RArm
-            or HumanoidVisualLayers.LHand
-            or HumanoidVisualLayers.RHand
-            or HumanoidVisualLayers.LLeg
-            or HumanoidVisualLayers.RLeg
-            or HumanoidVisualLayers.LFoot
-            or HumanoidVisualLayers.RFoot;
+        const RandomizeCfg styleLayers =
+            RandomizeCfg.Hair | RandomizeCfg.FacialHair | RandomizeCfg.HeadTop |
+            RandomizeCfg.Tail | RandomizeCfg.BodyMarkings;
+
+        // Older callers only set Markings. Keep their legacy "randomize every marking" behavior.
+        if ((config & styleLayers) == 0)
+            return true;
+
+        return layer switch
+        {
+            HumanoidVisualLayers.Hair => (config & RandomizeCfg.Hair) != 0,
+            HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHair) != 0,
+            HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTop) != 0,
+            HumanoidVisualLayers.Tail => (config & RandomizeCfg.Tail) != 0,
+            _ => (config & RandomizeCfg.BodyMarkings) != 0,
+        };
+    }
+
+    private static bool ShouldRandomizeLayerColor(HumanoidVisualLayers layer, RandomizeCfg config)
+    {
+        const RandomizeCfg colorLayers =
+            RandomizeCfg.HairColor | RandomizeCfg.FacialHairColor | RandomizeCfg.HeadTopColor |
+            RandomizeCfg.TailColor | RandomizeCfg.BodyMarkingsColor;
+
+        // Older callers do not have independent color flags, so preserve their existing behavior.
+        if ((config & colorLayers) == 0)
+            return true;
+
+        return layer switch
+        {
+            HumanoidVisualLayers.Hair => (config & RandomizeCfg.HairColor) != 0,
+            HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHairColor) != 0,
+            HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTopColor) != 0,
+            HumanoidVisualLayers.Tail => (config & RandomizeCfg.TailColor) != 0,
+            _ => (config & RandomizeCfg.BodyMarkingsColor) != 0,
+        };
+    }
+
+    private static List<Marking> PreserveLayerColors(List<Marking> randomized, List<Marking>? previous)
+    {
+        if (previous is null || previous.Count == 0)
+            return randomized;
+
+        for (var markingIndex = 0; markingIndex < randomized.Count; markingIndex++)
+        {
+            var oldMarking = previous[Math.Min(markingIndex, previous.Count - 1)];
+            var newMarking = randomized[markingIndex];
+            for (var colorIndex = 0; colorIndex < Math.Min(oldMarking.MarkingColors.Count, newMarking.MarkingColors.Count); colorIndex++)
+                newMarking = newMarking.WithColorAt(colorIndex, oldMarking.MarkingColors[colorIndex]);
+
+            randomized[markingIndex] = newMarking;
+        }
+
+        return randomized;
     }
 
     public static Color ClampColor(Color color)

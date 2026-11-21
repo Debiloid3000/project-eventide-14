@@ -279,9 +279,10 @@ public sealed partial class MarkingsViewModel
         organMarkings[layer] = organMarkings.GetValueOrDefault(layer) ?? [];
         var layerMarkings = organMarkings[layer];
 
-        // When replacing a marking on the same layer, carry over the color selection from the
-        // current marking. This keeps hair, ears, tails and wings consistent when their style changes.
-        if (layerMarkings.FirstOrDefault() is { } currentMarking)
+        var limits = groupPrototype.Limits.GetValueOrDefault(layer);
+
+        // Preserve the palette when replacing a single-choice layer (hair, ears, tails, wings).
+        if (limits is { Limit: 1 } && layerMarkings.FirstOrDefault() is { } currentMarking)
             _previousLayerColors[(organ, layer)] = currentMarking.MarkingColors.ToList();
 
         var colors = MarkingColoring.GetMarkingLayerColors(markingProto, profileData.SkinColor, profileData.EyeColor, layerMarkings);
@@ -295,11 +296,11 @@ public sealed partial class MarkingsViewModel
 
         var newMarking = new Marking(markingId, colors) { Forced = AnyEnforcementsLifted };
 
-        var limits = groupPrototype.Limits.GetValueOrDefault(layer);
         if (limits is null || !EnforceLimits)
         {
             layerMarkings.Add(newMarking);
-            _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
+            if (layerMarkings.Count == 1)
+                _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
             MarkingsChanged?.Invoke(organ, layer);
             return true;
         }
@@ -316,7 +317,8 @@ public sealed partial class MarkingsViewModel
         if (layerMarkings.Count < limits.Limit)
         {
             layerMarkings.Add(newMarking);
-            _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
+            if (limits.Limit == 1 || layerMarkings.Count == 1)
+                _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
             MarkingsChanged?.Invoke(organ, layer);
             return true;
         }

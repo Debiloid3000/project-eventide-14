@@ -255,6 +255,11 @@ namespace Content.Shared.Preferences
             BodyMarkings = 1 << 12,
             FirstName = 1 << 13,
             LastName = 1 << 14,
+            HairColor = 1 << 15,
+            FacialHairColor = 1 << 16,
+            HeadTopColor = 1 << 17,
+            TailColor = 1 << 18,
+            BodyMarkingsColor = 1 << 19,
         }
 
         /// <summary>
@@ -268,7 +273,19 @@ namespace Content.Shared.Preferences
             | RandomizeCfg.Gender
             | RandomizeCfg.Eyes
             | RandomizeCfg.Skin
-            | RandomizeCfg.Markings;
+            | RandomizeCfg.Markings
+            | RandomizeCfg.Hair
+            | RandomizeCfg.FacialHair
+            | RandomizeCfg.HeadTop
+            | RandomizeCfg.Tail
+            | RandomizeCfg.BodyMarkings
+            | RandomizeCfg.FirstName
+            | RandomizeCfg.LastName
+            | RandomizeCfg.HairColor
+            | RandomizeCfg.FacialHairColor
+            | RandomizeCfg.HeadTopColor
+            | RandomizeCfg.TailColor
+            | RandomizeCfg.BodyMarkingsColor;
 
         /// <summary>
         /// Picks a random species from roundstart species.
@@ -397,15 +414,22 @@ namespace Content.Shared.Preferences
             profile.Gender = (randomizeCfg & RandomizeCfg.Gender) != 0 ? RandomGender(profile.Sex) : baseProfile.Gender;
             if ((randomizeCfg & RandomizeCfg.Name) != 0)
             {
-                profile.Name = RandomName(speciesProto, profile.Gender);
-            }
-            else if ((randomizeCfg & (RandomizeCfg.FirstName | RandomizeCfg.LastName)) != 0)
-            {
-                var generatedName = SplitName(RandomName(speciesProto, profile.Gender));
-                var existingName = SplitName(baseProfile.Name);
-                var first = (randomizeCfg & RandomizeCfg.FirstName) != 0 ? generatedName.First : existingName.First;
-                var last = (randomizeCfg & RandomizeCfg.LastName) != 0 ? generatedName.Last : existingName.Last;
-                profile.Name = string.Join(" ", new[] { first, last }.Where(part => !string.IsNullOrWhiteSpace(part)));
+                var randomizeFirst = (randomizeCfg & RandomizeCfg.FirstName) != 0;
+                var randomizeLast = (randomizeCfg & RandomizeCfg.LastName) != 0;
+
+                // Older callers may only set Name. Preserve full-name randomization for those callers.
+                if (!randomizeFirst && !randomizeLast)
+                {
+                    profile.Name = RandomName(speciesProto, profile.Gender);
+                }
+                else
+                {
+                    var generatedName = SplitName(RandomName(speciesProto, profile.Gender));
+                    var existingName = SplitName(baseProfile.Name);
+                    var first = randomizeFirst ? generatedName.First : existingName.First;
+                    var last = randomizeLast ? generatedName.Last : existingName.Last;
+                    profile.Name = string.Join(" ", new[] { first, last }.Where(part => !string.IsNullOrWhiteSpace(part)));
+                }
             }
             else
             {
@@ -448,12 +472,17 @@ namespace Content.Shared.Preferences
         /// </summary>
         public HumanoidCharacterProfile RandomizeName(bool firstName = true, bool lastName = true)
         {
-            var config = RandomizeCfg.None;
-            if (firstName)
-                config |= RandomizeCfg.FirstName;
-            if (lastName)
-                config |= RandomizeCfg.LastName;
-            return config == RandomizeCfg.None ? Clone() : Random(config, this);
+            if (!firstName && !lastName)
+                return Clone();
+
+            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+            var species = prototypeManager.Index(Species);
+            var generatedName = SplitName(RandomName(species, Gender));
+            var existingName = SplitName(Name);
+            var first = firstName ? generatedName.First : existingName.First;
+            var last = lastName ? generatedName.Last : existingName.Last;
+
+            return WithName(string.Join(" ", new[] { first, last }.Where(part => !string.IsNullOrWhiteSpace(part))));
         }
 
         public HumanoidCharacterProfile WithName(string name)
