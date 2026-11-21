@@ -146,66 +146,57 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         };
 
         var randomizeCfg = charEditorRandomizeConfig ?? RandomizeConfigAll;
-        var randomizeAnyMarkings = baseAppearance is null || (randomizeCfg & RandomizeCfg.Markings) != 0;
 
         Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings;
-        if (!randomizeAnyMarkings && baseAppearance != null)
+        if (baseAppearance is null)
         {
-            markings = baseAppearance.Markings.ToDictionary(
-                entry => entry.Key,
-                entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()));
+            markings = RandomizeMarkings(species, sex, palette, protoMan, random);
         }
         else
         {
+            // Start from the current appearance, then apply only layers that are both globally
+            // enabled and individually unlocked in the randomization settings.
             var randomized = RandomizeMarkings(species, sex, palette, protoMan, random);
-            if (baseAppearance == null || (randomizeCfg & RandomizeCfg.Markings) != 0)
-            {
-                markings = randomized;
-            }
-            else
-            {
-                // Clone the existing selection, then replace only the requested visual layers.
-                markings = baseAppearance.Markings.ToDictionary(
-                    entry => entry.Key,
-                    entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()));
+            markings = baseAppearance.Markings.ToDictionary(
+                entry => entry.Key,
+                entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()));
 
-                foreach (var organ in markings.Keys.Union(randomized.Keys).ToList())
+            foreach (var organ in markings.Keys.Union(randomized.Keys).ToList())
+            {
+                var currentLayers = markings.GetValueOrDefault(organ) ?? new();
+                var randomLayers = randomized.GetValueOrDefault(organ);
+                foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
                 {
-                    var currentLayers = markings.GetValueOrDefault(organ) ?? new();
-                    var randomLayers = randomized.GetValueOrDefault(organ);
-                    foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
+                    var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg);
+                    var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg);
+                    if (!randomizeStyle && !randomizeColor)
+                        continue;
+
+                    if (randomizeStyle)
                     {
-                        var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg);
-                        var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg);
-                        if (!randomizeStyle && !randomizeColor)
-                            continue;
-
-                        if (randomizeStyle)
+                        if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
                         {
-                            if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
-                            {
-                                var selectedMarkings = selected.ToList();
-                                if (!randomizeColor)
-                                    selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer));
+                            var selectedMarkings = selected.ToList();
+                            if (!randomizeColor)
+                                selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer));
 
-                                currentLayers[layer] = selectedMarkings;
-                            }
-                            else
-                            {
-                                currentLayers.Remove(layer);
-                            }
+                            currentLayers[layer] = selectedMarkings;
                         }
-                        else if (currentLayers.TryGetValue(layer, out var existingMarkings))
+                        else
                         {
-                            currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random);
+                            currentLayers.Remove(layer);
                         }
                     }
-
-                    if (currentLayers.Count > 0)
-                        markings[organ] = currentLayers;
-                    else
-                        markings.Remove(organ);
+                    else if (currentLayers.TryGetValue(layer, out var existingMarkings))
+                    {
+                        currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random);
+                    }
                 }
+
+                if (currentLayers.Count > 0)
+                    markings[organ] = currentLayers;
+                else
+                    markings.Remove(organ);
             }
         }
 
@@ -236,6 +227,9 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
     private static bool ShouldRandomizeLayerColor(HumanoidVisualLayers layer, RandomizeCfg config)
     {
+        if ((config & RandomizeCfg.Markings) == 0)
+            return false;
+
         return layer switch
         {
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.HairColor) != 0,
