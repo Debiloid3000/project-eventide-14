@@ -31,7 +31,7 @@ public sealed class UmaDietSystem : EntitySystem
     private static readonly HashSet<string> ToxicFlavors = new(StringComparer.OrdinalIgnoreCase)
     {
         "chocolate", "cabbage", "potatoes", "tomato", "eggplant",
-        "avocado", "onion", "peas", "beans", "bean",
+        "avocado", "onion", "garlic", "peas", "beans", "bean",
         "bread", "dough", "sweetdough", "cake", "cookie"
     };
 
