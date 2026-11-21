@@ -59,6 +59,7 @@
     specialDigestible:
       tags:
       - Ruminant
+    isSpecialDigestibleExclusive: false
 
 - type: entity
   parent: OrganHumanHead
