@@ -3,6 +3,8 @@ using Content.Shared._Eventide;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Chemistry;
+using Content.Shared.Nutrition;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
@@ -19,6 +21,8 @@ public sealed class UmaDietSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private TagSystem _tags = default!;
+
+    private static readonly ProtoId<TagPrototype> MeatTag = "Meat";
 
     private static readonly HashSet<string> ToxicFlavors = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -50,7 +54,7 @@ public sealed class UmaDietSystem : EntitySystem
 
     private bool IsUnsafeFood(EntityUid food, Solution split)
     {
-        if (_tags.HasTag(food, "Meat"))
+        if (_tags.HasTag(food, MeatTag))
             return true;
 
         if (TryComp<FlavorProfileComponent>(food, out var flavor) &&

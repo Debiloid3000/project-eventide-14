@@ -208,14 +208,21 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         if ((config & RandomizeCfg.Markings) != 0)
             return true;
 
-        return layer switch
-        {
-            HumanoidVisualLayers.Hair => (config & RandomizeCfg.Hair) != 0,
-            HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHair) != 0,
-            HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTop) != 0,
-            HumanoidVisualLayers.Tail => (config & RandomizeCfg.Tail) != 0,
-            _ => (config & RandomizeCfg.BodyMarkings) != 0,
-        };
+        if ((config & RandomizeCfg.BodyMarkings) == 0)
+            return false;
+
+        return layer is HumanoidVisualLayers.Chest
+            or HumanoidVisualLayers.Head
+            or HumanoidVisualLayers.Snout
+            or HumanoidVisualLayers.SnoutCover
+            or HumanoidVisualLayers.LArm
+            or HumanoidVisualLayers.RArm
+            or HumanoidVisualLayers.LHand
+            or HumanoidVisualLayers.RHand
+            or HumanoidVisualLayers.LLeg
+            or HumanoidVisualLayers.RLeg
+            or HumanoidVisualLayers.LFoot
+            or HumanoidVisualLayers.RFoot;
     }
 
     public static Color ClampColor(Color color)

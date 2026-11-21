@@ -316,6 +316,7 @@ public sealed partial class MarkingsViewModel
         if (layerMarkings.Count < limits.Limit)
         {
             layerMarkings.Add(newMarking);
+            _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
             MarkingsChanged?.Invoke(organ, layer);
             return true;
         }
