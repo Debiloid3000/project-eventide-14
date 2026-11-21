@@ -174,20 +174,29 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                     var randomLayers = randomized.GetValueOrDefault(organ);
                     foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
                     {
-                        if (!ShouldRandomizeLayer(layer, randomizeCfg))
+                        var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg);
+                        var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg);
+                        if (!randomizeStyle && !randomizeColor)
                             continue;
 
-                        if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
+                        if (randomizeStyle)
                         {
-                            var selectedMarkings = selected.ToList();
-                            if (!ShouldRandomizeLayerColor(layer, randomizeCfg))
-                                selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer));
+                            if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
+                            {
+                                var selectedMarkings = selected.ToList();
+                                if (!randomizeColor)
+                                    selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer));
 
-                            currentLayers[layer] = selectedMarkings;
+                                currentLayers[layer] = selectedMarkings;
+                            }
+                            else
+                            {
+                                currentLayers.Remove(layer);
+                            }
                         }
-                        else
+                        else if (currentLayers.TryGetValue(layer, out var existingMarkings))
                         {
-                            currentLayers.Remove(layer);
+                            currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), palette, protoMan);
                         }
                     }
 
@@ -268,6 +277,29 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         }
 
         return randomized;
+    }
+
+    private static List<Marking> RandomizeLayerColors(List<Marking> markings, CharacterPalette palette, IPrototypeManager protoMan)
+    {
+        for (var markingIndex = 0; markingIndex < markings.Count; markingIndex++)
+        {
+            var marking = markings[markingIndex];
+            if (!protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype))
+                continue;
+
+            var colors = MarkingColoring.GetMarkingLayerColors(
+                prototype,
+                palette.SkinColor,
+                palette.EyeColor,
+                markings);
+
+            for (var colorIndex = 0; colorIndex < Math.Min(colors.Count, marking.MarkingColors.Count); colorIndex++)
+                marking = marking.WithColorAt(colorIndex, colors[colorIndex]);
+
+            markings[markingIndex] = marking;
+        }
+
+        return markings;
     }
 
     public static Color ClampColor(Color color)
