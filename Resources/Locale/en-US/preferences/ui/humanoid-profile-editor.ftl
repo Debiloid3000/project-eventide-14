@@ -77,3 +77,21 @@ humanoid-profile-editor-voice-masculine = Masculine
 humanoid-profile-editor-voice-feminine = Feminine
 humanoid-profile-editor-voice-neutral = Neutral
 humanoid-profile-editor-voice-none = Unnamed Voice
+
+# Randomization settings
+humanoid-profile-editor-randomize-name-now-tooltip = Randomize the character's name
+humanoid-profile-editor-randomizer-settings-tooltip = Randomization settings
+humanoid-profile-editor-randomizer-name-settings = Name
+humanoid-profile-editor-randomizer-appearance-settings = Appearance
+humanoid-profile-editor-randomize-first-name = First name
+humanoid-profile-editor-randomize-last-name = Last name
+humanoid-profile-editor-randomize-hair = Hairstyle
+humanoid-profile-editor-randomize-hair-color = Hair color
+humanoid-profile-editor-randomize-facial-hair = Facial hair
+humanoid-profile-editor-randomize-facial-hair-color = Facial hair color
+humanoid-profile-editor-randomize-head-top = Ears and head-top
+humanoid-profile-editor-randomize-head-top-color = Ears and head-top color
+humanoid-profile-editor-randomize-tail = Tail and additional parts
+humanoid-profile-editor-randomize-tail-color = Tail and additional parts color
+humanoid-profile-editor-randomize-body-markings = Body markings and wings
+humanoid-profile-editor-randomize-body-markings-color = Body markings and wings color

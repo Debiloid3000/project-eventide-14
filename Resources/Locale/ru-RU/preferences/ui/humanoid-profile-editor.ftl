@@ -77,3 +77,21 @@ humanoid-profile-editor-voice-masculine = Мужественный
 humanoid-profile-editor-voice-feminine = Женственный
 humanoid-profile-editor-voice-neutral = Нейтральный
 humanoid-profile-editor-voice-none = Безымянный голос
+
+# Randomization settings
+humanoid-profile-editor-randomize-name-now-tooltip = Случайно изменить имя
+humanoid-profile-editor-randomizer-settings-tooltip = Настройки рандомизации
+humanoid-profile-editor-randomizer-name-settings = Имя
+humanoid-profile-editor-randomizer-appearance-settings = Внешность
+humanoid-profile-editor-randomize-first-name = Имя
+humanoid-profile-editor-randomize-last-name = Фамилия
+humanoid-profile-editor-randomize-hair = Причёска
+humanoid-profile-editor-randomize-hair-color = Цвет причёски
+humanoid-profile-editor-randomize-facial-hair = Растительность на лице
+humanoid-profile-editor-randomize-facial-hair-color = Цвет растительности
+humanoid-profile-editor-randomize-head-top = Уши и верх головы
+humanoid-profile-editor-randomize-head-top-color = Цвет ушей и верха головы
+humanoid-profile-editor-randomize-tail = Хвост и дополнительные части
+humanoid-profile-editor-randomize-tail-color = Цвет хвоста и дополнительных частей
+humanoid-profile-editor-randomize-body-markings = Метки тела и крылья
+humanoid-profile-editor-randomize-body-markings-color = Цвет меток тела и крыльев

@@ -15,7 +15,15 @@
                         <BoxContainer Orientation="Vertical">
                             <BoxContainer Orientation="Horizontal" VerticalExpand="True">
                                 <Label Text="{Loc 'humanoid-profile-editor-name-label'}" />
-                                <LineEdit Name="NameEdit" MinSize="270 0" VerticalAlignment="Center" Margin="5 0 0 0" />
+                                <LineEdit Name="NameEdit" MinSize="245 0" VerticalAlignment="Center" Margin="5 0 0 0" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                                <ui:RandomizeLockButton Name="RandomizeNameLockButton" For="Name"
+                                    LabelText="{Loc 'humanoid-profile-editor-randomize-name-button'}" />
+                                <Button Name="RandomizeNameButton" Text="↻"
+                                    ToolTip="{Loc 'humanoid-profile-editor-randomize-name-now-tooltip'}" />
+                                <Button Name="NameRandomizeSettingsButton" Text="⚙"
+                                    ToolTip="{Loc 'humanoid-profile-editor-randomizer-settings-tooltip'}" />
                             </BoxContainer>
                             <RichTextLabel Name="WarningLabel" HorizontalExpand="False"
                                             VerticalExpand="True" MaxWidth="425"
@@ -30,7 +38,6 @@
                             <Label Text="{Loc 'humanoid-profile-editor-randomize'}" HorizontalAlignment="Center"/>
                             <controls:Separator StyleClasses="LowDivider" Margin="0 10"/>
                             <GridContainer Columns="2" MinWidth="250" HorizontalExpand="True">
-                                <ui:RandomizeLockButton For="Name" LabelText="{Loc 'humanoid-profile-editor-randomize-name-button'}"/>
                                 <ui:RandomizeLockButton For="Species" LabelText="{Loc 'humanoid-profile-editor-randomize-species-button'}"/>
                                 <ui:RandomizeLockButton For="Age" LabelText="{Loc 'humanoid-profile-editor-randomize-age-button'}"/>
                                 <ui:RandomizeLockButton For="Sex" LabelText="{Loc 'humanoid-profile-editor-randomize-sex-button'}"/>
@@ -38,10 +45,46 @@
                                 <ui:RandomizeLockButton For="Eyes" LabelText="{Loc 'humanoid-profile-editor-randomize-eye-button'}"/>
                                 <ui:RandomizeLockButton For="Markings" LabelText="{Loc 'humanoid-profile-editor-randomize-markings-button'}"/>
                             </GridContainer>
-                            <Button
-                                Name="RandomizeUnlockedButton"
-                                MaxWidth="256"
-                                Text="{Loc 'humanoid-profile-editor-randomize-unlocked-button'}"/>
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                                <Button Name="RandomizeUnlockedButton" HorizontalExpand="True"
+                                    Text="{Loc 'humanoid-profile-editor-randomize-unlocked-button'}"/>
+                                <Button Name="RandomizeSettingsButton" Text="⚙"
+                                    ToolTip="{Loc 'humanoid-profile-editor-randomizer-settings-tooltip'}"/>
+                            </BoxContainer>
+                            <BoxContainer Name="RandomizationSettingsPanel" Orientation="Vertical"
+                                Visible="False" Margin="0 6 0 0">
+                                <Label Text="{Loc 'humanoid-profile-editor-randomizer-name-settings'}" />
+                                <GridContainer Columns="2" HorizontalExpand="True">
+                                    <ui:RandomizeLockButton Name="RandomizeFirstNameLock" For="FirstName"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-first-name'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeLastNameLock" For="LastName"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-last-name'}"/>
+                                </GridContainer>
+                                <controls:Separator StyleClasses="LowDivider" Margin="0 6"/>
+                                <Label Text="{Loc 'humanoid-profile-editor-randomizer-appearance-settings'}" />
+                                <GridContainer Columns="2" HorizontalExpand="True">
+                                    <ui:RandomizeLockButton Name="RandomizeHairStyleLock" For="Hair"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-hair'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeHairColorLock" For="HairColor"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-hair-color'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeFacialHairStyleLock" For="FacialHair"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-facial-hair'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeFacialHairColorLock" For="FacialHairColor"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-facial-hair-color'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeHeadTopStyleLock" For="HeadTop"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-head-top'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeHeadTopColorLock" For="HeadTopColor"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-head-top-color'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeTailStyleLock" For="Tail"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-tail'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeTailColorLock" For="TailColor"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-tail-color'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeBodyMarkingsStyleLock" For="BodyMarkings"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-body-markings'}"/>
+                                    <ui:RandomizeLockButton Name="RandomizeBodyMarkingsColorLock" For="BodyMarkingsColor"
+                                        LabelText="{Loc 'humanoid-profile-editor-randomize-body-markings-color'}"/>
+                                </GridContainer>
+                            </BoxContainer>
                         </BoxContainer>
                     </ui:HighlightedContainer>
                 </BoxContainer>

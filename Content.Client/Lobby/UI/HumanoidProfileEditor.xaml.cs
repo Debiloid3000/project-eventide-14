@@ -107,6 +107,7 @@ namespace Content.Client.Lobby.UI
             _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
 
             Markings.SetModel(_markingsModel);
+            _markingsModel.OrganDataChanged += UpdateRandomizerOptions;
 
             ImportButton.OnPressed += args =>
             {
@@ -145,6 +146,9 @@ namespace Content.Client.Lobby.UI
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
             NameEdit.IsValid = args => args.Length <= _maxNameLength;
             RandomizeUnlockedButton.OnPressed += args => { RandomizeProfile(); };
+            RandomizeNameButton.OnPressed += _ => RandomizeNameOnly();
+            NameRandomizeSettingsButton.OnPressed += _ => ToggleRandomizationSettings();
+            RandomizeSettingsButton.OnPressed += _ => ToggleRandomizationSettings();
             WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
 
             #endregion Name

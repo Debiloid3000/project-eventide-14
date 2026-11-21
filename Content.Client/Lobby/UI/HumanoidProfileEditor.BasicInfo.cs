@@ -21,6 +21,26 @@ public sealed partial class HumanoidProfileEditor
         NameEdit.Text = Profile?.Name ?? "";
     }
 
+    private void RandomizeNameOnly()
+    {
+        if (Profile is null)
+            return;
+
+        var config = RandomizeLockButton.RandomizeCfg;
+        var randomizeFirstName = (config & HumanoidCharacterProfile.RandomizeCfg.FirstName) != 0;
+        var randomizeLastName = (config & HumanoidCharacterProfile.RandomizeCfg.LastName) != 0;
+
+        Profile = Profile.RandomizeName(randomizeFirstName, randomizeLastName);
+        UpdateNameEdit();
+        ReloadPreview();
+        SetDirty();
+    }
+
+    private void ToggleRandomizationSettings()
+    {
+        RandomizationSettingsPanel.Visible = !RandomizationSettingsPanel.Visible;
+    }
+
     /// <summary>
     /// Randomize values selectively while respecting locked values.
     /// </summary>
