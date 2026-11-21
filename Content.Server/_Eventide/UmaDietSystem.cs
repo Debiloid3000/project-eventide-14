@@ -9,6 +9,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Eventide;
 

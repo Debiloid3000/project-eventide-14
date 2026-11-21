@@ -473,7 +473,7 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile RandomizeName(bool firstName = true, bool lastName = true)
         {
             if (!firstName && !lastName)
-                return Clone();
+                return new HumanoidCharacterProfile(this);
 
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var species = prototypeManager.Index(Species);

@@ -196,7 +196,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                         }
                         else if (currentLayers.TryGetValue(layer, out var existingMarkings))
                         {
-                            currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), palette, protoMan);
+                            currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random);
                         }
                     }
 
@@ -279,7 +279,12 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         return randomized;
     }
 
-    private static List<Marking> RandomizeLayerColors(List<Marking> markings, CharacterPalette palette, IPrototypeManager protoMan)
+    private static List<Marking> RandomizeLayerColors(
+        List<Marking> markings,
+        HumanoidVisualLayers layer,
+        CharacterPalette palette,
+        IPrototypeManager protoMan,
+        IRobustRandom random)
     {
         for (var markingIndex = 0; markingIndex < markings.Count; markingIndex++)
         {
@@ -287,14 +292,27 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
             if (!protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype))
                 continue;
 
-            var colors = MarkingColoring.GetMarkingLayerColors(
-                prototype,
-                palette.SkinColor,
-                palette.EyeColor,
-                markings);
+            // Hair and facial hair use the dedicated hair-color palette in the regular randomizer.
+            if (layer is HumanoidVisualLayers.Hair or HumanoidVisualLayers.FacialHair)
+            {
+                markings[markingIndex] = marking.WithColor(palette.HairColor);
+                continue;
+            }
 
-            for (var colorIndex = 0; colorIndex < Math.Min(colors.Count, marking.MarkingColors.Count); colorIndex++)
-                marking = marking.WithColorAt(colorIndex, colors[colorIndex]);
+            for (var colorIndex = 0; colorIndex < Math.Min(prototype.Sprites.Count, marking.MarkingColors.Count); colorIndex++)
+            {
+                var layerName = prototype.Sprites[colorIndex].GetLayerStateId();
+                var coloringType = (prototype.Coloring.Layers is not { } layers ||
+                                    !layers.TryGetValue(layerName, out var layerColoring))
+                    ? prototype.Coloring.Default
+                    : layerColoring;
+
+                var color = coloringType.Type is not null
+                    ? coloringType.GetColor(palette.SkinColor, palette.EyeColor, markings)
+                    : random.Pick(new List<Color> { palette.HairColor, palette.EyeColor });
+
+                marking = marking.WithColorAt(colorIndex, color);
+            }
 
             markings[markingIndex] = marking;
         }
