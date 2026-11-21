@@ -38,7 +38,7 @@
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
       Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
+      Stomach: OrganUmaStomach
       Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
@@ -50,6 +50,15 @@
   name: Urist Equus
   components:
   - type: UmaDiet
+
+- type: entity
+  parent: OrganHumanStomach
+  id: OrganUmaStomach
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Ruminant
 
 - type: entity
   parent: OrganHumanHead
