@@ -417,18 +417,18 @@ namespace Content.Shared.Preferences
                 var randomizeFirst = (randomizeCfg & RandomizeCfg.FirstName) != 0;
                 var randomizeLast = (randomizeCfg & RandomizeCfg.LastName) != 0;
 
-                // Older callers may only set Name. Preserve full-name randomization for those callers.
-                if (!randomizeFirst && !randomizeLast)
-                {
-                    profile.Name = RandomName(speciesProto, profile.Gender);
-                }
-                else
+                if (randomizeFirst || randomizeLast)
                 {
                     var generatedName = SplitName(RandomName(speciesProto, profile.Gender));
                     var existingName = SplitName(baseProfile.Name);
                     var first = randomizeFirst ? generatedName.First : existingName.First;
                     var last = randomizeLast ? generatedName.Last : existingName.Last;
                     profile.Name = string.Join(" ", new[] { first, last }.Where(part => !string.IsNullOrWhiteSpace(part)));
+                }
+                else
+                {
+                    // Both name parts are individually locked.
+                    profile.Name = baseProfile.Name;
                 }
             }
             else

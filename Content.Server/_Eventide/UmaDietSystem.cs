@@ -25,6 +25,8 @@ public sealed class UmaDietSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> MeatTag = "Meat";
     private static readonly ProtoId<TagPrototype> CheeseTag = "Cheese";
+    private static readonly ProtoId<TagPrototype> BreadTag = "Bread";
+    private static readonly ProtoId<TagPrototype> CakeTag = "Cake";
 
     private static readonly HashSet<string> ToxicFlavors = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -57,7 +59,10 @@ public sealed class UmaDietSystem : EntitySystem
 
     private bool IsUnsafeFood(EntityUid food, Solution split)
     {
-        if (_tags.HasTag(food, MeatTag) || _tags.HasTag(food, CheeseTag))
+        if (_tags.HasTag(food, MeatTag) ||
+            _tags.HasTag(food, CheeseTag) ||
+            _tags.HasTag(food, BreadTag) ||
+            _tags.HasTag(food, CakeTag))
             return true;
 
         if (TryComp<FlavorProfileComponent>(food, out var flavor) &&

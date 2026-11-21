@@ -223,14 +223,6 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         if ((config & RandomizeCfg.Markings) == 0)
             return false;
 
-        const RandomizeCfg styleLayers =
-            RandomizeCfg.Hair | RandomizeCfg.FacialHair | RandomizeCfg.HeadTop |
-            RandomizeCfg.Tail | RandomizeCfg.BodyMarkings;
-
-        // Older callers only set Markings. Keep their legacy "randomize every marking" behavior.
-        if ((config & styleLayers) == 0)
-            return true;
-
         return layer switch
         {
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.Hair) != 0,
@@ -243,14 +235,6 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
     private static bool ShouldRandomizeLayerColor(HumanoidVisualLayers layer, RandomizeCfg config)
     {
-        const RandomizeCfg colorLayers =
-            RandomizeCfg.HairColor | RandomizeCfg.FacialHairColor | RandomizeCfg.HeadTopColor |
-            RandomizeCfg.TailColor | RandomizeCfg.BodyMarkingsColor;
-
-        // Older callers do not have independent color flags, so preserve their existing behavior.
-        if ((config & colorLayers) == 0)
-            return true;
-
         return layer switch
         {
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.HairColor) != 0,
