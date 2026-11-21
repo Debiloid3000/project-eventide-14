@@ -144,10 +144,54 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                 ? palette.EyeColor : baseAppearance.EyeColor
         };
 
-        var markings = ((charEditorRandomizeConfig & RandomizeCfg.Markings) != 0 || baseAppearance is null)
-            ? RandomizeMarkings(species, sex, palette, protoMan, random)
-            : baseAppearance.Markings;
-        // TODO if someone really cares they can probably regenerate the old markings with new colors but im too tired to figure that out
+        var randomizeCfg = charEditorRandomizeConfig ?? RandomizeConfigAll;
+        var randomizeAnyMarkings = (randomizeCfg & (RandomizeCfg.Markings |
+            RandomizeCfg.Hair | RandomizeCfg.FacialHair | RandomizeCfg.HeadTop |
+            RandomizeCfg.Tail | RandomizeCfg.BodyMarkings)) != 0;
+
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings;
+        if (!randomizeAnyMarkings && baseAppearance != null)
+        {
+            markings = baseAppearance.Markings.ToDictionary(
+                entry => entry.Key,
+                entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()));
+        }
+        else
+        {
+            var randomized = RandomizeMarkings(species, sex, palette, protoMan, random);
+            if (baseAppearance == null || (randomizeCfg & RandomizeCfg.Markings) != 0)
+            {
+                markings = randomized;
+            }
+            else
+            {
+                // Clone the existing selection, then replace only the requested visual layers.
+                markings = baseAppearance.Markings.ToDictionary(
+                    entry => entry.Key,
+                    entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()));
+
+                foreach (var organ in markings.Keys.Union(randomized.Keys).ToList())
+                {
+                    var currentLayers = markings.GetValueOrDefault(organ) ?? new();
+                    var randomLayers = randomized.GetValueOrDefault(organ);
+                    foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
+                    {
+                        if (!ShouldRandomizeLayer(layer, randomizeCfg))
+                            continue;
+
+                        if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
+                            currentLayers[layer] = selected.ToList();
+                        else
+                            currentLayers.Remove(layer);
+                    }
+
+                    if (currentLayers.Count > 0)
+                        markings[organ] = currentLayers;
+                    else
+                        markings.Remove(organ);
+                }
+            }
+        }
 
         HumanoidCharacterAppearance appearance = new(
             palette.EyeColor,
@@ -157,6 +201,21 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         // Safety step. Most systems which called Random() also called this, and not doing so caused issues with markings.
         // In the future it could *maybe* be removed, but it's probably worth the extra CPU cycles to validate this info.
         return EnsureValid(appearance, species, sex, []); // Corvax-Sponsors
+    }
+
+    private static bool ShouldRandomizeLayer(HumanoidVisualLayers layer, RandomizeCfg config)
+    {
+        if ((config & RandomizeCfg.Markings) != 0)
+            return true;
+
+        return layer switch
+        {
+            HumanoidVisualLayers.Hair => (config & RandomizeCfg.Hair) != 0,
+            HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHair) != 0,
+            HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTop) != 0,
+            HumanoidVisualLayers.Tail => (config & RandomizeCfg.Tail) != 0,
+            _ => (config & RandomizeCfg.BodyMarkings) != 0,
+        };
     }
 
     public static Color ClampColor(Color color)

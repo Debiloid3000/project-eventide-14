@@ -172,6 +172,8 @@ public sealed partial class MarkingsViewModel
 
             _organData = value;
             _previousColors.Clear();
+            // Keep per-layer colors while species/organ data changes. Re-selecting a different
+            // hair style, ear shape, tail or wing should not silently replace the chosen palette.
             OrganDataChanged?.Invoke();
         }
     }
@@ -182,6 +184,7 @@ public sealed partial class MarkingsViewModel
     public event Action? OrganDataChanged;
 
     private readonly Dictionary<ProtoId<MarkingPrototype>, List<Color>> _previousColors = new();
+    private readonly Dictionary<(ProtoId<OrganCategoryPrototype> Organ, HumanoidVisualLayers Layer), List<Color>> _previousLayerColors = new();
 
     public MarkingsViewModel()
     {
@@ -276,14 +279,27 @@ public sealed partial class MarkingsViewModel
         organMarkings[layer] = organMarkings.GetValueOrDefault(layer) ?? [];
         var layerMarkings = organMarkings[layer];
 
-        var colors = _previousColors.GetValueOrDefault(markingId) ??
-                     MarkingColoring.GetMarkingLayerColors(markingProto, profileData.SkinColor, profileData.EyeColor, layerMarkings);
+        // When replacing a marking on the same layer, carry over the color selection from the
+        // current marking. This keeps hair, ears, tails and wings consistent when their style changes.
+        if (layerMarkings.FirstOrDefault() is { } currentMarking)
+            _previousLayerColors[(organ, layer)] = currentMarking.MarkingColors.ToList();
+
+        var colors = MarkingColoring.GetMarkingLayerColors(markingProto, profileData.SkinColor, profileData.EyeColor, layerMarkings);
+        var rememberedColors = _previousLayerColors.GetValueOrDefault((organ, layer))
+                               ?? _previousColors.GetValueOrDefault(markingId);
+        if (rememberedColors != null)
+        {
+            for (var i = 0; i < Math.Min(colors.Count, rememberedColors.Count); i++)
+                colors[i] = rememberedColors[i];
+        }
+
         var newMarking = new Marking(markingId, colors) { Forced = AnyEnforcementsLifted };
 
         var limits = groupPrototype.Limits.GetValueOrDefault(layer);
         if (limits is null || !EnforceLimits)
         {
             layerMarkings.Add(newMarking);
+            _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
             MarkingsChanged?.Invoke(organ, layer);
             return true;
         }
@@ -292,6 +308,7 @@ public sealed partial class MarkingsViewModel
         {
             layerMarkings.Clear();
             layerMarkings.Add(newMarking);
+            _previousLayerColors[(organ, layer)] = newMarking.MarkingColors.ToList();
             MarkingsChanged?.Invoke(organ, layer);
             return true;
         }
@@ -355,6 +372,7 @@ public sealed partial class MarkingsViewModel
         if (layerMarkings.Find(marking => marking.MarkingId == markingId) is { } removingMarking)
         {
             _previousColors[removingMarking.MarkingId] = removingMarking.MarkingColors.ToList();
+            _previousLayerColors[(organ, layer)] = removingMarking.MarkingColors.ToList();
         }
         layerMarkings.RemoveAll(marking => marking.MarkingId == markingId);
         MarkingsChanged?.Invoke(organ, layer);
@@ -390,6 +408,8 @@ public sealed partial class MarkingsViewModel
             newColor = markingProto.Strategy.ClosestSkinColor(color);
 
         markings[markingIdx] = markings[markingIdx].WithColorAt(colorIndex, newColor);
+        _previousColors[markingId] = markings[markingIdx].MarkingColors.ToList();
+        _previousLayerColors[(organ, layer)] = markings[markingIdx].MarkingColors.ToList();
         MarkingsChanged?.Invoke(organ, layer);
     }
 

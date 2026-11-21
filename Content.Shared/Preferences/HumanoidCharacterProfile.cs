@@ -248,6 +248,13 @@ namespace Content.Shared.Preferences
             Eyes = 1 << 5,
             Skin = 1 << 6,
             Markings = 1 << 7,
+            Hair = 1 << 8,
+            FacialHair = 1 << 9,
+            HeadTop = 1 << 10,
+            Tail = 1 << 11,
+            BodyMarkings = 1 << 12,
+            FirstName = 1 << 13,
+            LastName = 1 << 14,
         }
 
         /// <summary>
@@ -388,7 +395,22 @@ namespace Content.Shared.Preferences
             profile.Sex = (randomizeCfg & RandomizeCfg.Sex) != 0 ? RandomSex(speciesProto) : baseProfile.Sex;
             profile.Voice = speciesProto.DefaultSoundsBySex[(int)profile.Sex];
             profile.Gender = (randomizeCfg & RandomizeCfg.Gender) != 0 ? RandomGender(profile.Sex) : baseProfile.Gender;
-            profile.Name = (randomizeCfg & RandomizeCfg.Name) != 0 ? RandomName(speciesProto, profile.Gender) : baseProfile.Name;
+            if ((randomizeCfg & RandomizeCfg.Name) != 0)
+            {
+                profile.Name = RandomName(speciesProto, profile.Gender);
+            }
+            else if ((randomizeCfg & (RandomizeCfg.FirstName | RandomizeCfg.LastName)) != 0)
+            {
+                var generatedName = SplitName(RandomName(speciesProto, profile.Gender));
+                var existingName = SplitName(baseProfile.Name);
+                var first = (randomizeCfg & RandomizeCfg.FirstName) != 0 ? generatedName.First : existingName.First;
+                var last = (randomizeCfg & RandomizeCfg.LastName) != 0 ? generatedName.Last : existingName.Last;
+                profile.Name = string.Join(" ", new[] { first, last }.Where(part => !string.IsNullOrWhiteSpace(part)));
+            }
+            else
+            {
+                profile.Name = baseProfile.Name;
+            }
             profile.Age = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomAge(speciesProto) : baseProfile.Age;
             profile.TTSVoice = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomTTS(profile.Voice) : baseProfile.TTSVoice; // Corvax-TTS
 
@@ -410,6 +432,28 @@ namespace Content.Shared.Preferences
                 RandomizeConfigAll ^ RandomizeCfg.Species,
                 new HumanoidCharacterProfile().WithSpecies(species)
             );
+        }
+
+        private static (string First, string Last) SplitName(string name)
+        {
+            var separator = name.IndexOf(' ');
+            return separator < 0
+                ? (name, string.Empty)
+                : (name[..separator], name[(separator + 1)..].Trim());
+        }
+
+        /// <summary>
+        /// Randomizes only the selected part(s) of the character's name. The full randomizer
+        /// continues to use RandomizeCfg.Name and therefore still generates both parts.
+        /// </summary>
+        public HumanoidCharacterProfile RandomizeName(bool firstName = true, bool lastName = true)
+        {
+            var config = RandomizeCfg.None;
+            if (firstName)
+                config |= RandomizeCfg.FirstName;
+            if (lastName)
+                config |= RandomizeCfg.LastName;
+            return config == RandomizeCfg.None ? Clone() : Random(config, this);
         }
 
         public HumanoidCharacterProfile WithName(string name)
