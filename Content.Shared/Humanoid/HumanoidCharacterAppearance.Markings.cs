@@ -147,7 +147,7 @@ public sealed partial class HumanoidCharacterAppearance
                     continue;
 
                 var matchSkin = groupProto.Appearances.TryGetValue(layer, out var appearance) && appearance.MatchSkin;
-                layerMarkings.Add(layer, PickLayerRandomMarkings(layer, layerLimits, allMarkings, palette, random, matchSkin));
+                layerMarkings.Add(layer, PickLayerRandomMarkings(layer, layerLimits, allMarkings, palette, protoMan, random, matchSkin));
             }
             markings.Add(organ, layerMarkings);
         }
@@ -166,6 +166,7 @@ public sealed partial class HumanoidCharacterAppearance
         MarkingsLimits? layerLimits,
         IReadOnlyDictionary<string, MarkingPrototype> allMarkings,
         CharacterPalette palette,
+        IPrototypeManager protoMan,
         IRobustRandom random,
         bool matchSkin)
     {
