@@ -77,7 +77,7 @@ public sealed partial class MarkingsViewModel
         // CategoryColoring can fall back to the species skin when its source marking
         // is unavailable. Recalculate it on selection so that fallback follows the
         // current skin color rather than an old cached value.
-        return coloring.Type is null or CategoryColoring &&
+        return (coloring.Type is null or CategoryColoring) &&
                coloring.FallbackTypes.Any(type => type is SkinColoring or TattooColoring);
     }
 
@@ -122,7 +122,8 @@ public sealed partial class MarkingsViewModel
 
         for (var i = 0; i < Math.Min(colors.Count, rememberedColors.Count); i++)
         {
-            if (rememberedColors[i] is not { } rememberedColor ||
+            var rememberedColor = rememberedColors[i];
+            if (rememberedColor is null ||
                 i < markingPrototype.Sprites.Count && markingPrototype.Sprites[i].ForcedColoring)
             {
                 continue;
@@ -133,7 +134,7 @@ public sealed partial class MarkingsViewModel
             if (_usesFullColorSkinInput && UsesSpeciesSkinColorByDefault(markingPrototype, i))
                 continue;
 
-            colors[i] = rememberedColor;
+            colors[i] = rememberedColor.Value;
         }
     }
 
