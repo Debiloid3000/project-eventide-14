@@ -51,22 +51,21 @@ public sealed partial class UmaDietSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<EdibleComponent, IngestedEvent>(OnFoodIngested);
+        SubscribeLocalEvent<UmaDietComponent, IngestingEvent>(OnFoodIngesting);
     }
 
-    private void OnFoodIngested(Entity<EdibleComponent> food, ref IngestedEvent args)
+    private void OnFoodIngesting(Entity<UmaDietComponent> eater, ref IngestingEvent args)
     {
-        if (!HasComp<UmaDietComponent>(args.Target) ||
-            !TryComp<SatiationComponent>(args.Target, out var satiation))
+        if (!TryComp<SatiationComponent>(eater.Owner, out var satiation))
             return;
 
-        var plantFood = IsPlantFood(food.Owner);
-        var heavyFood = IsHeavyFood(food.Owner, args.Split);
+        var plantFood = IsPlantFood(args.Food);
+        var heavyFood = IsHeavyFood(args.Food, args.Split);
 
         // Heavy ingredients take precedence in mixed dishes (for example, meat pies).
         if (heavyFood)
         {
-            _satiation.ModifyValue((args.Target, satiation), SatiationSystem.Hunger, -1.5f);
+            _satiation.ModifyValue((eater.Owner, satiation), SatiationSystem.Hunger, -1.5f);
             return;
         }
 
@@ -79,7 +78,7 @@ public sealed partial class UmaDietSystem : EntitySystem
         var recovery = new DamageSpecifier(
             ProtoMan.Index(BluntDamageType),
             FixedPoint2.New(-0.25));
-        _damageable.TryChangeDamage(args.Target, recovery, origin: food.Owner);
+        _damageable.TryChangeDamage(eater.Owner, recovery, origin: args.Food);
     }
 
     private bool IsPlantFood(EntityUid food)
