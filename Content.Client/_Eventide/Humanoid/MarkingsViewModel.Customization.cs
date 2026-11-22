@@ -39,19 +39,24 @@ public sealed partial class MarkingsViewModel
     /// New-style per-sprite coloring takes priority over the legacy per-state map,
     /// which in turn takes priority over the marking-wide default.
     /// </summary>
-    private static LayerColoringDefinition GetLayerColoring(MarkingPrototype markingPrototype, int colorIndex)
+    private static LayerColoringDefinition GetLayerColoring(
+        MarkingPrototype markingPrototype,
+        int colorIndex,
+        out bool hasExplicitColoring)
     {
         var sprite = markingPrototype.Sprites[colorIndex];
-        if (sprite.Coloring is { } spriteColoring)
-            return spriteColoring;
+        var coloring = sprite.Coloring;
+        hasExplicitColoring = coloring is not null;
 
-        if (markingPrototype.Coloring.Layers is { } layers &&
+        if (coloring is null &&
+            markingPrototype.Coloring.Layers is { } layers &&
             layers.TryGetValue(sprite.GetLayerStateId(), out var layerColoring))
         {
-            return layerColoring;
+            coloring = layerColoring;
+            hasExplicitColoring = true;
         }
 
-        return markingPrototype.Coloring.Default;
+        return coloring ?? markingPrototype.Coloring.Default;
     }
 
     /// <summary>
@@ -69,15 +74,19 @@ public sealed partial class MarkingsViewModel
             return false;
         }
 
-        var coloring = GetLayerColoring(markingPrototype, colorIndex);
+        var coloring = GetLayerColoring(markingPrototype, colorIndex, out var hasExplicitColoring);
 
-        if (coloring.Type is SkinColoring or TattooColoring)
+        // Skin and tattoo channels are directly tied to the current skin tone.
+        // CategoryColoring is also contextual: when its source marking is missing,
+        // its fallback must be recalculated instead of restoring an old cached value.
+        if (coloring.Type is SkinColoring or TattooColoring or CategoryColoring)
             return true;
 
-        // CategoryColoring can fall back to the species skin when its source marking
-        // is unavailable. Recalculate it on selection so that fallback follows the
-        // current skin color rather than an old cached value.
-        return (coloring.Type is null or CategoryColoring) &&
+        // LayerColoringDefinition has an implicit SkinColoring fallback by default.
+        // That implicit fallback is not a skin-linked definition: ordinary channels
+        // use the generated palette and must retain the player's custom color.
+        return coloring.Type is null &&
+               hasExplicitColoring &&
                coloring.FallbackTypes.Any(type => type is SkinColoring or TattooColoring);
     }
 
