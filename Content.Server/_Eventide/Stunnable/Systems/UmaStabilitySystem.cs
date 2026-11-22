@@ -6,7 +6,7 @@ namespace Content.Server.Stunnable;
 /// <summary>
 /// Gives Uma a modest chance to resist knockdown without granting knockdown immunity.
 /// </summary>
-public sealed class UmaStabilitySystem : EntitySystem
+public sealed partial class UmaStabilitySystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
 

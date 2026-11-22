@@ -17,7 +17,7 @@ namespace Content.Server.Nutrition.EntitySystems;
 /// Applies small nutrition modifiers when Uma consumes foods that suit or disagree with their
 /// plant-forward digestive system. Heavy food is less filling rather than directly poisonous.
 /// </summary>
-public sealed class UmaDietSystem : EntitySystem
+public sealed partial class UmaDietSystem : EntitySystem
 {
     [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private DamageableSystem _damageable = default!;
@@ -27,6 +27,7 @@ public sealed class UmaDietSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CheeseTag = "Cheese";
     private static readonly ProtoId<TagPrototype> CakeTag = "Cake";
     private static readonly ProtoId<TagPrototype> BreadTag = "Bread";
+    private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt";
 
     private static readonly HashSet<string> PlantFlavors = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -76,7 +77,7 @@ public sealed class UmaDietSystem : EntitySystem
 
         // A small recovery bonus rewards a suitable plant-based meal without making food a substitute for medicine.
         var recovery = new DamageSpecifier(
-            ProtoMan.Index<DamageTypePrototype>("Blunt"),
+            ProtoMan.Index(BluntDamageType),
             FixedPoint2.New(-0.25));
         _damageable.TryChangeDamage(args.Target, recovery, origin: food.Owner);
     }

@@ -7,7 +7,7 @@ namespace Content.Server.Movement.Systems;
 /// <summary>
 /// Handles Uma's short, cooldown-limited sprint burst.
 /// </summary>
-public sealed class UmaGallopSystem : EntitySystem
+public sealed partial class UmaGallopSystem : EntitySystem
 {
     [Dependency] private MovementModStatusSystem _movement = default!;
 
