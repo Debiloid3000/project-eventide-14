@@ -124,8 +124,12 @@ public sealed partial class HumanoidCharacterAppearance
 
             for (var colorIndex = 0; colorIndex < Math.Min(oldMarking.MarkingColors.Count, newMarking.MarkingColors.Count); colorIndex++)
             {
-                if (colorIndex >= prototype.Sprites.Count || prototype.Sprites[colorIndex].ForcedColoring)
+                if (colorIndex >= prototype.Sprites.Count ||
+                    prototype.Sprites[colorIndex].ForcedColoring ||
+                    UsesContextualMarkingColor(prototype, colorIndex))
+                {
                     continue;
+                }
 
                 newMarking = newMarking.WithColorAt(colorIndex, oldMarking.MarkingColors[colorIndex]);
             }
