@@ -36,9 +36,10 @@ public sealed partial class HumanoidProfileEditor
     private void RandomizeProfile()
     {
         var config = RandomizeLockButton.RandomizeCfg;
+        var markingConfig = GetMarkingRandomizationConfig();
         Profile = Profile == null
-            ? HumanoidCharacterProfile.Random(config, new HumanoidCharacterProfile())
-            : HumanoidCharacterProfile.Random(config, Profile);
+            ? HumanoidCharacterProfile.Random(config, new HumanoidCharacterProfile(), markingConfig)
+            : HumanoidCharacterProfile.Random(config, Profile, markingConfig);
 
         if (Profile == null)
             return;

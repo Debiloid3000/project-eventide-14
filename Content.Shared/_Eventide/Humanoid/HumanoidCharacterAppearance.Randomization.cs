@@ -20,7 +20,8 @@ public sealed partial class HumanoidCharacterAppearance
         IPrototypeManager protoMan,
         IRobustRandom random,
         RandomizeCfg? charEditorRandomizeConfig,
-        HumanoidCharacterAppearance? baseAppearance)
+        HumanoidCharacterAppearance? baseAppearance,
+        MarkingRandomizationConfig? markingRandomizationConfig)
     {
         var randomizeCfg = charEditorRandomizeConfig ?? RandomizeConfigAll;
         var markingData = IoCManager.Resolve<MarkingManager>().GetMarkingData(species);
@@ -40,8 +41,8 @@ public sealed partial class HumanoidCharacterAppearance
             var randomLayers = randomized.GetValueOrDefault(organ);
             foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
             {
-                var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg);
-                var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg);
+                var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg, markingRandomizationConfig);
+                var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg, markingRandomizationConfig);
                 if (!randomizeStyle && !randomizeColor)
                     continue;
 
@@ -80,10 +81,13 @@ public sealed partial class HumanoidCharacterAppearance
         return markings;
     }
 
-    private static bool ShouldRandomizeLayer(HumanoidVisualLayers layer, RandomizeCfg config)
+    private static bool ShouldRandomizeLayer(HumanoidVisualLayers layer, RandomizeCfg config, MarkingRandomizationConfig? perLayerConfig)
     {
         if ((config & RandomizeCfg.Markings) == 0)
             return false;
+
+        if (perLayerConfig != null)
+            return perLayerConfig.StyleLayers.Contains(layer);
 
         return layer switch
         {
@@ -95,10 +99,13 @@ public sealed partial class HumanoidCharacterAppearance
         };
     }
 
-    private static bool ShouldRandomizeLayerColor(HumanoidVisualLayers layer, RandomizeCfg config)
+    private static bool ShouldRandomizeLayerColor(HumanoidVisualLayers layer, RandomizeCfg config, MarkingRandomizationConfig? perLayerConfig)
     {
         if ((config & RandomizeCfg.Markings) == 0)
             return false;
+
+        if (perLayerConfig != null)
+            return perLayerConfig.ColorLayers.Contains(layer);
 
         return layer switch
         {

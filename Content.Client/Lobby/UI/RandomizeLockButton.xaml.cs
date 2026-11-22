@@ -1,3 +1,4 @@
+using System;
 using System.Numerics;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
@@ -31,6 +32,13 @@ public sealed partial class RandomizeLockButton : BoxContainer
     /// </summary>
     public static HumanoidCharacterProfile.RandomizeCfg RandomizeCfg = HumanoidCharacterProfile.RandomizeConfigAll;
 
+    public event Action<bool>? RandomizationEnabledChanged;
+
+    public void SetLocked(bool locked)
+    {
+        LockButton.Pressed = locked;
+    }
+
     public RandomizeLockButton()
     {
         RobustXamlLoader.Load(this);
@@ -40,6 +48,7 @@ public sealed partial class RandomizeLockButton : BoxContainer
 
     private void HandleToggle(bool toggle)
     {
+        RandomizationEnabledChanged?.Invoke(!toggle);
         if (For == default)
             return;
         if (toggle)

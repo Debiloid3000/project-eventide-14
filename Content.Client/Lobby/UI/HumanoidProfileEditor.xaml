@@ -67,28 +67,7 @@
                                 </GridContainer>
                                 <controls:Separator StyleClasses="LowDivider" Margin="0 6"/>
                                 <Label Text="{Loc 'humanoid-profile-editor-randomizer-appearance-settings'}" />
-                                <GridContainer Columns="2" HorizontalExpand="True">
-                                    <ui:RandomizeLockButton Name="RandomizeHairStyleLock" For="Hair"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-hair'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeHairColorLock" For="HairColor"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-hair-color'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeFacialHairStyleLock" For="FacialHair"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-facial-hair'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeFacialHairColorLock" For="FacialHairColor"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-facial-hair-color'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeHeadTopStyleLock" For="HeadTop"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-head-top'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeHeadTopColorLock" For="HeadTopColor"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-head-top-color'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeTailStyleLock" For="Tail"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-tail'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeTailColorLock" For="TailColor"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-tail-color'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeBodyMarkingsStyleLock" For="BodyMarkings"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-body-markings'}"/>
-                                    <ui:RandomizeLockButton Name="RandomizeBodyMarkingsColorLock" For="BodyMarkingsColor"
-                                        LabelText="{Loc 'humanoid-profile-editor-randomize-body-markings-color'}"/>
-                                </GridContainer>
+                                <GridContainer Name="RandomizeMarkingLayersContainer" Columns="2" HorizontalExpand="True" />
                                 <CheckBox Name="ConsiderClothingCheckBox"
                                           Text="{Loc 'humanoid-profile-editor-randomizer-consider-clothing'}"/>
                                 <Label Text="{Loc 'humanoid-profile-editor-randomizer-clothing-style'}"/>

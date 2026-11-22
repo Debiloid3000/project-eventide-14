@@ -88,7 +88,7 @@ public sealed partial class HumanoidCharacterProfile
         /// <param name="randomizeCfg">Which values to randomize.</param>
         /// <param name="baseProfile">Profile to base the new profile on. Values that are not randomized will be taken from this profile.</param>
         /// <returns>A new character profile with selected values randomized</returns>
-        public static HumanoidCharacterProfile Random(RandomizeCfg randomizeCfg, HumanoidCharacterProfile baseProfile)
+        public static HumanoidCharacterProfile Random(RandomizeCfg randomizeCfg, HumanoidCharacterProfile baseProfile, MarkingRandomizationConfig? markingRandomizationConfig = null)
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
 
@@ -138,7 +138,7 @@ public sealed partial class HumanoidCharacterProfile
             profile.Age = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomAge(speciesProto) : baseProfile.Age;
             profile.TTSVoice = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomTTS(profile.Voice) : baseProfile.TTSVoice; // Corvax-TTS
 
-            profile.Appearance = HumanoidCharacterAppearance.Random(speciesProto, profile.Sex, randomizeCfg, baseProfile.Appearance);
+            profile.Appearance = HumanoidCharacterAppearance.Random(speciesProto, profile.Sex, randomizeCfg, baseProfile.Appearance, markingRandomizationConfig);
 
             return profile;
         }

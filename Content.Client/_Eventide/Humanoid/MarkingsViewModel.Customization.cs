@@ -23,19 +23,6 @@ public sealed partial class MarkingsViewModel
     }
 
     /// <summary>
-    /// Hair, facial hair, head-top accessories and tails use a shared palette when
-    /// changing the selected style. Other layers remember colors per marking instead.
-    /// </summary>
-    private static bool UsesSharedLayerPalette(HumanoidVisualLayers layer)
-    {
-        return layer is HumanoidVisualLayers.Hair
-            or HumanoidVisualLayers.FacialHair
-            or HumanoidVisualLayers.HeadTop
-            or HumanoidVisualLayers.Tail
-            or HumanoidVisualLayers.TailOverlay;
-    }
-
-    /// <summary>
     /// Returns the coloring definition actually used by one sprite channel.
     /// New-style per-sprite coloring takes priority over the legacy per-state map,
     /// which in turn takes priority over the marking-wide default.
@@ -173,9 +160,7 @@ public sealed partial class MarkingsViewModel
         var layerMarkings = organMarkings[layer];
 
         var limits = groupPrototype.Limits.GetValueOrDefault(layer);
-        var usesLayerPalette = EnforceLimits &&
-                               limits is { Limit: 1 } &&
-                               UsesSharedLayerPalette(layer);
+        var usesLayerPalette = EnforceLimits && limits is { Limit: 1 };
         var layerKey = (organ, layer);
         var markingKey = (organ, layer, markingId);
 
@@ -253,9 +238,7 @@ public sealed partial class MarkingsViewModel
             return false;
 
         var limits = groupPrototype.Limits.GetValueOrDefault(layer);
-        var usesLayerPalette = EnforceLimits &&
-                               limits is { Limit: 1 } &&
-                               UsesSharedLayerPalette(layer);
+        var usesLayerPalette = EnforceLimits && limits is { Limit: 1 };
 
         _markings[organ] = _markings.GetValueOrDefault(organ) ?? [];
         var organMarkings = _markings[organ];
@@ -319,8 +302,7 @@ public sealed partial class MarkingsViewModel
         var usesLayerPalette = EnforceLimits &&
                                _organData.TryGetValue(organ, out var organData) &&
                                _prototype.TryIndex(organData.Group, out var groupPrototype) &&
-                               groupPrototype.Limits.GetValueOrDefault(layer) is { Limit: 1 } &&
-                               UsesSharedLayerPalette(layer);
+                               groupPrototype.Limits.GetValueOrDefault(layer) is { Limit: 1 };
 
         if (usesLayerPalette)
             _previousLayerColors[(organ, layer)] = GetRememberableColors(markings[markingIdx]);
