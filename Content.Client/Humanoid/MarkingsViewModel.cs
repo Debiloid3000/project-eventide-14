@@ -234,10 +234,10 @@ public sealed partial class MarkingsViewModel
         if (!_prototype.TryIndex(organData.Group, out var groupProto))
             return false;
 
-        if (!groupProto.Appearances.TryGetValue(layer, out var appearance))
-            return true;
+        if (groupProto.Appearances.TryGetValue(layer, out var appearance) && appearance.MatchSkin)
+            return false;
 
-        return !appearance.MatchSkin && markingProto.Sprites.Any(sprite => !sprite.ForcedColoring);
+        return markingProto.Sprites.Any(sprite => !sprite.ForcedColoring);
     }
 
     /// <summary>

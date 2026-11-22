@@ -143,10 +143,11 @@ public sealed partial class HumanoidCharacterAppearance
                     continue;
 
                 var layerLimits = groupProto.Limits.GetValueOrDefault(layer);
-                if (layerLimits is null || layerLimits.Limit <= 0)
+                if (layerLimits is { Limit: <= 0 })
                     continue;
 
-                layerMarkings.Add(layer, PickLayerRandomMarkings(layer, layerLimits, allMarkings, palette, random));
+                var matchSkin = groupProto.Appearances.TryGetValue(layer, out var appearance) && appearance.MatchSkin;
+                layerMarkings.Add(layer, PickLayerRandomMarkings(layer, layerLimits, allMarkings, palette, random, matchSkin));
             }
             markings.Add(organ, layerMarkings);
         }
@@ -160,9 +161,18 @@ public sealed partial class HumanoidCharacterAppearance
     /// <param name="allMarkings">A list of all markings for the layer.</param>
     /// <param name="palette">A list of colors to choose from for the markings.</param>
     /// <returns>A list of markings for the desired layer.</returns>
-    private static List<Marking> PickLayerRandomMarkings(HumanoidVisualLayers layer, MarkingsLimits? layerLimits, IReadOnlyDictionary<string, MarkingPrototype> allMarkings, CharacterPalette palette, IRobustRandom random)
+    private static List<Marking> PickLayerRandomMarkings(
+        HumanoidVisualLayers layer,
+        MarkingsLimits? layerLimits,
+        IReadOnlyDictionary<string, MarkingPrototype> allMarkings,
+        CharacterPalette palette,
+        IRobustRandom random,
+        bool matchSkin)
     {
-        if (layerLimits is null)
+        // No explicit limit means the picker allows an arbitrary count. Generate
+        // one optional candidate so those layers are still covered by randomization.
+        layerLimits ??= new MarkingsLimits { Limit = 1 };
+        if (layerLimits.Limit <= 0)
             return new();
 
         if (layer == HumanoidVisualLayers.Hair ||
@@ -173,7 +183,7 @@ public sealed partial class HumanoidCharacterAppearance
                 sawmill.Error($"Palette for {layer} contains no HairColorKey, using default colour");
             */
 
-            return PickHairsRandomMarking(layer, layerLimits, allMarkings, palette, random);
+            return PickHairsRandomMarking(layer, layerLimits, allMarkings, palette, random, matchSkin);
         }
 
         var layerWeight = layerLimits.Weight;
@@ -202,7 +212,7 @@ public sealed partial class HumanoidCharacterAppearance
                 palette.EyeColor,
                 outMarkings);
             var marking = new Marking(protoToAdd.ID, colors);
-            outMarkings.Add(RandomizeMarkingColors(marking, layer, palette, protoMan, random, outMarkings));
+            outMarkings.Add(RandomizeMarkingColors(marking, layer, palette, protoMan, random, matchSkin, outMarkings));
         }
         return outMarkings;
     }
@@ -217,7 +227,8 @@ public sealed partial class HumanoidCharacterAppearance
         MarkingsLimits layerLimits,
         IReadOnlyDictionary<string, MarkingPrototype> allMarkings,
         CharacterPalette palette,
-        IRobustRandom random)
+        IRobustRandom random,
+        bool matchSkin)
     {
         if (allMarkings.Count == 0 || !random.Prob(layerLimits.Weight))
             return new();
@@ -236,7 +247,7 @@ public sealed partial class HumanoidCharacterAppearance
 
         return new List<Marking>
         {
-            RandomizeMarkingColors(marking, layer, palette, protoMan, random, new List<Marking>())
+            RandomizeMarkingColors(marking, layer, palette, protoMan, random, matchSkin, new List<Marking>())
         };
     }
 
@@ -251,9 +262,11 @@ public sealed partial class HumanoidCharacterAppearance
         CharacterPalette palette,
         IPrototypeManager protoMan,
         IRobustRandom random,
+        bool matchSkin,
         List<Marking> otherMarkings)
     {
-        if (!protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype) ||
+        if (matchSkin ||
+            !protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype) ||
             prototype.ForcedColoring)
         {
             return marking;

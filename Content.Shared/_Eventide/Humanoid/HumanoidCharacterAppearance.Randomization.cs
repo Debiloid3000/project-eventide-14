@@ -23,6 +23,7 @@ public sealed partial class HumanoidCharacterAppearance
         HumanoidCharacterAppearance? baseAppearance)
     {
         var randomizeCfg = charEditorRandomizeConfig ?? RandomizeConfigAll;
+        var markingData = IoCManager.Resolve<MarkingManager>().GetMarkingData(species);
 
         var markings = baseAppearance?.Markings.ToDictionary(
             entry => entry.Key,
@@ -61,7 +62,12 @@ public sealed partial class HumanoidCharacterAppearance
                 }
                 else if (currentLayers.TryGetValue(layer, out var existingMarkings))
                 {
-                    currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random);
+                    var matchSkin = markingData.TryGetValue(organ, out var organData) &&
+                                    protoMan.TryIndex(organData.Group, out MarkingsGroupPrototype? groupPrototype) &&
+                                    groupPrototype.Appearances.TryGetValue(layer, out var appearance) &&
+                                    appearance.MatchSkin;
+
+                    currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random, matchSkin);
                 }
             }
 
@@ -135,7 +141,8 @@ public sealed partial class HumanoidCharacterAppearance
         HumanoidVisualLayers layer,
         CharacterPalette palette,
         IPrototypeManager protoMan,
-        IRobustRandom random)
+        IRobustRandom random,
+        bool matchSkin)
     {
         for (var markingIndex = 0; markingIndex < markings.Count; markingIndex++)
         {
@@ -146,6 +153,7 @@ public sealed partial class HumanoidCharacterAppearance
                 palette,
                 protoMan,
                 random,
+                matchSkin,
                 otherMarkings);
         }
 
