@@ -171,9 +171,9 @@ public sealed partial class MarkingsViewModel
                 return;
 
             _organData = value;
-            _previousColors.Clear();
-            // Keep per-layer colors while species/organ data changes. Re-selecting a different
-            // hair style, ear shape, tail or wing should not silently replace the chosen palette.
+            // Color history is reset explicitly when a different character profile is loaded.
+            // Keep it while changing species/organ data within the same profile so the selected
+            // palette can follow compatible appearance layers.
             OrganDataChanged?.Invoke();
         }
     }
@@ -183,7 +183,7 @@ public sealed partial class MarkingsViewModel
     /// </summary>
     public event Action? OrganDataChanged;
 
-    private readonly Dictionary<ProtoId<MarkingPrototype>, List<Color>> _previousColors = new();
+    private readonly Dictionary<(ProtoId<OrganCategoryPrototype> Organ, HumanoidVisualLayers Layer, ProtoId<MarkingPrototype> Marking), List<Color>> _previousColors = new();
 
     public MarkingsViewModel()
     {
