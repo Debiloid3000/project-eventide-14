@@ -391,6 +391,7 @@ namespace Content.Client.Lobby.UI
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();
+            _markingsModel.ResetColorMemory();
             UpdateMarkings();
             UpdateTTSVoicesControls(); // Corvax-TTS
 
