@@ -89,6 +89,7 @@ namespace Content.Client.Lobby.UI
             JobRequirementsManager requirements,
             MarkingManager markings)
         {
+            RandomizeLockButton.RandomizeCfg = HumanoidCharacterProfile.RandomizeConfigAll;
             RobustXamlLoader.Load(this);
             _sawmill = logManager.GetSawmill("profile.editor");
             _cfgManager = configurationManager;
@@ -149,6 +150,13 @@ namespace Content.Client.Lobby.UI
             RandomizeNameButton.OnPressed += _ => RandomizeNameOnly();
             NameRandomizeSettingsButton.OnPressed += _ => ToggleRandomizationSettings();
             RandomizeSettingsButton.OnPressed += _ => ToggleRandomizationSettings();
+            ConsiderClothingCheckBox.OnToggled += args =>
+            {
+                ClothingStyleButton.Visible = args.Pressed;
+            };
+            ClothingStyleButton.AddItem(Loc.GetString("humanoid-profile-editor-randomizer-clothing-male"), 0);
+            ClothingStyleButton.AddItem(Loc.GetString("humanoid-profile-editor-randomizer-clothing-female"), 1);
+            ClothingStyleButton.SelectId(0);
             WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
 
             #endregion Name

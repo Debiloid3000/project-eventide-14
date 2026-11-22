@@ -260,6 +260,11 @@ namespace Content.Shared.Preferences
             HeadTopColor = 1 << 17,
             TailColor = 1 << 18,
             BodyMarkingsColor = 1 << 19,
+            // preferences
+            Jobs = 1 << 20,
+            Antags = 1 << 21,
+            Traits = 1 << 22,
+            Loadouts = 1 << 23,
         }
 
         /// <summary>
@@ -285,7 +290,11 @@ namespace Content.Shared.Preferences
             | RandomizeCfg.FacialHairColor
             | RandomizeCfg.HeadTopColor
             | RandomizeCfg.TailColor
-            | RandomizeCfg.BodyMarkingsColor;
+            | RandomizeCfg.BodyMarkingsColor
+            | RandomizeCfg.Jobs
+            | RandomizeCfg.Antags
+            | RandomizeCfg.Traits
+            | RandomizeCfg.Loadouts;
 
         /// <summary>
         /// Picks a random species from roundstart species.
@@ -394,7 +403,8 @@ namespace Content.Shared.Preferences
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
 
-            var profile = new HumanoidCharacterProfile();
+            // Start from the existing profile so job, antagonist, trait and loadout preferences survive appearance randomization.
+            var profile = new HumanoidCharacterProfile(baseProfile);
             if ((randomizeCfg & RandomizeCfg.Species) != 0)
             {
                 profile.Species = RandomSpecies();

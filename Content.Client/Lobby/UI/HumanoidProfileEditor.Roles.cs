@@ -7,10 +7,12 @@ using Content.Shared.Clothing;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Traits;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Client.Lobby.UI;
 
@@ -413,4 +415,178 @@ public sealed partial class HumanoidProfileEditor
             AntagList.AddChild(antagContainer);
         }
     }
+
+    /// <summary>
+    /// Randomizes job priorities while keeping the single-high-priority rule enforced by the profile.
+    /// </summary>
+    private void RandomizeJobPreferences(IRobustRandom random)
+    {
+        if (Profile is null)
+            return;
+
+        var jobs = _prototypeManager.EnumeratePrototypes<JobPrototype>()
+            .Where(job => job.SetPreference && _requirements.IsAllowed(job, Profile, out _))
+            .ToArray();
+
+        if (jobs.Length == 0)
+            return;
+
+        var highPriorityJob = random.Pick(jobs);
+        var otherPriorities = new[] { JobPriority.Never, JobPriority.Low, JobPriority.Medium };
+        var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>();
+
+        foreach (var job in jobs)
+        {
+            if (job.ID == highPriorityJob.ID)
+            {
+                priorities[job.ID] = JobPriority.High;
+                continue;
+            }
+
+            var priority = random.Pick(otherPriorities);
+            if (priority != JobPriority.Never)
+                priorities[job.ID] = priority;
+        }
+
+        Profile = Profile.WithJobPriorities(priorities);
+    }
+
+    /// <summary>
+    /// Randomizes antagonist opt-ins, excluding roles the current account cannot select.
+    /// </summary>
+    private void RandomizeAntagPreferences(IRobustRandom random)
+    {
+        if (Profile is null)
+            return;
+
+        foreach (var antag in Profile.AntagPreferences.ToArray())
+            Profile = Profile.WithAntagPreference(antag, false);
+
+        var antags = _prototypeManager.EnumeratePrototypes<AntagPrototype>()
+            .Where(antag => antag.SetPreference && _requirements.IsAllowed(antag, Profile, out _))
+            .ToArray();
+
+        foreach (var antag in antags)
+        {
+            if (random.NextFloat(0f, 1f) < 0.35f)
+                Profile = Profile.WithAntagPreference(antag.ID, true);
+        }
+    }
+
+    /// <summary>
+    /// Randomizes traits within their existing categories. WithTraitPreference enforces each category's point limit.
+    /// </summary>
+    private void RandomizeTraitPreferences(IRobustRandom random)
+    {
+        if (Profile is null)
+            return;
+
+        foreach (var trait in Profile.TraitPreferences.ToArray())
+            Profile = Profile.WithoutTraitPreference(trait, _prototypeManager);
+
+        var categories = _prototypeManager.EnumeratePrototypes<TraitPrototype>()
+            .GroupBy(trait => trait.Category ?? TraitCategoryPrototype.Default);
+
+        foreach (var category in categories)
+        {
+            foreach (var trait in category.OrderBy(_ => random.NextFloat(0f, 1f)))
+            {
+                if (random.NextFloat(0f, 1f) < 0.4f)
+                    Profile = Profile.WithTraitPreference(trait.ID, _prototypeManager);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Randomizes role loadout groups for preferred jobs and enabled antagonists.
+    /// Apparel groups are only changed when "Consider clothing" is enabled.
+    /// </summary>
+    private void RandomizeRoleLoadouts(bool considerClothing, bool feminineClothing, IRobustRandom random)
+    {
+        if (Profile is null || _playerManager.LocalSession is not { } session ||
+            IoCManager.Instance is not { } collection)
+            return;
+
+        var roleIds = new HashSet<string>(StringComparer.Ordinal);
+
+        foreach (var (jobId, priority) in Profile.JobPriorities)
+        {
+            if (priority == JobPriority.Never || !_prototypeManager.TryIndex(jobId, out var job))
+                continue;
+
+            roleIds.Add(LoadoutSystem.GetJobPrototype(job.ID));
+        }
+
+        foreach (var antag in Profile.AntagPreferences)
+            roleIds.Add(antag.Id);
+
+        foreach (var roleId in roleIds)
+        {
+            if (!_prototypeManager.TryIndex<RoleLoadoutPrototype>(roleId, out var roleProto) ||
+                roleProto.Groups.Count == 0)
+                continue;
+
+            var loadout = Profile.Loadouts.TryGetValue(roleId, out var existing)
+                ? existing.Clone()
+                : new RoleLoadout(roleProto.ID);
+
+            // Preserve current selections as a starting point. SetDefault only fills missing groups.
+            loadout.SetDefault(Profile, session, _prototypeManager);
+
+            foreach (var groupId in roleProto.Groups)
+            {
+                if (!_prototypeManager.TryIndex(groupId, out var groupProto) || groupProto.Hidden)
+                    continue;
+
+                var isClothing = IsClothingLoadoutGroup(groupId.Id);
+                if (isClothing && !considerClothing)
+                    continue;
+
+                var candidates = groupProto.Loadouts.ToList();
+                if (candidates.Count == 0)
+                    continue;
+
+                // Jumpsuit and jumpskirt prototypes are selected according to the explicit clothing style.
+                if (groupId.Id.Contains("Jumpsuit", StringComparison.OrdinalIgnoreCase))
+                {
+                    var styleCandidates = feminineClothing
+                        ? candidates.Where(candidate =>
+                            candidate.Id.Contains("skirt", StringComparison.OrdinalIgnoreCase)).ToList()
+                        : candidates.Where(candidate =>
+                            !candidate.Id.Contains("skirt", StringComparison.OrdinalIgnoreCase) &&
+                            (candidate.Id.Contains("jumpsuit", StringComparison.OrdinalIgnoreCase) ||
+                             candidate.Id.Contains("suit", StringComparison.OrdinalIgnoreCase))).ToList();
+
+                    if (styleCandidates.Count > 0)
+                        candidates = styleCandidates;
+                }
+
+                if (!loadout.SelectedLoadouts.TryGetValue(groupId, out var selectedLoadouts))
+                {
+                    selectedLoadouts = new List<Loadout>();
+                    loadout.SelectedLoadouts[groupId] = selectedLoadouts;
+                }
+
+                selectedLoadouts.Clear();
+                var selected = random.Pick(candidates);
+                loadout.AddLoadout(groupId, selected, _prototypeManager);
+            }
+
+            loadout.EnsureValid(Profile, session, collection);
+            Profile = Profile.WithLoadout(loadout);
+        }
+    }
+
+    private static bool IsClothingLoadoutGroup(string groupId)
+    {
+        string[] clothingSlots =
+        [
+            "Jumpsuit", "Uniform", "OuterClothing", "Head", "Neck", "Shoes",
+            "Gloves", "Mask", "Glasses", "Backpack", "Satchel", "Duffel",
+            "Ears", "Belt", "Wrist"
+        ];
+
+        return clothingSlots.Any(slot => groupId.Contains(slot, StringComparison.OrdinalIgnoreCase));
+    }
+
 }

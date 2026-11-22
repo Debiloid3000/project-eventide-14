@@ -1,5 +1,4 @@
-# Uma use human anatomy and body proportions. Only the head and torso marking groups differ,
-# so the race keeps the regular human-sized humanoid body instead of the shorter Felinid frame.
+# Uma share a familiar bipedal frame, but have distinctive equine musculature and physiology.
 - type: markingsGroup
   parent: Human
   id: Uma
@@ -50,6 +49,26 @@
   name: Urist Equus
   components:
   - type: UmaDiet
+  - type: UmaStability
+    knockdownResistanceChance: 0.12
+  - type: FlashSensitivity
+    durationMultiplier: 1.25
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 5.1
+  - type: Damageable
+    damageModifierSet: Uma
+  - type: TemperatureDamage
+    coldDamageThreshold: 250
+    coldDamage:
+      types:
+        Cold: 0.9
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ActionGrant
+    actions:
+    - ActionUmaGallop
 
 - type: entity
   parent: OrganHumanStomach
@@ -60,6 +79,8 @@
       tags:
       - Ruminant
     isSpecialDigestibleExclusive: false
+  - type: Metabolizer
+    metabolizerTypes: [ Human, Uma ]
 
 - type: entity
   parent: OrganHumanHead

@@ -35,6 +35,11 @@
   name: reagent speed
 
 - type: entity
+  parent: StatusEffectSpeed
+  id: StatusEffectUmaGallop
+  name: galloping
+
+- type: entity
   parent: StatusEffectSlowdown
   id: VomitingSlowdownStatusEffect
   name: vomiting slowdown

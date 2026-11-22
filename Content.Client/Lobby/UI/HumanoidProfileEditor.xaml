@@ -44,6 +44,10 @@
                                 <ui:RandomizeLockButton For="Skin" LabelText="{Loc 'humanoid-profile-editor-randomize-skin-button'}"/>
                                 <ui:RandomizeLockButton For="Eyes" LabelText="{Loc 'humanoid-profile-editor-randomize-eye-button'}"/>
                                 <ui:RandomizeLockButton For="Markings" LabelText="{Loc 'humanoid-profile-editor-randomize-markings-button'}"/>
+                                <ui:RandomizeLockButton For="Jobs" LabelText="{Loc 'humanoid-profile-editor-jobs-tab'}"/>
+                                <ui:RandomizeLockButton For="Antags" LabelText="{Loc 'humanoid-profile-editor-antags-tab'}"/>
+                                <ui:RandomizeLockButton For="Traits" LabelText="{Loc 'humanoid-profile-editor-traits-tab'}"/>
+                                <ui:RandomizeLockButton For="Loadouts" LabelText="{Loc 'humanoid-profile-editor-randomize-loadouts-button'}"/>
                             </GridContainer>
                             <BoxContainer Orientation="Horizontal" SeparationOverride="4">
                                 <Button Name="RandomizeUnlockedButton" HorizontalExpand="True"
@@ -84,6 +88,9 @@
                                     <ui:RandomizeLockButton Name="RandomizeBodyMarkingsColorLock" For="BodyMarkingsColor"
                                         LabelText="{Loc 'humanoid-profile-editor-randomize-body-markings-color'}"/>
                                 </GridContainer>
+                                <CheckBox Name="ConsiderClothingCheckBox"
+                                          Text="{Loc 'humanoid-profile-editor-randomizer-consider-clothing'}"/>
+                                <OptionButton Name="ClothingStyleButton" Visible="False" HorizontalExpand="True"/>
                             </BoxContainer>
                         </BoxContainer>
                     </ui:HighlightedContainer>

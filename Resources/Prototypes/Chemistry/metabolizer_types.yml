@@ -18,6 +18,10 @@
   name: metabolizer-type-human
 
 - type: metabolizerType
+  id: Uma
+  name: metabolizer-type-uma
+
+- type: metabolizerType
   id: Slime
   name: metabolizer-type-slime
 

@@ -224,6 +224,16 @@ public abstract partial class SharedFlashSystem : EntitySystem
         if (attempt.Cancelled)
             return;
 
+        // Some species are more sensitive to flashes. Apply the multiplier before adding either
+        // the visual effect or its associated stun/slowdown so their durations stay in sync.
+        if (TryComp<FlashSensitivityComponent>(target, out var sensitivity))
+        {
+            var multiplier = Math.Max(1f, sensitivity.DurationMultiplier);
+            flashDuration = TimeSpan.FromTicks((long) (flashDuration.Ticks * multiplier));
+            if (stunDuration.HasValue)
+                stunDuration = TimeSpan.FromTicks((long) (stunDuration.Value.Ticks * multiplier));
+        }
+
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
         if (!_statusEffectsSystem.TryAddStatusEffectDuration(target, FlashedKey, flashDuration))
             return;

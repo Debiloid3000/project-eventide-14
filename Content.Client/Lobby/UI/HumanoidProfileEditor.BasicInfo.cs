@@ -1,5 +1,6 @@
 
 using Content.Shared.Preferences;
+using Robust.Shared.Random;
 
 namespace Content.Client.Lobby.UI;
 
@@ -49,9 +50,33 @@ public sealed partial class HumanoidProfileEditor
     /// </summary>
     private void RandomizeProfile()
     {
+        var config = RandomizeLockButton.RandomizeCfg;
         Profile = Profile == null
             ? HumanoidCharacterProfile.Random()
-            : HumanoidCharacterProfile.Random(RandomizeLockButton.RandomizeCfg, Profile!);
+            : HumanoidCharacterProfile.Random(config, Profile);
+
+        if (Profile == null)
+            return;
+
+        var random = IoCManager.Resolve<IRobustRandom>();
+
+        if ((config & HumanoidCharacterProfile.RandomizeCfg.Jobs) != 0)
+            RandomizeJobPreferences(random);
+
+        if ((config & HumanoidCharacterProfile.RandomizeCfg.Antags) != 0)
+            RandomizeAntagPreferences(random);
+
+        if ((config & HumanoidCharacterProfile.RandomizeCfg.Traits) != 0)
+            RandomizeTraitPreferences(random);
+
+        if ((config & HumanoidCharacterProfile.RandomizeCfg.Loadouts) != 0)
+        {
+            RandomizeRoleLoadouts(
+                ConsiderClothingCheckBox.Pressed,
+                ClothingStyleButton.SelectedId == 1,
+                random);
+        }
+
         SetProfile(Profile, CharacterSlot);
         SetDirty();
     }
