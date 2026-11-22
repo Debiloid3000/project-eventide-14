@@ -237,7 +237,7 @@ public sealed partial class MarkingsViewModel
         if (!groupProto.Appearances.TryGetValue(layer, out var appearance))
             return true;
 
-        return !appearance.MatchSkin;
+        return !appearance.MatchSkin && markingProto.Sprites.Any(sprite => !sprite.ForcedColoring);
     }
 
     /// <summary>

@@ -290,6 +290,15 @@ public sealed partial class MarkingsViewModel
             return;
 
         var markingProto = _prototype.Index(markingId);
+        if (markingProto.ForcedColoring ||
+            colorIndex < 0 ||
+            colorIndex >= markingProto.Sprites.Count ||
+            colorIndex >= markings[markingIdx].MarkingColors.Count ||
+            markingProto.Sprites[colorIndex].ForcedColoring)
+        {
+            return;
+        }
+
         var newColor = color;
         if (markingProto.Strategy != null)
             newColor = markingProto.Strategy.ClosestSkinColor(color);

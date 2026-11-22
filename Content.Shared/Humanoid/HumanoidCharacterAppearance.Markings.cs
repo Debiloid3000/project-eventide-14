@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Body;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Markings.ColoringTypes;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -172,7 +173,7 @@ public sealed partial class HumanoidCharacterAppearance
                 sawmill.Error($"Palette for {layer} contains no HairColorKey, using default colour");
             */
 
-            return PickHairsRandomMarking(layer, layerLimits, allMarkings, palette.HairColor, random);
+            return PickHairsRandomMarking(layer, layerLimits, allMarkings, palette, random);
         }
 
         var layerWeight = layerLimits.Weight;
@@ -195,31 +196,13 @@ public sealed partial class HumanoidCharacterAppearance
             if (randomMarking is null || !pool.Remove(randomMarking, out var protoToAdd))
                 continue;
 
-            List<Color> colors = new();
-            foreach (var sprite in protoToAdd.Sprites)
-            {
-                // code here is from MarkingColoring.GetMarkingLayerColors
-                var name = sprite.GetLayerStateId();
-                var coloringType = (protoToAdd.Coloring.Layers is not { } layers ||
-                    !layers.TryGetValue(name, out var layerColoring))
-                    ? protoToAdd.Coloring.Default
-                    : layerColoring;
-
-                var color = coloringType.Type is not null
-                    ? coloringType.GetColor(
-                    palette.SkinColor,
-                    palette.EyeColor,
-                    outMarkings)
-                    : random.Pick(new List<Color>
-                    {
-                        palette.HairColor,
-                        palette.EyeColor
-                    });
-
-                colors.Add(color);
-            }
-
-            outMarkings.Add(new Marking(protoToAdd, colors));
+            var colors = MarkingColoring.GetMarkingLayerColors(
+                protoToAdd,
+                palette.SkinColor,
+                palette.EyeColor,
+                outMarkings);
+            var marking = new Marking(protoToAdd.ID, colors);
+            outMarkings.Add(RandomizeMarkingColors(marking, layer, palette, protoMan, random, outMarkings));
         }
         return outMarkings;
     }
@@ -229,7 +212,12 @@ public sealed partial class HumanoidCharacterAppearance
     ///     These layers are handled differently to other markings, so we need unique behaviour for them.
     /// </summary>
     /// <returns>A list of markings for the <see cref="HumanoidVisualLayers"/>.</returns>
-    private static List<Marking> PickHairsRandomMarking(HumanoidVisualLayers layer, MarkingsLimits layerLimits, IReadOnlyDictionary<string, MarkingPrototype> allMarkings, Color color, IRobustRandom random)
+    private static List<Marking> PickHairsRandomMarking(
+        HumanoidVisualLayers layer,
+        MarkingsLimits layerLimits,
+        IReadOnlyDictionary<string, MarkingPrototype> allMarkings,
+        CharacterPalette palette,
+        IRobustRandom random)
     {
         if (allMarkings.Count == 0 || !random.Prob(layerLimits.Weight))
             return new();
@@ -238,18 +226,73 @@ public sealed partial class HumanoidCharacterAppearance
         if (hairId is null || !allMarkings.TryGetValue(hairId, out var hairProto))
             return new();
 
-        if (allMarkings.TryGetValue(hairProto.ID, out var hairMarking))
-            return new List<Marking> { hairMarking.AsMarking().WithColor(color) };
-
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        var defaultHair = layer switch
-        {
-            HumanoidVisualLayers.FacialHair => HairStyles.DefaultFacialHairStyle,
-            _ => HairStyles.DefaultHairStyle,
-        };
+        var colors = MarkingColoring.GetMarkingLayerColors(
+            hairProto,
+            palette.SkinColor,
+            palette.EyeColor,
+            new List<Marking>());
+        var marking = new Marking(hairProto.ID, colors);
 
-        var defaultHairProto = protoMan.Index(defaultHair);
-        return new List<Marking> { new Marking(defaultHair, defaultHairProto.Sprites.Count).WithColor(color) };
+        return new List<Marking>
+        {
+            RandomizeMarkingColors(marking, layer, palette, protoMan, random, new List<Marking>())
+        };
+    }
+
+    /// <summary>
+    /// Randomizes editable color channels, including per-sprite coloring definitions.
+    /// Skin, eye, tattoo and category-linked channels retain their contextual colors;
+    /// forced channels are never overwritten.
+    /// </summary>
+    private static Marking RandomizeMarkingColors(
+        Marking marking,
+        HumanoidVisualLayers layer,
+        CharacterPalette palette,
+        IPrototypeManager protoMan,
+        IRobustRandom random,
+        List<Marking> otherMarkings)
+    {
+        if (!protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype) ||
+            prototype.ForcedColoring)
+        {
+            return marking;
+        }
+
+        for (var colorIndex = 0; colorIndex < Math.Min(prototype.Sprites.Count, marking.MarkingColors.Count); colorIndex++)
+        {
+            var sprite = prototype.Sprites[colorIndex];
+            if (sprite.ForcedColoring)
+                continue;
+
+            var coloring = sprite.Coloring;
+            if (coloring is null &&
+                prototype.Coloring.Layers is { } layers &&
+                layers.TryGetValue(sprite.GetLayerStateId(), out var legacyColoring))
+            {
+                coloring = legacyColoring;
+            }
+
+            coloring ??= prototype.Coloring.Default;
+
+            Color color;
+            if (coloring.Type is SkinColoring or TattooColoring or EyeColoring or CategoryColoring)
+            {
+                color = coloring.GetColor(palette.SkinColor, palette.EyeColor, otherMarkings);
+            }
+            else if (layer is HumanoidVisualLayers.Hair or HumanoidVisualLayers.FacialHair)
+            {
+                color = palette.HairColor;
+            }
+            else
+            {
+                color = random.Pick(new List<Color> { palette.HairColor, palette.EyeColor });
+            }
+
+            marking = marking.WithColorAt(colorIndex, color);
+        }
+
+        return marking;
     }
 
     /// <summary>

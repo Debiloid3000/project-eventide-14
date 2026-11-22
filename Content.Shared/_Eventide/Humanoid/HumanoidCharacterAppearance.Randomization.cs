@@ -24,57 +24,51 @@ public sealed partial class HumanoidCharacterAppearance
     {
         var randomizeCfg = charEditorRandomizeConfig ?? RandomizeConfigAll;
 
-        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings;
-        if (baseAppearance is null)
-        {
-            markings = RandomizeMarkings(species, sex, palette, protoMan, random);
-        }
-        else
-        {
-            // Start from the current appearance, then apply only layers that are both globally
-            // enabled and individually unlocked in the randomization settings.
-            var randomized = RandomizeMarkings(species, sex, palette, protoMan, random);
-            markings = baseAppearance.Markings.ToDictionary(
-                entry => entry.Key,
-                entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()));
+        var markings = baseAppearance?.Markings.ToDictionary(
+            entry => entry.Key,
+            entry => entry.Value.ToDictionary(layer => layer.Key, layer => layer.Value.ToList()))
+            ?? new Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>>();
 
-            foreach (var organ in markings.Keys.Union(randomized.Keys).ToList())
+        // Build a complete candidate appearance, then apply only layers whose
+        // style/color controls are enabled. This also respects locks for new profiles.
+        var randomized = RandomizeMarkings(species, sex, palette, protoMan, random);
+
+        foreach (var organ in markings.Keys.Union(randomized.Keys).ToList())
+        {
+            var currentLayers = markings.GetValueOrDefault(organ) ?? new();
+            var randomLayers = randomized.GetValueOrDefault(organ);
+            foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
             {
-                var currentLayers = markings.GetValueOrDefault(organ) ?? new();
-                var randomLayers = randomized.GetValueOrDefault(organ);
-                foreach (var layer in Enum.GetValues<HumanoidVisualLayers>())
+                var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg);
+                var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg);
+                if (!randomizeStyle && !randomizeColor)
+                    continue;
+
+                if (randomizeStyle)
                 {
-                    var randomizeStyle = ShouldRandomizeLayer(layer, randomizeCfg);
-                    var randomizeColor = ShouldRandomizeLayerColor(layer, randomizeCfg);
-                    if (!randomizeStyle && !randomizeColor)
-                        continue;
-
-                    if (randomizeStyle)
+                    if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
                     {
-                        if (randomLayers != null && randomLayers.TryGetValue(layer, out var selected))
-                        {
-                            var selectedMarkings = selected.ToList();
-                            if (!randomizeColor)
-                                selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer));
+                        var selectedMarkings = selected.ToList();
+                        if (!randomizeColor)
+                            selectedMarkings = PreserveLayerColors(selectedMarkings, currentLayers.GetValueOrDefault(layer), protoMan);
 
-                            currentLayers[layer] = selectedMarkings;
-                        }
-                        else
-                        {
-                            currentLayers.Remove(layer);
-                        }
+                        currentLayers[layer] = selectedMarkings;
                     }
-                    else if (currentLayers.TryGetValue(layer, out var existingMarkings))
+                    else
                     {
-                        currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random);
+                        currentLayers.Remove(layer);
                     }
                 }
-
-                if (currentLayers.Count > 0)
-                    markings[organ] = currentLayers;
-                else
-                    markings.Remove(organ);
+                else if (currentLayers.TryGetValue(layer, out var existingMarkings))
+                {
+                    currentLayers[layer] = RandomizeLayerColors(existingMarkings.ToList(), layer, palette, protoMan, random);
+                }
             }
+
+            if (currentLayers.Count > 0)
+                markings[organ] = currentLayers;
+            else
+                markings.Remove(organ);
         }
 
         return markings;
@@ -90,7 +84,7 @@ public sealed partial class HumanoidCharacterAppearance
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.Hair) != 0,
             HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHair) != 0,
             HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTop) != 0,
-            HumanoidVisualLayers.Tail => (config & RandomizeCfg.Tail) != 0,
+            HumanoidVisualLayers.Tail or HumanoidVisualLayers.TailOverlay => (config & RandomizeCfg.Tail) != 0,
             _ => (config & RandomizeCfg.BodyMarkings) != 0,
         };
     }
@@ -105,12 +99,12 @@ public sealed partial class HumanoidCharacterAppearance
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.HairColor) != 0,
             HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHairColor) != 0,
             HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTopColor) != 0,
-            HumanoidVisualLayers.Tail => (config & RandomizeCfg.TailColor) != 0,
+            HumanoidVisualLayers.Tail or HumanoidVisualLayers.TailOverlay => (config & RandomizeCfg.TailColor) != 0,
             _ => (config & RandomizeCfg.BodyMarkingsColor) != 0,
         };
     }
 
-    private static List<Marking> PreserveLayerColors(List<Marking> randomized, List<Marking>? previous)
+    private static List<Marking> PreserveLayerColors(List<Marking> randomized, List<Marking>? previous, IPrototypeManager protoMan)
     {
         if (previous is null || previous.Count == 0)
             return randomized;
@@ -119,8 +113,16 @@ public sealed partial class HumanoidCharacterAppearance
         {
             var oldMarking = previous[Math.Min(markingIndex, previous.Count - 1)];
             var newMarking = randomized[markingIndex];
+            if (!protoMan.TryIndex(newMarking.MarkingId, out MarkingPrototype? prototype) || prototype.ForcedColoring)
+                continue;
+
             for (var colorIndex = 0; colorIndex < Math.Min(oldMarking.MarkingColors.Count, newMarking.MarkingColors.Count); colorIndex++)
+            {
+                if (colorIndex >= prototype.Sprites.Count || prototype.Sprites[colorIndex].ForcedColoring)
+                    continue;
+
                 newMarking = newMarking.WithColorAt(colorIndex, oldMarking.MarkingColors[colorIndex]);
+            }
 
             randomized[markingIndex] = newMarking;
         }
@@ -137,36 +139,16 @@ public sealed partial class HumanoidCharacterAppearance
     {
         for (var markingIndex = 0; markingIndex < markings.Count; markingIndex++)
         {
-            var marking = markings[markingIndex];
-            if (!protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype))
-                continue;
-
-            // Hair and facial hair use the dedicated hair-color palette in the regular randomizer.
-            if (layer is HumanoidVisualLayers.Hair or HumanoidVisualLayers.FacialHair)
-            {
-                markings[markingIndex] = marking.WithColor(palette.HairColor);
-                continue;
-            }
-
-            for (var colorIndex = 0; colorIndex < Math.Min(prototype.Sprites.Count, marking.MarkingColors.Count); colorIndex++)
-            {
-                var layerName = prototype.Sprites[colorIndex].GetLayerStateId();
-                var coloringType = (prototype.Coloring.Layers is not { } layers ||
-                                    !layers.TryGetValue(layerName, out var layerColoring))
-                    ? prototype.Coloring.Default
-                    : layerColoring;
-
-                var color = coloringType.Type is not null
-                    ? coloringType.GetColor(palette.SkinColor, palette.EyeColor, markings)
-                    : random.Pick(new List<Color> { palette.HairColor, palette.EyeColor });
-
-                marking = marking.WithColorAt(colorIndex, color);
-            }
-
-            markings[markingIndex] = marking;
+            var otherMarkings = markings.Where((_, index) => index != markingIndex).ToList();
+            markings[markingIndex] = RandomizeMarkingColors(
+                markings[markingIndex],
+                layer,
+                palette,
+                protoMan,
+                random,
+                otherMarkings);
         }
 
         return markings;
     }
-
 }
