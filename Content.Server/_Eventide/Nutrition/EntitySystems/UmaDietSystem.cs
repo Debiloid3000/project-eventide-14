@@ -72,7 +72,7 @@ public sealed partial class UmaDietSystem : EntitySystem
         if (!plantFood)
             return;
 
-        _satiation.ModifyValue((args.Target, satiation), SatiationSystem.Hunger, 2f);
+        _satiation.ModifyValue((eater.Owner, satiation), SatiationSystem.Hunger, 2f);
 
         // A small recovery bonus rewards a suitable plant-based meal without making food a substitute for medicine.
         var recovery = new DamageSpecifier(
