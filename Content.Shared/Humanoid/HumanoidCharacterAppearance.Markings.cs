@@ -265,12 +265,28 @@ public sealed partial class HumanoidCharacterAppearance
         bool matchSkin,
         List<Marking> otherMarkings)
     {
-        if (matchSkin ||
-            !protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype) ||
-            prototype.ForcedColoring)
-        {
+        if (!protoMan.TryIndex(marking.MarkingId, out MarkingPrototype? prototype))
             return marking;
+
+        // Older saved profiles may have fewer colors than the current marking prototype.
+        // Fill the missing channels from their own prototype defaults before randomizing.
+        if (!matchSkin && !prototype.ForcedColoring && marking.MarkingColors.Count < prototype.Sprites.Count)
+        {
+            var colors = marking.MarkingColors.ToList();
+            var defaults = MarkingColoring.GetMarkingLayerColors(
+                prototype,
+                palette.SkinColor,
+                palette.EyeColor,
+                otherMarkings);
+
+            for (var colorIndex = colors.Count; colorIndex < prototype.Sprites.Count; colorIndex++)
+                colors.Add(defaults[colorIndex]);
+
+            marking = new Marking(marking.MarkingId, colors);
         }
+
+        if (matchSkin || prototype.ForcedColoring)
+            return marking;
 
         for (var colorIndex = 0; colorIndex < Math.Min(prototype.Sprites.Count, marking.MarkingColors.Count); colorIndex++)
         {
