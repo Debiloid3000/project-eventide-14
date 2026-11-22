@@ -31,7 +31,8 @@ public sealed partial class MarkingsViewModel
         return layer is HumanoidVisualLayers.Hair
             or HumanoidVisualLayers.FacialHair
             or HumanoidVisualLayers.HeadTop
-            or HumanoidVisualLayers.Tail;
+            or HumanoidVisualLayers.Tail
+            or HumanoidVisualLayers.TailOverlay;
     }
 
     /// <summary>
