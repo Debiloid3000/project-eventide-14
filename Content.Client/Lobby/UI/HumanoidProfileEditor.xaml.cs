@@ -377,6 +377,7 @@ namespace Content.Client.Lobby.UI
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
             Profile = profile?.Clone();
+            UpdateMarkingSkinColorMode();
             CharacterSlot = slot;
             IsDirty = false;
             JobOverride = null;
