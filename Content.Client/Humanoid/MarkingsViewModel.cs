@@ -183,7 +183,16 @@ public sealed partial class MarkingsViewModel
     /// </summary>
     public event Action? OrganDataChanged;
 
-    private readonly Dictionary<(ProtoId<OrganCategoryPrototype> Organ, HumanoidVisualLayers Layer, ProtoId<MarkingPrototype> Marking), List<Color>> _previousColors = new();
+    private readonly Dictionary<(ProtoId<OrganCategoryPrototype> Organ, HumanoidVisualLayers Layer, ProtoId<MarkingPrototype> Marking), List<Color?>> _previousColors = new();
+
+    // Full-color skin strategies (Hues, clamped HSV/HSL, etc.) are used by species
+    // whose body markings may derive their default color from the chosen body color.
+    private bool _usesFullColorSkinInput;
+
+    public void SetFullColorSkinInput(bool enabled)
+    {
+        _usesFullColorSkinInput = enabled;
+    }
 
     public MarkingsViewModel()
     {
