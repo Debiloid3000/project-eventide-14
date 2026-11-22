@@ -252,6 +252,50 @@ public sealed partial class HumanoidCharacterAppearance
     }
 
     /// <summary>
+    /// Resolves the effective coloring definition for one sprite channel.
+    /// Per-sprite definitions take priority over legacy state-based definitions,
+    /// which in turn take priority over the marking-wide default.
+    /// </summary>
+    private static LayerColoringDefinition GetMarkingLayerColoring(
+        MarkingPrototype prototype,
+        int colorIndex,
+        out bool hasExplicitColoring)
+    {
+        var sprite = prototype.Sprites[colorIndex];
+        var coloring = sprite.Coloring;
+        hasExplicitColoring = coloring is not null;
+
+        if (coloring is null &&
+            prototype.Coloring.Layers is { } layers &&
+            layers.TryGetValue(sprite.GetLayerStateId(), out var legacyColoring))
+        {
+            coloring = legacyColoring;
+            hasExplicitColoring = true;
+        }
+
+        return coloring ?? prototype.Coloring.Default;
+    }
+
+    /// <summary>
+    /// Checks whether a channel derives its color from character context rather than
+    /// from a user-editable palette (skin, tattoo, eye, or another marking).
+    /// Implicit default fallback types are deliberately excluded: the randomizer uses
+    /// its generated palette for those channels.
+    /// </summary>
+    private static bool UsesContextualMarkingColor(MarkingPrototype prototype, int colorIndex)
+    {
+        var coloring = GetMarkingLayerColoring(prototype, colorIndex, out var hasExplicitColoring);
+
+        if (coloring.Type is SkinColoring or TattooColoring or EyeColoring or CategoryColoring)
+            return true;
+
+        return coloring.Type is null &&
+               hasExplicitColoring &&
+               coloring.FallbackTypes.Any(type =>
+                   type is SkinColoring or TattooColoring or EyeColoring or CategoryColoring);
+    }
+
+    /// <summary>
     /// Randomizes editable color channels, including per-sprite coloring definitions.
     /// Skin, eye, tattoo and category-linked channels retain their contextual colors;
     /// forced channels are never overwritten.
@@ -294,17 +338,7 @@ public sealed partial class HumanoidCharacterAppearance
             if (sprite.ForcedColoring)
                 continue;
 
-            var coloring = sprite.Coloring;
-            var hasExplicitColoring = coloring is not null;
-            if (coloring is null &&
-                prototype.Coloring.Layers is { } layers &&
-                layers.TryGetValue(sprite.GetLayerStateId(), out var legacyColoring))
-            {
-                coloring = legacyColoring;
-                hasExplicitColoring = true;
-            }
-
-            coloring ??= prototype.Coloring.Default;
+            var coloring = GetMarkingLayerColoring(prototype, colorIndex, out var hasExplicitColoring);
 
             Color color;
             // An explicit coloring definition owns the meaning of this channel.
