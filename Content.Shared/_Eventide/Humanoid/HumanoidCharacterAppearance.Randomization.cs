@@ -89,7 +89,7 @@ public sealed partial class HumanoidCharacterAppearance
         {
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.Hair) != 0,
             HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHair) != 0,
-            HumanoidVisualLayers.HeadTop or HumanoidVisualLayers.Special => (config & RandomizeCfg.HeadTop) != 0,
+            HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTop) != 0,
             HumanoidVisualLayers.Tail or HumanoidVisualLayers.TailOverlay => (config & RandomizeCfg.Tail) != 0,
             _ => (config & RandomizeCfg.BodyMarkings) != 0,
         };
@@ -104,7 +104,7 @@ public sealed partial class HumanoidCharacterAppearance
         {
             HumanoidVisualLayers.Hair => (config & RandomizeCfg.HairColor) != 0,
             HumanoidVisualLayers.FacialHair => (config & RandomizeCfg.FacialHairColor) != 0,
-            HumanoidVisualLayers.HeadTop or HumanoidVisualLayers.Special => (config & RandomizeCfg.HeadTopColor) != 0,
+            HumanoidVisualLayers.HeadTop => (config & RandomizeCfg.HeadTopColor) != 0,
             HumanoidVisualLayers.Tail or HumanoidVisualLayers.TailOverlay => (config & RandomizeCfg.TailColor) != 0,
             _ => (config & RandomizeCfg.BodyMarkingsColor) != 0,
         };

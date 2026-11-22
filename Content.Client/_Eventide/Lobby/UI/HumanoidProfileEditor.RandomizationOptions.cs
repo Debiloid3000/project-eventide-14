@@ -13,13 +13,12 @@ public sealed partial class HumanoidProfileEditor
 
         var hasHair = layers.Contains(HumanoidVisualLayers.Hair);
         var hasFacialHair = layers.Contains(HumanoidVisualLayers.FacialHair);
-        var hasHeadTop = layers.Contains(HumanoidVisualLayers.HeadTop) || layers.Contains(HumanoidVisualLayers.Special);
+        var hasHeadTop = layers.Contains(HumanoidVisualLayers.HeadTop);
         var hasTail = layers.Contains(HumanoidVisualLayers.Tail) || layers.Contains(HumanoidVisualLayers.TailOverlay);
         var hasBodyMarkings = layers.Any(layer =>
             layer != HumanoidVisualLayers.Hair &&
             layer != HumanoidVisualLayers.FacialHair &&
             layer != HumanoidVisualLayers.HeadTop &&
-            layer != HumanoidVisualLayers.Special &&
             layer != HumanoidVisualLayers.Tail &&
             layer != HumanoidVisualLayers.TailOverlay);
 

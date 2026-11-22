@@ -305,7 +305,14 @@ public sealed partial class HumanoidCharacterAppearance
             coloring ??= prototype.Coloring.Default;
 
             Color color;
-            if (coloring.Type is SkinColoring or TattooColoring or EyeColoring or CategoryColoring)
+            // An explicit coloring type defines the channel's meaning and should
+            // not be replaced by an unrelated random palette color. The same applies
+            // when the type is supplied through fallbackTypes (including the default
+            // skin-color fallback used by ordinary markings).
+            var hasContextualFallback = coloring.FallbackTypes.Any(type =>
+                type is SkinColoring or TattooColoring or EyeColoring or CategoryColoring);
+
+            if (coloring.Type != null || hasContextualFallback)
             {
                 color = coloring.GetColor(palette.SkinColor, palette.EyeColor, otherMarkings);
             }
