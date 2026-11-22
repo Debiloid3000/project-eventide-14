@@ -116,8 +116,31 @@ public sealed partial class HumanoidProfileEditor
                     loadout.SelectedLoadouts[groupId] = selectedLoadouts;
                 }
 
+                // Keep optional groups empty unless the player already selected something there.
+                // Required and default-selected groups keep their configured minimum count.
+                var desiredCount = Math.Max(
+                    selectedLoadouts.Count,
+                    Math.Max(groupProto.MinLimit, groupProto.DefaultSelected));
+
+                if (desiredCount <= 0)
+                    continue;
+
+                if (groupProto.MaxLimit > 0)
+                    desiredCount = Math.Min(desiredCount, groupProto.MaxLimit);
+
+                desiredCount = Math.Min(desiredCount, candidates.Count);
+                if (desiredCount <= 0)
+                    continue;
+
+                // Select distinct entries and preserve multi-item groups rather than forcing every slot to one item.
+                var selectedCandidates = candidates
+                    .OrderBy(_ => random.NextFloat(0f, 1f))
+                    .Take(desiredCount)
+                    .ToArray();
+
                 selectedLoadouts.Clear();
-                loadout.AddLoadout(groupId, random.Pick(candidates), _prototypeManager);
+                foreach (var candidate in selectedCandidates)
+                    loadout.AddLoadout(groupId, candidate, _prototypeManager);
             }
 
             loadout.EnsureValid(Profile, session, collection);
@@ -143,8 +166,7 @@ public sealed partial class HumanoidProfileEditor
         string[] clothingSlots =
         [
             "Jumpsuit", "Uniform", "OuterClothing", "Head", "Neck", "Shoes",
-            "Gloves", "Mask", "Glasses", "Backpack", "Satchel", "Duffel",
-            "Ears", "Belt", "Wrist"
+            "Gloves", "Mask", "Glasses", "Ears", "Belt", "Wrist"
         ];
 
         return clothingSlots.Any(slot =>
