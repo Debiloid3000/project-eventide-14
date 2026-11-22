@@ -35,10 +35,7 @@
   coefficients: # To be decided
     Poison: 1
 
-- type: damageModifierSet
-  id: Uma
-  coefficients:
-    Cold: 0.9
+
 
 # Vulps get more heat damage because fur
 - type: damageModifierSet

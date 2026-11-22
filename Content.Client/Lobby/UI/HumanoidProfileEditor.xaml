@@ -41,6 +41,7 @@
                                 <ui:RandomizeLockButton For="Species" LabelText="{Loc 'humanoid-profile-editor-randomize-species-button'}"/>
                                 <ui:RandomizeLockButton For="Age" LabelText="{Loc 'humanoid-profile-editor-randomize-age-button'}"/>
                                 <ui:RandomizeLockButton For="Sex" LabelText="{Loc 'humanoid-profile-editor-randomize-sex-button'}"/>
+                                <ui:RandomizeLockButton For="Gender" LabelText="{Loc 'humanoid-profile-editor-randomize-gender-button'}"/>
                                 <ui:RandomizeLockButton For="Skin" LabelText="{Loc 'humanoid-profile-editor-randomize-skin-button'}"/>
                                 <ui:RandomizeLockButton For="Eyes" LabelText="{Loc 'humanoid-profile-editor-randomize-eye-button'}"/>
                                 <ui:RandomizeLockButton For="Markings" LabelText="{Loc 'humanoid-profile-editor-randomize-markings-button'}"/>
@@ -90,7 +91,10 @@
                                 </GridContainer>
                                 <CheckBox Name="ConsiderClothingCheckBox"
                                           Text="{Loc 'humanoid-profile-editor-randomizer-consider-clothing'}"/>
+                                <Label Text="{Loc 'humanoid-profile-editor-randomizer-clothing-style'}"/>
                                 <OptionButton Name="ClothingStyleButton" Visible="False" HorizontalExpand="True"/>
+                                <Label Text="{Loc 'humanoid-profile-editor-randomizer-uniform-style'}"/>
+                                <OptionButton Name="UniformStyleButton" Visible="False" HorizontalExpand="True"/>
                             </BoxContainer>
                         </BoxContainer>
                     </ui:HighlightedContainer>

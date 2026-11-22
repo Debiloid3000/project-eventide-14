@@ -1,5 +1,6 @@
 
 using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
 using Robust.Shared.Random;
 
 namespace Content.Client.Lobby.UI;
@@ -73,7 +74,8 @@ public sealed partial class HumanoidProfileEditor
         {
             RandomizeRoleLoadouts(
                 ConsiderClothingCheckBox.Pressed,
-                ClothingStyleButton.SelectedId == 1,
+                (LoadoutClothingStyle) ClothingStyleButton.SelectedId,
+                (UniformRandomizationStyle) UniformStyleButton.SelectedId,
                 random);
         }
 

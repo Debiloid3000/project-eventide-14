@@ -34,10 +34,7 @@
   id: ReagentSpeedStatusEffect
   name: reagent speed
 
-- type: entity
-  parent: StatusEffectSpeed
-  id: StatusEffectUmaGallop
-  name: galloping
+
 
 - type: entity
   parent: StatusEffectSlowdown
