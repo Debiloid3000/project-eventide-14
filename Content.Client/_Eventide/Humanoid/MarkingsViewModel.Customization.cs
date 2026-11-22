@@ -171,12 +171,15 @@ public sealed partial class MarkingsViewModel
 
         // Preserve the shared palette only for style-like, single-choice layers.
         // Every other layer remembers each marking independently.
-        if (usesLayerPalette &&
-            layerMarkings.FirstOrDefault() is { } currentMarking &&
-            IsMarkingColorCustomizable(organ, layer, currentMarking.MarkingId))
+        if (limits is { Limit: 1 } && layerMarkings.FirstOrDefault() is { } currentMarking)
         {
+            // A direct replacement is also a removal for color-memory purposes.
+            // Keep this marking's own palette even when the layer does not share
+            // colors between styles (for example, snouts or single body markings).
             RememberMarkingColors(organ, layer, currentMarking);
-            _previousLayerColors[layerKey] = GetRememberableColors(currentMarking);
+
+            if (usesLayerPalette && IsMarkingColorCustomizable(organ, layer, currentMarking.MarkingId))
+                _previousLayerColors[layerKey] = GetRememberableColors(currentMarking);
         }
 
         var colors = MarkingColoring.GetMarkingLayerColors(markingProto, profileData.SkinColor, profileData.EyeColor, layerMarkings);
