@@ -295,21 +295,23 @@ public sealed partial class HumanoidCharacterAppearance
                 continue;
 
             var coloring = sprite.Coloring;
+            var hasExplicitColoring = coloring is not null;
             if (coloring is null &&
                 prototype.Coloring.Layers is { } layers &&
                 layers.TryGetValue(sprite.GetLayerStateId(), out var legacyColoring))
             {
                 coloring = legacyColoring;
+                hasExplicitColoring = true;
             }
 
             coloring ??= prototype.Coloring.Default;
 
             Color color;
-            // An explicit coloring type defines the channel's meaning and should
-            // not be replaced by an unrelated random palette color. The same applies
-            // when the type is supplied through fallbackTypes (including the default
-            // skin-color fallback used by ordinary markings).
-            var hasContextualFallback = coloring.FallbackTypes.Any(type =>
+            // An explicit coloring definition owns the meaning of this channel.
+            // Keep its primary type and contextual fallback chain intact. When no
+            // explicit definition exists, use the same random palette behavior as
+            // the legacy appearance randomizer instead of the default skin fallback.
+            var hasContextualFallback = hasExplicitColoring && coloring.FallbackTypes.Any(type =>
                 type is SkinColoring or TattooColoring or EyeColoring or CategoryColoring);
 
             if (coloring.Type != null || hasContextualFallback)
