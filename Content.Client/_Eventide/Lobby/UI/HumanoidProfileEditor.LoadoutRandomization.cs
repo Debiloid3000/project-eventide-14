@@ -90,16 +90,24 @@ public sealed partial class HumanoidProfileEditor
                 }
                 else if (clothingStyle != LoadoutClothingStyle.Any)
                 {
-                    var styleCandidates = candidates
-                        .Where(candidate =>
-                        {
-                            var style = _prototypeManager.Index(candidate).ClothingStyle;
-                            return style == LoadoutClothingStyle.Any || style == clothingStyle;
-                        })
+                    var explicitlyStyledCandidates = candidates
+                        .Where(candidate => _prototypeManager.Index(candidate).ClothingStyle == clothingStyle)
                         .ToList();
 
-                    if (styleCandidates.Count > 0)
-                        candidates = styleCandidates;
+                    if (explicitlyStyledCandidates.Count > 0)
+                    {
+                        candidates = explicitlyStyledCandidates;
+                    }
+                    else
+                    {
+                        // Neutral clothing fills slots that do not yet have an explicitly styled variant.
+                        var neutralCandidates = candidates
+                            .Where(candidate => _prototypeManager.Index(candidate).ClothingStyle == LoadoutClothingStyle.Any)
+                            .ToList();
+
+                        if (neutralCandidates.Count > 0)
+                            candidates = neutralCandidates;
+                    }
                 }
 
                 if (!loadout.SelectedLoadouts.TryGetValue(groupId, out var selectedLoadouts))
@@ -135,7 +143,8 @@ public sealed partial class HumanoidProfileEditor
         string[] clothingSlots =
         [
             "Jumpsuit", "Uniform", "OuterClothing", "Head", "Neck", "Shoes",
-            "Gloves", "Mask", "Glasses", "Ears", "Belt", "Wrist"
+            "Gloves", "Mask", "Glasses", "Backpack", "Satchel", "Duffel",
+            "Ears", "Belt", "Wrist"
         ];
 
         return clothingSlots.Any(slot =>
