@@ -547,7 +547,9 @@ public sealed partial class HumanoidProfileEditor
                     continue;
 
                 // Jumpsuit and jumpskirt prototypes are selected according to the explicit clothing style.
-                if (groupId.Id.Contains("Jumpsuit", StringComparison.OrdinalIgnoreCase))
+                if (groupId.Id.Contains("Jumpsuit", StringComparison.OrdinalIgnoreCase) ||
+                    groupId.Id.Contains("Uniform", StringComparison.OrdinalIgnoreCase) ||
+                    groupId.Id.Contains("Skirt", StringComparison.OrdinalIgnoreCase))
                 {
                     var styleCandidates = feminineClothing
                         ? candidates.Where(candidate =>
