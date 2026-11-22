@@ -72,9 +72,9 @@ public sealed partial class HumanoidProfileEditor
                 if (candidates.Count == 0)
                     continue;
 
-                if (IsUniformLoadoutGroup(groupId.Id))
+                if (IsUniformLoadoutGroup(groupId.Id) && uniformStyle != UniformRandomizationStyle.Any)
                 {
-                    var uniformCandidates = uniformStyle switch
+                    candidates = uniformStyle switch
                     {
                         UniformRandomizationStyle.Jumpsuit => candidates
                             .Where(candidate => !IsSkirtOrDress(candidate.Id))
@@ -85,8 +85,9 @@ public sealed partial class HumanoidProfileEditor
                         _ => candidates
                     };
 
-                    if (uniformCandidates.Count > 0)
-                        candidates = uniformCandidates;
+                    // Some jobs have only one uniform style. Do not silently choose the opposite style.
+                    if (candidates.Count == 0)
+                        continue;
                 }
                 else if (clothingStyle != LoadoutClothingStyle.Any)
                 {
