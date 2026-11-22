@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Shared.Body;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Markings.ColoringTypes;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 
@@ -10,7 +11,7 @@ namespace Content.Client.Humanoid;
 
 public sealed partial class MarkingsViewModel
 {
-    private readonly Dictionary<(ProtoId<OrganCategoryPrototype> Organ, HumanoidVisualLayers Layer), List<Color>> _previousLayerColors = new();
+    private readonly Dictionary<(ProtoId<OrganCategoryPrototype> Organ, HumanoidVisualLayers Layer), List<Color?>> _previousLayerColors = new();
 
     /// <summary>
     /// Clears transient appearance color history when the editor switches to another character profile.
@@ -21,17 +22,99 @@ public sealed partial class MarkingsViewModel
         _previousLayerColors.Clear();
     }
 
+    /// <summary>
+    /// Hair, facial hair, head-top accessories and tails use a shared palette when
+    /// changing the selected style. Other layers remember colors per marking instead.
+    /// </summary>
+    private static bool UsesSharedLayerPalette(HumanoidVisualLayers layer)
+    {
+        return layer is HumanoidVisualLayers.Hair
+            or HumanoidVisualLayers.FacialHair
+            or HumanoidVisualLayers.HeadTop
+            or HumanoidVisualLayers.Tail;
+    }
+
+    /// <summary>
+    /// Returns the coloring definition actually used by one sprite channel.
+    /// New-style per-sprite coloring takes priority over the legacy per-state map,
+    /// which in turn takes priority over the marking-wide default.
+    /// </summary>
+    private static LayerColoringDefinition GetLayerColoring(MarkingPrototype markingPrototype, int colorIndex)
+    {
+        var sprite = markingPrototype.Sprites[colorIndex];
+        if (sprite.Coloring is { } spriteColoring)
+            return spriteColoring;
+
+        if (markingPrototype.Coloring.Layers is { } layers &&
+            layers.TryGetValue(sprite.GetLayerStateId(), out var layerColoring))
+        {
+            return layerColoring;
+        }
+
+        return markingPrototype.Coloring.Default;
+    }
+
+    /// <summary>
+    /// Checks whether a marking channel derives its default from the species skin color.
+    /// This deliberately ignores hair and facial hair: their palette should remain
+    /// independent while players switch hairstyles or facial-hair styles.
+    /// </summary>
+    private static bool UsesSpeciesSkinColorByDefault(MarkingPrototype markingPrototype, int colorIndex)
+    {
+        if (markingPrototype.BodyPart is HumanoidVisualLayers.Hair or HumanoidVisualLayers.FacialHair ||
+            markingPrototype.ForcedColoring ||
+            colorIndex < 0 ||
+            colorIndex >= markingPrototype.Sprites.Count)
+        {
+            return false;
+        }
+
+        var coloring = GetLayerColoring(markingPrototype, colorIndex);
+
+        if (coloring.Type is SkinColoring or TattooColoring)
+            return true;
+
+        // CategoryColoring can fall back to the species skin when its source marking
+        // is unavailable. Recalculate it on selection so that fallback follows the
+        // current skin color rather than an old cached value.
+        return coloring.Type is null or CategoryColoring &&
+               coloring.FallbackTypes.Any(type => type is SkinColoring or TattooColoring);
+    }
+
+    /// <summary>
+    /// Stores only colors that should be restored later. In species with a full-color
+    /// skin selector, body-color-derived channels are left unset so their prototype
+    /// defaults are recalculated from the current skin tone when selected again.
+    /// </summary>
+    private List<Color?> GetRememberableColors(Marking marking)
+    {
+        var markingPrototype = _prototype.Index(marking.MarkingId);
+        var colors = new List<Color?>(marking.MarkingColors.Count);
+
+        for (var i = 0; i < marking.MarkingColors.Count; i++)
+        {
+            var forced = markingPrototype.ForcedColoring ||
+                         i < markingPrototype.Sprites.Count && markingPrototype.Sprites[i].ForcedColoring;
+            var followsSpeciesSkin = _usesFullColorSkinInput &&
+                                     UsesSpeciesSkinColorByDefault(markingPrototype, i);
+
+            colors.Add(forced || followsSpeciesSkin ? null : marking.MarkingColors[i]);
+        }
+
+        return colors;
+    }
+
     private void RememberMarkingColors(
         ProtoId<OrganCategoryPrototype> organ,
         HumanoidVisualLayers layer,
         Marking marking)
     {
-        _previousColors[(organ, layer, marking.MarkingId)] = marking.MarkingColors.ToList();
+        _previousColors[(organ, layer, marking.MarkingId)] = GetRememberableColors(marking);
     }
 
-    private static void ApplyRememberedColors(
+    private void ApplyRememberedColors(
         List<Color> colors,
-        List<Color>? rememberedColors,
+        List<Color?>? rememberedColors,
         MarkingPrototype markingPrototype)
     {
         if (rememberedColors == null || markingPrototype.ForcedColoring)
@@ -39,11 +122,18 @@ public sealed partial class MarkingsViewModel
 
         for (var i = 0; i < Math.Min(colors.Count, rememberedColors.Count); i++)
         {
-            // Preserve prototype-defined accents/highlights and other non-editable channels.
-            if (markingPrototype.Sprites[i].ForcedColoring)
+            if (rememberedColors[i] is not { } rememberedColor ||
+                i < markingPrototype.Sprites.Count && markingPrototype.Sprites[i].ForcedColoring)
+            {
+                continue;
+            }
+
+            // A body-color-derived channel on a full-color species must use the
+            // current profile skin color, not a remembered custom value.
+            if (_usesFullColorSkinInput && UsesSpeciesSkinColorByDefault(markingPrototype, i))
                 continue;
 
-            colors[i] = rememberedColors[i];
+            colors[i] = rememberedColor;
         }
     }
 
@@ -72,24 +162,27 @@ public sealed partial class MarkingsViewModel
         var layerMarkings = organMarkings[layer];
 
         var limits = groupPrototype.Limits.GetValueOrDefault(layer);
-        var usesLayerPalette = EnforceLimits && limits is { Limit: 1 };
+        var usesLayerPalette = EnforceLimits &&
+                               limits is { Limit: 1 } &&
+                               UsesSharedLayerPalette(layer);
         var layerKey = (organ, layer);
+        var markingKey = (organ, layer, markingId);
 
-        // A single-choice layer (hair, ears, tail, wings, etc.) carries its editable
-        // palette to the replacement style. Do not seed that palette from a forced style.
+        // Preserve the shared palette only for style-like, single-choice layers.
+        // Every other layer remembers each marking independently.
         if (usesLayerPalette &&
             layerMarkings.FirstOrDefault() is { } currentMarking &&
             IsMarkingColorCustomizable(organ, layer, currentMarking.MarkingId))
         {
             RememberMarkingColors(organ, layer, currentMarking);
-            _previousLayerColors[layerKey] = currentMarking.MarkingColors.ToList();
+            _previousLayerColors[layerKey] = GetRememberableColors(currentMarking);
         }
 
         var colors = MarkingColoring.GetMarkingLayerColors(markingProto, profileData.SkinColor, profileData.EyeColor, layerMarkings);
         var canCustomizeColors = IsMarkingColorCustomizable(organ, layer, markingId);
         var rememberedColors = usesLayerPalette
-            ? _previousLayerColors.GetValueOrDefault(layerKey)
-            : _previousColors.GetValueOrDefault((organ, layer, markingId));
+            ? _previousLayerColors.GetValueOrDefault(layerKey) ?? _previousColors.GetValueOrDefault(markingKey)
+            : _previousColors.GetValueOrDefault(markingKey);
 
         if (canCustomizeColors)
             ApplyRememberedColors(colors, rememberedColors, markingProto);
@@ -110,8 +203,8 @@ public sealed partial class MarkingsViewModel
             layerMarkings.Add(newMarking);
             RememberMarkingColors(organ, layer, newMarking);
 
-            if (canCustomizeColors)
-                _previousLayerColors[layerKey] = newMarking.MarkingColors.ToList();
+            if (usesLayerPalette && canCustomizeColors)
+                _previousLayerColors[layerKey] = GetRememberableColors(newMarking);
 
             MarkingsChanged?.Invoke(organ, layer);
             return true;
@@ -123,7 +216,7 @@ public sealed partial class MarkingsViewModel
             RememberMarkingColors(organ, layer, newMarking);
 
             if (usesLayerPalette && canCustomizeColors)
-                _previousLayerColors[layerKey] = newMarking.MarkingColors.ToList();
+                _previousLayerColors[layerKey] = GetRememberableColors(newMarking);
 
             MarkingsChanged?.Invoke(organ, layer);
             return true;
@@ -146,6 +239,9 @@ public sealed partial class MarkingsViewModel
             return false;
 
         var limits = groupPrototype.Limits.GetValueOrDefault(layer);
+        var usesLayerPalette = EnforceLimits &&
+                               limits is { Limit: 1 } &&
+                               UsesSharedLayerPalette(layer);
 
         _markings[organ] = _markings.GetValueOrDefault(organ) ?? [];
         var organMarkings = _markings[organ];
@@ -163,14 +259,8 @@ public sealed partial class MarkingsViewModel
         {
             RememberMarkingColors(organ, layer, removingMarking);
 
-            // A shared layer palette is meaningful only for a single-choice slot.
-            // Multi-choice layers keep each marking's own remembered colors instead.
-            if (EnforceLimits &&
-                limits is { Limit: 1 } &&
-                IsMarkingColorCustomizable(organ, layer, markingId))
-            {
-                _previousLayerColors[(organ, layer)] = removingMarking.MarkingColors.ToList();
-            }
+            if (usesLayerPalette && IsMarkingColorCustomizable(organ, layer, markingId))
+                _previousLayerColors[(organ, layer)] = GetRememberableColors(removingMarking);
         }
 
         layerMarkings.RemoveAll(marking => marking.MarkingId == markingId);
@@ -203,14 +293,14 @@ public sealed partial class MarkingsViewModel
         markings[markingIdx] = markings[markingIdx].WithColorAt(colorIndex, newColor);
         RememberMarkingColors(organ, layer, markings[markingIdx]);
 
-        if (EnforceLimits &&
-            _organData.TryGetValue(organ, out var organData) &&
-            _prototype.TryIndex(organData.Group, out var groupPrototype) &&
-            groupPrototype.Limits.GetValueOrDefault(layer) is { Limit: 1 } &&
-            IsMarkingColorCustomizable(organ, layer, markingId))
-        {
-            _previousLayerColors[(organ, layer)] = markings[markingIdx].MarkingColors.ToList();
-        }
+        var usesLayerPalette = EnforceLimits &&
+                               _organData.TryGetValue(organ, out var organData) &&
+                               _prototype.TryIndex(organData.Group, out var groupPrototype) &&
+                               groupPrototype.Limits.GetValueOrDefault(layer) is { Limit: 1 } &&
+                               UsesSharedLayerPalette(layer);
+
+        if (usesLayerPalette)
+            _previousLayerColors[(organ, layer)] = GetRememberableColors(markings[markingIdx]);
 
         MarkingsChanged?.Invoke(organ, layer);
     }
