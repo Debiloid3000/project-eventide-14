@@ -12,12 +12,10 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        var config = RandomizeLockButton.RandomizeCfg;
-        if ((config & HumanoidCharacterProfile.RandomizeCfg.Name) == 0)
+        var randomizeFirstName = (_randomizeConfig & HumanoidCharacterProfile.RandomizeCfg.FirstName) != 0;
+        var randomizeLastName = (_randomizeConfig & HumanoidCharacterProfile.RandomizeCfg.LastName) != 0;
+        if (!randomizeFirstName && !randomizeLastName)
             return;
-
-        var randomizeFirstName = (config & HumanoidCharacterProfile.RandomizeCfg.FirstName) != 0;
-        var randomizeLastName = (config & HumanoidCharacterProfile.RandomizeCfg.LastName) != 0;
 
         Profile = Profile.RandomizeName(randomizeFirstName, randomizeLastName);
         UpdateNameEdit();
@@ -35,7 +33,7 @@ public sealed partial class HumanoidProfileEditor
     /// </summary>
     private void RandomizeProfile()
     {
-        var config = RandomizeLockButton.RandomizeCfg;
+        var config = _randomizeConfig;
         var markingConfig = GetMarkingRandomizationConfig();
         Profile = Profile == null
             ? HumanoidCharacterProfile.Random(config, new HumanoidCharacterProfile(), markingConfig)

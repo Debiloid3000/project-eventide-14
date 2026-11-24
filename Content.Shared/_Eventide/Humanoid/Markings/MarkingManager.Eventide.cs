@@ -13,6 +13,13 @@ public sealed partial class MarkingManager
         if (marking.GroupWhitelist!.Contains(group))
             return true;
 
+        // A layer can explicitly opt out of inherited parent-group markings.
+        // Uma uses this only for ears and tails, keeping the rest of Human customization.
+        var onlyGroupWhitelisted = group.Limits.GetValueOrDefault(marking.BodyPart)?.OnlyGroupWhitelisted
+                                   ?? group.OnlyGroupWhitelisted;
+        if (onlyGroupWhitelisted)
+            return false;
+
         foreach (var parentId in group.Parents ?? [])
         {
             var parent = _prototype.Index<MarkingsGroupPrototype>(parentId);

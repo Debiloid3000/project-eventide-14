@@ -1,8 +1,8 @@
 # Настройки рандомизации персонажа
 humanoid-profile-editor-randomize-name-now-tooltip = Случайно изменить имя
 humanoid-profile-editor-randomizer-settings-tooltip = Настройки рандомизации
-humanoid-profile-editor-randomizer-name-settings = Имя
-humanoid-profile-editor-randomizer-appearance-settings = Внешность
+humanoid-profile-editor-randomizer-name-settings = ИМЯ
+humanoid-profile-editor-randomizer-appearance-settings = ВНЕШНОСТЬ
 humanoid-profile-editor-randomize-loadouts-button = Одежда
 humanoid-profile-editor-randomizer-consider-clothing = Учитывать одежду
 humanoid-profile-editor-randomizer-clothing-style = Стиль остальной одежды
@@ -59,3 +59,9 @@ humanoid-profile-editor-randomizer-layer-handcuffs = Наручники
 humanoid-profile-editor-randomizer-layer-stencilmask = Трафаретная маска
 humanoid-profile-editor-randomizer-layer-ensnare = Сеть / захват
 humanoid-profile-editor-randomizer-layer-fire = Огонь
+
+humanoid-profile-editor-randomizer-general-settings = ОСНОВНЫЕ ПАРАМЕТРЫ
+humanoid-profile-editor-randomizer-layers-settings = НАСТРОЙКИ ЧЕРТ ВНЕШНОСТИ
+humanoid-profile-editor-randomizer-preferences-settings = ПРЕДПОЧТЕНИЯ
+humanoid-profile-editor-randomize-name-now-button = Рандомизировать
+humanoid-profile-editor-randomize-all-button = Рандомизировать

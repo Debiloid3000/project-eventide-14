@@ -89,7 +89,6 @@ namespace Content.Client.Lobby.UI
             JobRequirementsManager requirements,
             MarkingManager markings)
         {
-            RandomizeLockButton.RandomizeCfg = HumanoidCharacterProfile.RandomizeConfigAll;
             RobustXamlLoader.Load(this);
             _sawmill = logManager.GetSawmill("profile.editor");
             _cfgManager = configurationManager;

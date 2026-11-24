@@ -1,19 +1,18 @@
 - type: marking
   id: UmaEarsDefault
   bodyPart: HeadTop
-  forcedColoring: true
   groupWhitelist: [Uma]
   coloring:
     default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SkinColoring {}
+      type: !type:SimpleColoring
+        color: '#8B5A3C'
   sprites:
   - sprite: _Eventide/Mobs/Customization/uma_ears.rsi
     state: ears_uma_outer
+    name: marking-uma-ears-outer
   - sprite: _Eventide/Mobs/Customization/uma_ears.rsi
     state: ears_uma_inner
+    name: marking-uma-ears-inner
     coloring:
       type: !type:SimpleColoring
         color: '#FFFFFF'
@@ -21,19 +20,18 @@
 - type: marking
   id: UmaTailDefault
   bodyPart: Tail
-  forcedColoring: true
   groupWhitelist: [Uma]
   coloring:
     default:
-      type: !type:CategoryColoring
-        category: Hair
-      fallbackTypes:
-      - !type:SkinColoring {}
+      type: !type:SimpleColoring
+        color: '#8B5A3C'
   sprites:
   - sprite: _Eventide/Mobs/Customization/uma_tails.rsi
     state: tail_uma_wag
+    name: marking-uma-tail-outer
   - sprite: _Eventide/Mobs/Customization/uma_tails.rsi
     state: tail_uma_wag_inner
+    name: marking-uma-tail-inner
     coloring:
       type: !type:SimpleColoring
         color: '#FFFFFF'

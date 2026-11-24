@@ -1,8 +1,8 @@
 # Character randomization settings
 humanoid-profile-editor-randomize-name-now-tooltip = Randomize the character's name
 humanoid-profile-editor-randomizer-settings-tooltip = Randomization settings
-humanoid-profile-editor-randomizer-name-settings = Name
-humanoid-profile-editor-randomizer-appearance-settings = Appearance
+humanoid-profile-editor-randomizer-name-settings = NAME
+humanoid-profile-editor-randomizer-appearance-settings = APPEARANCE
 humanoid-profile-editor-randomize-loadouts-button = Clothing
 humanoid-profile-editor-randomizer-consider-clothing = Consider clothing
 humanoid-profile-editor-randomizer-clothing-style = Style for other clothing
@@ -59,3 +59,9 @@ humanoid-profile-editor-randomizer-layer-handcuffs = Handcuffs
 humanoid-profile-editor-randomizer-layer-stencilmask = Stencil mask
 humanoid-profile-editor-randomizer-layer-ensnare = Ensnare
 humanoid-profile-editor-randomizer-layer-fire = Fire
+
+humanoid-profile-editor-randomizer-general-settings = BASIC INFORMATION
+humanoid-profile-editor-randomizer-layers-settings = APPEARANCE LAYERS
+humanoid-profile-editor-randomizer-preferences-settings = PREFERENCES
+humanoid-profile-editor-randomize-name-now-button = Randomize
+humanoid-profile-editor-randomize-all-button = Randomize
