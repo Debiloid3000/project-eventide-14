@@ -60,7 +60,13 @@ jobs:
           for rid in win-x64 linux-x64 linux-arm64 osx-x64 osx-arm64; do
             archive="release/SS14.Server_${rid}.zip"
             test -s "$archive"
-            if unzip -Z1 "$archive" | grep -qE '(^|/)Content.Client.zip
+            if unzip -Z1 "$archive" | grep -qE '(^|/)Content.Client.zip$'; then
+              echo "::error::Unexpected embedded client ZIP in $archive"
+              exit 1
+            fi
+          done
+          echo "Server archive sizes (client is distributed separately):"
+          ls -lh release/SS14.Server_*.zip
 
       - name: Upload server packages
         uses: actions/upload-artifact@v4
