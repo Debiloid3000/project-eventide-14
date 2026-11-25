@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Collections.Generic;
 using System.Linq;
 using Content.IntegrationTests.Fixtures;
@@ -5,6 +6,7 @@ using Content.Server.Corvax.StationGoal;
 using Content.Shared.Fax.Components;
 using Content.Shared.MassMedia.Components;
 using Content.Shared.Station.Components;
+using Content.Shared.Station.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -56,6 +58,7 @@ public sealed class StationGoalTest : GameTest
 
         var entManager = server.ResolveDependency<IEntityManager>();
         var goalSystem = server.System<StationGoalPaperSystem>();
+        var stationSystem = server.System<StationSystem>();
         var protoManager = server.ResolveDependency<IPrototypeManager>();
 
         EntityUid station = default;
@@ -66,6 +69,10 @@ public sealed class StationGoalTest : GameTest
             var stationQuery = entManager.EntityQueryEnumerator<StationDataComponent>();
             Assert.That(stationQuery.MoveNext(out var stationUid, out _), "Pool did not create a station from the map.");
             station = stationUid;
+
+            // The test map is bare-bones and has no fax machines, so spawn one
+            // that is authorized to receive station goals.
+            SpawnGoalFax(entManager, stationSystem, station);
 
             if (expectNews)
             {
@@ -126,6 +133,7 @@ public sealed class StationGoalTest : GameTest
 
         var entManager = server.ResolveDependency<IEntityManager>();
         var goalSystem = server.System<StationGoalPaperSystem>();
+        var stationSystem = server.System<StationSystem>();
         var protoManager = server.ResolveDependency<IPrototypeManager>();
 
         EntityUid station = default;
@@ -136,6 +144,12 @@ public sealed class StationGoalTest : GameTest
             Assert.That(stationQuery.MoveNext(out var stationUid, out _), "Pool did not create a station from the map.");
             station = stationUid;
 
+            // The test map is bare-bones and has no fax machines, so spawn one
+            // first to make sure this test actually proves something.
+            var spawnedFax = SpawnGoalFax(entManager, stationSystem, station);
+            Assert.That(entManager.HasComponent<FaxMachineComponent>(spawnedFax), Is.True,
+                "Sanity: the spawned fax machine must have a FaxMachineComponent.");
+
             var faxQuery = entManager.EntityQueryEnumerator<FaxMachineComponent>();
             var faxUids = new List<EntityUid>();
             while (faxQuery.MoveNext(out var faxUid, out _))
@@ -144,7 +158,7 @@ public sealed class StationGoalTest : GameTest
             }
 
             Assert.That(faxUids, Is.Not.Empty,
-                "Sanity: the test station must have at least one fax machine, otherwise this test proves nothing.");
+                "Sanity: there must be at least one fax machine, otherwise this test proves nothing.");
 
             foreach (var faxUid in faxUids)
             {
@@ -165,5 +179,22 @@ public sealed class StationGoalTest : GameTest
             Assert.That(result, Is.False,
                 $"SendStationGoal must fail when no fax machine exists on the station, but it returned true for {goalId}.");
         });
+    }
+
+    /// <summary>
+    /// Spawns a fax machine on the station's grid that is authorized to receive station goals.
+    /// </summary>
+    private static EntityUid SpawnGoalFax(IEntityManager entManager, StationSystem stationSystem, EntityUid station)
+    {
+        var grid = stationSystem.GetLargestGrid(station);
+        Assert.That(grid, Is.Not.Null, "The station has no grid to spawn the fax machine on.");
+
+        // Spawn relative to the grid itself. Transform.Coordinates is relative to the grid's parent map,
+        // which can put the fax outside the station and make GetOwningStation return null.
+        var coords = new EntityCoordinates(grid.Value, Vector2.Zero);
+        var fax = entManager.SpawnAttachedTo("FaxMachineCaptain", coords);
+        Assert.That(stationSystem.GetOwningStation(fax), Is.EqualTo(station),
+            "The fax machine must belong to the station whose goal is being sent.");
+        return fax;
     }
 }
